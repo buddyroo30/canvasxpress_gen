@@ -1,0 +1,10 @@
+The few shot example English Answers were generated with ad-hoc GPT-4 queries like this:
+The following is a JSON configuration for a pie chart visualization: {
+     "graphType":"Pie",
+     "pieSegmentLabels":"outside",
+     "pieSegmentPrecision":"1",
+     "pieSegmentSeparation":"2",
+     "pieType":"solid"
+  }. Generate a plain English text that accurately describes this JSON configuration. Do not use a numbered list of bullets, the generated text should be a sequence of sentences describing the configuration.
+
+And then manually inspected and possibly edited.

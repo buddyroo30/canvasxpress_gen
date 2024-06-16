@@ -1,0 +1,430 @@
+Row	FieldName	OccurrenceCount	OccurrencePercentage	Use?
+1	graphType	406	1	y
+2	title	214	0.53	y
+3	theme	166	0.41	n
+4	colorBy	130	0.32	y
+5	graphOrientation	125	0.31	y
+6	showTransition	84	0.21	n
+7	smpTitle	81	0.2	y
+8	showLegend	80	0.2	y
+9	xAxisTitle	78	0.19	y
+10	smpLabelRotate	77	0.19	y
+11	colorScheme	77	0.19	y
+12	legendKeyBackgroundColor	69	0.17	n
+13	legendKeyBackgroundBorderColor	69	0.17	n
+14	groupingFactors	64	0.16	y
+15	xAxis2Show	62	0.15	n
+16	smpTitleFontStyle	60	0.15	n
+17	xAxisTicksMinorShow	59	0.15	n
+18	legendPosition	58	0.14	y
+19	xAxis	57	0.14	y
+20	smpLabelScaleFontFactor	57	0.14	y
+21	backgroundType	53	0.13	n
+22	axisAlgorithm	50	0.12	n
+23	axisTitleFontStyle	50	0.12	n
+24	axisTickScaleFontFactor	43	0.11	y
+25	axisTitleScaleFontFactor	43	0.11	y
+26	backgroundWindow	42	0.1	n
+27	yAxis	42	0.1	y
+28	smpTitleScaleFontFactor	41	0.1	y
+29	background	39	0.1	n
+30	histogramBins	35	0.09	y
+31	objectBorderColor	34	0.08	n
+32	xAxisTickColor	34	0.08	y
+33	legendTextScaleFontFactor	33	0.08	y
+34	legendColumns	31	0.08	y
+35	guides	30	0.07	n
+36	decorations	28	0.07	n
+37	guidesColor	28	0.07	n
+38	showHistogram	27	0.07	y
+39	hideHistogram	26	0.06	y
+40	colors	25	0.06	y
+41	showHistogramDensity	25	0.06	y
+42	yAxisTitle	24	0.06	y
+43	lineType	22	0.05	y
+44	showFilledHistogramDensity	22	0.05	y
+45	subtitle	21	0.05	y
+46	scatterType	21	0.05	y
+47	stringSampleFactors	21	0.05	y
+48	circularType	21	0.05	y
+49	showDecorations	20	0.05	n
+50	jitter	19	0.05	y
+51	showViolinBoxplot	19	0.05	y
+52	colorSpectrum	18	0.04	y
+53	smpOverlays	18	0.04	y
+54	circularRotate	17	0.04	n
+55	circularArc	17	0.04	n
+56	citation	17	0.04	y
+57	showBoxplotIfViolin	17	0.04	y
+58	legendTitleScaleFontFactor	16	0.04	y
+59	segregateVariablesBy	16	0.04	y
+60	showHistogramMedian	16	0.04	y
+61	segregateSamplesBy	15	0.04	y
+62	hierarchy	15	0.04	y
+63	transitionTime	15	0.04	n
+64	transitionStep	15	0.04	n
+65	topoJSON	15	0.04	y
+66	mapId	15	0.04	y
+67	layoutAdjust	15	0.04	y
+68	sizeBy	14	0.03	y
+69	networkLayoutType	14	0.03	y
+70	lineThickness	13	0.03	n
+71	xAxis2	13	0.03	y
+72	legendBox	13	0.03	n
+73	showBoxplotOriginalData	13	0.03	y
+74	ringGraphType	13	0.03	y
+75	broadcast	13	0.03	n
+76	scatterPlotMatrix	13	0.03	y
+77	edgeColor	13	0.03	y
+78	legendInside	12	0.03	y
+79	samplesClustered	12	0.03	y
+80	histogramStat	12	0.03	y
+81	layoutTopology	12	0.03	y
+82	useBarnesHutSimulation	12	0.03	n
+83	legendBackgroundColor	12	0.03	n
+84	xAxisShow	11	0.03	y
+85	shapeBy	11	0.03	y
+86	showConfidenceIntervals	11	0.03	y
+87	showDataValues	10	0.02	n
+88	smpOverlayProperties	10	0.02	y
+89	binned	10	0.02	y
+90	layoutType	10	0.02	y
+91	variablesClustered	10	0.02	y
+92	colorNodeBy	10	0.02	y
+93	showLoessFit	10	0.02	y
+94	showSampleNames	9	0.02	y
+95	smpLabelInterval	9	0.02	y
+96	yAxisTicksMinorShow	9	0.02	n
+97	marginRight	9	0.02	n
+98	boxplotWishkersType	9	0.02	n
+99	boxplotNotched	9	0.02	n
+100	histogramType	9	0.02	y
+101	showRegressionFit	9	0.02	y
+102	scatterPlotMatrixType	9	0.02	y
+103	networkColaStartUnconstrainedIterations	9	0.02	n
+104	zAxis	9	0.02	n
+105	objectColorTransparency	8	0.02	n
+106	dataPointSizeScaleFactor	8	0.02	y
+107	xAxisTicksMajorShow	8	0.02	n
+108	connections	8	0.02	n
+109	layoutCollapse	8	0.02	n
+110	mapConfig	8	0.02	y
+111	meterType	8	0.02	y
+112	toolbarType	8	0.02	n
+113	splitSamplesBy	7	0.02	y
+114	widthFactor	7	0.02	y
+115	marginLeft	7	0.02	n
+116	marginBottom	7	0.02	n
+117	setMaxX	7	0.02	y
+118	setMinX	7	0.02	y
+119	ridgeBy	7	0.02	y
+120	scatterStreamExtraSpan	7	0.02	n
+121	scatterStreamBandwidth	7	0.02	n
+122	coordinateLineColor	6	0.01	n
+123	marginTop	6	0.01	n
+124	ganttEnd	6	0.01	y
+125	ganttStart	6	0.01	y
+126	blockContrast	6	0.01	n
+127	heatmapIndicatorPosition	6	0.01	y
+128	showScatterDensity	6	0.01	n
+129	ridgelineScale	6	0.01	y
+130	plotBox	6	0.01	n
+131	scatterStreamNumber	6	0.01	n
+132	scatterStreamType	6	0.01	y
+133	areaType	5	0.01	y
+134	fontName	5	0.01	y
+135	xAxisTickFormat	5	0.01	y
+136	sizes	5	0.01	n
+137	fishAxis	5	0.01	n
+138	fishShape	5	0.01	n
+139	fishTimepoints	5	0.01	n
+140	fishParents	5	0.01	n
+141	setMaxY	5	0.01	y
+142	setMinY	5	0.01	y
+143	ganttCompletion	5	0.01	n
+144	colorSpectrumZeroValue	5	0.01	n
+145	binplotShape	5	0.01	n
+146	showKMConfidenceIntervals	5	0.01	y
+147	confidenceIntervalColorCoordinate	5	0.01	n
+148	meterMax	5	0.01	n
+149	meterMin	5	0.01	n
+150	showAnimation	5	0.01	n
+151	networkColaAvoidOverlaps	5	0.01	n
+152	yAxisExact	5	0.01	n
+153	yAxisTickColor	5	0.01	y
+154	boxplotWhiskersType	5	0.01	y
+155	plotStyle	5	0.01	y
+156	barType	4	0.01	y
+157	showLegendTitle	4	0.01	y
+158	titleScaleFontFactor	4	0.01	y
+159	maxTextSize	4	0.01	n
+160	boxplotConnect	4	0.01	n
+161	bubbleLabel	4	0.01	n
+162	colorSmpDendrogramBy	4	0.01	y
+163	ringsOrder	4	0.01	n
+164	showIdeogram	4	0.01	n
+165	arcSegmentsSeparation	4	0.01	n
+166	showContourLevel	4	0.01	n
+167	heatmapCellBox	4	0.01	n
+168	contourType	4	0.01	y
+169	invertCensored	4	0.01	n
+170	densityPosition	4	0.01	y
+171	showErrorBars	4	0.01	y
+172	showVarDendrogram	4	0.01	y
+173	showSmpDendrogram	4	0.01	y
+174	heatmapIndicatorHeight	4	0.01	y
+175	heatmapIndicatorHistogram	4	0.01	n
+176	heatmapIndicatorWidth	4	0.01	y
+177	varOverlays	4	0.01	y
+178	varOverlayProperties	4	0.01	n
+179	binplotBins	4	0.01	n
+180	asSampleFactors	4	0.01	n
+181	stringVariableFactors	4	0.01	n
+182	mapProjection	4	0.01	n
+183	markerBy	4	0.01	n
+184	useLeaflet	4	0.01	y
+185	meterColors	4	0.01	n
+186	meterSegments	4	0.01	n
+187	networkColaJaccardLinkLengths	4	0.01	n
+188	networkColaJaccardLinkLengthDefault	4	0.01	n
+189	networkColaAllConstraintsIterations	4	0.01	n
+190	networkColaUserConstraintIterations	4	0.01	n
+191	overlaysThickness	4	0.01	y
+192	oncoprintMUT	4	0.01	n
+193	oncoprintCNA	4	0.01	n
+194	xAxisRugShow	4	0.01	y
+195	sankeyTarget	4	0.01	y
+196	sankeySource	4	0.01	y
+197	sampleSpaceFactor	4	0.01	n
+198	scatterStreamTrueRange	4	0.01	n
+199	fontStyle	3	0.01	n
+200	smpLabelFontStyle	3	0.01	n
+201	decorationsTextScaleFontFactor	3	0.01	n
+202	treemapBy	3	0.01	n
+203	fontsExternal	3	0.01	n
+204	smpLabelColor	3	0.01	y
+205	titleColor	3	0.01	y
+206	barPathTransparency	3	0.01	n
+207	barPath	3	0.01	n
+208	barPathColor	3	0.01	n
+209	connectBy	3	0.01	n
+210	bubbleOutlineColor	3	0.01	n
+211	rAxisTickFormat	3	0.01	n
+212	higlightGreyOut	3	0.01	n
+213	smpDendrogramPosition	3	0.01	y
+214	showVariableNames	3	0.01	y
+215	correlationAxis	3	0.01	n
+216	xAxisHistogramShow	3	0.01	n
+217	yAxisHistogramShow	3	0.01	n
+218	showSmpOverlaysLegend	3	0.01	y
+219	citationFontStyle	3	0.01	n
+220	sizeByContinuous	3	0.01	n
+221	backgroundImage	3	0.01	n
+222	varLabelRotate	3	0.01	y
+223	gradientOrientation	3	0.01	n
+224	ganttDependency	3	0.01	n
+225	patternBy	3	0.01	
+226	colorKey	3	0.01	
+227	sizeByData	3	0.01	
+228	lineBy	3	0.01	
+229	lineDecoration	3	0.01	
+230	legendOrder	3	0.01	
+231	motionBy	3	0.01	
+232	nodeSizeScaleFactor	3	0.01	
+233	nodeColor	3	0.01	
+234	networkColaSymmetricDiffLinkLengths	3	0.01	
+235	showNodeNameThreshold	3	0.01	
+236	decorationsPosition	3	0.01	
+237	calculateLayout	3	0.01	
+238	xAxisTransform	3	0.01	
+239	xAxisExact	3	0.01	
+240	legendBoxColor	3	0.01	
+241	yAxisTransform	3	0.01	
+242	vennGroups	3	0.01	
+243	violinScale	3	0.01	
+244	swimStatus	2	0	
+245	swimEnd	2	0	
+246	swimHigh	2	0	
+247	swimHighCap	2	0	
+248	swimDurable	2	0	
+249	swimStart	2	0	
+250	stackBy	2	0	
+251	summaryType	2	0	
+252	maxSmpStringLen	2	0	
+253	boxplotMean	2	0	
+254	boxplotMeanColor	2	0	
+255	boxplotMeanColorBorder	2	0	
+256	boxplotMedianColor	2	0	
+257	boxplotMedianWidth	2	0	
+258	binAlignment	2	0	
+259	bubbleColor	2	0	
+260	bubbleLabelLineType	2	0	
+261	bubbleLabelPosition	2	0	
+262	ringGraphWeight	2	0	
+263	circularLabelsAlign	2	0	
+264	overlayScaleFontFactor	2	0	
+265	contourFilled	2	0	
+266	layoutConfig	2	0	
+267	mapPropertyId	2	0	
+268	axisTickFontStyle	2	0	
+269	dotplotType	2	0	
+270	errorBarsColor	2	0	
+271	errorBarsType	2	0	
+272	sizeByShowLegend	2	0	
+273	layoutBoxShow	2	0	
+274	isGraphTime	2	0	
+275	timeFormat	2	0	
+276	fishCloneLabels	2	0	
+277	outline3DColor	2	0	
+278	setMax	2	0	
+279	setMin	2	0	
+280	dataPointSize	2	0	
+281	heatmapCellBoxColor	2	0	
+282	highlightVar	2	0	
+283	showVarOverlaysLegend	2	0	
+284	varLabelScaleFontFactor	2	0	
+285	showHistogramPath	2	0	
+286	layoutLabelShow	2	0	
+287	barLollipopFactor	2	0	
+288	leafletZoomAlphaColor	2	0	
+289	mapMarkerShapeScaleFactor	2	0	
+290	mapMarkerShape	2	0	
+291	meterVar	2	0	
+292	is3DNetwork	2	0	
+293	networkColaFlowLayoutSeparation	2	0	
+294	networkColaFlowLayoutAxis	2	0	
+295	edgeThickness	2	0	
+296	networkColaLinkDistance	2	0	
+297	nodeScaleFontFactor	2	0	
+298	nodeFontColor	2	0	
+299	decorationsType	2	0	
+300	networkNodesOnTop	2	0	
+301	networkFreeze	2	0	
+302	preScaleNetwork	2	0	
+303	adjustBezier	2	0	
+304	appendNetworkData	2	0	
+305	xAxisTransformTicks	2	0	
+306	pieSegmentPrecision	2	0	
+307	pieSegmentSeparation	2	0	
+308	pieSegmentLabels	2	0	
+309	sankeyNodesColor	2	0	
+310	yAxisShow	2	0	
+311	yAxisTicksMajorShow	2	0	
+312	scatterOutlineThreshold	2	0	
+313	gradient	2	0	
+314	heatmapType	2	0	
+315	legendTextFontStyle	1	0	
+316	plotByVariable	1	0	
+317	is3DPlot	1	0	
+318	x3DRatio	1	0	
+319	xAxis2TickFormat	1	0	
+320	boxplotOutliersRatio	1	0	
+321	boxplotHingeFunction	1	0	
+322	boxplotType	1	0	
+323	rAxis	1	0	
+324	circularCenterProportion	1	0	
+325	circularAnchorsAlign	1	0	
+326	circularAnchors2Align	1	0	
+327	arcSegmentsRadius	1	0	
+328	overlayLevelOrientation	1	0	
+329	showContourDataPoints	1	0	
+330	correlationType	1	0	
+331	correlationAnchorLegend	1	0	
+332	correlationAnchorLegendAlignWidth	1	0	
+333	asDOE	1	0	
+334	yAxisHistogramHeight	1	0	
+335	xAxisHistogramHeight	1	0	
+336	sortDir	1	0	
+337	xAxis2Title	1	0	
+338	smpLabelImage	1	0	
+339	images	1	0	
+340	smpLabelImageRound	1	0	
+341	fonts	1	0	
+342	dotplotOutlineThreshold	1	0	
+343	maxFontSize	1	0	
+344	varLabelColor	1	0	
+345	fishAxisLabels	1	0	
+346	fishSeparateIndependentClones	1	0	
+347	setMinZ	1	0	
+348	show3DGrid	1	0	
+349	setMaxZ	1	0	
+350	ganttDependencyEnd	1	0	
+351	ganttDependencyThickness	1	0	
+352	ganttDependencyColor	1	0	
+353	featureStaggered	1	0	
+354	ideogramShowFullChromosome	1	0	
+355	colorSpectrumBreaks	1	0	
+356	highlightSmp	1	0	
+357	shapeByData	1	0	
+358	outlineBy	1	0	
+359	outlineByData	1	0	
+360	showHeatmapIndicator	1	0	
+361	splitVariablesBy	1	0	
+362	showValueOverlays	1	0	
+363	smpTitleLabelPosition	1	0	
+364	overlayFontStyle	1	0	
+365	varTitleLabelPosition	1	0	
+366	dendrogramHeight	1	0	
+367	binplotBinWidth	1	0	
+368	showFilledHistogramPath	1	0	
+369	histogramBinWidth	1	0	
+370	histogramAsDotplot	1	0	
+371	evenColor	1	0	
+372	lineErrorType	1	0	
+373	ribbonBy	1	0	
+374	quantiles	1	0	
+375	fitLineColor	1	0	
+376	showQuantileRegressionFit	1	0	
+377	barLollipopOpen	1	0	
+378	mapOutlineColor	1	0	
+379	mapColor	1	0	
+380	reproduceTime	1	0	
+381	mapConfigFeatures	1	0	
+382	mapGraticuleShow	1	0	
+383	mapGraticuleType	1	0	
+384	networkColaGridSnapIterations	1	0	
+385	networkColaHandleDisconnected	1	0	
+386	showNodeNameSizeThreshold	1	0	
+387	sizeNodeBy	1	0	
+388	networkFreezeOnLoad	1	0	
+389	coordinateNetworkConvexHullCommunityColor	1	0	
+390	showNetworkCommunities	1	0	
+391	decorationsHeight	1	0	
+392	sizeEdgeBy	1	0	
+393	networkConvergenceThreshold	1	0	
+394	patternByData	1	0	
+395	showPieGrid	1	0	
+396	layout	1	0	
+397	showPieSampleLabel	1	0	
+398	pieType	1	0	
+399	showHistogramDataPoints	1	0	
+400	showHistogramQuantiles	1	0	
+401	sankeyAxes	1	0	
+402	scheme	1	0	
+403	showRegressionFullRange	1	0	
+404	citationScaleFontFactor	1	0	
+405	decorationsBorderColor	1	0	
+406	decorationsBackgroundColor	1	0	
+407	hoverTemplate	1	0	
+408	visiumFlip	1	0	
+409	manhattanMarkerPosition	1	0	
+410	chromosomeLengths	1	0	
+411	manhattanMarkerChromosomeNumber	1	0	
+412	manhattanMarkerLogPValue	1	0	
+413	ellipseBy	1	0	
+414	zAxisExact	1	0	
+415	foreground	1	0	
+416	layoutLabelColor	1	0	
+417	patterns	1	0	
+418	scatterStreamWiggles	1	0	
+419	decorationsClipped	1	0	
+420	yAxisTickBottomShow	1	0	
+421	yAxisTickTopShow	1	0	
+422	yAxisTicks	1	0	
+423	xAxisTickSize	1	0	
+424	xAxisTickLineType	1	0	
+425	legendBackgroundBorderColor	1	0	
+426	treeCircular	1	0	
+427	violinTrim	1	0	
+428	boxplotColor	1	0	
+429	violinColor	1	0	

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src='https://use.fontawesome.com/7ad89d9866.js'></script>
+<script type="text/javascript" src="https://canvasxpress.org/dist/canvasXpress.min.js"></script>
+<link rel="stylesheet" href="https://canvasxpress.org/dist/canvasXpress.css" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='chatgpt.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='loading_spinner.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='thumbsupdown.css') }}">
+</head>
+<body>
+
+  <div id="loading">
+    <div class="loader">
+      <div class="inner one"></div>
+      <div class="inner two"></div>
+      <div class="inner three"></div>
+    </div>
+  </div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a id="new_chat" href="#">New Chat</a>
+  <a id="settings" href="#">Settings</a><table id='settings_table' style="display:none;">
+    <tr><td>Model:</td><td><select id="settings_model"></select></td></tr>
+    <tr><td>Max New Tokens:</td><td><input type="range" id="settings_max_new_tokens" name="settings_max_new_tokens" max="2048" min="10"></input></td><td><span id="settings_max_new_tokens_show" style="font-size:small;"></span></td></tr>
+    <tr><td>TopP:</td><td><input type="range" id="settings_topp" name="settings_topp" max="1" min="0" step=".01"></input></td><td><span id="settings_topp_show" style="font-size:small;"></span></td></tr>
+    <tr><td>Temperature:</td><td><input type="range" id="settings_temperature" name="settings_temperature" max="2" min="0" step=".01"></input></td><td><span id="settings_temperature_show" style="font-size:small;"></span></td></tr>
+    <tr><td>Presence Penalty:</td><td><input type="range" id="settings_presence_penalty" name="settings_presence_penalty" max="2.0" min="-2.0" step=".01"></input></td><td><span id="settings_presence_penalty_show" style="font-size:small;"></span></td></tr>
+    <tr><td>Frequency Penalty:</td><td><input type="range" id="settings_frequency_penalty" name="settings_frequency_penalty" max="2.0" min="-2.0" step=".01"></input></td><td><span id="settings_frequency_penalty_show" style="font-size:small;"></span></td></tr>
+    <tr><td><button onclick="set_default_settings();">Reset</button></td><td>&nbsp;</td></tr></table>
+  <a href="https://speakai.co/what-are-large-language-models/">What are Large Language Models?</a>
+  <a href="https://cobusgreyling.medium.com/prompt-engineering-text-generation-large-language-models-3d90c527c6d5">Prompting help/tips</a>
+  <a href="http://bioinformatics.bms.com">BMS Bioinformatics</a>
+  <a href="mailto:andrew.smith1@bms.com">Contact</a>
+</div>
+
+<div id="main">
+<button class="openbtn" onclick="openNav()">☰</button>
+
+<center><h2>BMS <a href="https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview">Azure OpenAI</a> GPT CanvasXpress Visualization Chat</h2><h5>Conversationally ask to generate a CanvasXpress visualiation for an uploaded data file in plain English.</center>
+
+<div id="questions_and_answers">
+</div>
+
+<textarea id="question" name="question" placeholder="Describe your visualization..." rows=4></textarea>
+<table><tr><td>Upload a data file to visualize:</td><td><input type="file" name="datafile_upload" id="datafile_upload"></input></td></tr></table>
+<table style="width: 100%;"><tr><td style="width: 90%;"><input id="askquestion" type="submit" value="Ask"></td><td><input id="clear" type="submit" value="Clear Chat"></td></tr></table>
+</div>
+<script>
+
+  var thumbsCt = 0;
+
+  var models_arr = [
+      {value: "gpt-4", text: "GPT-4"},
+      {value: "gpt-4-32k", text: "GPT-4-32k"},
+      {value: "gpt-35-turbo-16k", text: "GPT-3.5"}
+  ];
+
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "400px";
+    document.getElementById("main").style.marginLeft = "400px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+
+  var bmsGptIconImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiv37BrQCpbojozRwl9MXZkG05gJS6h83pSQsOf9v_boH-cjNzJvJwTA9tSUqPY_LG8aY&usqp=CAU';
+  var userIconImg = "";
+  var uid = "";
+  var bmsid = "";
+
+  function getUserIconImg (bmsid) {
+      var userIconImg = 'https://whitepages.bms.com/whitepages/getphoto?bmsid=' + bmsid + 'BMS';
+      return(userIconImg);
+  }
+  
+  function getCurDatetime () {
+      var curDate = new Date();
+      var curDateStr = curDate.toLocaleString();
+      return(curDateStr);
+  }
+
+  function getThumpsUpDownHtml () {
+
+    curId = thumbsCt++;
+    thumbsUpDown = '<div class="rating"><!-- Thumbs up --><div class="like grow"><i id="like_' + curId + '" class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i></div><!-- Thumbs down --><div class="dislike grow"><i id="dislike_' + curId + '" class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i></div></div>';
+    return(thumbsUpDown);
+
+  }
+
+  function addUserQuestion(questionTxt) {
+      var curDateStr = getCurDatetime();
+      var questionDivTxt = '<div class="container"><img src="' + userIconImg + '" alt="User" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">' + questionTxt + '</pre></p><span class="time-right">' + curDateStr + '</span></div>';
+      $("#questions_and_answers").append(questionDivTxt);
+  }
+
+  function addResponse(result) {
+      var curDateStr = getCurDatetime();
+      if (result['success'] && result['config_generated_flag']) {
+        var canvas_id = 'cX' + new Date().getTime();
+        var thumbsUpDownTxt = getThumpsUpDownHtml();
+        var responseTxt = '<div class="container darker"><img src="' + bmsGptIconImg + '" alt="BMS GPT" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + "<br>Config: " + result['configJSONTxt'] + '</pre></p><canvas id="' + canvas_id + '" width="750" height="750"></canvas><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
+        $("#questions_and_answers").append(responseTxt);
+        new CanvasXpress(canvas_id, result['data'], result['config']);
+      } else {
+        text = "There was an error fulfilling your request";
+        if ('text' in result) {
+          text = result['text'];
+        }
+        var responseTxt = '<div class="container darker"><img src="' + bmsGptIconImg + '" alt="BMS GPT" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">' + text + '</pre></p><span class="time-left">' + curDateStr + '</span></div>';
+        $("#questions_and_answers").append(responseTxt);
+      }
+    }
+
+  function askQuestion() {
+     $('#loading').show();
+     var questionTxt = $("#question").val();
+     addUserQuestion(questionTxt);
+     model = $("#settings_model").val();
+     max_new_tokens = $("#settings_max_new_tokens").val();
+     topp = $("#settings_topp").val();
+     temperature = $("#settings_temperature").val();
+     presence_penalty = $("#settings_presence_penalty").val();
+     frequency_penalty = $("#settings_frequency_penalty").val();
+     var formData = new FormData();
+     fileInput = $("#datafile_upload")[0];
+     uploadFile = fileInput.files[0];
+     formData.append('datafile_upload', uploadFile);
+     formData.append('model',model);
+     formData.append('topp',topp);
+     formData.append('temperature',temperature);
+     formData.append('presence_penalty',presence_penalty);
+     formData.append('frequency_penalty',frequency_penalty);
+     formData.append('max_new_tokens',max_new_tokens);
+     formData.append('prompt',questionTxt);
+     $.ajax({
+              url: '/ask',
+              type: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+              cache: false,
+              success: function(result) {
+                $('#loading').hide();
+	              addResponse(JSON.parse(result));
+	              $("html, body").animate({ scrollTop: $(document).height() }, 3000);                
+              },
+              error: function(result) {
+                $('#loading').hide();
+              }
+     });
+     /*
+     $.post("/ask",
+	     {model: model,
+	      topp: topp,
+	      temperature: temperature,
+	      presence_penalty: presence_penalty,
+	      frequency_penalty: frequency_penalty,
+	      max_new_tokens: max_new_tokens,
+	      prompt: questionTxt},
+	     function(result,status){$('#loading').hide();
+	                             console.log(result);
+	                             addResponse(JSON.parse(result));
+	                             $("html, body").animate({ scrollTop: $(document).height() }, 3000);
+     });
+     */
+  }
+
+  function set_default_settings() {
+      $("#settings_model [value=gpt-4-32k]").prop('selected', 'selected');
+      $("#settings_max_new_tokens").val("1250");
+      $("#settings_max_new_tokens_show").html($("#settings_max_new_tokens").val());
+      $("#settings_topp").val("1.0");
+      $("#settings_topp_show").html($("#settings_topp").val());
+      $("#settings_temperature").val("0.0");
+      $("#settings_temperature_show").html($("#settings_temperature").val());
+      $("#settings_presence_penalty").val("0");
+      $("#settings_presence_penalty_show").html($("#settings_presence_penalty").val());
+      $("#settings_frequency_penalty").val("0");
+      $("#settings_frequency_penalty_show").html($("#settings_frequency_penalty").val());
+      return false;
+  }
+
+  function isEmpty(str) {
+    return (!str || str.length === 0 );
+  }
+  
+  $(document).ready(function(){
+
+      $('#loading').show();
+
+      $(models_arr).each(function() {
+	      $("#settings_model").append($("<option>").attr('value',this.value).text(this.text));
+      });
+
+      set_default_settings();
+
+      $("#settings_max_new_tokens").on('mousemove change', (function(){ $("#settings_max_new_tokens_show").html($("#settings_max_new_tokens").val()); }))
+      $("#settings_topp").on('mousemove change', (function(){ $("#settings_topp_show").html($("#settings_topp").val()); }))
+      $("#settings_temperature").on('mousemove change', (function(){ $("#settings_temperature_show").html($("#settings_temperature").val()); }))
+      $("#settings_presence_penalty").on('mousemove change', (function(){ $("#settings_presence_penalty_show").html($("#settings_presence_penalty").val()); }))
+      $("#settings_frequency_penalty").on('mousemove change', (function(){ $("#settings_frequency_penalty_show").html($("#settings_frequency_penalty").val()); }))
+
+      $("#settings").click(function(){
+	      $("#settings_table").toggle("slow");
+	      return false;
+      });
+      
+      $("#askquestion").click(function(){
+	      askQuestion();
+	      return false;
+      });
+
+      $("#question").keypress(function(e){
+	      if (e.which == 13) {
+	        askQuestion();
+	        return false;
+	      }
+      });
+
+      $("#clear").click(function(){
+        $("#question").val("");
+        $('#datafile_upload').val("");
+        return false;
+      });
+
+      $("#new_chat").click(function(){
+	      $("#questions_and_answers").empty();
+	      $("#question").val("");
+        $('#datafile_upload').val("");
+	      return false;
+      });
+
+      $(document).on('click','.like,.dislike',function(){
+        objId = this.id;
+        if (isEmpty(objId)) { return false; }
+        splitArr = objId.split('_');
+
+        type = splitArr[0]
+        ct = splitArr[1]
+        if (type == 'like') {
+          likeObjId = 'like_' + ct;
+          dislikeObjId = 'dislike_' + ct;
+          $('#' + dislikeObjId).removeClass('active');
+          $('#' + likeObjId).addClass('active');
+          alert('Thank-you for liking my response!');
+        } else if (type == 'dislike') {
+          likeObjId = 'like_' + ct;
+          dislikeObjId = 'dislike_' + ct;
+          $('#' + dislikeObjId).addClass('active');
+          $('#' + likeObjId).removeClass('active');
+          alert('I am sorry I disappointed you, I am not worthy. I will try harder next time!');
+        }
+      });
+
+      //$(document).on('click','.dislike',function(){
+      //  dislikeObjId = this.id;
+      //  if (isEmpty(dislikeObjId)) { return false; }
+      //  console.log("IN DISLIKE: dislikeObjId: " + dislikeObjId);
+      //  splitArr = dislikeObjId.split('_');
+      //  likeObjCt = splitArr[1];
+      //  likeObjId = 'like_' + likeObjCt;
+      //  console.log('DISLIKE:' + likeObjId + ',' + dislikeObjId);
+      //  $('#' + likeObjId).removeClass('active');
+      //  $('#' + dislikeObjId).addClass('active');
+      //});
+
+      $.ajax({url: "/userinfo", success: function(result){
+	  var resultParsed = JSON.parse(result);
+	  uid = resultParsed['uid'];
+	  bmsid = resultParsed['bmsid'];
+	  userIconImg = getUserIconImg(bmsid);
+      }});
+
+      $('#loading').hide();
+  });
+
+</script>
+
+</body>
+</html>

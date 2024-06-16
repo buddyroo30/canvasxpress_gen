@@ -1,0 +1,16 @@
+python-dotenv
+flask
+requests
+python-ldap
+tabulate
+openai==0.28
+pycryptodome
+mysql-connector
+boto3
+tiktoken
+pymilvus
+pymilvus[model]
+#langchain
+#langchain-community
+#faiss-cpu
+
