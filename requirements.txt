@@ -1,4 +1,5 @@
 python-dotenv
+numpy==1.26.4
 flask
 requests
 python-ldap
@@ -10,6 +11,7 @@ boto3
 tiktoken
 pymilvus
 pymilvus[model]
+google-generativeai
 #langchain
 #langchain-community
 #faiss-cpu

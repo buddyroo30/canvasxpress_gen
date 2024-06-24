@@ -54,6 +54,8 @@
   var thumbsCt = 0;
 
   var models_arr = [
+      {value: "gemini-1.5-flash", text: "gemini-1.5-flash"},
+      {value: "gemini-1.5-pro", text: "gemini-1.5-pro"},
       {value: "gpt-4", text: "GPT-4"},
       {value: "gpt-4-32k", text: "GPT-4-32k"},
       {value: "gpt-35-turbo-16k", text: "GPT-3.5"}
@@ -172,7 +174,7 @@
   }
 
   function set_default_settings() {
-      $("#settings_model [value=gpt-4-32k]").prop('selected', 'selected');
+      $("#settings_model [value=gemini-1\\.5-flash]").prop('selected', 'selected');
       $("#settings_max_new_tokens").val("1250");
       $("#settings_max_new_tokens_show").html($("#settings_max_new_tokens").val());
       $("#settings_topp").val("1.0");
