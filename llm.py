@@ -10,6 +10,8 @@ import google.generativeai as genai
 
 load_dotenv()
 
+google_api_key = os.environ.get("GOOGLE_API_KEY")
+
 # OpenAI Azure Config
 openai.api_type = os.environ.get('OPENAI_API_TYPE')
 openai.api_key = os.environ.get('OPENAI_API_KEY')
@@ -149,13 +151,13 @@ def generate_results_openai(prompt, model='gpt-4-0314', max_new_tokens=500, topp
 
     return(generated_text)
 
-    def generate_results_google_gemini(prompt,model='gemini-1.5-flash',temperature=0.0):
+def generate_results_google_gemini(prompt,model='gemini-1.5-flash',temperature=0.0):
 
-        model = genai.GenerativeModel(model)
-        gen_config = genai.GenerationConfig(temperature=temperature,response_mime_type="application/json")
-        model_response = model.generate_content(prompt,generation_config=gen_config)
-        answer_txt = model_response.candidates[0].content.parts[0].text
+    model = genai.GenerativeModel(model)
+    gen_config = genai.GenerationConfig(temperature=temperature,response_mime_type="application/json")
+    model_response = model.generate_content(prompt,generation_config=gen_config)
+    answer_txt = model_response.candidates[0].content.parts[0].text
 
-        return(answer_txt)
+    return(answer_txt)
 
 
