@@ -10,6 +10,7 @@ import json
 import secrets
 import string
 import sys
+import csv
 
 LDAP_BASE_SEARCH='ou=people,o=bms.com'
 LDAP_URL='ldap://smusdir.bms.com'
@@ -44,6 +45,13 @@ def ldapConnect():
     con = ldap.initialize(ldap_url)
     con.simple_bind_s()
     return con
+
+def parse_file(filename):
+    with open(filename, 'r') as f:
+        dialect = csv.Sniffer().sniff(f.read(1024))
+        f.seek(0)
+        reader = csv.reader(f, dialect)
+        return [row for row in reader]
 
 def queryLdapForUid(uid,con):
     """
@@ -144,270 +152,95 @@ def getSiteMinderUser(request, validatedCookies):
 
     return(respValsHash)
 
-def generate_prompt(question, prompt_file="prompt.md", metadata_file="ngs_metrics_context.txt",few_shot_examples_file="few_shot_examples.txt"):
-    with open(prompt_file, "r") as f:
-        prompt = f.read()
-    
-    with open(metadata_file, "r") as f:
-        table_metadata_string = f.read()
+#json1 and json2 are each Dict
+def json_similarity(json1, json2):
 
-    with open(few_shot_examples_file, "r") as f:
-        few_shot_examples_string = f.read()
+    if type(json1) != type(json2):
+        return 0
 
-    prompt = prompt.format(
-        user_question=question, table_metadata_string=table_metadata_string,few_shot_examples=few_shot_examples_string
-    )
-    return prompt
+    if isinstance(json1, dict):
+        keys1 = set(json1.keys())
+        keys2 = set(json2.keys())
+        common_keys = keys1 & keys2
+        total_keys = keys1 | keys2
 
-def deconstruct_llmgen_result(llm_result):
-    try:
-        query_parts = llm_result.split(" ",2)
-        query_type = query_parts[0]
-        db_name = query_parts[1]
-        actual_query = query_parts[2]
-        return (True, query_type, db_name, actual_query)
-    except Exception as e:
-        return(False,"Error: " + str(e),False,False)
+        if not total_keys:
+            return 100
 
-def ngs_metrics_query(sql_query, rowOfRows=False):
-    #mysql --host=ngsp1.cbe7mtbvwi2d.us-east-1.rds.amazonaws.com --user=ngs_user --password=ngspass ngs_metrics
-    try:
-        mydb = mysql.connector.connect(
-            host="ngsp1.cbe7mtbvwi2d.us-east-1.rds.amazonaws.com",
-            user="ngsro",
-            password="ngsro123",
-            database="ngs_metrics"
-        )
+        similarity = (len(common_keys) / len(total_keys)) * 100
 
-        mycursor = mydb.cursor()
-        mycursor.execute(sql_query)
-        #See here for converting to JSON output: https://stackoverflow.com/questions/43796423/python-converting-mysql-query-result-to-json
-        row_headers=[x[0] for x in mycursor.description] #this will extract row headers
-        if rowOfRows:
-            row_headers.insert(0,'Row')
-        myresult = mycursor.fetchall()
-        json_data = []
+        for key in common_keys:
+            similarity += json_similarity(json1[key], json2[key])
 
-        if rowOfRows:
-            json_data.append(row_headers)
+        return similarity / (len(total_keys) + 1)
 
-        rowCt = 1
-        for x in myresult:
-            if rowOfRows:
-                x = ('R' + str(rowCt),) + x
-                rowCt += 1
-                json_data.append(x)
+    elif isinstance(json1, list):
+        len1 = len(json1)
+        len2 = len(json2)
+        total_len = max(len1, len2)
+
+        if not total_len:
+            return 100
+
+        overlap = 0
+        for item in json1:
+            if item in json2:
+                overlap += 1
+
+        return (overlap / total_len) * 100
+
+    else:
+        if isinstance(json1,str) and isinstance(json2,str):
+            json1_copy = json1.replace("\n", " ").strip()
+            json2_copy = json2.replace("\n", " ").strip()
+            if json1_copy == json2_copy:
+                return 100
             else:
-                json_data.append(dict(zip(row_headers,x)))
-    except Exception as e:
-        return({'success': False, 'msg': "Error executing SQL Query: " + str(e), 'rows': []})
+                return 0
+        elif json1 == json2:
+            return 100
+        else:
+            return 0
 
-    #print(json.dumps(json_data))
-    return({'success': True,'rows': json_data})
-
-def mysql_extract_limit(query):
-  """Extracts the LIMIT clause value from a MySQL query.
-
-  Args:
-    query: The MySQL query.
-
-  Returns:
-    The LIMIT clause value (e.g. '23' for 'LIMIT 23'), or None if the LIMIT clause is not present.
-  """
-
-  match = re.search(r'LIMIT\s+(\d+)', query, re.IGNORECASE)
-  if match:
-    return match.group(1)
-  else:
-    return None
-
-#Next 2 functions created by GPT-4 based on this question:
-#Create a Python function to read a MySQL schema's tables and columns from the INFORMATION_SCHEMA table into a Dictionary of Dictionaries,
-#keyed on table name with value another Dictionary keyed on column name with value column type. Use the mysql-connector-python package.
-#Create another function that takes the result of the first function and prints out the schema in this format:
-#table1: column1 (column1_type), column2 (column2_type), ... columnn (columnn_type)
-#table2:column1 (column1_type), column2 (column2_type), ... columnn (columnn_type)
-def read_schema_structure(host, user, password, database):
-    # Connect to the MySQL server
-    connection = mysql.connector.connect(
-        host=host,
-        user=user,
-        password=password,
-        database=database,
-    )
-
-    # Query the INFORMATION_SCHEMA table to retrieve tables and columns for the provided schema
-    cursor = connection.cursor()
-    cursor.execute(
-        """
-        SELECT TABLE_NAME, COLUMN_NAME, COLUMN_TYPE
-        FROM INFORMATION_SCHEMA.COLUMNS
-        WHERE TABLE_SCHEMA = %s
-        ORDER BY TABLE_NAME, ORDINAL_POSITION
-        """,
-        (database,),
-    )
-
-    # Store the result in a dictionary of dictionaries
-    schema = {}
-    for table_name, column_name, column_type in cursor.fetchall():
-        if table_name not in schema:
-            schema[table_name] = {}
-        schema[table_name][column_name] = column_type
-
-    # Close the connection and cursor
-    cursor.close()
-    connection.close()
-
-    return schema
-
-def print_schema(schema):
-    for table_name, columns in schema.items():
-        print("---{}: ".format(table_name), end="")
-        print( "[" +
-            ", ".join(
-                "{} ({})".format(column_name, column_type)
-                for column_name, column_type in columns.items()
-            )
-            + "]"
-        )
-
-#Generated by GPT-4 based on this question:
-#Write a Python function that for a given database name, queries the INFORMATION_SCHEMA table for that database and
-#prints out all foreign key relationships. For each foreign key relationship found from table1.column1 to table2.column2,
-#print out the foreign key relationship like this: ---table2.column2 is a foreign key of table1.column1.
-#Use the mysql-connector-python package.
-def print_foreign_key_relationships(host, user, password, database_name):
-    connection = mysql.connector.connect(
-        host=host,
-        user=user,
-        password=password,
-        database=database_name
-    )
-    cursor = connection.cursor()
-
-    query = """
-        SELECT kcu.TABLE_NAME, kcu.COLUMN_NAME, kcu.REFERENCED_TABLE_NAME, kcu.REFERENCED_COLUMN_NAME
-        FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE as kcu
-        WHERE kcu.REFERENCED_TABLE_SCHEMA = %s
-          AND kcu.REFERENCED_TABLE_NAME IS NOT NULL;
-    """
-
-    cursor.execute(query, (database_name,))
-    results = cursor.fetchall()
-
-    for result in results:
-        print("---{}.{} is a foreign key of {}.{}.".format(
-            result[2], result[3], result[0], result[1]))
-
-    cursor.close()
-    connection.close()
-
-#Generated by GPT-4 based on the request: Write a Python function that takes a list of values and returns True if they are all numeric values, for example "100", "2", "2.01", etc. and False otherwise.
-def all_numeric(values):
-    for value in values:
-        if value is None:
-            continue
-        try:
-            float(value)
-        except ValueError:
+#Here is a Python3 function that uses recursion to check if one JSON object (json1) is a subset of another (json2):
+def is_subset(json1, json2):
+    if isinstance(json1, dict) and isinstance(json2, dict):
+        for key in json1:
+            if key not in json2:
+                return False
+            if not is_subset(json1[key], json2[key]):
+                return False
+        return True
+    elif isinstance(json1, list) and isinstance(json2, list):
+        if len(json1) > len(json2):
             return False
-    return True
+        for item in json1:
+            if item not in json2:
+                return False
+        return True
+    else:
+        if isinstance(json1,str) and isinstance(json2,str):
+            json1_copy = json1.replace("\n", " ").strip()
+            json2_copy = json2.replace("\n", " ").strip()
+            return json1_copy == json2_copy
+        else:
+            return json1 == json2
 
-#Got this (and slightly different version of read_schema_structure function above) by asking GPT-4:
-#Create a Python function to read a MySQL schema's tables and columns from the INFORMATION_SCHEMA table into a Dictionary of
-#Dictionaries, keyed on table name with value another Dictionary keyed on column name with value column type. Use the
-#mysql-connector-python package.  Write another Python function that takes the result of the first function and considers all
-#columns from different tables 2 at a time, call them table1.table1_column and table2.table2_column: if table1.table1_column and
-#table2.table2_column have the same column type (and check that the column type is a non-numeric type) then load all values from
-#each column into a list and determine if either list is a subset of the other. If table1.table1_column's values are a subset of
-#table2.table2_column's values then print on a line "---table1.table1_column can join with table2.table2_column".
-#If table2.table2_column's values are a subset of table1.table1_column's values then print on a line "---table2.table2_column can
-#join with table1.table1_column". 
-def find_joinable_columns(schema, database, user, password, host, minvals = 15):
-    """Find joinable columns and print their conditions."""
-
-    # Connect to the MySQL server
-    cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
-    cursor = cnx.cursor()
-
-    # Compare all columns from different tables 2 at a time
-    for table1, table1_columns in schema.items():
-        for table2, table2_columns in schema.items():
-            if table1 == table2:
-                continue
-
-            for col1, col1_type in table1_columns.items():
-                for col2, col2_type in table2_columns.items():
-                    if col1_type == col2_type and col1_type.lower() not in ['int', 'decimal', 'float', 'double', 'numeric', 'bigint', 'smallint', 'tinyint']:
-                        # Load all values from the columns into lists
-                        query1 = f"SELECT `{col1}` FROM `{table1}`"
-                        query2 = f"SELECT `{col2}` FROM `{table2}`"
-                        cursor.execute(query1)
-                        col1_values = [val[0] for val in cursor.fetchall()]
-                        if all_numeric(col1_values):
-                            continue
-                        col1_values_set = set(col1_values)
-                        if len(col1_values_set) < minvals:
-                            continue
-                        cursor.execute(query2)
-                        col2_values = [val[0] for val in cursor.fetchall()]
-                        if all_numeric(col2_values):
-                            continue
-                        col2_values_set = set(col2_values)
-                        if len(col2_values_set) < minvals:
-                            continue
-
-                        # Check if either list is a subset of the other
-                        if col1_values_set.issubset(col2_values):
-                            print(f"---{table1}.{col1} can join with {table2}.{col2}")
-                        elif col2_values_set.issubset(col1_values):
-                            print(f"---{table2}.{col2} can join with {table1}.{col1}")
-
-    cursor.close()
-    cnx.close()
-
-#Result of asking GPT-4: Write a Python function to just print the base type of a given MySQL type. For example int(10) -> int, char(25) -> char, varchar(25) -> varchar
-def get_base_type(mysql_type):
-    base_type = ""
-    for ch in mysql_type:
-        if ch == '(':
-            break
-        base_type += ch
-    return base_type
-
-#Again, GPT-4 created this function based on this request:
-#Write another function that takes the output of the first function and iterates through all tables and columns, and for
-#non-numeric type columns prints out the top n most frequently occurring values in the column like this:
-#Most frequent values in table1.column1: value1, value2, value3, value4, value5, ...
-#Most frequent values in table2.column2: value1, value2, value3, value4, value5\n...
-def print_topn_values(schema_information, user, password, host, database, n=5):
-    connection = mysql.connector.connect(user=user, password=password, host=host, database=database)
-    cursor = connection.cursor()
-
-    for table, columns in schema_information.items():
-        for column, column_type in columns.items():
-            column_type_base = get_base_type(column_type)
-            if column_type_base.lower() not in ['int', 'decimal', 'float', 'double', 'numeric', 'bigint', 'smallint', 'tinyint']:
-                query = f"SELECT {column}, COUNT(*) as count FROM {table} WHERE {column} IS NOT NULL AND {column} != '' GROUP BY {column} ORDER BY COUNT(*) DESC LIMIT {n};"
-                cursor.execute(query)
-                top_n = cursor.fetchall()
-                if len(top_n) > 0:
-                    top_n_values = ', '.join([str(value[0]) for value in top_n])
-                    print(f"---{table}.{column}: {top_n_values}")
-
-    cursor.close()
-    connection.close()
-
-def printLLMContextForMySQLDatabase(user, password, host, database):
-
-    schema_info = read_schema_structure(host, user, password, database)
-    print(f"Below is detailed information about MySQL database '{database}' that you will use to convert an English language question into a corresponding SQL query to answer the question.")
-    print("### Here is the schema in format 'table name: [column1_name (column1_type), column2_name (column2_type),...,columnN_name (columnN_type)]':")
-    print_schema(schema_info)
-    print("### Here are the foreign key relationships that can be joined on:")
-    print_foreign_key_relationships(host, user, password, database)
-    print("### Here are joinable non-numeric type columns based on a column's values being subsets of another column's values (however these are not explicit foreign keys):")
-    find_joinable_columns(schema_info, database, user, password, host)
-    print("### Here are the most frequent values in each non-numeric table.column:")
-    print_topn_values(schema_info, user, password, host, database, n=8)
+def convert_boolean_dict_values(d):
+    for k, v in d.items():
+        if isinstance(v, dict):
+            convert_boolean_dict_values(v)
+        elif isinstance(v, list):
+            for i in range(len(v)):
+                if isinstance(v[i], dict):
+                    convert_boolean_dict_values(v[i])
+                elif v[i] == "true":
+                    v[i] = True
+                elif v[i] == "false":
+                    v[i] = False
+        else:
+            if v == "true":
+                d[k] = True
+            elif v == "false":
+                d[k] = False
+    return d
