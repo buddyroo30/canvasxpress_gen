@@ -42,5 +42,8 @@ runigpu:
 shell:
 	docker run -it --rm --privileged ${BIND_MOUNT_ARGS} ${NAME}:${VERSION} /bin/bash
 
+init:
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${NAME}:${VERSION} /bin/bash -c "cp /app/schema.txt /root/.cache/schema.txt && cd /app/english_to_config/ && python3 vectorize_schema_few_shots.py"
+
 shellgpu:
 	docker run -it ${RUN_ARGS} ${GPU_ARGS} ${SHELL_EXTRA_ARGS} ${BIND_MOUNT_ARGS} --entrypoint /bin/bash ${NAME}:${VERSION}-GPU
