@@ -3,18 +3,26 @@ import json
 import sys
 import utils
 
-un,pw = siteminder.user_input_creds()
-login_resp = siteminder.login(un,pw)
-if not login_resp['success']:
-    print("Error: " + login_resp['msg'])
-    sys.exit()
+USE_SITEMINDER=False
+
+login_resp = None
+
+if USE_SITEMINDER:
+    un,pw = siteminder.user_input_creds()
+    login_resp = siteminder.login(un,pw)
+    if not login_resp['success']:
+        print("Error: " + login_resp['msg'])
+        sys.exit()
 
 base_url = "http://ip-172-25-132-16.rdcloud.bms.com:5008/"
 
 get_all_few_shots_url = base_url + "get_few_shots?num=all&format=json"
 ask_url = base_url + "ask"
 
-fetch_resp = siteminder.sm_fetch(get_all_few_shots_url,cdict=login_resp['cdict'])
+if USE_SITEMINDER:
+    fetch_resp = siteminder.sm_fetch(get_all_few_shots_url,cdict=login_resp['cdict'])
+else:
+    fetch_resp = siteminder.fetch(get_all_few_shots_url)
 fetch_json_txt = fetch_resp['text']
 allFewShotsList = json.loads(fetch_json_txt)
 
@@ -41,7 +49,10 @@ for curFewShotObj in allFewShotsList:
                  'max_new_tokens': 1250,
                  'prompt': question,
                  'filter_prompt_from_few_shots': True }
-    ask_resp = siteminder.sm_fetch(ask_url,cdict=login_resp['cdict'],postData=postData)
+    if USE_SITEMINDER:
+        ask_resp = siteminder.sm_fetch(ask_url,cdict=login_resp['cdict'],postData=postData)
+    else:
+        ask_resp = siteminder.fetch(ask_url,postData=postData)
     ask_json_txt = ask_resp['text']
     askJsonObj = json.loads(ask_json_txt)
     jsonSimilarityScore = 0.0
