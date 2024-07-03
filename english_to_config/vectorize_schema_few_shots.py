@@ -5,6 +5,25 @@ from pymilvus import MilvusClient
 from pymilvus.model.hybrid import BGEM3EmbeddingFunction
 import numpy as np
 
+def convert_boolean_dict_values(d):
+    for k, v in d.items():
+        if isinstance(v, dict):
+            convert_boolean_dict_values(v)
+        elif isinstance(v, list):
+            for i in range(len(v)):
+                if isinstance(v[i], dict):
+                    convert_boolean_dict_values(v[i])
+                elif v[i] == "true":
+                    v[i] = True
+                elif v[i] == "false":
+                    v[i] = False
+        else:
+            if v == "true":
+                d[k] = True
+            elif v == "false":
+                d[k] = False
+    return d
+
 #C == Comment
 #D == Default value
 #M == category
@@ -83,7 +102,11 @@ for i in range(len(few_shot_docs_to_embed)):
     headers = []
     if array2dObj is not None and len(array2dObj) > 0:
         headers = array2dObj[0]
-    curDocsBatch = [ {"id": i, "vector": few_shot_docs_embeddings["dense"][i], "configEnglish": few_shot_docs_to_embed[i], "headers": json.dumps(headers), "config": cxDatasets[i]["config"] } ]
+    configJsonTxt = cxDatasets[i]["config"]
+    configObj = json.loads(configJsonTxt)
+    configObj = convert_boolean_dict_values(configObj)
+    configJsonTxt = json.dumps(configObj)
+    curDocsBatch = [ {"id": i, "vector": few_shot_docs_embeddings["dense"][i], "configEnglish": few_shot_docs_to_embed[i], "headers": json.dumps(headers), "config": configJsonTxt } ]
     few_shot_res = client.insert(
         collection_name="few_shot_examples",
         data=curDocsBatch
