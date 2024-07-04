@@ -83,9 +83,12 @@ def sm_fetch(url,cdict=None,cstring=None,postData=None):
 def fetch(url,postData=None):
 
     response = None
-    if postData is None:
-        response = requests.get(url)
-    else:
-        response = requests.post(url, data=postData)
+    try:
+        if postData is None:
+            response = requests.get(url)
+        else:
+            response = requests.post(url, data=postData)
+    except Exception as e:
+        return({ 'success': False, 'msg': str(e)})
 
     return({ 'success': True, 'text': response.text, 'response': response })
