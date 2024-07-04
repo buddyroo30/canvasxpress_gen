@@ -100,11 +100,11 @@ for curFewShotObj in allFewShotsList:
 
 
 avgSimilarityScore = sum(similarityScores) / len(similarityScores)
-percentExactMatch = exactMatchCt / float(len(similarityScores))
-percentSubsetMatch = subsetCt / totalFewShotCt
+percentExactMatch = exactMatchCt / len(similarityScores)
+percentSubsetMatch = subsetCt / len(similarityScores)
 
 print("***SUMMARY***")
-print("NUMBER OF FEW SHOTS: " + str(totalFewShotCt))
+print("NUMBER OF FEW SHOTS TESTED SUCCESSFULLY: " + str(len(similarityScores)))
 print("NUMBER OF EXACT MATCHES: " + str(exactMatchCt))
 print("PERCENT EXACT MATCHES: " + str(percentExactMatch))
 print("NUMBER OF SUBSET MATCHES: " + str(subsetCt))
