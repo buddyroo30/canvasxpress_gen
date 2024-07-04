@@ -19,7 +19,8 @@ if USE_SITEMINDER:
         print("Error: " + login_resp['msg'])
         sys.exit()
 
-base_url = "http://canvasxpress.org:5008/"
+#Run this inside the container running the get_few_shots and ask services
+base_url = "http://localhost:5000/"
 
 get_all_few_shots_url = base_url + "get_few_shots?num=all&format=json"
 ask_url = base_url + "ask"
@@ -63,8 +64,18 @@ for curFewShotObj in allFewShotsList:
         ask_resp = siteminder.sm_fetch(ask_url,cdict=login_resp['cdict'],postData=postData)
     else:
         ask_resp = siteminder.fetch(ask_url,postData=postData)
+    if not ask_resp['success'] or 'text' not in ask_resp:
+        print("ERROR RESPONSE: " + ask_resp['msg'])
+        time.sleep(SLEEP_TIME)
+        continue
     ask_json_txt = ask_resp['text']
-    askJsonObj = json.loads(ask_json_txt)
+    askJsonObj = None
+    try:
+        askJsonObj = json.loads(ask_json_txt)
+    except Exception as e:
+        print("ERROR DECODING RESPONSE AS JSON: " + str(e) + ", RESPONSE TEXT: " + ask_json_txt)
+        time.sleep(SLEEP_TIME)
+        continue        
     jsonSimilarityScore = 0.0
     answerIsSubset = "Unknown"
     if askJsonObj['success'] and 'config' in askJsonObj:
@@ -77,8 +88,9 @@ for curFewShotObj in allFewShotsList:
     if jsonSimilarityScore < minSimilarityScore:
         minSimilarityScore = jsonSimilarityScore
     print("LLM GENERATED RESPONSE: " + ask_json_txt)
-    print("LLM ANSWER PRETTY:")
-    print(json.dumps(askJsonObj['config'],indent=2,sort_keys=True))
+    if askJsonObj['success'] and 'config' in askJsonObj:
+        print("LLM ANSWER PRETTY:")
+        print(json.dumps(askJsonObj['config'],indent=2,sort_keys=True))
     print("SIMILARITY SCORE: " + str(jsonSimilarityScore))
     print("TRUE ANSWER IS SUBSET OF LLM GENERATED ANSWER: " + answerIsSubset)
     similarityScores.append(jsonSimilarityScore)
@@ -89,7 +101,7 @@ for curFewShotObj in allFewShotsList:
 
 avgSimilarityScore = sum(similarityScores) / len(similarityScores)
 percentExactMatch = exactMatchCt / float(len(similarityScores))
-percentSubsetMatch = subsetCt / fewShotCt
+percentSubsetMatch = subsetCt / totalFewShotCt
 
 print("***SUMMARY***")
 print("NUMBER OF FEW SHOTS: " + str(totalFewShotCt))
