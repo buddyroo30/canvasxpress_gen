@@ -17,7 +17,7 @@ import numpy as np
 code_release = "https://biogit.pri.bms.com/smitha26/LLM-testing"
 LOGCHATS=False
 
-USE_MODEL="google_gemini" #"titan" or "openai"
+USE_MODEL="openai" #"titan" or "openai" or "google_gemini"
 
 google_api_key = os.environ.get("GOOGLE_API_KEY")
 
@@ -26,7 +26,7 @@ app.config['SECRET_KEY'] = utils.random_password(16)
 app.config['UPLOAD_FOLDER'] = "/tmp"
 aes = AESCipher(app.config['SECRET_KEY'])
 
-SMVAL=False
+SMVAL=True
 validatedCookies = {}
 
 #See here: https://pythonise.com/series/learning-flask/python-before-after-request
