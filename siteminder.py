@@ -78,3 +78,17 @@ def sm_fetch(url,cdict=None,cstring=None,postData=None):
         return({'success':False, 'msg':msg})
 
     return({ 'success': True, 'text': response.text, 'response': response })
+
+#If no SiteMinder, you can just use this to GET/POST
+def fetch(url,postData=None):
+
+    response = None
+    try:
+        if postData is None:
+            response = requests.get(url)
+        else:
+            response = requests.post(url, data=postData)
+    except Exception as e:
+        return({ 'success': False, 'msg': str(e)})
+
+    return({ 'success': True, 'text': response.text, 'response': response })
