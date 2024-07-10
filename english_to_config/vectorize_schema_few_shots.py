@@ -29,9 +29,9 @@ def convert_boolean_dict_values(d):
 #M == category
 #O == Options (only values from this list can be used)
 #T == Type
-def readCanvasXpressDocs ():
+def readCanvasXpressDocs (docsFile):
     cxConfigInfo = None
-    with open("doc.json") as f_in:
+    with open(docsFile) as f_in:
         cxConfigInfo = json.load(f_in)
     cxConfigInfo = cxConfigInfo['P']
     for curField in cxConfigInfo:
@@ -86,33 +86,41 @@ client.create_collection(
     dimension=1024  # The vectors we will use have 1024 dimensions
 )
 
-with open("datasets.json", "r") as f:
-    cxDatasetsJsonTxt = f.read()
-    cxDatasets = json.loads(cxDatasetsJsonTxt)
+with open("canvasxpress-lmm-gpt4.json", "r") as f:
+    cxExamplesJsonTxt = f.read()
+    cxExamples = json.loads(cxExamplesJsonTxt)
 
-few_shot_docs_to_embed = []
-for curRec in cxDatasets:
-    curConfigEnglishTxt = curRec['configEnglish']
-    few_shot_docs_to_embed.append(curConfigEnglishTxt)
+headers = cxExamples['data'][0]
 
-few_shot_docs_embeddings = bge_m3_ef.encode_documents(few_shot_docs_to_embed)
-for i in range(len(few_shot_docs_to_embed)):
-    array2dTxt = cxDatasets[i]["array2d"]
-    array2dObj = json.loads(array2dTxt)
-    headers = []
-    if array2dObj is not None and len(array2dObj) > 0:
-        headers = array2dObj[0]
-    configJsonTxt = cxDatasets[i]["config"]
-    configObj = json.loads(configJsonTxt)
-    configObj = convert_boolean_dict_values(configObj)
+few_shot_docs_to_embed_isaac = []
+few_shot_docs_to_embed_gpt4 = []
+for i in range(len(cxExamples['Questions'])):
+    curRec = cxExamples['Questions'][i]
+    isaacEnglishTxt = curRec['Question']
+    few_shot_docs_to_embed_isaac.append(isaacEnglishTxt)
+    gpt4EnglishTxt = curRec['QuestionGPT4']
+    few_shot_docs_to_embed_gpt4.append(gpt4EnglishTxt)
+
+few_shot_docs_embeddings_isaac = bge_m3_ef.encode_documents(few_shot_docs_to_embed_isaac)
+few_shot_docs_embeddings_gpt4 = bge_m3_ef.encode_documents(few_shot_docs_to_embed_gpt4)
+for i in range(len(cxExamples['Questions'])):
+    curRec = cxExamples['Questions'][i]
+    configObj = curRec["Answer"]
+    isaacEnglishTxt = curRec['Question']
+    gpt4EnglishTxt = curRec['QuestionGPT4']
     configJsonTxt = json.dumps(configObj)
-    curDocsBatch = [ {"id": i, "vector": few_shot_docs_embeddings["dense"][i], "configEnglish": few_shot_docs_to_embed[i], "headers": json.dumps(headers), "config": configJsonTxt } ]
-    few_shot_res = client.insert(
+    curDocsBatch_isaac = [ {"id": i * 2, "vector": few_shot_docs_embeddings_isaac["dense"][i], "configEnglish": few_shot_docs_to_embed_isaac[i], "headers": json.dumps(headers), "config": configJsonTxt } ]
+    few_shot_res_isaac = client.insert(
         collection_name="few_shot_examples",
-        data=curDocsBatch
+        data=curDocsBatch_isaac
+    )
+    curDocsBatch_gpt4 = [ {"id": (i * 2) + 1, "vector": few_shot_docs_embeddings_gpt4["dense"][i], "configEnglish": few_shot_docs_to_embed_gpt4[i], "headers": json.dumps(headers), "config": configJsonTxt } ]
+    few_shot_res_gpt4 = client.insert(
+        collection_name="few_shot_examples",
+        data=curDocsBatch_gpt4
     )
 
-cxConfigInfo = readCanvasXpressDocs()
+cxConfigInfo = readCanvasXpressDocs("doc.json")
 schemaRecs = generateSchemaRecs(cxConfigInfo)
 schemaRecs_embeddings = bge_m3_ef.encode_documents(schemaRecs)
 for i in range(len(schemaRecs)):
