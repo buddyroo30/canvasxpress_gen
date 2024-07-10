@@ -1,17 +1,16 @@
 import json
 import sys
 
-with open("datasets.json", "r") as f:
-    cxDatasetsJsonTxt = f.read()
-    cxDatasets = json.loads(cxDatasetsJsonTxt)
+with open("canvasxpress-lmm-gpt4.json", "r") as f:
+    cxExamplesJsonTxt = f.read()
+    cxExamples = json.loads(cxExamplesJsonTxt)
 
 totalCt = 0
 fieldCounts = {}
 
-for curRec in cxDatasets:
+for curRec in cxExamples['Questions']:
     totalCt = totalCt + 1
-    curConfigJSONTxt = curRec['config']
-    curConfig = json.loads(curConfigJSONTxt)
+    curConfig = curRec['Answer']
     for curConfigField in curConfig:
         if curConfigField not in fieldCounts:
             fieldCounts[curConfigField] = 0
