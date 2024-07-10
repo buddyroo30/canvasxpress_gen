@@ -10,9 +10,9 @@ import numpy as np
 #M == category
 #O == Options (only values from this list can be used)
 #T == Type
-def readCanvasXpressDocs ():
+def readCanvasXpressDocs (docsFile):
     cxConfigInfo = None
-    with open("doc.json") as f_in:
+    with open(docsFile) as f_in:
         cxConfigInfo = json.load(f_in)
     cxConfigInfo = cxConfigInfo['P']
     for curField in cxConfigInfo:
@@ -63,7 +63,7 @@ with open("datasets.json", "r") as f:
     cxDatasetsJsonTxt = f.read()
     cxDatasets = json.loads(cxDatasetsJsonTxt)
 
-cxConfigInfo = readCanvasXpressDocs()
+cxConfigInfo = readCanvasXpressDocs("doc.json")
 
 queries = ["The graph type is bar."]
 
