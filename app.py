@@ -198,7 +198,7 @@ def ask():
 
         milvusClient = llm.getMilvusClient(app)
         fewShotTxt = llm.getFewShots(milvusClient, prompt,numFewShots=25,filterPrompt=filter_prompt_from_few_shots)
-        prompt = llm.generate_prompt(prompt,str(headerRow), schema_info_file="/root/.cache/schema.txt",prompt_file="prompt.md",few_shot_examples_string=fewShotTxt)
+        prompt = llm.generate_prompt(prompt,str(headerRow), schema_info_file="schema.txt",prompt_file="prompt.md",few_shot_examples_string=fewShotTxt)
 
         generated_text = "NOTHINGYET"
         if USE_MODEL == "titan":
