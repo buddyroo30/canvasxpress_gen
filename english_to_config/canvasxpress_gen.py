@@ -179,9 +179,9 @@ def canvasXpressConfigInfoFromJS ():
 #M == category
 #O == Options (only values from this list can be used)
 #T == Type
-def readCanvasXpressDocs ():
+def readCanvasXpressDocs (docsFile):
     cxConfigInfo = None
-    with open("doc.json") as f_in:
+    with open(docsFile) as f_in:
         cxConfigInfo = json.load(f_in)
     cxConfigInfo = cxConfigInfo['P']
     for curField in cxConfigInfo:
@@ -329,7 +329,7 @@ for hits in res:
         fewShotTxt = fewShotTxt + f"English Text: {curEnglishConfig}; Headers/Column Names: {curHeadersColumnNames}, Answer: {curConfig}" + "\n"
 
 fieldsUseSet = getCxFieldsToUse()
-cxConfigInfo = readCanvasXpressDocs()
+cxConfigInfo = readCanvasXpressDocs("doc.json")
 schemaTxt = generateSchema(cxConfigInfo,fieldsUseSet=fieldsUseSet)
 generatedPrompt = generate_prompt(userQuestion,headers_column_names, schema_info_string=schemaTxt,few_shot_examples_string=fewShotTxt)
 encoding_tokens = openai_enc.encode(generatedPrompt)
