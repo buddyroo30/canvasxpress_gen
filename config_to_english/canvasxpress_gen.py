@@ -173,9 +173,9 @@ def canvasXpressConfigInfoFromJS ():
 #M == category
 #O == Options (only values from this list can be used)
 #T == Type
-def readCanvasXpressDocs ():
+def readCanvasXpressDocs (docsFile):
     cxConfigInfo = None
-    with open("doc.json") as f_in:
+    with open(docsFile) as f_in:
         cxConfigInfo = json.load(f_in)
     cxConfigInfo = cxConfigInfo['P']
     for curField in cxConfigInfo:
@@ -214,12 +214,7 @@ def generateSchemaForExample(exampleConfigObj,cxConfigInfo):
 
     return(schemaTxt)
             
-def genEnglishTextFromCanvasXpressConfig(configJsonTxt,array2dTxt,cxConfigInfo):
-    configObj = json.loads(configJsonTxt)
-    array2dObj = json.loads(array2dTxt)
-    headerRow = []
-    if array2dObj is not None and len(array2dObj) > 0:
-        headerRow = array2dObj[0]
+def genEnglishTextFromCanvasXpressConfig(configObj,headerRow,cxConfigInfo):
     questionObj = { "headers": headerRow, "configuration": configObj}
     questionJsonTxt = json.dumps(questionObj)
     schemaTxt = generateSchemaForExample(configObj,cxConfigInfo)
@@ -229,73 +224,36 @@ def genEnglishTextFromCanvasXpressConfig(configJsonTxt,array2dTxt,cxConfigInfo):
     resultTxt = generate_results_openai(prompt)
 
     return(resultTxt)
-
-def genEnglishTextsFromAllCanvasXpressConfigs(database_path,cxConfigInfo):
-
-    updatedInfo = []
-    # Connect to the SQLite database
-    conn = sqlite3.connect(database_path)
-    cursor = conn.cursor()
-
-    # Execute a SELECT query to fetch all records from the table
-    cursor.execute(f"SELECT name, renderTo, type, json, array2d, data, config, events, info FROM datasets")
-
-    # Iterate through the records and print them
-    for row in cursor.fetchall():
-        name = row[0]
-        renderTo = row[1]
-        typeTxt = row[2]
-        jsonTxt = row[3]
-        array2dTxt = row[4]
-        dataTxt = row[5]
-        configTxt = row[6]
-        eventsTxt = row[7]
-        infoTxt = row[8]
-        curRec = { 'name': name, 'renderTo': renderTo, 'type': typeTxt, 'json': jsonTxt, 'array2d': array2dTxt, 'data': dataTxt, 'config': configTxt, 'events': eventsTxt, 'info': infoTxt }
-        if curRec['config'].strip() == "" or curRec['config'].strip() == '{}':
-            continue
-        resultTxt = genEnglishTextFromCanvasXpressConfig(configTxt,array2dTxt,cxConfigInfo)
-        if resultTxt is not None:
-            curRec['configEnglish'] = resultTxt
-            updatedInfo.append(curRec)
-        time.sleep(1)
-
-    # Close the connection
-    conn.close()
-
-    print(json.dumps(updatedInfo))
     
-def genEnglishTextsFromAllCanvasXpressConfigs_json(datasetsJsonFile,cxConfigInfo):
+def genEnglishTextsFromAllCanvasXpressConfigs(examplesJsonFile,cxConfigInfo):
 
     updatedInfo = []
-    with open(datasetsJsonFile, "r") as f:
-        cxDatasetsJsonTxt = f.read()
-        cxDatasets = json.loads(cxDatasetsJsonTxt)
+    with open(examplesJsonFile, "r") as f:
+        cxExamplesJsonTxt = f.read()
+        cxExamples = json.loads(cxExamplesJsonTxt)
+
+    headerRow = cxExamples['data'][0]
 
     # Iterate through the records and print them
-    for row in cxDatasets:
-        name = row['name']
-        renderTo = row['renderTo']
-        typeTxt = row['type']
-        jsonTxt = row['json']
-        array2dTxt = row['array2d']
-        dataTxt = row['data']
-        configTxt = row['config']
-        eventsTxt = row['events']
-        infoTxt = row['info']
-        curRec = { 'name': name, 'renderTo': renderTo, 'type': typeTxt, 'json': jsonTxt, 'array2d': array2dTxt, 'data': dataTxt, 'config': configTxt, 'events': eventsTxt, 'info': infoTxt }
-        if curRec['config'].strip() == "" or curRec['config'].strip() == '{}':
-            continue
-        resultTxt = genEnglishTextFromCanvasXpressConfig(configTxt,array2dTxt,cxConfigInfo)
+    for row in cxExamples['Questions']:
+        typeTxt = 'NA'
+        if 'Type' in row:
+            typeTxt = row['Type']
+        IsaacEnglishTxt = row['Question']
+        configObj = row['Answer']
+        curRec = { 'Type': typeTxt, 'Answer': configObj,  'Question': IsaacEnglishTxt }
+        resultTxt = genEnglishTextFromCanvasXpressConfig(configObj,headerRow,cxConfigInfo)
         if resultTxt is not None:
-            curRec['configEnglish'] = resultTxt
+            curRec['QuestionGPT4'] = resultTxt
             updatedInfo.append(curRec)
         time.sleep(1)
 
-    print(json.dumps(updatedInfo))
+    cxExamples['Questions'] = updatedInfo
 
-cxConfigInfo = readCanvasXpressDocs()
-genEnglishTextsFromAllCanvasXpressConfigs("datasets.sqlite",cxConfigInfo)
+    print(json.dumps(cxExamples))
+
+cxConfigInfo = readCanvasXpressDocs("doc.json")
+genEnglishTextsFromAllCanvasXpressConfigs("canvasxpress-lmm.json",cxConfigInfo)
 #resultTxt = genEnglishTextFromCanvasXpressConfig(configJsonTxt,cxConfigInfo)
 #print(resultTxt)
 #print(json.dumps(cxConfigInfo))
