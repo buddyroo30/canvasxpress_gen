@@ -7,6 +7,7 @@ import openai
 import json
 from dotenv import load_dotenv
 import google.generativeai as genai
+import siteminder
 
 load_dotenv()
 
@@ -114,6 +115,17 @@ def generate_prompt(canvasxpress_config_english, headers_column_names, schema_in
     )
 
     return prompt
+
+
+def generate_results_ollama(prompt,model='gemma2:27b-text-q4_0',ollamaBaseUrl = "http://ip-172-25-132-16.rdcloud.bms.com:11434/api/generate"):
+
+    postArgs = { "model": model, "prompt": prompt, "stream": False }
+
+    resObj = siteminder.fetch(ollamaBaseUrl,postData=json.dumps(postArgs))
+
+    resObj = json.loads(resObj['text'])
+    if resObj['done']:
+        return(resObj['response'])
 
 def generate_results_titan(prompt, model='amazon.titan-tg1-large', max_token_count=2048, topp=1, temperature=0):
 
