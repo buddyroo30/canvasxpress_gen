@@ -137,7 +137,7 @@ def generateSchema(cxConfigInfo,fieldsUseSet=None):
 
     return(schemaTxt)
             
-fieldsUseSet = getCxFieldsToUse("field_counts_use.txt","canvasxpress-lmm-gpt4.json")
+fieldsUseSet = getCxFieldsToUse("field_counts_use.txt","canvasxpress-lmm-gpt4-fixed.json")
 cxConfigInfo = readCanvasXpressDocs("doc.json")
 schemaTxt = generateSchema(cxConfigInfo,fieldsUseSet=fieldsUseSet)
 print(schemaTxt)

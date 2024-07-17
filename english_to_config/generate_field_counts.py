@@ -1,7 +1,7 @@
 import json
 import sys
 
-with open("canvasxpress-lmm-gpt4.json", "r") as f:
+with open("canvasxpress-lmm-gpt4-fixed.json", "r") as f:
     cxExamplesJsonTxt = f.read()
     cxExamples = json.loads(cxExamplesJsonTxt)
 
