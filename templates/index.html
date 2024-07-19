@@ -106,7 +106,8 @@
       if (result['success'] && result['config_generated_flag']) {
         var canvas_id = 'cX' + new Date().getTime();
         var thumbsUpDownTxt = getThumpsUpDownHtml();
-        var responseTxt = '<div class="container darker"><img src="' + bmsGptIconImg + '" alt="BMS GPT" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + "<br>Config: " + result['configJSONTxt'] + '</pre></p><canvas id="' + canvas_id + '" width="750" height="750"></canvas><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
+        var configJSONTxt = JSON.stringify(result['config'],null,2)
+        var responseTxt = '<div class="container darker"><img src="' + bmsGptIconImg + '" alt="BMS GPT" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + "<br>Config: " + configJSONTxt + '</pre></p><canvas id="' + canvas_id + '" width="750" height="750"></canvas><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
         $("#questions_and_answers").append(responseTxt);
         new CanvasXpress(canvas_id, result['data'], result['config']);
       } else {

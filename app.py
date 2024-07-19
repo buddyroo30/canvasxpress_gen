@@ -230,7 +230,6 @@ def ask():
 
         resp = { 'success': True,
                  'config': configObj,
-                 'configJSONTxt': generated_text,
                  'config_generated_flag': True,
                  'total_time_taken': llm_time_taken,
                  'prompt': orig_prompt,
