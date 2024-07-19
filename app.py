@@ -140,12 +140,18 @@ def ask():
     presence_penalty = request.values.get('presence_penalty')
     frequency_penalty = request.values.get('frequency_penalty')
     filter_prompt_from_few_shots = request.values.get('filter_prompt_from_few_shots')
+    config_only = request.values.get('config_only')
     curDatetime = str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
 
     if not utils.empty(filter_prompt_from_few_shots) and filter_prompt_from_few_shots == 'True':
         filter_prompt_from_few_shots = True
     else:
         filter_prompt_from_few_shots = False
+
+    if not utils.empty(config_only) and config_only == 'True':
+        config_only = True
+    else:
+        config_only = False
 
     if utils.empty(prompt):
         errResp = { 'text': "Error: you must provide a description of the visualization you want", 'success': False, 'config_generated_flag': False, }
@@ -225,13 +231,15 @@ def ask():
         resp = { 'success': True,
                  'config': configObj,
                  'configJSONTxt': generated_text,
-                 'datafilename': datafilename,
-                 'data': datafile_contents,
                  'config_generated_flag': True,
                  'total_time_taken': llm_time_taken,
                  'prompt': orig_prompt,
-                 'header': headerRow,
                  'datetime': curDatetime }
+
+        if not config_only:
+            resp['datafilename'] = datafilename
+            resp['data'] = datafile_contents
+            resp['header'] = headerRow
 
     retValsJson = json.dumps(resp)
 
