@@ -12,6 +12,7 @@ tiktoken
 pymilvus
 pymilvus[model]
 google-generativeai
+awscli
 #langchain
 #langchain-community
 #faiss-cpu
