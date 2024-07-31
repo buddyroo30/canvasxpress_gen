@@ -127,9 +127,27 @@ def generate_results_ollama(prompt,model='gemma2:27b-text-q4_0',ollamaBaseUrl = 
     if resObj['done']:
         return(resObj['response'])
 
+def generate_results_llama31(prompt,model='meta.llama3-1-405b-instruct-v1:0',max_token_count=2048,topp=1.0,temperature=0.0):
+
+    bedrockRuntime = boto3.client('bedrock-runtime',region_name="us-west-2")
+
+    body = json.dumps({
+        "prompt": prompt,
+        "temperature": temperature,
+        "top_p": topp,
+        "max_gen_len": max_token_count
+    })
+
+    response = bedrockRuntime.invoke_model(body=body, modelId=model, accept='application/json', contentType='application/json')
+
+    response_body = json.loads(response.get('body').read())
+    generated_text = response_body['generation']
+
+    return(generated_text)
+
 def generate_results_titan(prompt, model='amazon.titan-tg1-large', max_token_count=2048, topp=1, temperature=0):
 
-    bedrockRuntime = boto3.client('bedrock-runtime')
+    bedrockRuntime = boto3.client('bedrock-runtime',region_name="us-east-1")
 
     body = json.dumps({
         "inputText": prompt,
@@ -172,4 +190,22 @@ def generate_results_google_gemini(prompt,model='gemini-1.5-flash',temperature=0
 
     return(answer_txt)
 
+def get_model_type(model):
+    #USE_MODEL="llama31" or "titan" or "openai" or "google_gemini" or "ollama" or "llama31"
+    modelToType = { "amazon.titan-tg1-large": "titan",
+                    "meta.llama3-1-405b-instruct-v1:0": "llama31",
+                    "meta.llama3-1-70b-instruct-v1:0": "llama31",
+                    "meta.llama3-1-8b-instruct-v1:0": "llama31",
+                    "gpt-4o": "openai",
+                    "gpt-4o-mini": "openai",
+                    "gpt-4": "openai",
+                    "gpt-4-32k": "openai",
+                    "gpt-35-turbo-16k": "openai",
+                    "gemini-1.5-flash": "google_gemini",
+                    "gemini-1.5-pro": "google_gemini" }
+
+    if model in modelToType:
+        return(modelToType[model])
+    else:
+        return("ollama")
 
