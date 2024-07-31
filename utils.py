@@ -30,6 +30,12 @@ def empty(str):
         return True
     return False
 
+def remove_backtick_text(text):
+    index = text.find('```')
+    if index != -1:
+        text = text[:index]
+    return text
+
 #See here: https://pynative.com/python-generate-random-string/#h-generate-a-secure-random-string-and-password
 def random_password(len):
     password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(len)))
