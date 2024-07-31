@@ -5,6 +5,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install less emacs nano vim zip unzip curl wget jq gcc libldap2-dev libsasl2-dev -y
 RUN apt-get install sqlite3 -y
 RUN pip3 install -U FlagEmbedding
+COPY aws_credentials /root/.aws/credentials
 RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
