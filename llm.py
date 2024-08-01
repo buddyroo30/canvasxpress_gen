@@ -3,7 +3,7 @@ from FlagEmbedding import BGEM3FlagModel
 from pymilvus import MilvusClient
 from pymilvus.model.hybrid import BGEM3EmbeddingFunction
 import boto3
-import openai
+from openai import AzureOpenAI
 import json
 from dotenv import load_dotenv
 import google.generativeai as genai
@@ -12,12 +12,6 @@ import siteminder
 load_dotenv()
 
 google_api_key = os.environ.get("GOOGLE_API_KEY")
-
-# OpenAI Azure Config
-openai.api_type = os.environ.get('OPENAI_API_TYPE')
-openai.api_key = os.environ.get('OPENAI_API_KEY')
-openai.api_base = os.environ.get('OPENAI_API_BASE')
-openai.api_version = os.environ.get('OPENAI_API_VERSION')
 
 bge_m3_ef = BGEM3EmbeddingFunction(
     model_name='BAAI/bge-m3', # Specify the model name
@@ -165,19 +159,23 @@ def generate_results_titan(prompt, model='amazon.titan-tg1-large', max_token_cou
 
     return(generated_text)
 
-def generate_results_openai(prompt, model='gpt-4-0314', max_new_tokens=500, topp=1.0, temperature=1.0, presence_penalty=0.0, frequency_penalty=0.0):
+def generate_results_openai(prompt, model='gpt-4o-global', max_new_tokens=512, topp=1.0, temperature=0.0, presence_penalty=0.0, frequency_penalty=0.0):
 
-    response = openai.ChatCompletion.create(
-        engine=model, # replace this value with the deployment name you chose when you deployed the associated model.
-        messages = [{"role":"user","content":prompt}],
-        temperature=temperature,
+    client = AzureOpenAI()
+
+    completion = client.chat.completions.create(
+        model=model,
         max_tokens=max_new_tokens,
+        temperature=temperature,
         top_p=topp,
-        frequency_penalty=frequency_penalty,
-        presence_penalty=presence_penalty,
-        stop=None)
-
-    generated_text = response['choices'][0]['message']['content']
+        messages=[
+         {
+            "role": "user",
+            "content": prompt,
+            },
+        ],
+    )
+    generated_text = completion.choices[0].message.content
 
     return(generated_text)
 
