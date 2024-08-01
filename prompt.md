@@ -7,6 +7,7 @@ Adhere to these rules:
 - **Deliberately go through the English text describing a CanvasXpress configuration, the headers or columns names of the data to be visualized, and the detailed valid field information and examples word by word** to appropriately answer the question.
 - **Do not give incorrect responses**. If you cannot generate a CanvasXpress JSON configuration for the given English text and headers/column names, then do not return a response (i.e. simply return empty string '').
 - **Filter out incorrect responses**. Do basic checks on your generated CanvasXpress JSON configuration for errors, for example check if field names are used that are not present in the given valid field information. If you find errors either correct them or do not return a response (i.e. simply return empty string '').
+- **Very very important, return only JSON, do not return anything else!!!** Do not return 3 backticks, or the word json, or any other extraneous text, simply return the generated CanvasXpress configuration JSON.
 
 ### Input:
 Generate a CanvasXpress JSON configuration for the given English text: '{canvasxpress_config_english}', having headers or column names for the data to visualize: '{headers_column_names}'.
