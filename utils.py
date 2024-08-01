@@ -36,6 +36,83 @@ def remove_backtick_text(text):
         text = text[:index]
     return text
 
+def remove_up_to_first_brace(s):
+    """
+    Removes everything from the start of the string up to the first '{'.
+    
+    Parameters:
+    s (str): The input string.
+    
+    Returns:
+    str: The modified string with everything up to the first '{' removed.
+    """
+    # Find the index of the first '{'
+    index = s.find('{')
+    
+    # If '{' is not found, return the original string
+    if index == -1:
+        return s
+    
+    # Return the substring starting from the first '{'
+    return s[index:]
+
+def remove_after_last_brace(s):
+    """
+    Removes everything from the end of the string after the last '}'.
+    
+    Parameters:
+    s (str): The input string.
+    
+    Returns:
+    str: The modified string with everything after the last '}' removed.
+    """
+    # Find the index of the last '}'
+    index = s.rfind('}')
+    
+    # If '}' is not found, return the original string
+    if index == -1:
+        return s
+    
+    # Return the substring up to and including the last '}'
+    return s[:index+1]
+
+def extract_json_substring(s):
+    """
+    Extracts a JSON substring from the given string.
+    
+    Parameters:
+    s (str): The input string containing a JSON substring.
+    
+    Returns:
+    str: The JSON substring if found, otherwise an empty string.
+    """
+    # Find the index of the first '{' and the last '}'
+    start_index = s.find('{')
+    end_index = s.rfind('}')
+    
+    # If either '{' or '}' is not found, return an empty string
+    if start_index == -1 or end_index == -1 or start_index >= end_index:
+        return ""
+    
+    # Extract the substring that is supposed to be JSON
+    json_substring = s[start_index:end_index+1]
+
+    return(json_substring)
+
+def clean_llm_response_text(generated_text):
+    # Validate if the LLM response is actually a valid JSON (in which case no cleaning required)
+    try:
+        json.loads(generated_text)
+        return generated_text
+    except json.JSONDecodeError:
+        pass
+    #generated_text = remove_up_to_first_brace(s)
+    #generated_text = generated_text.rstrip("\n\t ;")
+    #generated_text = remove_backtick_text(generated_text)
+    #generated_text = generated_text.rstrip("\n\t ;")
+    json_substring = extract_json_substring(generated_text)
+    return(json_substring)
+
 #See here: https://pynative.com/python-generate-random-string/#h-generate-a-secure-random-string-and-password
 def random_password(len):
     password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(len)))
