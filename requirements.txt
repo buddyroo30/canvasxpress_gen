@@ -4,7 +4,7 @@ flask
 requests
 python-ldap
 tabulate
-openai==0.28
+openai
 pycryptodome
 mysql-connector
 boto3
