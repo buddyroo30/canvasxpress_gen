@@ -159,6 +159,35 @@ def generate_results_titan(prompt, model='amazon.titan-tg1-large', max_token_cou
 
     return(generated_text)
 
+def generate_results_anthropic(prompt, model='anthropic.claude-3-5-sonnet-20240620-v1:0', max_token_count=1024, topp=1.0, temperature=0.0):
+
+    bedrockRuntime_east1 = boto3.client('bedrock-runtime',region_name="us-east-1")
+    accept = 'application/json'
+    contentType = 'application/json'
+
+    body=json.dumps(
+                    {
+                        "anthropic_version": "bedrock-2023-05-31",
+                        "max_tokens": max_token_count,
+                        "top_p": topp,
+                        "temperature": temperature,
+                        "messages": [
+                            {
+                                "role": "user",
+                                "content": [{"type": "text", "text": prompt}],
+                            }
+                        ],
+                    }
+                )
+    response = bedrockRuntime_east1.invoke_model(body=body, modelId=model, accept=accept, contentType=contentType)
+    response_body = json.loads(response.get('body').read())
+    output_list = response_body.get("content", [])
+    generated_text = ""
+    for output in output_list:
+        generated_text = generated_text + output["text"]
+
+    return(generated_text)
+
 def generate_results_openai(prompt, model='gpt-4o-global', max_new_tokens=512, topp=1.0, temperature=0.0, presence_penalty=0.0, frequency_penalty=0.0):
 
     client = AzureOpenAI()
@@ -189,11 +218,13 @@ def generate_results_google_gemini(prompt,model='gemini-1.5-flash',temperature=0
     return(answer_txt)
 
 def get_model_type(model):
-    #USE_MODEL="llama31" or "titan" or "openai" or "google_gemini" or "ollama" or "llama31"
+    #USE_MODEL="titan" or "openai" or "google_gemini" or "ollama" or "llama31" or "anthropic"
     modelToType = { "amazon.titan-tg1-large": "titan",
                     "meta.llama3-1-405b-instruct-v1:0": "llama31",
                     "meta.llama3-1-70b-instruct-v1:0": "llama31",
                     "meta.llama3-1-8b-instruct-v1:0": "llama31",
+                    "anthropic.claude-3-sonnet-20240229-v1:0": "anthropic",
+                    "anthropic.claude-3-5-sonnet-20240620-v1:0": "anthropic",
                     "gpt-4o-global": "openai",
                     "gpt-4o-regional": "openai",
                     "gpt-4o-mini": "openai",
