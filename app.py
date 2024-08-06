@@ -139,6 +139,9 @@ def ask():
     frequency_penalty = request.values.get('frequency_penalty')
     filter_prompt_from_few_shots = request.values.get('filter_prompt_from_few_shots')
     config_only = request.values.get('config_only')
+    target = request.values.get('target')
+    client = request.values.get('client')
+    callback = request.values.get('callback')
     curDatetime = str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
 
     if not utils.empty(filter_prompt_from_few_shots) and filter_prompt_from_few_shots == 'True':
@@ -249,12 +252,21 @@ def ask():
             resp['data'] = datafile_contents
             resp['header'] = headerRow
 
+    if not utils.empty(target):
+        resp['target'] = target
+    if not utils.empty(client):
+        resp['client'] = client
     retValsJson = json.dumps(resp)
 
     if LOGCHATS:
         llm_logging.log_chatinfo(code_release,version,"user","id",retValsJson)
 
-    return(retValsJson)
+    if not utils.empty(callback):
+        #jsonp response
+        callbackStr = callback + "(" + retValsJson + ")"
+        return(callbackStr)
+    else:
+        return(retValsJson)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
