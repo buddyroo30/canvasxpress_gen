@@ -183,7 +183,10 @@ def generate_results_titan(prompt, model='amazon.titan-tg1-large', max_token_cou
 
 def generate_results_anthropic(prompt, model='anthropic.claude-3-5-sonnet-20240620-v1:0', max_token_count=1024, topp=1.0, temperature=0.0):
 
-    bedrockRuntime_east1 = boto3.client('bedrock-runtime',region_name="us-east-1")
+    if model == 'anthropic.claude-3-opus-20240229-v1:0':
+        bedrockRuntime = boto3.client('bedrock-runtime',region_name="us-west-2")
+    else:
+        bedrockRuntime = boto3.client('bedrock-runtime',region_name="us-east-1")
     accept = 'application/json'
     contentType = 'application/json'
 
@@ -201,7 +204,7 @@ def generate_results_anthropic(prompt, model='anthropic.claude-3-5-sonnet-202406
                         ],
                     }
                 )
-    response = bedrockRuntime_east1.invoke_model(body=body, modelId=model, accept=accept, contentType=contentType)
+    response = bedrockRuntime.invoke_model(body=body, modelId=model, accept=accept, contentType=contentType)
     response_body = json.loads(response.get('body').read())
     output_list = response_body.get("content", [])
     generated_text = ""
@@ -248,6 +251,7 @@ def get_model_type(model):
                     "meta.llama3-1-8b-instruct-v1:0": "llama31",
                     "anthropic.claude-3-sonnet-20240229-v1:0": "anthropic",
                     "anthropic.claude-3-5-sonnet-20240620-v1:0": "anthropic",
+                    "anthropic.claude-3-opus-20240229-v1:0": "anthropic",
                     "gpt-4o-global": "openai",
                     "gpt-4o-regional": "openai",
                     "gpt-4o-mini": "openai",
