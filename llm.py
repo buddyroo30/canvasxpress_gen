@@ -110,7 +110,7 @@ def generate_prompt(canvasxpress_config_english, headers_column_names, schema_in
 
     return prompt
 
-
+#on CPU: "http://ip-172-25-132-16.rdcloud.bms.com:11434/api/generate"
 def generate_results_ollama(prompt,model='gemma2:27b-text-q4_0',ollamaBaseUrl = "http://ip-172-25-132-16.rdcloud.bms.com:11434/api/generate"):
 
     postArgs = { "model": model, "prompt": prompt, "stream": False }
@@ -137,6 +137,28 @@ def generate_results_llama31(prompt,model='meta.llama3-1-405b-instruct-v1:0',max
     response_body = json.loads(response.get('body').read())
     generated_text = response_body['generation']
 
+    return(generated_text)
+
+def generate_results_mistral(prompt,model="mistral.mistral-large-2407-v1:0",max_token_count=2048,topp=1.0,temperature=0.0):
+
+    bedrockRuntime = boto3.client('bedrock-runtime',region_name="us-west-2")
+
+    conversation = [
+        {
+            "role": "user",
+            "content": [{"text": prompt}],
+        }
+    ]
+    # Send the message to the model, using a basic inference configuration.
+    response = bedrockRuntime.converse(
+        modelId=model,
+        messages=conversation,
+        inferenceConfig={"maxTokens":max_token_count,"temperature":temperature,"topP":topp},
+        additionalModelRequestFields={}
+    )
+
+    # Extract and return the response text.
+    generated_text = response["output"]["message"]["content"][0]["text"]
     return(generated_text)
 
 def generate_results_titan(prompt, model='amazon.titan-tg1-large', max_token_count=2048, topp=1, temperature=0):
@@ -220,6 +242,7 @@ def generate_results_google_gemini(prompt,model='gemini-1.5-flash',temperature=0
 def get_model_type(model):
     #USE_MODEL="titan" or "openai" or "google_gemini" or "ollama" or "llama31" or "anthropic"
     modelToType = { "amazon.titan-tg1-large": "titan",
+                    "mistral.mistral-large-2407-v1:0": "mistral",
                     "meta.llama3-1-405b-instruct-v1:0": "llama31",
                     "meta.llama3-1-70b-instruct-v1:0": "llama31",
                     "meta.llama3-1-8b-instruct-v1:0": "llama31",

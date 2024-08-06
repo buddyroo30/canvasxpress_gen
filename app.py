@@ -210,6 +210,8 @@ def ask():
         generated_text = "NOTHINGYET"
         if USE_MODEL == "titan":
             generated_text = llm.generate_results_titan(prompt,model=model, max_token_count=int(max_new_tokens), topp=float(topp), temperature=float(temperature))
+        elif USE_MODEL == "mistral":
+            generated_text = llm.generate_results_mistral(prompt,model=model,max_token_count=int(max_new_tokens),topp=float(topp),temperature=float(temperature))
         elif USE_MODEL == "llama31":
             generated_text = llm.generate_results_llama31(prompt,model=model, max_token_count=int(max_new_tokens), topp=float(topp), temperature=float(temperature))
         elif USE_MODEL == "anthropic":
