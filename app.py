@@ -113,8 +113,11 @@ def ask():
     datafile_contents = []
     headerRow = []
     in_datafile_contents = request.values.get('datafile_contents')
+    in_header = request.values.get('header')
     if not utils.empty(in_datafile_contents):
         datafile_contents = json.loads(in_datafile_contents)
+    elif not utils.empty(in_header):
+        datafile_contents = json.loads(in_header)
     elif 'datafile_upload' in request.files and request.files['datafile_upload'].filename != '':
         datafile = request.files['datafile_upload']
         datafilename = secure_filename(datafile.filename)
@@ -122,7 +125,7 @@ def ask():
         datafile.save(upload_filepath)
         datafile_contents = utils.parse_file(upload_filepath)
     else:
-        errResp = { 'text': "Error: you must upload a data file to visualize", 'success': False, 'config_generated_flag': False, }
+        errResp = { 'text': "Error: you must upload a data file to visualize or pass in a header", 'success': False, 'config_generated_flag': False, }
         return(json.dumps(errResp))
 
     if len(datafile_contents) > 0:
