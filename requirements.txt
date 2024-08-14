@@ -13,6 +13,7 @@ pymilvus
 pymilvus[model]
 google-generativeai
 awscli
+peft
 #langchain
 #langchain-community
 #faiss-cpu
