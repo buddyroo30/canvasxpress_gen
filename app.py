@@ -145,7 +145,13 @@ def ask():
     target = request.values.get('target')
     client = request.values.get('client')
     callback = request.values.get('callback')
+    num_few_shots = request.values.get('num_few_shots')
     curDatetime = str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
+
+    if utils.empty(num_few_shots):
+        num_few_shots = 25
+    else:
+        num_few_shots = int(num_few_shots)
 
     if not utils.empty(filter_prompt_from_few_shots) and filter_prompt_from_few_shots == 'True':
         filter_prompt_from_few_shots = True
@@ -210,7 +216,7 @@ def ask():
     else:
 
         milvusClient = llm.getMilvusClient(app)
-        fewShotTxt = llm.getFewShots(milvusClient, prompt,numFewShots=25,filterPrompt=filter_prompt_from_few_shots)
+        fewShotTxt = llm.getFewShots(milvusClient, prompt,numFewShots=num_few_shots,filterPrompt=filter_prompt_from_few_shots)
         prompt = llm.generate_prompt(prompt,str(headerRow), schema_info_file="schema.txt",prompt_file="prompt.md",few_shot_examples_string=fewShotTxt)
 
         generated_text = "NOTHINGYET"
