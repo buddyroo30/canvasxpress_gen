@@ -30,7 +30,7 @@ There are some files that support the core interactions with the LLM, i.e. that 
 
 # Supported LLMs and .env file
 
-We have written the code to be able to work with a number of well-known LLMs from OpenAI (GPT-4o, GPT-4-32K, etc.), Google (Gemini 1.5 Flash and Pro), Anthropic and others. To use the OpenAI models you will need an OpenAI token, and similarly to use the Google Gemini models you will need a Google token; most of the other models are supported through AWS BedRock (so you would need to configure AWS credentials to use them), and Ollama models are also supported if you wanted to run a model yourself. For using the OpenAI models and/or Google Gemini models you should set environment variable values in a .env file (which will get read in using Python's python-dotenv package):
+We have written the code to be able to work with a number of well-known LLMs from OpenAI (GPT-4o, GPT-4-32K, etc.), Google (Gemini 1.5 Flash and Pro), Anthropic and others. To use the OpenAI models you will need an OpenAI token, and similarly to use the Google Gemini models you will need a Google token; most of the other models are supported through [AWS Bedrock](https://aws.amazon.com/bedrock/) (so you would need to configure AWS credentials to use them), and [Ollama](https://ollama.com/) models are also supported if you wanted to run a model yourself. For using the OpenAI models and/or Google Gemini models you should set environment variable values in a .env file (which will get read in using Python's python-dotenv package):
 
     GOOGLE_API_KEY=....
     AZURE_OPENAI_API_KEY=...
