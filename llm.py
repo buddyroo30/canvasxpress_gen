@@ -13,6 +13,16 @@ load_dotenv()
 
 google_api_key = os.environ.get("GOOGLE_API_KEY")
 
+devFlag = os.environ.get("DEV")
+if devFlag == 'True':
+    devFlag = True
+else:
+    devFlag = False
+
+vectorDbFile = "/root/.cache/canvasxpress_llm.db"
+if devFlag:
+    vectorDbFile = "/root/.cache/canvasxpress_llm_dev.db"
+
 bge_m3_ef = BGEM3EmbeddingFunction(
     model_name='BAAI/bge-m3', # Specify the model name
     device='cpu', # Specify the device to use, e.g., 'cpu' or 'cuda:0'
@@ -21,8 +31,7 @@ bge_m3_ef = BGEM3EmbeddingFunction(
 
 def getMilvusClient(app):
     if 'MILVUS_CLIENT' not in app.config:
-        fewShotDbLoc = "/root/.cache/canvasxpress_llm.db"
-        app.config['MILVUS_CLIENT'] = MilvusClient(fewShotDbLoc)
+        app.config['MILVUS_CLIENT'] = MilvusClient(vectorDbFile)
     return(app.config['MILVUS_CLIENT'])
 
 def getAllFewShots(milvusClient, format='text'):

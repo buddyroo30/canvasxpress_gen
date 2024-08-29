@@ -1,0 +1,4436 @@
+{
+  "data": [
+    [
+      "Id",
+      "class",
+      "cty",
+      "cyl",
+      "drv",
+      "fl",
+      "manufacturer",
+      "model",
+      "trans",
+      "year",
+      "displ",
+      "hwy"
+    ],
+    [
+      1,
+      "compact",
+      18,
+      4,
+      "f",
+      "p",
+      "audi",
+      "a4",
+      "auto(l5)",
+      1999,
+      1.8,
+      29
+    ],
+    [
+      2,
+      "compact",
+      21,
+      4,
+      "f",
+      "p",
+      "audi",
+      "a4",
+      "manual(m5)",
+      1999,
+      1.8,
+      29
+    ],
+    [
+      3,
+      "compact",
+      20,
+      4,
+      "f",
+      "p",
+      "audi",
+      "a4",
+      "manual(m6)",
+      2008,
+      2,
+      31
+    ],
+    [
+      4,
+      "compact",
+      21,
+      4,
+      "f",
+      "p",
+      "audi",
+      "a4",
+      "auto(av)",
+      2008,
+      2,
+      30
+    ],
+    [
+      5,
+      "compact",
+      16,
+      6,
+      "f",
+      "p",
+      "audi",
+      "a4",
+      "auto(l5)",
+      1999,
+      2.8,
+      26
+    ],
+    [
+      6,
+      "compact",
+      18,
+      6,
+      "f",
+      "p",
+      "audi",
+      "a4",
+      "manual(m5)",
+      1999,
+      2.8,
+      26
+    ],
+    [
+      7,
+      "compact",
+      18,
+      6,
+      "f",
+      "p",
+      "audi",
+      "a4",
+      "auto(av)",
+      2008,
+      3.1,
+      27
+    ],
+    [
+      8,
+      "compact",
+      18,
+      4,
+      "4",
+      "p",
+      "audi",
+      "a4 quattro",
+      "manual(m5)",
+      1999,
+      1.8,
+      26
+    ],
+    [
+      9,
+      "compact",
+      16,
+      4,
+      "4",
+      "p",
+      "audi",
+      "a4 quattro",
+      "auto(l5)",
+      1999,
+      1.8,
+      25
+    ],
+    [
+      10,
+      "compact",
+      20,
+      4,
+      "4",
+      "p",
+      "audi",
+      "a4 quattro",
+      "manual(m6)",
+      2008,
+      2,
+      28
+    ],
+    [
+      11,
+      "compact",
+      19,
+      4,
+      "4",
+      "p",
+      "audi",
+      "a4 quattro",
+      "auto(s6)",
+      2008,
+      2,
+      27
+    ],
+    [
+      12,
+      "compact",
+      15,
+      6,
+      "4",
+      "p",
+      "audi",
+      "a4 quattro",
+      "auto(l5)",
+      1999,
+      2.8,
+      25
+    ],
+    [
+      13,
+      "compact",
+      17,
+      6,
+      "4",
+      "p",
+      "audi",
+      "a4 quattro",
+      "manual(m5)",
+      1999,
+      2.8,
+      25
+    ],
+    [
+      14,
+      "compact",
+      17,
+      6,
+      "4",
+      "p",
+      "audi",
+      "a4 quattro",
+      "auto(s6)",
+      2008,
+      3.1,
+      25
+    ],
+    [
+      15,
+      "compact",
+      15,
+      6,
+      "4",
+      "p",
+      "audi",
+      "a4 quattro",
+      "manual(m6)",
+      2008,
+      3.1,
+      25
+    ],
+    [
+      16,
+      "midsize",
+      15,
+      6,
+      "4",
+      "p",
+      "audi",
+      "a6 quattro",
+      "auto(l5)",
+      1999,
+      2.8,
+      24
+    ],
+    [
+      17,
+      "midsize",
+      17,
+      6,
+      "4",
+      "p",
+      "audi",
+      "a6 quattro",
+      "auto(s6)",
+      2008,
+      3.1,
+      25
+    ],
+    [
+      18,
+      "midsize",
+      16,
+      8,
+      "4",
+      "p",
+      "audi",
+      "a6 quattro",
+      "auto(s6)",
+      2008,
+      4.2,
+      23
+    ],
+    [
+      19,
+      "suv",
+      14,
+      8,
+      "r",
+      "r",
+      "chevrolet",
+      "c1500 suburban 2wd",
+      "auto(l4)",
+      2008,
+      5.3,
+      20
+    ],
+    [
+      20,
+      "suv",
+      11,
+      8,
+      "r",
+      "e",
+      "chevrolet",
+      "c1500 suburban 2wd",
+      "auto(l4)",
+      2008,
+      5.3,
+      15
+    ],
+    [
+      21,
+      "suv",
+      14,
+      8,
+      "r",
+      "r",
+      "chevrolet",
+      "c1500 suburban 2wd",
+      "auto(l4)",
+      2008,
+      5.3,
+      20
+    ],
+    [
+      22,
+      "suv",
+      13,
+      8,
+      "r",
+      "r",
+      "chevrolet",
+      "c1500 suburban 2wd",
+      "auto(l4)",
+      1999,
+      5.7,
+      17
+    ],
+    [
+      23,
+      "suv",
+      12,
+      8,
+      "r",
+      "r",
+      "chevrolet",
+      "c1500 suburban 2wd",
+      "auto(l4)",
+      2008,
+      6,
+      17
+    ],
+    [
+      24,
+      "2seater",
+      16,
+      8,
+      "r",
+      "p",
+      "chevrolet",
+      "corvette",
+      "manual(m6)",
+      1999,
+      5.7,
+      26
+    ],
+    [
+      25,
+      "2seater",
+      15,
+      8,
+      "r",
+      "p",
+      "chevrolet",
+      "corvette",
+      "auto(l4)",
+      1999,
+      5.7,
+      23
+    ],
+    [
+      26,
+      "2seater",
+      16,
+      8,
+      "r",
+      "p",
+      "chevrolet",
+      "corvette",
+      "manual(m6)",
+      2008,
+      6.2,
+      26
+    ],
+    [
+      27,
+      "2seater",
+      15,
+      8,
+      "r",
+      "p",
+      "chevrolet",
+      "corvette",
+      "auto(s6)",
+      2008,
+      6.2,
+      25
+    ],
+    [
+      28,
+      "2seater",
+      15,
+      8,
+      "r",
+      "p",
+      "chevrolet",
+      "corvette",
+      "manual(m6)",
+      2008,
+      7,
+      24
+    ],
+    [
+      29,
+      "suv",
+      14,
+      8,
+      "4",
+      "r",
+      "chevrolet",
+      "k1500 tahoe 4wd",
+      "auto(l4)",
+      2008,
+      5.3,
+      19
+    ],
+    [
+      30,
+      "suv",
+      11,
+      8,
+      "4",
+      "e",
+      "chevrolet",
+      "k1500 tahoe 4wd",
+      "auto(l4)",
+      2008,
+      5.3,
+      14
+    ],
+    [
+      31,
+      "suv",
+      11,
+      8,
+      "4",
+      "r",
+      "chevrolet",
+      "k1500 tahoe 4wd",
+      "auto(l4)",
+      1999,
+      5.7,
+      15
+    ],
+    [
+      32,
+      "suv",
+      14,
+      8,
+      "4",
+      "d",
+      "chevrolet",
+      "k1500 tahoe 4wd",
+      "auto(l4)",
+      1999,
+      6.5,
+      17
+    ],
+    [
+      33,
+      "midsize",
+      19,
+      4,
+      "f",
+      "r",
+      "chevrolet",
+      "malibu",
+      "auto(l4)",
+      1999,
+      2.4,
+      27
+    ],
+    [
+      34,
+      "midsize",
+      22,
+      4,
+      "f",
+      "r",
+      "chevrolet",
+      "malibu",
+      "auto(l4)",
+      2008,
+      2.4,
+      30
+    ],
+    [
+      35,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "chevrolet",
+      "malibu",
+      "auto(l4)",
+      1999,
+      3.1,
+      26
+    ],
+    [
+      36,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "chevrolet",
+      "malibu",
+      "auto(l4)",
+      2008,
+      3.5,
+      29
+    ],
+    [
+      37,
+      "midsize",
+      17,
+      6,
+      "f",
+      "r",
+      "chevrolet",
+      "malibu",
+      "auto(s6)",
+      2008,
+      3.6,
+      26
+    ],
+    [
+      38,
+      "minivan",
+      18,
+      4,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l3)",
+      1999,
+      2.4,
+      24
+    ],
+    [
+      39,
+      "minivan",
+      17,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l4)",
+      1999,
+      3,
+      24
+    ],
+    [
+      40,
+      "minivan",
+      16,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l4)",
+      1999,
+      3.3,
+      22
+    ],
+    [
+      41,
+      "minivan",
+      16,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l4)",
+      1999,
+      3.3,
+      22
+    ],
+    [
+      42,
+      "minivan",
+      17,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l4)",
+      2008,
+      3.3,
+      24
+    ],
+    [
+      43,
+      "minivan",
+      17,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l4)",
+      2008,
+      3.3,
+      24
+    ],
+    [
+      44,
+      "minivan",
+      11,
+      6,
+      "f",
+      "e",
+      "dodge",
+      "caravan 2wd",
+      "auto(l4)",
+      2008,
+      3.3,
+      17
+    ],
+    [
+      45,
+      "minivan",
+      15,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l4)",
+      1999,
+      3.8,
+      22
+    ],
+    [
+      46,
+      "minivan",
+      15,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l4)",
+      1999,
+      3.8,
+      21
+    ],
+    [
+      47,
+      "minivan",
+      16,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l6)",
+      2008,
+      3.8,
+      23
+    ],
+    [
+      48,
+      "minivan",
+      16,
+      6,
+      "f",
+      "r",
+      "dodge",
+      "caravan 2wd",
+      "auto(l6)",
+      2008,
+      4,
+      23
+    ],
+    [
+      49,
+      "pickup",
+      15,
+      6,
+      "4",
+      "r",
+      "dodge",
+      "dakota pickup 4wd",
+      "manual(m6)",
+      2008,
+      3.7,
+      19
+    ],
+    [
+      50,
+      "pickup",
+      14,
+      6,
+      "4",
+      "r",
+      "dodge",
+      "dakota pickup 4wd",
+      "auto(l4)",
+      2008,
+      3.7,
+      18
+    ],
+    [
+      51,
+      "pickup",
+      13,
+      6,
+      "4",
+      "r",
+      "dodge",
+      "dakota pickup 4wd",
+      "auto(l4)",
+      1999,
+      3.9,
+      17
+    ],
+    [
+      52,
+      "pickup",
+      14,
+      6,
+      "4",
+      "r",
+      "dodge",
+      "dakota pickup 4wd",
+      "manual(m5)",
+      1999,
+      3.9,
+      17
+    ],
+    [
+      53,
+      "pickup",
+      14,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "dakota pickup 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      19
+    ],
+    [
+      54,
+      "pickup",
+      14,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "dakota pickup 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      19
+    ],
+    [
+      55,
+      "pickup",
+      9,
+      8,
+      "4",
+      "e",
+      "dodge",
+      "dakota pickup 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      12
+    ],
+    [
+      56,
+      "pickup",
+      11,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "dakota pickup 4wd",
+      "manual(m5)",
+      1999,
+      5.2,
+      17
+    ],
+    [
+      57,
+      "pickup",
+      11,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "dakota pickup 4wd",
+      "auto(l4)",
+      1999,
+      5.2,
+      15
+    ],
+    [
+      58,
+      "suv",
+      13,
+      6,
+      "4",
+      "r",
+      "dodge",
+      "durango 4wd",
+      "auto(l4)",
+      1999,
+      3.9,
+      17
+    ],
+    [
+      59,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "durango 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      17
+    ],
+    [
+      60,
+      "suv",
+      9,
+      8,
+      "4",
+      "e",
+      "dodge",
+      "durango 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      12
+    ],
+    [
+      61,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "durango 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      17
+    ],
+    [
+      62,
+      "suv",
+      11,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "durango 4wd",
+      "auto(l4)",
+      1999,
+      5.2,
+      16
+    ],
+    [
+      63,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "durango 4wd",
+      "auto(l5)",
+      2008,
+      5.7,
+      18
+    ],
+    [
+      64,
+      "suv",
+      11,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "durango 4wd",
+      "auto(l4)",
+      1999,
+      5.9,
+      15
+    ],
+    [
+      65,
+      "pickup",
+      12,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "manual(m6)",
+      2008,
+      4.7,
+      16
+    ],
+    [
+      66,
+      "pickup",
+      9,
+      8,
+      "4",
+      "e",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      12
+    ],
+    [
+      67,
+      "pickup",
+      13,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      17
+    ],
+    [
+      68,
+      "pickup",
+      13,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      17
+    ],
+    [
+      69,
+      "pickup",
+      12,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "manual(m6)",
+      2008,
+      4.7,
+      16
+    ],
+    [
+      70,
+      "pickup",
+      9,
+      8,
+      "4",
+      "e",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "manual(m6)",
+      2008,
+      4.7,
+      12
+    ],
+    [
+      71,
+      "pickup",
+      11,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "auto(l4)",
+      1999,
+      5.2,
+      15
+    ],
+    [
+      72,
+      "pickup",
+      11,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "manual(m5)",
+      1999,
+      5.2,
+      16
+    ],
+    [
+      73,
+      "pickup",
+      13,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "auto(l5)",
+      2008,
+      5.7,
+      17
+    ],
+    [
+      74,
+      "pickup",
+      11,
+      8,
+      "4",
+      "r",
+      "dodge",
+      "ram 1500 pickup 4wd",
+      "auto(l4)",
+      1999,
+      5.9,
+      15
+    ],
+    [
+      75,
+      "suv",
+      11,
+      8,
+      "r",
+      "r",
+      "ford",
+      "expedition 2wd",
+      "auto(l4)",
+      1999,
+      4.6,
+      17
+    ],
+    [
+      76,
+      "suv",
+      11,
+      8,
+      "r",
+      "r",
+      "ford",
+      "expedition 2wd",
+      "auto(l4)",
+      1999,
+      5.4,
+      17
+    ],
+    [
+      77,
+      "suv",
+      12,
+      8,
+      "r",
+      "r",
+      "ford",
+      "expedition 2wd",
+      "auto(l6)",
+      2008,
+      5.4,
+      18
+    ],
+    [
+      78,
+      "suv",
+      14,
+      6,
+      "4",
+      "r",
+      "ford",
+      "explorer 4wd",
+      "auto(l5)",
+      1999,
+      4,
+      17
+    ],
+    [
+      79,
+      "suv",
+      15,
+      6,
+      "4",
+      "r",
+      "ford",
+      "explorer 4wd",
+      "manual(m5)",
+      1999,
+      4,
+      19
+    ],
+    [
+      80,
+      "suv",
+      14,
+      6,
+      "4",
+      "r",
+      "ford",
+      "explorer 4wd",
+      "auto(l5)",
+      1999,
+      4,
+      17
+    ],
+    [
+      81,
+      "suv",
+      13,
+      6,
+      "4",
+      "r",
+      "ford",
+      "explorer 4wd",
+      "auto(l5)",
+      2008,
+      4,
+      19
+    ],
+    [
+      82,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "ford",
+      "explorer 4wd",
+      "auto(l6)",
+      2008,
+      4.6,
+      19
+    ],
+    [
+      83,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "ford",
+      "explorer 4wd",
+      "auto(l4)",
+      1999,
+      5,
+      17
+    ],
+    [
+      84,
+      "pickup",
+      14,
+      6,
+      "4",
+      "r",
+      "ford",
+      "f150 pickup 4wd",
+      "auto(l4)",
+      1999,
+      4.2,
+      17
+    ],
+    [
+      85,
+      "pickup",
+      14,
+      6,
+      "4",
+      "r",
+      "ford",
+      "f150 pickup 4wd",
+      "manual(m5)",
+      1999,
+      4.2,
+      17
+    ],
+    [
+      86,
+      "pickup",
+      13,
+      8,
+      "4",
+      "r",
+      "ford",
+      "f150 pickup 4wd",
+      "manual(m5)",
+      1999,
+      4.6,
+      16
+    ],
+    [
+      87,
+      "pickup",
+      13,
+      8,
+      "4",
+      "r",
+      "ford",
+      "f150 pickup 4wd",
+      "auto(l4)",
+      1999,
+      4.6,
+      16
+    ],
+    [
+      88,
+      "pickup",
+      13,
+      8,
+      "4",
+      "r",
+      "ford",
+      "f150 pickup 4wd",
+      "auto(l4)",
+      2008,
+      4.6,
+      17
+    ],
+    [
+      89,
+      "pickup",
+      11,
+      8,
+      "4",
+      "r",
+      "ford",
+      "f150 pickup 4wd",
+      "auto(l4)",
+      1999,
+      5.4,
+      15
+    ],
+    [
+      90,
+      "pickup",
+      13,
+      8,
+      "4",
+      "r",
+      "ford",
+      "f150 pickup 4wd",
+      "auto(l4)",
+      2008,
+      5.4,
+      17
+    ],
+    [
+      91,
+      "subcompact",
+      18,
+      6,
+      "r",
+      "r",
+      "ford",
+      "mustang",
+      "manual(m5)",
+      1999,
+      3.8,
+      26
+    ],
+    [
+      92,
+      "subcompact",
+      18,
+      6,
+      "r",
+      "r",
+      "ford",
+      "mustang",
+      "auto(l4)",
+      1999,
+      3.8,
+      25
+    ],
+    [
+      93,
+      "subcompact",
+      17,
+      6,
+      "r",
+      "r",
+      "ford",
+      "mustang",
+      "manual(m5)",
+      2008,
+      4,
+      26
+    ],
+    [
+      94,
+      "subcompact",
+      16,
+      6,
+      "r",
+      "r",
+      "ford",
+      "mustang",
+      "auto(l5)",
+      2008,
+      4,
+      24
+    ],
+    [
+      95,
+      "subcompact",
+      15,
+      8,
+      "r",
+      "r",
+      "ford",
+      "mustang",
+      "auto(l4)",
+      1999,
+      4.6,
+      21
+    ],
+    [
+      96,
+      "subcompact",
+      15,
+      8,
+      "r",
+      "r",
+      "ford",
+      "mustang",
+      "manual(m5)",
+      1999,
+      4.6,
+      22
+    ],
+    [
+      97,
+      "subcompact",
+      15,
+      8,
+      "r",
+      "r",
+      "ford",
+      "mustang",
+      "manual(m5)",
+      2008,
+      4.6,
+      23
+    ],
+    [
+      98,
+      "subcompact",
+      15,
+      8,
+      "r",
+      "r",
+      "ford",
+      "mustang",
+      "auto(l5)",
+      2008,
+      4.6,
+      22
+    ],
+    [
+      99,
+      "subcompact",
+      14,
+      8,
+      "r",
+      "p",
+      "ford",
+      "mustang",
+      "manual(m6)",
+      2008,
+      5.4,
+      20
+    ],
+    [
+      100,
+      "subcompact",
+      28,
+      4,
+      "f",
+      "r",
+      "honda",
+      "civic",
+      "manual(m5)",
+      1999,
+      1.6,
+      33
+    ],
+    [
+      101,
+      "subcompact",
+      24,
+      4,
+      "f",
+      "r",
+      "honda",
+      "civic",
+      "auto(l4)",
+      1999,
+      1.6,
+      32
+    ],
+    [
+      102,
+      "subcompact",
+      25,
+      4,
+      "f",
+      "r",
+      "honda",
+      "civic",
+      "manual(m5)",
+      1999,
+      1.6,
+      32
+    ],
+    [
+      103,
+      "subcompact",
+      23,
+      4,
+      "f",
+      "p",
+      "honda",
+      "civic",
+      "manual(m5)",
+      1999,
+      1.6,
+      29
+    ],
+    [
+      104,
+      "subcompact",
+      24,
+      4,
+      "f",
+      "r",
+      "honda",
+      "civic",
+      "auto(l4)",
+      1999,
+      1.6,
+      32
+    ],
+    [
+      105,
+      "subcompact",
+      26,
+      4,
+      "f",
+      "r",
+      "honda",
+      "civic",
+      "manual(m5)",
+      2008,
+      1.8,
+      34
+    ],
+    [
+      106,
+      "subcompact",
+      25,
+      4,
+      "f",
+      "r",
+      "honda",
+      "civic",
+      "auto(l5)",
+      2008,
+      1.8,
+      36
+    ],
+    [
+      107,
+      "subcompact",
+      24,
+      4,
+      "f",
+      "c",
+      "honda",
+      "civic",
+      "auto(l5)",
+      2008,
+      1.8,
+      36
+    ],
+    [
+      108,
+      "subcompact",
+      21,
+      4,
+      "f",
+      "p",
+      "honda",
+      "civic",
+      "manual(m6)",
+      2008,
+      2,
+      29
+    ],
+    [
+      109,
+      "midsize",
+      18,
+      4,
+      "f",
+      "r",
+      "hyundai",
+      "sonata",
+      "auto(l4)",
+      1999,
+      2.4,
+      26
+    ],
+    [
+      110,
+      "midsize",
+      18,
+      4,
+      "f",
+      "r",
+      "hyundai",
+      "sonata",
+      "manual(m5)",
+      1999,
+      2.4,
+      27
+    ],
+    [
+      111,
+      "midsize",
+      21,
+      4,
+      "f",
+      "r",
+      "hyundai",
+      "sonata",
+      "auto(l4)",
+      2008,
+      2.4,
+      30
+    ],
+    [
+      112,
+      "midsize",
+      21,
+      4,
+      "f",
+      "r",
+      "hyundai",
+      "sonata",
+      "manual(m5)",
+      2008,
+      2.4,
+      31
+    ],
+    [
+      113,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "hyundai",
+      "sonata",
+      "auto(l4)",
+      1999,
+      2.5,
+      26
+    ],
+    [
+      114,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "hyundai",
+      "sonata",
+      "manual(m5)",
+      1999,
+      2.5,
+      26
+    ],
+    [
+      115,
+      "midsize",
+      19,
+      6,
+      "f",
+      "r",
+      "hyundai",
+      "sonata",
+      "auto(l5)",
+      2008,
+      3.3,
+      28
+    ],
+    [
+      116,
+      "subcompact",
+      19,
+      4,
+      "f",
+      "r",
+      "hyundai",
+      "tiburon",
+      "auto(l4)",
+      1999,
+      2,
+      26
+    ],
+    [
+      117,
+      "subcompact",
+      19,
+      4,
+      "f",
+      "r",
+      "hyundai",
+      "tiburon",
+      "manual(m5)",
+      1999,
+      2,
+      29
+    ],
+    [
+      118,
+      "subcompact",
+      20,
+      4,
+      "f",
+      "r",
+      "hyundai",
+      "tiburon",
+      "manual(m5)",
+      2008,
+      2,
+      28
+    ],
+    [
+      119,
+      "subcompact",
+      20,
+      4,
+      "f",
+      "r",
+      "hyundai",
+      "tiburon",
+      "auto(l4)",
+      2008,
+      2,
+      27
+    ],
+    [
+      120,
+      "subcompact",
+      17,
+      6,
+      "f",
+      "r",
+      "hyundai",
+      "tiburon",
+      "auto(l4)",
+      2008,
+      2.7,
+      24
+    ],
+    [
+      121,
+      "subcompact",
+      16,
+      6,
+      "f",
+      "r",
+      "hyundai",
+      "tiburon",
+      "manual(m6)",
+      2008,
+      2.7,
+      24
+    ],
+    [
+      122,
+      "subcompact",
+      17,
+      6,
+      "f",
+      "r",
+      "hyundai",
+      "tiburon",
+      "manual(m5)",
+      2008,
+      2.7,
+      24
+    ],
+    [
+      123,
+      "suv",
+      17,
+      6,
+      "4",
+      "d",
+      "jeep",
+      "grand cherokee 4wd",
+      "auto(l5)",
+      2008,
+      3,
+      22
+    ],
+    [
+      124,
+      "suv",
+      15,
+      6,
+      "4",
+      "r",
+      "jeep",
+      "grand cherokee 4wd",
+      "auto(l5)",
+      2008,
+      3.7,
+      19
+    ],
+    [
+      125,
+      "suv",
+      15,
+      6,
+      "4",
+      "r",
+      "jeep",
+      "grand cherokee 4wd",
+      "auto(l4)",
+      1999,
+      4,
+      20
+    ],
+    [
+      126,
+      "suv",
+      14,
+      8,
+      "4",
+      "r",
+      "jeep",
+      "grand cherokee 4wd",
+      "auto(l4)",
+      1999,
+      4.7,
+      17
+    ],
+    [
+      127,
+      "suv",
+      9,
+      8,
+      "4",
+      "e",
+      "jeep",
+      "grand cherokee 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      12
+    ],
+    [
+      128,
+      "suv",
+      14,
+      8,
+      "4",
+      "r",
+      "jeep",
+      "grand cherokee 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      19
+    ],
+    [
+      129,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "jeep",
+      "grand cherokee 4wd",
+      "auto(l5)",
+      2008,
+      5.7,
+      18
+    ],
+    [
+      130,
+      "suv",
+      11,
+      8,
+      "4",
+      "p",
+      "jeep",
+      "grand cherokee 4wd",
+      "auto(l5)",
+      2008,
+      6.1,
+      14
+    ],
+    [
+      131,
+      "suv",
+      11,
+      8,
+      "4",
+      "p",
+      "land rover",
+      "range rover",
+      "auto(l4)",
+      1999,
+      4,
+      15
+    ],
+    [
+      132,
+      "suv",
+      12,
+      8,
+      "4",
+      "r",
+      "land rover",
+      "range rover",
+      "auto(s6)",
+      2008,
+      4.2,
+      18
+    ],
+    [
+      133,
+      "suv",
+      12,
+      8,
+      "4",
+      "r",
+      "land rover",
+      "range rover",
+      "auto(s6)",
+      2008,
+      4.4,
+      18
+    ],
+    [
+      134,
+      "suv",
+      11,
+      8,
+      "4",
+      "p",
+      "land rover",
+      "range rover",
+      "auto(l4)",
+      1999,
+      4.6,
+      15
+    ],
+    [
+      135,
+      "suv",
+      11,
+      8,
+      "r",
+      "r",
+      "lincoln",
+      "navigator 2wd",
+      "auto(l4)",
+      1999,
+      5.4,
+      17
+    ],
+    [
+      136,
+      "suv",
+      11,
+      8,
+      "r",
+      "p",
+      "lincoln",
+      "navigator 2wd",
+      "auto(l4)",
+      1999,
+      5.4,
+      16
+    ],
+    [
+      137,
+      "suv",
+      12,
+      8,
+      "r",
+      "r",
+      "lincoln",
+      "navigator 2wd",
+      "auto(l6)",
+      2008,
+      5.4,
+      18
+    ],
+    [
+      138,
+      "suv",
+      14,
+      6,
+      "4",
+      "r",
+      "mercury",
+      "mountaineer 4wd",
+      "auto(l5)",
+      1999,
+      4,
+      17
+    ],
+    [
+      139,
+      "suv",
+      13,
+      6,
+      "4",
+      "r",
+      "mercury",
+      "mountaineer 4wd",
+      "auto(l5)",
+      2008,
+      4,
+      19
+    ],
+    [
+      140,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "mercury",
+      "mountaineer 4wd",
+      "auto(l6)",
+      2008,
+      4.6,
+      19
+    ],
+    [
+      141,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "mercury",
+      "mountaineer 4wd",
+      "auto(l4)",
+      1999,
+      5,
+      17
+    ],
+    [
+      142,
+      "compact",
+      21,
+      4,
+      "f",
+      "r",
+      "nissan",
+      "altima",
+      "manual(m5)",
+      1999,
+      2.4,
+      29
+    ],
+    [
+      143,
+      "compact",
+      19,
+      4,
+      "f",
+      "r",
+      "nissan",
+      "altima",
+      "auto(l4)",
+      1999,
+      2.4,
+      27
+    ],
+    [
+      144,
+      "midsize",
+      23,
+      4,
+      "f",
+      "r",
+      "nissan",
+      "altima",
+      "auto(av)",
+      2008,
+      2.5,
+      31
+    ],
+    [
+      145,
+      "midsize",
+      23,
+      4,
+      "f",
+      "r",
+      "nissan",
+      "altima",
+      "manual(m6)",
+      2008,
+      2.5,
+      32
+    ],
+    [
+      146,
+      "midsize",
+      19,
+      6,
+      "f",
+      "p",
+      "nissan",
+      "altima",
+      "manual(m6)",
+      2008,
+      3.5,
+      27
+    ],
+    [
+      147,
+      "midsize",
+      19,
+      6,
+      "f",
+      "p",
+      "nissan",
+      "altima",
+      "auto(av)",
+      2008,
+      3.5,
+      26
+    ],
+    [
+      148,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "nissan",
+      "maxima",
+      "auto(l4)",
+      1999,
+      3,
+      26
+    ],
+    [
+      149,
+      "midsize",
+      19,
+      6,
+      "f",
+      "r",
+      "nissan",
+      "maxima",
+      "manual(m5)",
+      1999,
+      3,
+      25
+    ],
+    [
+      150,
+      "midsize",
+      19,
+      6,
+      "f",
+      "p",
+      "nissan",
+      "maxima",
+      "auto(av)",
+      2008,
+      3.5,
+      25
+    ],
+    [
+      151,
+      "suv",
+      14,
+      6,
+      "4",
+      "r",
+      "nissan",
+      "pathfinder 4wd",
+      "auto(l4)",
+      1999,
+      3.3,
+      17
+    ],
+    [
+      152,
+      "suv",
+      15,
+      6,
+      "4",
+      "r",
+      "nissan",
+      "pathfinder 4wd",
+      "manual(m5)",
+      1999,
+      3.3,
+      17
+    ],
+    [
+      153,
+      "suv",
+      14,
+      6,
+      "4",
+      "p",
+      "nissan",
+      "pathfinder 4wd",
+      "auto(l5)",
+      2008,
+      4,
+      20
+    ],
+    [
+      154,
+      "suv",
+      12,
+      8,
+      "4",
+      "p",
+      "nissan",
+      "pathfinder 4wd",
+      "auto(s5)",
+      2008,
+      5.6,
+      18
+    ],
+    [
+      155,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "pontiac",
+      "grand prix",
+      "auto(l4)",
+      1999,
+      3.1,
+      26
+    ],
+    [
+      156,
+      "midsize",
+      16,
+      6,
+      "f",
+      "p",
+      "pontiac",
+      "grand prix",
+      "auto(l4)",
+      1999,
+      3.8,
+      26
+    ],
+    [
+      157,
+      "midsize",
+      17,
+      6,
+      "f",
+      "r",
+      "pontiac",
+      "grand prix",
+      "auto(l4)",
+      1999,
+      3.8,
+      27
+    ],
+    [
+      158,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "pontiac",
+      "grand prix",
+      "auto(l4)",
+      2008,
+      3.8,
+      28
+    ],
+    [
+      159,
+      "midsize",
+      16,
+      8,
+      "f",
+      "p",
+      "pontiac",
+      "grand prix",
+      "auto(s4)",
+      2008,
+      5.3,
+      25
+    ],
+    [
+      160,
+      "suv",
+      18,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "forester awd",
+      "manual(m5)",
+      1999,
+      2.5,
+      25
+    ],
+    [
+      161,
+      "suv",
+      18,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "forester awd",
+      "auto(l4)",
+      1999,
+      2.5,
+      24
+    ],
+    [
+      162,
+      "suv",
+      20,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "forester awd",
+      "manual(m5)",
+      2008,
+      2.5,
+      27
+    ],
+    [
+      163,
+      "suv",
+      19,
+      4,
+      "4",
+      "p",
+      "subaru",
+      "forester awd",
+      "manual(m5)",
+      2008,
+      2.5,
+      25
+    ],
+    [
+      164,
+      "suv",
+      20,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "forester awd",
+      "auto(l4)",
+      2008,
+      2.5,
+      26
+    ],
+    [
+      165,
+      "suv",
+      18,
+      4,
+      "4",
+      "p",
+      "subaru",
+      "forester awd",
+      "auto(l4)",
+      2008,
+      2.5,
+      23
+    ],
+    [
+      166,
+      "subcompact",
+      21,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "impreza awd",
+      "auto(l4)",
+      1999,
+      2.2,
+      26
+    ],
+    [
+      167,
+      "subcompact",
+      19,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "impreza awd",
+      "manual(m5)",
+      1999,
+      2.2,
+      26
+    ],
+    [
+      168,
+      "subcompact",
+      19,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "impreza awd",
+      "manual(m5)",
+      1999,
+      2.5,
+      26
+    ],
+    [
+      169,
+      "subcompact",
+      19,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "impreza awd",
+      "auto(l4)",
+      1999,
+      2.5,
+      26
+    ],
+    [
+      170,
+      "compact",
+      20,
+      4,
+      "4",
+      "p",
+      "subaru",
+      "impreza awd",
+      "auto(s4)",
+      2008,
+      2.5,
+      25
+    ],
+    [
+      171,
+      "compact",
+      20,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "impreza awd",
+      "auto(s4)",
+      2008,
+      2.5,
+      27
+    ],
+    [
+      172,
+      "compact",
+      19,
+      4,
+      "4",
+      "p",
+      "subaru",
+      "impreza awd",
+      "manual(m5)",
+      2008,
+      2.5,
+      25
+    ],
+    [
+      173,
+      "compact",
+      20,
+      4,
+      "4",
+      "r",
+      "subaru",
+      "impreza awd",
+      "manual(m5)",
+      2008,
+      2.5,
+      27
+    ],
+    [
+      174,
+      "suv",
+      15,
+      4,
+      "4",
+      "r",
+      "toyota",
+      "4runner 4wd",
+      "manual(m5)",
+      1999,
+      2.7,
+      20
+    ],
+    [
+      175,
+      "suv",
+      16,
+      4,
+      "4",
+      "r",
+      "toyota",
+      "4runner 4wd",
+      "auto(l4)",
+      1999,
+      2.7,
+      20
+    ],
+    [
+      176,
+      "suv",
+      15,
+      6,
+      "4",
+      "r",
+      "toyota",
+      "4runner 4wd",
+      "auto(l4)",
+      1999,
+      3.4,
+      19
+    ],
+    [
+      177,
+      "suv",
+      15,
+      6,
+      "4",
+      "r",
+      "toyota",
+      "4runner 4wd",
+      "manual(m5)",
+      1999,
+      3.4,
+      17
+    ],
+    [
+      178,
+      "suv",
+      16,
+      6,
+      "4",
+      "r",
+      "toyota",
+      "4runner 4wd",
+      "auto(l5)",
+      2008,
+      4,
+      20
+    ],
+    [
+      179,
+      "suv",
+      14,
+      8,
+      "4",
+      "r",
+      "toyota",
+      "4runner 4wd",
+      "auto(l5)",
+      2008,
+      4.7,
+      17
+    ],
+    [
+      180,
+      "midsize",
+      21,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "camry",
+      "manual(m5)",
+      1999,
+      2.2,
+      29
+    ],
+    [
+      181,
+      "midsize",
+      21,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "camry",
+      "auto(l4)",
+      1999,
+      2.2,
+      27
+    ],
+    [
+      182,
+      "midsize",
+      21,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "camry",
+      "manual(m5)",
+      2008,
+      2.4,
+      31
+    ],
+    [
+      183,
+      "midsize",
+      21,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "camry",
+      "auto(l5)",
+      2008,
+      2.4,
+      31
+    ],
+    [
+      184,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "toyota",
+      "camry",
+      "auto(l4)",
+      1999,
+      3,
+      26
+    ],
+    [
+      185,
+      "midsize",
+      18,
+      6,
+      "f",
+      "r",
+      "toyota",
+      "camry",
+      "manual(m5)",
+      1999,
+      3,
+      26
+    ],
+    [
+      186,
+      "midsize",
+      19,
+      6,
+      "f",
+      "r",
+      "toyota",
+      "camry",
+      "auto(s6)",
+      2008,
+      3.5,
+      28
+    ],
+    [
+      187,
+      "compact",
+      21,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "camry solara",
+      "auto(l4)",
+      1999,
+      2.2,
+      27
+    ],
+    [
+      188,
+      "compact",
+      21,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "camry solara",
+      "manual(m5)",
+      1999,
+      2.2,
+      29
+    ],
+    [
+      189,
+      "compact",
+      21,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "camry solara",
+      "manual(m5)",
+      2008,
+      2.4,
+      31
+    ],
+    [
+      190,
+      "compact",
+      22,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "camry solara",
+      "auto(s5)",
+      2008,
+      2.4,
+      31
+    ],
+    [
+      191,
+      "compact",
+      18,
+      6,
+      "f",
+      "r",
+      "toyota",
+      "camry solara",
+      "auto(l4)",
+      1999,
+      3,
+      26
+    ],
+    [
+      192,
+      "compact",
+      18,
+      6,
+      "f",
+      "r",
+      "toyota",
+      "camry solara",
+      "manual(m5)",
+      1999,
+      3,
+      26
+    ],
+    [
+      193,
+      "compact",
+      18,
+      6,
+      "f",
+      "r",
+      "toyota",
+      "camry solara",
+      "auto(s5)",
+      2008,
+      3.3,
+      27
+    ],
+    [
+      194,
+      "compact",
+      24,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "corolla",
+      "auto(l3)",
+      1999,
+      1.8,
+      30
+    ],
+    [
+      195,
+      "compact",
+      24,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "corolla",
+      "auto(l4)",
+      1999,
+      1.8,
+      33
+    ],
+    [
+      196,
+      "compact",
+      26,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "corolla",
+      "manual(m5)",
+      1999,
+      1.8,
+      35
+    ],
+    [
+      197,
+      "compact",
+      28,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "corolla",
+      "manual(m5)",
+      2008,
+      1.8,
+      37
+    ],
+    [
+      198,
+      "compact",
+      26,
+      4,
+      "f",
+      "r",
+      "toyota",
+      "corolla",
+      "auto(l4)",
+      2008,
+      1.8,
+      35
+    ],
+    [
+      199,
+      "suv",
+      11,
+      8,
+      "4",
+      "r",
+      "toyota",
+      "land cruiser wagon 4wd",
+      "auto(l4)",
+      1999,
+      4.7,
+      15
+    ],
+    [
+      200,
+      "suv",
+      13,
+      8,
+      "4",
+      "r",
+      "toyota",
+      "land cruiser wagon 4wd",
+      "auto(s6)",
+      2008,
+      5.7,
+      18
+    ],
+    [
+      201,
+      "pickup",
+      15,
+      4,
+      "4",
+      "r",
+      "toyota",
+      "toyota tacoma 4wd",
+      "manual(m5)",
+      1999,
+      2.7,
+      20
+    ],
+    [
+      202,
+      "pickup",
+      16,
+      4,
+      "4",
+      "r",
+      "toyota",
+      "toyota tacoma 4wd",
+      "auto(l4)",
+      1999,
+      2.7,
+      20
+    ],
+    [
+      203,
+      "pickup",
+      17,
+      4,
+      "4",
+      "r",
+      "toyota",
+      "toyota tacoma 4wd",
+      "manual(m5)",
+      2008,
+      2.7,
+      22
+    ],
+    [
+      204,
+      "pickup",
+      15,
+      6,
+      "4",
+      "r",
+      "toyota",
+      "toyota tacoma 4wd",
+      "manual(m5)",
+      1999,
+      3.4,
+      17
+    ],
+    [
+      205,
+      "pickup",
+      15,
+      6,
+      "4",
+      "r",
+      "toyota",
+      "toyota tacoma 4wd",
+      "auto(l4)",
+      1999,
+      3.4,
+      19
+    ],
+    [
+      206,
+      "pickup",
+      15,
+      6,
+      "4",
+      "r",
+      "toyota",
+      "toyota tacoma 4wd",
+      "manual(m6)",
+      2008,
+      4,
+      18
+    ],
+    [
+      207,
+      "pickup",
+      16,
+      6,
+      "4",
+      "r",
+      "toyota",
+      "toyota tacoma 4wd",
+      "auto(l5)",
+      2008,
+      4,
+      20
+    ],
+    [
+      208,
+      "compact",
+      21,
+      4,
+      "f",
+      "r",
+      "volkswagen",
+      "gti",
+      "manual(m5)",
+      1999,
+      2,
+      29
+    ],
+    [
+      209,
+      "compact",
+      19,
+      4,
+      "f",
+      "r",
+      "volkswagen",
+      "gti",
+      "auto(l4)",
+      1999,
+      2,
+      26
+    ],
+    [
+      210,
+      "compact",
+      21,
+      4,
+      "f",
+      "p",
+      "volkswagen",
+      "gti",
+      "manual(m6)",
+      2008,
+      2,
+      29
+    ],
+    [
+      211,
+      "compact",
+      22,
+      4,
+      "f",
+      "p",
+      "volkswagen",
+      "gti",
+      "auto(s6)",
+      2008,
+      2,
+      29
+    ],
+    [
+      212,
+      "compact",
+      17,
+      6,
+      "f",
+      "r",
+      "volkswagen",
+      "gti",
+      "manual(m5)",
+      1999,
+      2.8,
+      24
+    ],
+    [
+      213,
+      "compact",
+      33,
+      4,
+      "f",
+      "d",
+      "volkswagen",
+      "jetta",
+      "manual(m5)",
+      1999,
+      1.9,
+      44
+    ],
+    [
+      214,
+      "compact",
+      21,
+      4,
+      "f",
+      "r",
+      "volkswagen",
+      "jetta",
+      "manual(m5)",
+      1999,
+      2,
+      29
+    ],
+    [
+      215,
+      "compact",
+      19,
+      4,
+      "f",
+      "r",
+      "volkswagen",
+      "jetta",
+      "auto(l4)",
+      1999,
+      2,
+      26
+    ],
+    [
+      216,
+      "compact",
+      22,
+      4,
+      "f",
+      "p",
+      "volkswagen",
+      "jetta",
+      "auto(s6)",
+      2008,
+      2,
+      29
+    ],
+    [
+      217,
+      "compact",
+      21,
+      4,
+      "f",
+      "p",
+      "volkswagen",
+      "jetta",
+      "manual(m6)",
+      2008,
+      2,
+      29
+    ],
+    [
+      218,
+      "compact",
+      21,
+      5,
+      "f",
+      "r",
+      "volkswagen",
+      "jetta",
+      "auto(s6)",
+      2008,
+      2.5,
+      29
+    ],
+    [
+      219,
+      "compact",
+      21,
+      5,
+      "f",
+      "r",
+      "volkswagen",
+      "jetta",
+      "manual(m5)",
+      2008,
+      2.5,
+      29
+    ],
+    [
+      220,
+      "compact",
+      16,
+      6,
+      "f",
+      "r",
+      "volkswagen",
+      "jetta",
+      "auto(l4)",
+      1999,
+      2.8,
+      23
+    ],
+    [
+      221,
+      "compact",
+      17,
+      6,
+      "f",
+      "r",
+      "volkswagen",
+      "jetta",
+      "manual(m5)",
+      1999,
+      2.8,
+      24
+    ],
+    [
+      222,
+      "subcompact",
+      35,
+      4,
+      "f",
+      "d",
+      "volkswagen",
+      "new beetle",
+      "manual(m5)",
+      1999,
+      1.9,
+      44
+    ],
+    [
+      223,
+      "subcompact",
+      29,
+      4,
+      "f",
+      "d",
+      "volkswagen",
+      "new beetle",
+      "auto(l4)",
+      1999,
+      1.9,
+      41
+    ],
+    [
+      224,
+      "subcompact",
+      21,
+      4,
+      "f",
+      "r",
+      "volkswagen",
+      "new beetle",
+      "manual(m5)",
+      1999,
+      2,
+      29
+    ],
+    [
+      225,
+      "subcompact",
+      19,
+      4,
+      "f",
+      "r",
+      "volkswagen",
+      "new beetle",
+      "auto(l4)",
+      1999,
+      2,
+      26
+    ],
+    [
+      226,
+      "subcompact",
+      20,
+      5,
+      "f",
+      "r",
+      "volkswagen",
+      "new beetle",
+      "manual(m5)",
+      2008,
+      2.5,
+      28
+    ],
+    [
+      227,
+      "subcompact",
+      20,
+      5,
+      "f",
+      "r",
+      "volkswagen",
+      "new beetle",
+      "auto(s6)",
+      2008,
+      2.5,
+      29
+    ],
+    [
+      228,
+      "midsize",
+      21,
+      4,
+      "f",
+      "p",
+      "volkswagen",
+      "passat",
+      "manual(m5)",
+      1999,
+      1.8,
+      29
+    ],
+    [
+      229,
+      "midsize",
+      18,
+      4,
+      "f",
+      "p",
+      "volkswagen",
+      "passat",
+      "auto(l5)",
+      1999,
+      1.8,
+      29
+    ],
+    [
+      230,
+      "midsize",
+      19,
+      4,
+      "f",
+      "p",
+      "volkswagen",
+      "passat",
+      "auto(s6)",
+      2008,
+      2,
+      28
+    ],
+    [
+      231,
+      "midsize",
+      21,
+      4,
+      "f",
+      "p",
+      "volkswagen",
+      "passat",
+      "manual(m6)",
+      2008,
+      2,
+      29
+    ],
+    [
+      232,
+      "midsize",
+      16,
+      6,
+      "f",
+      "p",
+      "volkswagen",
+      "passat",
+      "auto(l5)",
+      1999,
+      2.8,
+      26
+    ],
+    [
+      233,
+      "midsize",
+      18,
+      6,
+      "f",
+      "p",
+      "volkswagen",
+      "passat",
+      "manual(m5)",
+      1999,
+      2.8,
+      26
+    ],
+    [
+      234,
+      "midsize",
+      17,
+      6,
+      "f",
+      "p",
+      "volkswagen",
+      "passat",
+      "auto(s6)",
+      2008,
+      3.6,
+      26
+    ]
+  ],
+  "Questions": [
+    {
+      "Type": "Area",
+      "Answer": {
+        "title": "Simple Area Graph",
+        "graphType": "Area",
+        "xAxis": [
+          "hwy"
+        ],
+        "graphOrientation": "vertical",
+        "showLegend": false
+      },
+      "Question": "Area graph of hwy with title Simple Area Graph and no legend. Orient the graph vertically.",
+      "QuestionGPT4": "The visualization is titled \"Simple Area Graph\". It is an Area type graph with a vertical orientation. The x-axis displays the \"hwy\" data. The legend is not shown in this graph."
+    },
+    {
+      "Type": "Area",
+      "Answer": {
+        "graphType": "Area",
+        "xAxis": [
+          "cty",
+          "hwy"
+        ],
+        "graphOrientation": "vertical"
+      },
+      "Question": "Overlapping area graph of cty and hwy. Orient the graph vertically.",
+      "QuestionGPT4": "Create an Area graph with a vertical orientation. The x-axis displays the \"cty\" and \"hwy\" data."
+    },
+    {
+      "Type": "Area",
+      "Answer": {
+        "graphType": "Area",
+        "areaType": "stacked",
+        "xAxis": [
+          "hwy",
+          "cty"
+        ],
+        "graphOrientation": "vertical"
+      },
+      "Question": "Stacked area graph of hwy and cty. Orient the graph vertically.",
+      "QuestionGPT4": "Create an area graph with a stacked area type. The graph is oriented vertically. The x-axis displays the 'hwy' and 'cty' data."
+    },
+    {
+      "Type": "Area",
+      "Answer": {
+        "graphType": "Area",
+        "areaType": "percent",
+        "xAxis": [
+          "hwy",
+          "cty"
+        ],
+        "graphOrientation": "vertical"
+      },
+      "Question": "Percentage stacked area graph of hwy and cty. Orient the graph vertically.",
+      "QuestionGPT4": "Create an area graph with a vertical orientation. The area type is set to 'percent', meaning the areas in the graph represent percentages. The x-axis of the graph displays the 'hwy' and 'cty' data."
+    },
+    {
+      "Type": "AreaLine",
+      "Answer": {
+        "graphType": "AreaLine",
+        "xAxis": [
+          "hwy"
+        ],
+        "xAxis2": [
+          "displ"
+        ],
+        "graphOrientation": "vertical",
+        "xAxis2Show": true,
+        "xAxisTitle": "hwy",
+        "xAxis2Title": "displ"
+      },
+      "Question": "Area graph of hwy with a line graph of displ showing the secondary axis. Label the primary axis as hwy and the secondary axis as displ. Orient the graph vertically.",
+      "QuestionGPT4": "Create an AreaLine graph with a vertical orientation. The x-axis displays the \"hwy\" data, and there is a second x-axis that displays the \"displ\" data. The second x-axis is visible. The title for the first x-axis is \"hwy\", and the title for the second x-axis is \"displ\"."
+    },
+    {
+      "Type": "Bar",
+      "Answer": {
+        "graphType": "Bar",
+        "groupingFactors": [
+          "class"
+        ],
+        "xAxis": [
+          "hwy"
+        ],
+        "graphOrientation": "vertical",
+        "smpTextRotate": 45
+      },
+      "Question": "Bar graph of hwy grouped by class. Rotate the sample text at 45 degrees. Set the graph orientation to vertical.",
+      "QuestionGPT4": "Create a bar graph with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" variable. The labels for the samples are rotated at 45 degrees."
+    },
+    {
+      "Type": "Bar",
+      "Answer": {
+        "graphType": "Bar",
+        "groupingFactors": [
+          "class"
+        ],
+        "graphOrientation": "vertical",
+        "smpTextRotate": 45,
+        "summaryType": "count",
+        "showLegend": false,
+        "title": "Count of class",
+        "titleAlign": "center"
+      },
+      "Question": "Count data grouped by class. Hide the legend and set the title to Count of class. Align the title to the center. Rotate the sample text at 45 degrees.",
+      "QuestionGPT4": "Create a vertical bar graph titled \"Count of class\", aligned in the center. The data is grouped by the \"class\" category. The sample text is rotated at 45 degrees. The summary type for the data when grouping is \"count\". The legend is not displayed in this graph."
+    },
+    {
+      "Type": "Bar",
+      "Answer": {
+        "colorBy": "drv",
+        "decorations": {
+          "line": [
+            {
+              "align": "left",
+              "color": "rgb(255,0,0)",
+              "label": "Cutoff",
+              "value": 20
+            }
+          ]
+        },
+        "graphOrientation": "horizontal",
+        "graphType": "Bar",
+        "groupingFactors": [
+          "drv"
+        ],
+        "setMaxX": 30,
+        "xAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Bar graph of hwy grouped and colored by drv. Draw a red line at 20 labeled left as Cutoff. Set the graph orientation to horizontal. Set maximum value of x-axis to 30.",
+      "QuestionGPT4": "Create a horizontal bar graph. The data is grouped by the \"drv\" field and the color of the bars is determined by the \"drv\" field. The x-axis displays the \"hwy\" field. The text for the samples is not rotated. The maximum value for the data on the x-axis is set to 30. There is a decoration line on the graph that is aligned to the left, colored red (rgb(255,0,0)), labeled as \"Cutoff\", and has a value of 20."
+    },
+    {
+      "Type": "BarLine",
+      "Answer": {
+        "graphType": "BarLine",
+        "groupingFactors": [
+          "class"
+        ],
+        "xAxis": [
+          "cty",
+          "hwy"
+        ],
+        "xAxis2": [
+          "displ",
+          "cyl"
+        ],
+        "graphOrientation": "vertical",
+        "legendPosition": "bottom",
+        "legendColumns": 4,
+        "xAxis2Show": true,
+        "setMaxX": 30
+      },
+      "Question": "Draw a Bar graph of cty and hwy in the primary axis and a line graph of displ and cyl in the secondary axis. Group data by class. Put the legend at the bottom in 4 columns. Show the secondary axis. Set maximum value of x-axis to 30. Orient the graph vertically.",
+      "QuestionGPT4": "Create a combination of a bar and line graph (BarLine). The data is grouped by the \"class\" category. The primary x-axis displays the \"cty\" and \"hwy\" variables, while the secondary x-axis displays the \"displ\" and \"cyl\" variables. The graph is oriented vertically. The legend is positioned at the bottom of the graph and is organized into 4 columns. The secondary x-axis is set to be visible. The maximum value for data on the x-axis is set to 30."
+    },
+    {
+      "Type": "Boxplot",
+      "Answer": {
+        "graphType": "Boxplot",
+        "groupingFactors": [
+          "class"
+        ],
+        "xAxis": [
+          "hwy"
+        ],
+        "graphOrientation": "vertical",
+        "smpTextRotate": 45
+      },
+      "Question": "Boxplot of hwy by class. Rotate the sample text at 45 degrees. Set the graph orientation to vertical.",
+      "QuestionGPT4": "Create a Boxplot graph with a vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" data. The text for the samples is rotated at 45 degrees."
+    },
+    {
+      "Type": "Boxplot",
+      "Answer": {
+        "graphType": "Boxplot",
+        "groupingFactors": [
+          "class"
+        ],
+        "xAxis": [
+          "hwy",
+          "cty"
+        ],
+        "graphOrientation": "horizontal",
+        "showBoxplotOriginalData": true,
+        "binned": true,
+        "boxplotWhiskersType": "none"
+      },
+      "Question": "Boxplot of hwy and cty by class. Set the graph orientation to horizontal and show the original data binned. Hide the whiskers.",
+      "QuestionGPT4": "Create a Boxplot with a horizontal orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" and \"cty\" variables. The original data points in the boxplot are shown and the data points are binned. The boxplot does not have any whiskers."
+    },
+    {
+      "Type": "Boxplot",
+      "Answer": {
+        "graphType": "Boxplot",
+        "boxplotNotched": true,
+        "boxplotWhiskersType": "single",
+        "groupingFactors": [
+          "class"
+        ],
+        "splitSamplesBy": "class",
+        "xAxis": [
+          "hwy"
+        ],
+        "graphOrientation": "vertical",
+        "smpTextRotate": 45
+      },
+      "Question": "Show notched boxplot of hwy by class using single whiskers. Split the samples by class. Rotate the sample text at 45 degrees. Set the graph orientation to vertical.",
+      "QuestionGPT4": "Create a Boxplot with a vertical orientation. The boxplots are notched and the whiskers type is single. The data is grouped by the \"class\" column. The samples are split by the \"class\" column. The x-axis displays the \"hwy\" column. The sample text is rotated at 45 degrees."
+    },
+    {
+      "Type": "Boxplot",
+      "Answer": {
+        "graphType": "Boxplot",
+        "groupingFactors": [
+          "drv",
+          "class"
+        ],
+        "colorBy": "drv",
+        "xAxis": [
+          "hwy"
+        ],
+        "graphOrientation": "horizontal",
+        "boxplotConnect": true,
+        "xAxisShow": false,
+        "xAxis2Show": true
+      },
+      "Question": "Boxplot of hwy grouped by drv and class. Color the boxplot by drv and connect the boxplot. Set the graph orientation to horizontal. Hide the primary axis and show the secondary axis.",
+      "QuestionGPT4": "Create a Boxplot graph with a horizontal orientation. The data is grouped by the 'drv' and 'class' columns. The color of the variables is determined by the 'drv' column. The 'hwy' column is displayed on the X axis. The data in the boxplots are connected. The X axis on the bottom is hidden, while the X axis on the top is shown."
+    },
+    {
+      "Type": "Boxplot",
+      "Answer": {
+        "graphType": "Boxplot",
+        "boxplotType": "range",
+        "groupingFactors": [
+          "drv"
+        ],
+        "xAxis": [
+          "cty"
+        ],
+        "graphOrientation": "horizontal",
+        "showLegend": false,
+        "title": "Range Boxplot of cty grouped by drv",
+        "titleFontStyle": "bold"
+      },
+      "Question": "Range Boxplot of cty grouped by drv. Set the graph orientation to horizontal. Hide the legend and set the title Range Boxplot of cty grouped by drv in bold.",
+      "QuestionGPT4": "Create a horizontal range boxplot. The graph type is \"Boxplot\" and the boxplot type is \"range\". The data is grouped by the \"drv\" factor. The x-axis displays the \"cty\" variable. The legend is not shown in this visualization. The title of the graph is \"Range Boxplot of cty grouped by drv\" and it is displayed in bold font style."
+    },
+    {
+      "Type": "Circular",
+      "Answer": {
+        "circularType": "bubble",
+        "colorBy": "class",
+        "graphType": "Circular",
+        "hierarchy": [
+          "class",
+          "cyl",
+          "drv"
+        ],
+        "xAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Make a hierarchical bubble plot of hwy by class, cyl and drv color by class",
+      "QuestionGPT4": "Create a circular graph of the bubble subtype. The hierarchy of the graph is built based on the \"class\", \"cyl\", and \"drv\" columns. The x-axis of the graph is represented by the \"hwy\" column. The variables in the graph are colored by the \"class\" column."
+    },
+    {
+      "Type": "Contour",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "hwy"
+        ],
+        "isContour": true,
+        "contourFilled": true
+      },
+      "Question": "Filled Contour plot of cty and hwy",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The plot includes a contour, which is filled with color."
+    },
+    {
+      "Type": "Contour",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "xAxis": [
+          "cyl"
+        ],
+        "yAxis": [
+          "displ"
+        ],
+        "isContour": true,
+        "showContourDataPoints": true,
+        "setMinX": 2.5,
+        "setMaxX": 10,
+        "setMinY": 0,
+        "setMaxY": 7.5
+      },
+      "Question": "Contour plot of cyl and dspl. Show the data points. Set the minimum value of x-axis to 2.5 and maximum value of x-axis to 10. Set the minimum value of y-axis to 0 and maximum value of y-axis to 7.5.",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the 'cyl' variable and the y-axis displays the 'displ' variable. The contour is shown in the plot and the data points in the contour are also visible. The minimum and maximum values for the x-axis are set to 2.5 and 10 respectively, while the minimum and maximum values for the y-axis are set to 0 and 7.5 respectively."
+    },
+    {
+      "Type": "Density",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy"
+        ],
+        "hideHistogram": true,
+        "showHistogramDensity": true,
+        "showFilledHistogramDensity": true,
+        "showHistogram": true
+      },
+      "Question": "Density plot of hwy. Do not show the histogram bars.",
+      "QuestionGPT4": "Create a Scatter2D graph. The data to be displayed on the Y axis is \"hwy\". The histogram bars are hidden in this configuration. However, the density kernel in histograms is shown, and it is filled. The histogram is created with all data."
+    },
+    {
+      "Type": "Density",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy",
+          "cty"
+        ],
+        "hideHistogram": true,
+        "showHistogramDensity": true,
+        "showFilledHistogramDensity": true,
+        "showHistogram": true,
+        "showHistogramMedian": true
+      },
+      "Question": "Density plot of hwy and cty. Show the median line. Do not show the histogram bars.",
+      "QuestionGPT4": "Create a 2D scatter plot. The variables displayed on the Y-axis are 'hwy' and 'cty'. The histogram bars are hidden in this configuration. However, the density kernel in the histograms is displayed, and it is filled. The histogram is created with all data, and the median of the histogram is also shown."
+    },
+    {
+      "Type": "Density",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy",
+          "cty"
+        ],
+        "hideHistogram": false,
+        "showHistogramDensity": true,
+        "showFilledHistogramDensity": true,
+        "showHistogram": true
+      },
+      "Question": "Density plot with histogram of hwy and cty.",
+      "QuestionGPT4": "Create a 2D scatter plot. The variables displayed on the Y-axis are \"hwy\" and \"cty\". The histogram bars are not hidden. The density kernel in histograms is shown. The filled histogram density is also shown. The histogram is created with all data."
+    },
+    {
+      "Type": "Density",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "showFilledHistogramDensity": true,
+        "showHistogramDensity": true,
+        "showHistogramMedian": true,
+        "xAxis": [
+          "hwy"
+        ],
+        "xAxisHistogramShow": true,
+        "yAxis": [
+          "cty"
+        ],
+        "yAxisHistogramShow": true
+      },
+      "Question": "Show a scatter plot of hwy and cty with side density plots in the x and y axes. Show the median line.",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the \"hwy\" data, while the y-axis displays the \"cty\" data. Histograms are not hidden in this configuration. The density kernel in histograms is shown, as well as the filled histogram density. The histogram median is also displayed. Both the x-axis and y-axis show histograms."
+    },
+    {
+      "Type": "Donut",
+      "Answer": {
+        "circularType": "sunburst",
+        "graphType": "Circular",
+        "hierarchy": [
+          "class"
+        ],
+        "objectBorderColor": "black",
+        "showLegend": false,
+        "xAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Sunburst plot of hwy by a single hierarchy class. Set the border color of all objects to black. Hide the legend.",
+      "QuestionGPT4": "Create a circular graph of the sunburst subtype. The hierarchy of the graph is based on the \"class\" column. The x-axis displays the \"hwy\" column. The legend is not shown in this graph. The border color of all objects in the graph is black."
+    },
+    {
+      "Type": "Sunburst",
+      "Answer": {
+        "circularType": "sunburst",
+        "colorBy": "class",
+        "graphType": "Circular",
+        "hierarchy": [
+          "class",
+          "cyl"
+        ],
+        "objectBorderColor": "black",
+        "showLegend": false,
+        "xAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Sunburst plot of hwy by class and cyl. Color by class. Set the border color of all objects to black. Hide the legend.",
+      "QuestionGPT4": "Create a circular graph of the sunburst subtype. The color of the variables is determined by the \"class\" column. The hierarchy for the graph is built using the \"class\" and \"cyl\" columns. The x-axis displays the \"hwy\" column. The legend is not shown in this graph. The border color for all objects in the graph is black."
+    },
+    {
+      "Type": "Dotplot",
+      "Answer": {
+        "graphType": "Dotplot",
+        "groupingFactors": [
+          "class"
+        ],
+        "xAxis": [
+          "cty"
+        ],
+        "graphOrientation": "vertical",
+        "jitter": true,
+        "smpTextRotate": 45
+      },
+      "Question": "Dotplot of cty grouped by class with jitter data points. Set the graph orientation to vertical and rotate the sample labels by 45 degrees.",
+      "QuestionGPT4": "Create a Dotplot graph with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"cty\" category. The data points in the plot are jittered for better visibility. The text labels for the samples are rotated at 45 degrees."
+    },
+    {
+      "Type": "Dotplot",
+      "Answer": {
+        "graphType": "Dotplot",
+        "groupingFactors": [
+          "class"
+        ],
+        "xAxis": [
+          "cty"
+        ],
+        "graphOrientation": "vertical",
+        "binned": true,
+        "colorBy": "drv",
+        "smpTextRotate": 45
+      },
+      "Question": "Dotplot of cty grouped by class with binned data points and colored by drv. Set the sample labels rotated by 45 degrees in a vertical orientation.",
+      "QuestionGPT4": "Create a Dotplot graph. The data is grouped by the \"class\" category. The x-axis displays the \"cty\" category. The graph is oriented vertically. The data points in the dotplot are binned. The variables are colored by the \"drv\" category. The sample labels are rotated by 45 degrees."
+    },
+    {
+      "Type": "DotLine",
+      "Answer": {
+        "graphType": "DotLine",
+        "groupingFactors": [
+          "class"
+        ],
+        "jitter": true,
+        "xAxis": [
+          "cty",
+          "hwy"
+        ],
+        "xAxis2": [
+          "displ",
+          "cyl"
+        ],
+        "graphOrientation": "vertical",
+        "legendPosition": "top",
+        "legendColumns": 2,
+        "xAxis2Show": true
+      },
+      "Question": "Draw a dotplot of cty and hwy in the primary axis with jitter and a line graph of displ and cyl in the secondary axis. Group data by class. Put the legend at the top in 2 columns. Show the secondary axis and set the graph orientation to vertical.",
+      "QuestionGPT4": "Create a DotLine graph with vertical orientation. The data is grouped by the \"class\" column. The graph includes a jitter effect for the data points. The x-axis displays data from the \"cty\" and \"hwy\" columns, while a second x-axis, which is visible, displays data from the \"displ\" and \"cyl\" columns. The legend is positioned at the top of the graph and is organized into 2 columns."
+    },
+    {
+      "Type": "Heatmap",
+      "Answer": {
+        "graphType": "Heatmap",
+        "xAxis": [
+          "hwy",
+          "cty"
+        ],
+        "samplesClustered": true
+      },
+      "Question": "Heatmap of hwy and cty. Cluster the samples.",
+      "QuestionGPT4": "Create a Heatmap. The x-axis of the graph displays the 'hwy' and 'cty' data. The samples in the data are clustered."
+    },
+    {
+      "Type": "Heatmap",
+      "Answer": {
+        "graphType": "Heatmap",
+        "smpOverlays": [
+          "class"
+        ],
+        "xAxis": [
+          "hwy",
+          "cty"
+        ],
+        "samplesClustered": true
+      },
+      "Question": "Heatmap of clustered data of hwy and cty. Overlay the class on the heatmap.",
+      "QuestionGPT4": "Create a Heatmap. The sample metadata to overlay in one dimensional plots is \"class\". The names of the samples, groups or variables to be displayed in the X axis are \"hwy\" and \"cty\". The samples are clustered."
+    },
+    {
+      "Type": "Hexplot-Binplot",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "scatterType": "bin2d",
+        "xAxis": [
+          "hwy"
+        ],
+        "yAxis": [
+          "cty"
+        ]
+      },
+      "Question": "Bin data in a scatter plot with hwy and cty",
+      "QuestionGPT4": "Create a 2D scatter plot with a bin2d scatter type. The x-axis displays the \"hwy\" data, and the y-axis displays the \"cty\" data."
+    },
+    {
+      "Type": "Histogram",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy"
+        ],
+        "showHistogram": true
+      },
+      "Question": "Histogram of hwy",
+      "QuestionGPT4": "Create a 2D scatter plot. The variable displayed on the Y-axis is \"hwy\". Additionally, a histogram is shown for all data."
+    },
+    {
+      "Type": "Histogram",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy",
+          "cty"
+        ],
+        "histogramType": "staggered",
+        "showHistogram": true
+      },
+      "Question": "Histogram of hwy and cty. Stagger the histogram.",
+      "QuestionGPT4": "Create a 2D scatter plot. The variables to be displayed on the Y axis are \"hwy\" and \"cty\". When multiple series are present, a staggered histogram is shown. The histogram is displayed with all data."
+    },
+    {
+      "Type": "Histogram",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy",
+          "cty"
+        ],
+        "histogramType": "dodged",
+        "showHistogram": true
+      },
+      "Question": "Dodge histogram of hwy and cty",
+      "QuestionGPT4": "Create a 2D scatter plot. The variables displayed on the Y-axis are 'hwy' and 'cty'. The histogram type is dodged and the histogram is set to be displayed."
+    },
+    {
+      "Type": "Histogram",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy",
+          "cty"
+        ],
+        "histogramType": "stacked",
+        "showHistogram": true
+      },
+      "Question": "Stacked Histogram of hwy and cty. Stack the histogram.",
+      "QuestionGPT4": "Create a 2D scatter plot. The Y-axis displays the \"hwy\" and \"cty\" data. When multiple series are present, a stacked histogram is shown. The histogram is displayed with all data."
+    },
+    {
+      "Type": "Histogram",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "histogramType": "stacked",
+        "showHistogram": "cyl",
+        "yAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Histogram of hwy by cyl. Color them by cyl.",
+      "QuestionGPT4": "Create a 2D scatter plot. The data to be displayed on the Y-axis is \"hwy\". A histogram is shown using the \"cyl\" data. The histogram type is \"stacked\" when multiple series are present."
+    },
+    {
+      "Type": "Line",
+      "Answer": {
+        "graphType": "Line",
+        "xAxis": [
+          "hwy"
+        ],
+        "graphOrientation": "vertical",
+        "showLegend": false
+      },
+      "Question": "Line graph of hwy and no legend. Set the graph orientation to vertical.",
+      "QuestionGPT4": "Create a line graph with a vertical orientation. The x-axis displays the \"hwy\" data. The legend is not shown in this graph."
+    },
+    {
+      "Type": "Line",
+      "Answer": {
+        "graphType": "Line",
+        "xAxis": [
+          "hwy",
+          "cty"
+        ],
+        "groupingFactors": [
+          "class"
+        ],
+        "graphOrientation": "horizontal"
+      },
+      "Question": "Line graph of hwy and cty grouped by class. Set the graph orientation to horizontal.",
+      "QuestionGPT4": "Create a Line graph with a horizontal orientation. The x-axis displays the 'hwy' and 'cty' data. The data is grouped by the 'class' category."
+    },
+    {
+      "Type": "Line",
+      "Answer": {
+        "graphOrientation": "vertical",
+        "graphType": "Line",
+        "groupingFactors": [
+          "class"
+        ],
+        "lineErrorType": "area",
+        "lineType": "spline",
+        "title": "Line Graph of hwy and cty grouped by class",
+        "xAxis": [
+          "hwy",
+          "cty"
+        ]
+      },
+      "Question": "Line graph of hwy and cty grouped by class show error bars as area using a spline. Set the title to Line Graph of hwy and cty grouped by class. Orient the graph vertically.",
+      "QuestionGPT4": "Create a Line graph titled \"Line Graph of hwy and cty grouped by class\". The x-axis displays the \"hwy\" and \"cty\" data. The data is grouped by the \"class\" category. The line error type is set to \"area\" and the type of line used to join the points in the line graph is \"spline\". The graph is oriented vertically."
+    },
+    {
+      "Type": "QQ",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "cty"
+        ],
+        "scatterType": "qq"
+      },
+      "Question": "QQ plot of cty",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the 'cty' data, and the y-axis also displays the 'cty' data. The type of scatter plot used is 'qq'."
+    },
+    {
+      "Type": "QQ",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "colorBy": "class",
+        "xAxis": [
+          "hwy"
+        ],
+        "yAxis": [
+          "hwy"
+        ],
+        "scatterType": "qq"
+      },
+      "Question": "QQ plot of hwy colored by class",
+      "QuestionGPT4": "Create a 2D scatter plot. The variables are colored by the \"class\" attribute. The x-axis displays the \"hwy\" attribute, and the y-axis also displays the \"hwy\" attribute. The type of scatter plot used is \"qq\"."
+    },
+    {
+      "Type": "Quantile",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "xAxis": [
+          "hwy"
+        ],
+        "yAxis": [
+          "cty"
+        ],
+        "showQuantileRegressionFit": true
+      },
+      "Question": "Quantile reregression of hwy and cty",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the \"hwy\" data, while the y-axis displays the \"cty\" data. The Quantile Regression fit is shown in this scatter plot."
+    },
+    {
+      "Type": "Meter",
+      "Answer": {
+        "graphType": "Meter",
+        "meterGroup": "drv",
+        "meterSummaryType": "average",
+        "meterType": "gauge",
+        "xAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Create a gauge meter graph of the average of hwy using drv as factor.",
+      "QuestionGPT4": "Create a Meter type graph. The meters are created based on the \"drv\" sample category. The meter type is a \"gauge\". The summary type for the meter is \"average\". The x-axis displays the \"hwy\" data."
+    },
+    {
+      "Type": "Meter",
+      "Answer": {
+        "graphType": "Meter",
+        "meterGroup": "cyl",
+        "meterSummaryType": "sum",
+        "meterType": "digital",
+        "xAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Create a digital meter graph of the sum of hwy using cyl as factor.",
+      "QuestionGPT4": "Create a Meter graph. The meters are created based on the \"cyl\" sample category. The summary type for the meter is \"sum\". The type of meter used is \"digital\". The x-axis displays the \"hwy\" data."
+    },
+    {
+      "Type": "Pie",
+      "Answer": {
+        "graphType": "Pie",
+        "pieBy": "class"
+      },
+      "Question": "Pie chart of class",
+      "QuestionGPT4": "Create a Pie chart. The pie chart is divided based on the \"class\" column from the data."
+    },
+    {
+      "Type": "Radar",
+      "Answer": {
+        "graphType": "Circular",
+        "circularType": "radar",
+        "ringGraphType": [
+          "line"
+        ],
+        "xAxis": [
+          "hwy"
+        ],
+        "showSampleNames": false
+      },
+      "Question": "Line graph in a radar plot of hwy and hide the sample names",
+      "QuestionGPT4": "Create a circular graph with a radar subtype. The graph type for each ring in the circular plot is a line. The x-axis displays the 'hwy' column from the data. The sample names are not shown in this visualization."
+    },
+    {
+      "Type": "Radar",
+      "Answer": {
+        "graphType": "Circular",
+        "circularType": "radar",
+        "ringGraphType": [
+          "dot"
+        ],
+        "xAxis": [
+          "cty"
+        ],
+        "showSampleNames": false
+      },
+      "Question": "Dot plot in a radar plot of cty and hide the sample names",
+      "QuestionGPT4": "Create a circular graph with a radar subtype. The graph type for each ring in the circular plot is a dot. The x-axis displays the \"cty\" column from the data. The sample names are not shown in this visualization."
+    },
+    {
+      "Type": "Ridgeline",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy"
+        ],
+        "ridgeBy": "class",
+        "hideHistogram": true,
+        "showHistogramDensity": true,
+        "showFilledHistogramDensity": true
+      },
+      "Question": "Ridgeline plot of hwy by class",
+      "QuestionGPT4": "Create a Scatter2D graph. The variable to be displayed on the Y-axis is \"hwy\". The ridgelines in the Scatter2D plot are created based on the \"class\". The histogram bars are hidden in this configuration. However, the density kernel in the histograms is displayed, and it is filled."
+    },
+    {
+      "Type": "Ridgeline",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy",
+          "cty"
+        ],
+        "ridgeBy": "class",
+        "hideHistogram": true,
+        "showHistogramDensity": true,
+        "showFilledHistogramDensity": true
+      },
+      "Question": "Ridgeline plot of hwy and cty by class",
+      "QuestionGPT4": "Create a Scatter2D type graph. The Y-axis of the graph displays the 'hwy' and 'cty' data. The ridgelines in the Scatter2D plot are created based on the 'class' data. The histogram bars in the graph are hidden. However, the density kernel in the histograms is displayed, and it is filled."
+    },
+    {
+      "Type": "Ridgeline",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "yAxis": [
+          "hwy",
+          "cty"
+        ],
+        "ridgeBy": "class",
+        "hideHistogram": true,
+        "showHistogramDensity": true,
+        "showFilledHistogramDensity": true,
+        "showHistogramQuantiles": true
+      },
+      "Question": "Ridgeline plot of hwy and cty by class and show the histogram quantiles.",
+      "QuestionGPT4": "Create a Scatter2D graph. The variables displayed on the Y axis are \"hwy\" and \"cty\". The ridgelines in the Scatter2D plot are created based on the \"class\". The histogram bars are hidden in this configuration. The density kernel in the histograms is displayed. The filled histogram density is also shown. The quantile 0.25 and 0.75 in the density plots are visible."
+    },
+    {
+      "Type": "Ridgeline",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "hideHistogram": true,
+        "ridgeBy": "class",
+        "showFilledHistogramDensity": true,
+        "showHistogramDataPoints": true,
+        "showHistogramDensity": true,
+        "yAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Ridgeline plot of hwy by class showing the original data.",
+      "QuestionGPT4": "Create a Scatter2D graph. The data to be displayed on the Y axis is \"hwy\". The ridgelines in the Scatter2D plot are created by \"class\". The histogram bars are hidden. The density kernel in the histograms is shown. The filled histogram density is also shown. The original data points in the histograms are displayed."
+    },
+    {
+      "Type": "Scatter2D",
+      "Answer": {
+        "colorBy": "cyl",
+        "decorations": {
+          "line": [
+            {
+              "color": "rgba(255,0,0)",
+              "y": 35
+            },
+            {
+              "color": "rgba(0,0,255)",
+              "y": 20
+            },
+            {
+              "color": "rgba(0,0,0)",
+              "x": 20
+            }
+          ]
+        },
+        "graphType": "Scatter2D",
+        "shapeBy": "drv",
+        "stringVariableFactors": [
+          "cyl"
+        ],
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Scatter plot of cty and hwy colored by cyl and shaped by drv. Draw a red line at y=35 and a blue line at y=20 and a black line at x=20. Convert cyl to string.",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the 'cty' data, while the y-axis displays the 'hwy' data. The 'cyl' data is treated as a string variable factor. The color of the data points is determined by the 'cyl' data, and the shape of the data points is determined by the 'drv' data. There are also line decorations in the plot: a red line at y=35, a blue line at y=20, and a black line at x=20."
+    },
+    {
+      "Type": "Scatter2D",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "showRegressionFit": true,
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Show the correlation between cty and hwy in a scatter plot. Draw the regression fit.",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The regression fit is shown in this scatter plot."
+    },
+    {
+      "Type": "Scatter2D",
+      "Answer": {
+        "colorBy": "cyl",
+        "graphType": "Scatter2D",
+        "showRegressionFit": "cyl",
+        "stringVariableFactors": [
+          "cyl"
+        ],
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "displ"
+        ]
+      },
+      "Question": "Create a 2D scatter plot of cty and displ. Color the regression fit and the data points by cyl. Treat cyl as a string variable factor.",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the 'cty' data, while the y-axis displays the 'displ' data. The regression fit is shown for the 'cyl' data. The 'cyl' data is also treated as a string variable factor. The variables in the plot are colored by the 'cyl' data."
+    },
+    {
+      "Type": "Scatter2D",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "showLoessFit": true,
+        "xAxis": [
+          "hwy"
+        ],
+        "yAxis": [
+          "cty"
+        ]
+      },
+      "Question": "Fit hwy and cty with loess",
+      "QuestionGPT4": "Create a Scatter2D graph. The x-axis displays the 'cty' data, while the y-axis displays the 'hwy' data. The loess fit is shown in this Scatter2D plot."
+    },
+    {
+      "Type": "Scatter3D",
+      "Answer": {
+        "graphType": "Scatter3D",
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "hwy"
+        ],
+        "zAxis": [
+          "displ"
+        ],
+        "stringVariableFactors": [
+          "cyl"
+        ],
+        "colorBy": "cyl"
+      },
+      "Question": "3D Scatter plot of cty, hwy, and displ colored by cyl. Convert cyl to string.",
+      "QuestionGPT4": "Create a 3D scatter plot. The x-axis displays the 'cty' variable, the y-axis displays the 'hwy' variable, and the z-axis displays the 'displ' variable. The 'cyl' variable is treated as a string variable factor. The color of the data points in the visualization is determined by the 'cyl' variable."
+    },
+    {
+      "Type": "ScatterBubble2D",
+      "Answer": {
+        "graphType": "ScatterBubble2D",
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "hwy"
+        ],
+        "zAxis": [
+          "displ"
+        ],
+        "stringVariableFactors": [
+          "cyl"
+        ],
+        "colorBy": "cyl"
+      },
+      "Question": "Bubble Scatter plot of cty and hwy. Size the data by displ and color by cyl. Convert cyl to string.",
+      "QuestionGPT4": "Create a ScatterBubble2D type graph. The x-axis displays the 'cty' data, the y-axis displays the 'hwy' data, and the z-axis displays the 'displ' data. The 'cyl' data is treated as a string variable factor. The color of the variables in the graph is determined by the 'cyl' data."
+    },
+    {
+      "Type": "Stacked",
+      "Answer": {
+        "graphOrientation": "vertical",
+        "graphType": "Stacked",
+        "groupingFactors": [
+          "class"
+        ],
+        "smpTextRotate": 45,
+        "stackBy": "drv",
+        "summaryType": "sum"
+      },
+      "Question": "Create a stacked graph with a vertical orientation. The data is summarized by summing it up. The samples of each variable in the bar graphs are stacked by the \"drv\" annotation. The data is grouped by the \"class\" category. The sample labels are rotated by 45 degrees.",
+      "QuestionGPT4": "Create a stacked graph with a vertical orientation. The data is summarized by summing it up. The samples of each variable in the bar graphs are stacked by the \"drv\" annotation. The data is grouped by the \"class\" category. The sample labels are rotated by 45 degrees."
+    },
+    {
+      "Type": "Stacked",
+      "Answer": {
+        "graphType": "Stacked",
+        "summaryType": "sum",
+        "xAxis": [
+          "hwy",
+          "cty",
+          "displ",
+          "cyl"
+        ],
+        "groupingFactors": [
+          "class"
+        ],
+        "graphOrientation": "horizontal"
+      },
+      "Question": "Stacked bar of hwy, cty, displ, and cyl grouped by class. Set the graph orientation to horizontal",
+      "QuestionGPT4": "Create a Stacked graph with a horizontal orientation. The data is summarized by summing it up. The x-axis displays the 'hwy', 'cty', 'displ', and 'cyl' variables. The data is grouped by the 'class' variable."
+    },
+    {
+      "Type": "StackedLine",
+      "Answer": {
+        "graphOrientation": "vertical",
+        "graphType": "StackedLine",
+        "groupingFactors": [
+          "class"
+        ],
+        "setMaxX": 2500,
+        "summaryType": "sum",
+        "xAxis": [
+          "cty",
+          "hwy"
+        ],
+        "xAxis2": [
+          "displ",
+          "cyl"
+        ],
+        "xAxis2Show": true
+      },
+      "Question": "Draw a stacked graph of the sum of cty and hwy in the primary axis and a line graph of the sum of displ and cyl in the secondary axis. Group data by class. Set the maximum value of the  primary axis to 2500. Set the graph orientation to vertical. Show the secondary axis.",
+      "QuestionGPT4": "Create a Stacked Line graph with a vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"cty\" and \"hwy\" categories, while the second x-axis, which is visible, displays the \"displ\" and \"cyl\" categories. The maximum value for data in the x-axis is set to 2500. The summary type for the data when grouping is set to \"sum\"."
+    },
+    {
+      "Type": "StackedPercent",
+      "Answer": {
+        "graphType": "StackedPercent",
+        "groupingFactors": [
+          "class"
+        ],
+        "summaryType": "sum",
+        "xAxis": [
+          "hwy",
+          "cty",
+          "displ",
+          "cyl"
+        ]
+      },
+      "Question": "Stacked percent bar of the sum hwy, cty, displ, and cyl grouped by class.",
+      "QuestionGPT4": "Create a Stacked Percent graph. The summary type for the data when grouping is set to sum. The x-axis displays the 'hwy', 'cty', 'displ', and 'cyl' variables. The data is grouped by the 'class' factor."
+    },
+    {
+      "Type": "Violin",
+      "Answer": {
+        "colorBy": "cyl",
+        "graphOrientation": "vertical",
+        "graphType": "Boxplot",
+        "groupingFactors": [
+          "class"
+        ],
+        "jitter": true,
+        "showBoxplotIfViolin": false,
+        "showBoxplotOriginalData": true,
+        "showViolinBoxplot": true,
+        "smpTextRotate": 45,
+        "stringSampleFactors": [
+          "cyl"
+        ],
+        "xAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Create a Boxplot with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" data. The observed data points in the boxplots are shown. The variables are colored by the \"cyl\" category. The \"cyl\" sample factors are treated as strings. The violin plot in the boxplots is shown. The data points in the boxplots are jittered. The boxplots are not shown when the violin plot is shown. The sample labels are rotated by 45 degrees.",
+      "QuestionGPT4": "Create a Boxplot with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" data. The observed data points in the boxplots are shown. The variables are colored by the \"cyl\" category. The \"cyl\" sample factors are treated as strings. The violin plot in the boxplots is shown. The data points in the boxplots are jittered. The boxplots are not shown when the violin plot is shown. The sample labels are rotated by 45 degrees."
+    },
+    {
+      "Type": "Violin",
+      "Answer": {
+        "graphOrientation": "horizontal",
+        "graphType": "Boxplot",
+        "groupingFactors": [
+          "class"
+        ],
+        "showBoxplotIfViolin": false,
+        "showLegend": false,
+        "showViolinBoxplot": true,
+        "title": "Violin plot of hwy grouped by class",
+        "violinTrim": false,
+        "xAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Violin plot of hwy grouped by class. Set the graph orientation to horizontal. Do not trim the violin. Hide the legend. Set the title to Violin plot of hwy grouped by class. Hide the boxplot in the the violins.",
+      "QuestionGPT4": "Create a Boxplot with the title \"Violin plot of hwy grouped by class\". The data is grouped by the \"class\" column. The x-axis displays the \"hwy\" column. The graph is oriented horizontally. A violin plot is shown in the boxplots, but the boxplots themselves are not displayed when the violin plot is shown. The violin plots are not trimmed. The legend is not displayed."
+    },
+    {
+      "Type": "Violin",
+      "Answer": {
+        "title": "Violin plot of cty grouped by cyl",
+        "graphType": "Boxplot",
+        "groupingFactors": [
+          "cyl"
+        ],
+        "xAxis": [
+          "cty"
+        ],
+        "showViolinBoxplot": true,
+        "graphOrientation": "vertical",
+        "showBoxplotIfViolin": true,
+        "smpTextRotate": 90
+      },
+      "Question": "Violin plot of cty grouped by cyl with a boxplot. Set the graph orientation to vertical. Set the title to Violin plot of cty grouped by cyl. Rotate the sample text by 90 degrees.",
+      "QuestionGPT4": "Create a boxplot with the title \"Violin plot of cty grouped by cyl\". The data is grouped by the \"cyl\" column. The x-axis displays the \"cty\" column. The graph includes a violin plot and the orientation of the graph is vertical. If the violin plot is shown, the boxplot will also be displayed. The text for the samples is rotated 90 degrees."
+    },
+    {
+      "Type": "NA",
+      "Answer": {
+        "graphType": "Boxplot",
+        "groupingFactors": [
+          "class"
+        ],
+        "xAxis": [
+          "hwy"
+        ],
+        "graphOrientation": "vertical",
+        "smpTextRotate": 45,
+        "segregateSamplesBy": [
+          "cyl"
+        ]
+      },
+      "Question": "Boxplot of hwy by class, faceted by cyl. Orient the graph vertically and rotate the sample text by 45 degrees.",
+      "QuestionGPT4": "Create a Boxplot graph with a vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" variable. The labels for the samples are rotated at 45 degrees. The samples are segregated by the \"cyl\" category."
+    },
+    {
+      "Type": "Bar",
+      "Answer": {
+        "graphType": "Bar",
+        "groupingFactors": [
+          "class"
+        ],
+        "xAxis": [
+          "hwy"
+        ],
+        "graphOrientation": "vertical",
+        "smpTextRotate": 45,
+        "segregateSamplesBy": [
+          "cyl",
+          "drv"
+        ]
+      },
+      "Question": "Vertical Bar graph of hwy grouped by class and faceted by cyl and drv with labels rotated at 45 degrees",
+      "QuestionGPT4": "Create a bar graph with vertical orientation. The data is grouped by the \"class\" category. The x-axis displays the \"hwy\" category. The labels for the samples are rotated at 45 degrees. The samples are segregated by the \"cyl\" and \"drv\" categories."
+    },
+    {
+      "Type": "Scatter2D",
+      "Answer": {
+        "graphType": "Scatter2D",
+        "segregateVariablesBy": [
+          "cyl",
+          "drv"
+        ],
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Create a 2D scatter plot. The x-axis displays the cty variable, while the y-axis displays the 'hwy' variable. Segregate the variables by cyl and drv.",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The variables are segregated by 'cyl' and 'drv'."
+    },
+    {
+      "Type": "Scatter2D",
+      "Answer": {
+        "asDOE": true,
+        "graphType": "Scatter2D",
+        "xAxis": [
+          "cty"
+        ],
+        "yAxis": [
+          "hwy"
+        ]
+      },
+      "Question": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The configuration also includes a DOE.",
+      "QuestionGPT4": "Create a 2D scatter plot. The x-axis displays the 'cty' variable, while the y-axis displays the 'hwy' variable. The configuration also includes a DOE object."
+    }
+  ]
+}

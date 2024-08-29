@@ -19,6 +19,18 @@ LOGCHATS=False
 
 google_api_key = os.environ.get("GOOGLE_API_KEY")
 
+devFlag = os.environ.get("DEV")
+if devFlag == 'True':
+    devFlag = True
+else:
+    devFlag = False
+
+promptFile = "prompt.md"
+schemaInfoFile = "schema.txt"
+if devFlag:
+    promptFile = "prompt_dev.md"
+    schemaInfoFile = "schema_dev.txt"
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = utils.random_password(16)
 app.config['UPLOAD_FOLDER'] = "/tmp"
@@ -217,7 +229,7 @@ def ask():
 
         milvusClient = llm.getMilvusClient(app)
         fewShotTxt = llm.getFewShots(milvusClient, prompt,numFewShots=num_few_shots,filterPrompt=filter_prompt_from_few_shots)
-        prompt = llm.generate_prompt(prompt,str(headerRow), schema_info_file="schema.txt",prompt_file="prompt.md",few_shot_examples_string=fewShotTxt)
+        prompt = llm.generate_prompt(prompt,str(headerRow), schema_info_file=schemaInfoFile,prompt_file=promptFile,few_shot_examples_string=fewShotTxt)
 
         generated_text = "NOTHINGYET"
         if USE_MODEL == "titan":
