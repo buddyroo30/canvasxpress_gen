@@ -17,7 +17,7 @@ The application is implemented and run using Docker, with various Makefile targe
 
 There is also 'make shell' to enter into a Shell session for the Docker image and 'make buildfresh' which is the same as 'make build' except it doesn't use Docker cache.
 
-To build and run the development version of the application there are Makefile targets corresponding to all the above by simply appending '_dev' (i.e. 'make build_dev', 'make run_dev', 'make exit_dev', etc.) Note that in the provided Makefile the production application runs on port 5008 and the development application runs on port 5009 --- edit RUN_ARGS or RUN_ARGS_DEV to change the ports if you want. Also, the running Docker containers bind mount ~/.cache to /root/.cache inside the container, so make sure you have a .cache directory in your home directory (this is used to store the BGE-M3 embedding model files and also the created vector database which is named canvasxpress_llm.db or canvasxpress_llm_dev.db).
+To build and run the development version of the application there are Makefile targets corresponding to all the above by simply appending '_dev' (i.e. 'make build_dev', 'make run_dev', 'make exit_dev', etc.) Note that in the provided Makefile the production application runs on port 5008 and the development application runs on port 5009 --- edit RUN_ARGS or RUN_ARGS_DEV to change the ports if you want. Also, the running Docker containers bind mount ~/.cache to /root/.cache inside the container, so make sure you have a .cache directory in your home directory (this is used to store the [BGE-M3](https://milvus.io/docs/embed-with-bgm-m3.md) embedding model files and also the created vector database which is named canvasxpress_llm.db or canvasxpress_llm_dev.db).
 
 # Important Files
 
