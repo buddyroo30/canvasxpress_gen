@@ -37,4 +37,4 @@ We have written the code to be able to work with a number of well-known LLMs fro
     AZURE_OPENAI_ENDPOINT=...
     AZURE_OPENAI_API_VERSION=2024-02-01
 
-If you don't know what model to use, easiest is to simply use [Google Gemini 1.5 Flash](https://ai.google.dev/gemini-api) which offers a fairly generous daily allowance of queries through its [free tier](https://ai.google.dev/pricing).
+If you don't know what model to use, easiest is to simply use [Google Gemini 1.5 Flash](https://ai.google.dev/gemini-api) which offers a fairly generous daily allowance of queries through its [free tier](https://ai.google.dev/pricing) and works well in practice.
