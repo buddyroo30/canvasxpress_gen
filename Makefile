@@ -50,7 +50,7 @@ shell_dev:
 	docker run -it --rm --privileged ${BIND_MOUNT_ARGS} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash
 
 init:
-	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${PROD} ${NAME}:${VERSION} /bin/bash -c "python3 vectorize_schema_few_shots.py"
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${PROD} ${NAME}:${VERSION} /bin/bash -c "rm -fr /root/.cache/canvasxpress_llm.db; python3 vectorize_schema_few_shots.py"
 
 init_dev:
-	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "python3 vectorize_schema_few_shots.py"
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "rm -fr /root/.cache/canvasxpress_llm_dev.db; python3 vectorize_schema_few_shots.py"
