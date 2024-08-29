@@ -32,16 +32,22 @@ buildfresh_dev:
                         -f Dockerfile .
 
 run:
-	docker run -d ${RUN_ARGS} ${PROD} ${BIND_MOUNT_ARGS} ${NAME}:${VERSION}
+	docker run -d ${RUN_ARGS} ${PROD} ${BIND_MOUNT_ARGS} --name ${NAME} ${NAME}:${VERSION}
 
 run_dev:
-	docker run -d ${RUN_ARGS_DEV} ${DEV} ${BIND_MOUNT_ARGS} ${NAME_DEV}:${VERSION}
+	docker run -d ${RUN_ARGS_DEV} ${DEV} ${BIND_MOUNT_ARGS} --name ${NAME_DEV} ${NAME_DEV}:${VERSION}
 
 runi:
-	docker run -it ${RUN_ARGS} ${PROD} ${BIND_MOUNT_ARGS} ${NAME}:${VERSION}
+	docker run -it ${RUN_ARGS} ${PROD} ${BIND_MOUNT_ARGS} --name ${NAME} ${NAME}:${VERSION}
 
 runi_dev:
-	docker run -it ${RUN_ARGS_DEV} ${DEV} ${BIND_MOUNT_ARGS} ${NAME_DEV}:${VERSION}
+	docker run -it ${RUN_ARGS_DEV} ${DEV} ${BIND_MOUNT_ARGS} --name ${NAME_DEV} ${NAME_DEV}:${VERSION}
+
+exit:
+	docker rm -f ${NAME}
+
+exit_dev:
+	docker rm -f ${NAME_DEV}
 
 shell:
 	docker run -it --rm --privileged ${BIND_MOUNT_ARGS} ${PROD} ${NAME}:${VERSION} /bin/bash
