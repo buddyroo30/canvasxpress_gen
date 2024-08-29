@@ -1,33 +1,31 @@
 NAME=canvasxpress_gen
 NAME_DEV=canvasxpress_gen_dev
 VERSION:=0.1
-REGISTRY=483421617021.dkr.ecr.us-east-1.amazonaws.com
 RUN_ARGS= --rm -p 5008:5000
 RUN_ARGS_DEV= --rm -p 5009:5000
 PROD=-e DEV=False
 DEV=-e DEV=True
 BIND_MOUNT_ARGS= -v ~/.cache:/root/.cache
-GPU_ARGS= --gpus all
 SHELL_EXTRA_ARGS=
 
 
 build: 
-	docker build --platform linux/amd64 -t ${REGISTRY}/${NAME}:${VERSION} \
+	docker build --platform linux/amd64 \
                         -t ${NAME}:${VERSION} \
                         -f Dockerfile .
 
 build_dev: 
-	docker build --platform linux/amd64 -t ${REGISTRY}/${NAME_DEV}:${VERSION} \
+	docker build --platform linux/amd64 \
                         -t ${NAME_DEV}:${VERSION} \
                         -f Dockerfile .
 
 buildfresh: 
-	docker build --platform linux/amd64 -t ${REGISTRY}/${NAME}:${VERSION} --no-cache \
+	docker build --platform linux/amd64 --no-cache \
                         -t ${NAME}:${VERSION} \
                         -f Dockerfile .
 
 buildfresh_dev: 
-	docker build --platform linux/amd64 -t ${REGISTRY}/${NAME_DEV}:${VERSION} --no-cache \
+	docker build --platform linux/amd64 --no-cache \
                         -t ${NAME_DEV}:${VERSION} \
                         -f Dockerfile .
 
