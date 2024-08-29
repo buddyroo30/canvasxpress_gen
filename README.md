@@ -27,3 +27,13 @@ There are some files that support the core interactions with the LLM, i.e. that 
 2. schema.txt and schema_dev.txt - the schema information that is sent to the LLM (consisting of about 150 of the most commonly used CanvasXpress configuration options)
 3. doc.json and doc_dev.json - a JSON file containing the full set of CanvasXpress configuration options. This information is also indexed in the vector database, but not used at present, but we plan to use it in the future.
 4. all_few_shots.json and all_few_shots_dev.json - a JSON file containing the few shot examples used in the system. These are indexed in the vector database and when the user enters a question, that question is searched against the vector database to fetch the 25 most similar few shot examples which are interpolated into prompt.md. If you update these files you should regenerate the vector database file by running 'make init' or 'make init_dev' and then restart the container (i.e. 'make run' or 'make run_dev').
+
+# Supported LLMs and .env file
+
+We have written the code to be able to work with a number of well-known LLMs from OpenAI (GPT-4o, GPT-4-32K, etc.), Google (Gemini 1.5 Flash and Pro), Anthropic and others. To use the OpenAI models you will need an OpenAI token, and similarly to use the Google Gemini models you will need a Google token; most of the other models are supported through AWS BedRock (so you would need to configure AWS credentials to use them), and Ollama models are also supported if you wanted to run a model yourself. For using the OpenAI models and/or Google Gemini models you should set environment variable values in a .env file (which will get read in using Python's python-dotenv package):
+
+    GOOGLE_API_KEY=....
+    AZURE_OPENAI_API_KEY=...
+    AZURE_OPENAI_ENDPOINT=...
+    AZURE_OPENAI_API_VERSION=2024-02-01
+
