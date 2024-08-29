@@ -7,15 +7,11 @@ import time
 import json
 import utils
 import llm
-#import llm_logging
 import urllib.parse
 import boto3
 from tabulate import tabulate
 from AESCipher import AESCipher
 import numpy as np
-
-code_release = "https://biogit.pri.bms.com/smitha26/LLM-testing"
-LOGCHATS=False
 
 google_api_key = os.environ.get("GOOGLE_API_KEY")
 
@@ -278,9 +274,6 @@ def ask():
     if not utils.empty(client):
         resp['client'] = client
     retValsJson = json.dumps(resp)
-
-    if LOGCHATS:
-        llm_logging.log_chatinfo(code_release,version,"user","id",retValsJson)
 
     if not utils.empty(callback):
         #jsonp response
