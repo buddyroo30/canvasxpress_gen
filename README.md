@@ -7,7 +7,7 @@ The code in this repository can be used to conversationally generate [CanvasXpre
 
 # Building and Running the Application
 
-The application is implemented and run using Docker, with various Makefile targets to support building the Docker image, running it, and stopping it. Both a production and development image/service are supported by the Makefile so you can test changes on the development system before propagating them to the production system. Here are the steps you can take to build and run the image:
+The application is implemented and run using Docker, with various Makefile targets to support building the Docker image, running it, and stopping it. Both a production and development image/application are supported by the Makefile so you can test changes on the development system before propagating them to the production system. Here are the steps you can take to build and run the image:
 
 1. make build - build the Docker image for the production application.
 2. make init - initialize necessary files to run the production application (in particular create the vector database used for RAG by indexing the few shot examples)
