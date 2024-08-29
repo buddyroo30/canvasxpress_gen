@@ -4,6 +4,7 @@ import sys
 from pymilvus import MilvusClient
 from pymilvus.model.hybrid import BGEM3EmbeddingFunction
 import numpy as np
+import os
 
 devFlag = os.environ.get("DEV")
 if devFlag == 'True':
