@@ -1,5 +1,5 @@
 # canvasxpress_gen
-Generating CanvasXpress visualizations from natural language descriptions of them using LLMs
+Generating CanvasXpress visualizations from natural language descriptions of them using Large Language Models ("LLMs")
 
 # Introduction
 
