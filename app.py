@@ -32,7 +32,7 @@ app.config['SECRET_KEY'] = utils.random_password(16)
 app.config['UPLOAD_FOLDER'] = "/tmp"
 aes = AESCipher(app.config['SECRET_KEY'])
 
-SMVAL=True
+SMVAL=False
 validatedCookies = {}
 
 #See here: https://pythonise.com/series/learning-flask/python-before-after-request
