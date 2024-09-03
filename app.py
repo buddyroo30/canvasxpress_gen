@@ -12,6 +12,9 @@ import boto3
 from tabulate import tabulate
 from AESCipher import AESCipher
 import numpy as np
+from dotenv import load_dotenv
+
+load_dotenv()
 
 google_api_key = os.environ.get("GOOGLE_API_KEY")
 
@@ -32,7 +35,11 @@ app.config['SECRET_KEY'] = utils.random_password(16)
 app.config['UPLOAD_FOLDER'] = "/tmp"
 aes = AESCipher(app.config['SECRET_KEY'])
 
-SMVAL=False
+SMVAL = os.environ.get('SMVAL')
+if not utils.empty(SMVAL) and SMVAL == 'True':
+    SMVAL = True
+else:
+    SMVAL = False
 validatedCookies = {}
 
 #See here: https://pythonise.com/series/learning-flask/python-before-after-request

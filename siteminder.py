@@ -4,18 +4,24 @@ import sys
 import re
 import requests
 import getpass
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Login page
-smlogin = 'https://smusath.net.bms.com/siteminderagent/forms/login.fcc'
+smlogin = os.environ.get('SMLOGIN')
 
 # SiteMinder target page
-smtarget = 'HTTPS://smwinath.bms.com/redirect/redirector.asp?ORIGTARGET=http%3a%2f%2fsiteminder%2ebms%2ecom%2f'
+smtarget = os.environ.get('SMTARGET')
 
 # Match login failure page
-failRegex = re.compile(r'.*<html.*AUTHENTICATION\s*FAILED.*</html.*', re.S)
+env_failRegex = os.environ.get('SMFAILREGEX')
+failRegex = re.compile(rf'{env_failRegex}', re.S)
 
 # Match fetch failure page
-fetch_failRegex = re.compile(r'.*<title>BMS: SiteMinder ADSSO</title>.*', re.S)
+env_fetch_failRegex = os.environ.get('SMFETCHFAILREGEX')
+fetch_failRegex = re.compile(rf'{env_fetch_failRegex}', re.S)
 
 # Disable SSL warnings
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
