@@ -31,7 +31,7 @@ buildfresh_dev:
                         -f Dockerfile .
 
 run:
-	docker run -d ${RUN_ARGS} ${PROD} ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT}--name ${NAME} ${NAME}:${VERSION}
+	docker run -d ${RUN_ARGS} ${PROD} ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} --name ${NAME} ${NAME}:${VERSION}
 
 run_dev:
 	docker run -d ${RUN_ARGS_DEV} ${DEV} ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} --name ${NAME_DEV} ${NAME_DEV}:${VERSION}
