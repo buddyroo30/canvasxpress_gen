@@ -38,3 +38,13 @@ We have written the code to be able to work with a number of well-known LLMs fro
     AZURE_OPENAI_API_VERSION=2024-02-01
 
 If you don't know what model to use, easiest is to simply use [Google Gemini 1.5 Flash](https://ai.google.dev/gemini-api) which offers a fairly generous daily allowance of queries through its [free tier](https://ai.google.dev/pricing) and works well in practice.
+
+# SiteMinder Support
+
+Internally at our company Bristol Myers Squibb we use SiteMinder SSO to authenticate users, and we have built support for this into the application. But it isn't required and you don't need to use it. To NOT use SiteMinder simply define a value in your .env file SMVAL=False. If you do want to use SiteMinder then you will need to set SMVAL=True and define some other SiteMinder related env vars:
+
+   SMVAL=True
+   SMLOGIN=...URL of your SiteMinder login page...
+   SMTARGET=...SiteMinder redirect URL
+   SMFAILREGEX=...a pattern to look for in the result of logging in to denote failure...
+   SMFETCHFAILREGEX=...a pattern to look for in fetched pages to denote failure...
