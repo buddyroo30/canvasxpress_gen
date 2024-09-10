@@ -48,3 +48,7 @@ Internally at our company Bristol Myers Squibb we use SiteMinder SSO to authenti
     SMTARGET=...SiteMinder redirect URL
     SMFAILREGEX=...a pattern to look for in the result of logging in to denote failure...
     SMFETCHFAILREGEX=...a pattern to look for in fetched pages to denote failure...
+
+# Preprint
+
+See [here](https://osf.io/preprints/osf/kf2xp) for a preprint paper we published about our work generating visualizations using LLMs with CanvasXpress.
