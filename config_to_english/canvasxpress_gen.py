@@ -233,27 +233,18 @@ def genEnglishTextFromCanvasXpressConfig(configObj,headerRow,cxConfigInfo):
     
 def genEnglishTextsFromAllCanvasXpressConfigs(examplesJsonFile,cxConfigInfo):
 
-    updatedInfo = []
     with open(examplesJsonFile, "r") as f:
         cxExamplesJsonTxt = f.read()
         cxExamples = json.loads(cxExamplesJsonTxt)
 
     # Iterate through the records and print them
     for row in cxExamples['Questions']:
-        typeTxt = 'NA'
-        if 'Type' in row:
-            typeTxt = row['Type']
-        IsaacEnglishTxt = row['Question']
         configObj = row['Answer']
         headerRow = row["Header"]
-        curRec = { 'Type': typeTxt, 'Answer': configObj,  'Question': IsaacEnglishTxt }
         resultTxt = genEnglishTextFromCanvasXpressConfig(configObj,headerRow,cxConfigInfo)
         if resultTxt is not None:
-            curRec['QuestionGPT4o'] = resultTxt
-            updatedInfo.append(curRec)
+            row['QuestionGPT4o'] = resultTxt
         time.sleep(1)
-
-    cxExamples['Questions'] = updatedInfo
 
     print(json.dumps(cxExamples))
 
