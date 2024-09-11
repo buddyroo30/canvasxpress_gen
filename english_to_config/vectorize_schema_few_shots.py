@@ -104,24 +104,23 @@ with open(allFewShotsFile, "r") as f:
     cxExamplesJsonTxt = f.read()
     cxExamples = json.loads(cxExamplesJsonTxt)
 
-headers = cxExamples['data'][0]
-
 few_shot_docs_to_embed_isaac = []
 few_shot_docs_to_embed_gpt4 = []
 for i in range(len(cxExamples['Questions'])):
     curRec = cxExamples['Questions'][i]
     isaacEnglishTxt = curRec['Question']
     few_shot_docs_to_embed_isaac.append(isaacEnglishTxt)
-    gpt4EnglishTxt = curRec['QuestionGPT4']
+    gpt4EnglishTxt = curRec['QuestionGPT4o']
     few_shot_docs_to_embed_gpt4.append(gpt4EnglishTxt)
 
 few_shot_docs_embeddings_isaac = bge_m3_ef.encode_documents(few_shot_docs_to_embed_isaac)
 few_shot_docs_embeddings_gpt4 = bge_m3_ef.encode_documents(few_shot_docs_to_embed_gpt4)
 for i in range(len(cxExamples['Questions'])):
     curRec = cxExamples['Questions'][i]
+    headers = curRec["Header"]
     configObj = curRec["Answer"]
     isaacEnglishTxt = curRec['Question']
-    gpt4EnglishTxt = curRec['QuestionGPT4']
+    gpt4EnglishTxt = curRec['QuestionGPT4o']
     configJsonTxt = json.dumps(configObj)
     curDocsBatch_isaac = [ {"id": i * 2, "vector": few_shot_docs_embeddings_isaac["dense"][i], "configEnglish": few_shot_docs_to_embed_isaac[i], "headers": json.dumps(headers), "config": configJsonTxt } ]
     few_shot_res_isaac = client.insert(
