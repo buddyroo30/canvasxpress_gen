@@ -10,28 +10,34 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-import openai
+from openai import AzureOpenAI
+
+#import openai
 # OpenAI Azure Config
-openai.api_type = os.environ.get('OPENAI_API_TYPE')
-openai.api_key = os.environ.get('OPENAI_API_KEY')
-openai.api_base = os.environ.get('OPENAI_API_BASE')
-openai.api_version = os.environ.get('OPENAI_API_VERSION')
+#openai.api_type = os.environ.get('OPENAI_API_TYPE')
+#openai.api_key = os.environ.get('OPENAI_API_KEY')
+#openai.api_base = os.environ.get('OPENAI_API_BASE')
+#openai.api_version = os.environ.get('OPENAI_API_VERSION')
 
 openai_enc = tiktoken.encoding_for_model('gpt-4-32k')
 
-def generate_results_openai(prompt, model='gpt-4-32k', max_new_tokens=1200, topp=1.0, temperature=0.0, presence_penalty=0.0, frequency_penalty=0.0):
+def generate_results_openai(prompt, model='gpt-4o-global', max_new_tokens=512, topp=1.0, temperature=0.0, presence_penalty=0.0, frequency_penalty=0.0):
 
-    response = openai.ChatCompletion.create(
-        engine=model, # replace this value with the deployment name you chose when you deployed the associated model.
-        messages = [{"role":"user","content":prompt}],
-        temperature=temperature,
+    client = AzureOpenAI()
+
+    completion = client.chat.completions.create(
+        model=model,
         max_tokens=max_new_tokens,
+        temperature=temperature,
         top_p=topp,
-        frequency_penalty=frequency_penalty,
-        presence_penalty=presence_penalty,
-        stop=None)
-
-    generated_text = response['choices'][0]['message']['content']
+        messages=[
+         {
+            "role": "user",
+            "content": prompt,
+            },
+        ],
+    )
+    generated_text = completion.choices[0].message.content
 
     return(generated_text)
 
@@ -232,8 +238,6 @@ def genEnglishTextsFromAllCanvasXpressConfigs(examplesJsonFile,cxConfigInfo):
         cxExamplesJsonTxt = f.read()
         cxExamples = json.loads(cxExamplesJsonTxt)
 
-    headerRow = cxExamples['data'][0]
-
     # Iterate through the records and print them
     for row in cxExamples['Questions']:
         typeTxt = 'NA'
@@ -241,10 +245,11 @@ def genEnglishTextsFromAllCanvasXpressConfigs(examplesJsonFile,cxConfigInfo):
             typeTxt = row['Type']
         IsaacEnglishTxt = row['Question']
         configObj = row['Answer']
+        headerRow = row["Header"]
         curRec = { 'Type': typeTxt, 'Answer': configObj,  'Question': IsaacEnglishTxt }
         resultTxt = genEnglishTextFromCanvasXpressConfig(configObj,headerRow,cxConfigInfo)
         if resultTxt is not None:
-            curRec['QuestionGPT4'] = resultTxt
+            curRec['QuestionGPT4o'] = resultTxt
             updatedInfo.append(curRec)
         time.sleep(1)
 
