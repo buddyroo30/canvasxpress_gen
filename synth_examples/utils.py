@@ -237,7 +237,6 @@ def getSiteMinderUser(request, validatedCookies):
 
 #json1 and json2 are each Dict
 def json_similarity(json1, json2):
-
     if type(json1) != type(json2):
         return 0
 
@@ -273,10 +272,15 @@ def json_similarity(json1, json2):
         return (overlap / total_len) * 100
 
     else:
-        if isinstance(json1,str) and isinstance(json2,str):
+        if isinstance(json1, str) and isinstance(json2, str):
             json1_copy = json1.replace("\n", " ").strip()
             json2_copy = json2.replace("\n", " ").strip()
             if json1_copy == json2_copy:
+                return 100
+            else:
+                return 0
+        elif isinstance(json1, (int, float)) and isinstance(json2, (int, float)):
+            if abs(json1 - json2) <= 0.5:
                 return 100
             else:
                 return 0
