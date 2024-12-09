@@ -113,6 +113,30 @@ def clean_llm_response_text(generated_text):
     json_substring = extract_json_substring(generated_text)
     return(json_substring)
 
+def read_json_file(file_path):
+    """
+    Read a file containing JSON text and evaluate the contents to a Python dictionary.
+
+    Args:
+    - file_path (str): The path to the JSON file.
+
+    Returns:
+    - dict: The contents of the file as a Python dictionary.
+    """
+    try:
+        with open(file_path, 'r') as file:
+            # Read the file contents
+            file_contents = file.read()
+            # Parse the JSON text to a Python dictionary
+            data = json.loads(file_contents)
+            return data
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        return None
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON from file: {file_path}")
+        return None
+
 #See here: https://pynative.com/python-generate-random-string/#h-generate-a-secure-random-string-and-password
 def random_password(len):
     password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(len)))
