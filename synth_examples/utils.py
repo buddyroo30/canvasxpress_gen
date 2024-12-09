@@ -280,7 +280,7 @@ def json_similarity(json1, json2):
             else:
                 return 0
         elif isinstance(json1, (int, float)) and isinstance(json2, (int, float)):
-            if abs(json1 - json2) <= 0.5:
+            if abs(json1 - json2) <= 1.0:
                 return 100
             else:
                 return 0
@@ -289,7 +289,8 @@ def json_similarity(json1, json2):
         else:
             return 0
 
-#Here is a Python3 function that uses recursion to check if one JSON object (json1) is a subset of another (json2):
+#Here is a Python3 function that uses recursion to check if one JSON object (json1) is a subset of another (json2).
+#It is "lenient" in checking numeric values, allowing a difference of 1.0.
 def is_subset(json1, json2):
     if isinstance(json1, dict) and isinstance(json2, dict):
         for key in json1:
@@ -310,6 +311,8 @@ def is_subset(json1, json2):
             json1_copy = json1.replace("\n", " ").strip()
             json2_copy = json2.replace("\n", " ").strip()
             return json1_copy == json2_copy
+        elif isinstance(json1, (int, float)) and isinstance(json2, (int, float)):
+            return abs(json1 - json2) <= 1.0
         else:
             return json1 == json2
 
@@ -353,5 +356,9 @@ def generate_prompt(canvasxpress_config_english, headers_column_names, schema_in
     prompt = prompt.format(
         canvasxpress_config_english=canvasxpress_config_english, headers_column_names=headers_column_names, schema_info=schema_info_string,few_shot_examples=few_shot_examples_string
     )
+
+    #If you need to have raw { and } chars and not have them interpreted as interpolation variables, you have to encode them as __LCB__ and __RCB__ which will get replaced below
+    prompt = prompt.replace('__LCB__', '{')
+    prompt = prompt.replace('__RCB__', '}')
 
     return prompt
