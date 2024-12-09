@@ -145,7 +145,6 @@ def gen_vectordb(train_docs, num_docs, vectorDbFile):
         curHeader = curRec['header']
         curPrompt = curRec['prompt']
         few_shot_docs_to_embed = []
-        few_shot_docs_to_embed.append(curPrompt)
         alt_prompts = curRec['alt_prompts']
         all_prompts = alt_prompts + [curPrompt]
         for j in range(len(all_prompts)):
