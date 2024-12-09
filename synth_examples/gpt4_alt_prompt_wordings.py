@@ -1,5 +1,7 @@
 import json
 import re
+import os
+import time
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 import tiktoken
@@ -27,6 +29,7 @@ def generate_results_openai(prompt, model='gpt-4o-global', max_new_tokens=512, t
         ],
     )
     generated_text = completion.choices[0].message.content
+    #time.sleep(1)
 
     return(generated_text)
 
@@ -87,6 +90,14 @@ def remove_backticks_and_json_block(input_str):
 
 file_path = 'synth_examples.json'
 updated_file_path = 'synth_examples_updated.json'
+partial_results = {}
+if os.path.exists(updated_file_path):
+    tmp_data = read_json_file(updated_file_path)
+    for current_example in tmp_data['examples']:
+        prompt = current_example['prompt']
+        if 'alt_prompts' in current_example:
+            alt_prompts = current_example['alt_prompts']
+            partial_results[prompt] = alt_prompts
 data = read_json_file(file_path)
 updated_data = {}
 examples_data = data['examples']
@@ -100,8 +111,19 @@ for current_example in examples_data:
     config = current_example['config']
     prompt = current_example['prompt']
     cur_updated_example = { "header": header, "config": config, "prompt": prompt }
+    if prompt in partial_results:
+        cur_updated_example['alt_prompts'] = partial_results[prompt]
+        updated_examples.append(cur_updated_example)
+        continue
     alt_prompt = """The following is an English paragraph of multiple sentences that describes a data visualization, and please generate 3
-                 different, alternative ways of expressing the same meaning. Return the 3 alternative paragraphs as a valid JSON list or array of strings.
+                 different, alternative ways of expressing the same meaning.
+                 But important: do not change the word "sort", leave that as-is if you encounter it.
+                 Also important: do not subsitute the word "sort" for "group by" and vice versa.
+                 sort is not a synonym for group and vice versa. sort is not a synonym for organize and vice versa.
+                 Only use "like" and "different" when constructing a filtered dataset.
+                 "group" means to aggregate the data while "sort" means to order the data.
+                 Use "different" instead of "not like" when filterData is in the config.
+                 Return the 3 alternative paragraphs as a valid JSON list or array of strings.
                  Return ONLY the JSON list/array and nothing else (no backticks, do not embed the list in another JSON object, etc.)
                  Specifically return like this: ["ALTERNATIVE1", "ALTERNATIVE2", "ALTERNATIVE3"]. Here is the paragraph: """ + prompt
     input_encoding_tokens = openai_enc.encode(alt_prompt)
