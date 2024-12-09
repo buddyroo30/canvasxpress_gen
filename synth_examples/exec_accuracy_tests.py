@@ -8,6 +8,7 @@ import numpy as np
 import math
 import statistics
 import os
+import re
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 import tiktoken
@@ -16,6 +17,31 @@ import utils
 load_dotenv()
 
 openai_enc = tiktoken.encoding_for_model('gpt-4o-global')
+
+def extract_json_from_response(response):
+    """
+    Extract the legal JSON content from a response string.
+
+    Args:
+    - response (str): The input response string containing JSON content.
+
+    Returns:
+    - dict: The extracted JSON content as a dictionary if the pattern matches, otherwise None.
+    """
+    # Define a regular expression pattern to match JSON content
+    pattern = re.compile(r'\{.*\}', re.DOTALL)
+    
+    match = pattern.search(response)
+    if match:
+        json_content = match.group(0)
+        json_obj = {}
+        try:
+            json_obj = json.loads(json_content)
+        except Exception as e:
+            return False, str(e), json_content, json_obj
+
+        return True, None, json_content, json_obj
+    return False, "Did not match JSON in response", "", {}
 
 def generate_results_openai(prompt, model='gpt-4o-global', max_new_tokens=1024, topp=1.0, temperature=0.1):
 
@@ -121,9 +147,6 @@ def gen_vectordb(train_docs, num_docs, vectorDbFile):
         few_shot_docs_to_embed = []
         few_shot_docs_to_embed.append(curPrompt)
         alt_prompts = curRec['alt_prompts']
-        if not len(alt_prompts) == 3:
-            print(f"Error: Expected 3 alternative prompts, but found {len(alt_prompts)}")
-            return None
         all_prompts = alt_prompts + [curPrompt]
         for j in range(len(all_prompts)):
             cur_prompt = all_prompts[j]
@@ -177,18 +200,21 @@ def exec_one_test(train_docs,num_few_shots,test_docs):
         for j in range(len(all_prompts)):
             cur_prompt = all_prompts[j]
             all_f.write("FEW SHOT QUESTION: " + cur_prompt + "\n")
+            all_f.write("ORIGINAL COPILOT QUESTION:" + curPrompt + "\n")
             all_f.write("FEW SHOT HEADER: " + str(curHeader) + "\n")
             all_f.write("FEW SHOT ANSWER: " + json.dumps(curConfig) + "\n")
             all_f.write("FEW SHOT ANSWER PRETTY:" + json.dumps(curConfig,indent=2,sort_keys=True) + "\n")
             fewShotTxt = getFewShots(client, cur_prompt,numFewShots=25,filterPrompt=True,format='text')
             overall_prompt = utils.generate_prompt(cur_prompt,str(curHeader), schema_info_file="schema_info.txt",prompt_file="prompt.md",few_shot_examples_string=fewShotTxt)
             generated_text = generate_results_openai(overall_prompt)
-            jsonObj = None
-            try:
-                jsonObj = json.loads(generated_text)
-            except Exception as e:
-                all_f.write("ERROR DECODING RESPONSE AS JSON: " + str(e) + ", RESPONSE TEXT: " + generated_text + "\n")
-                continue
+            successFlag, decodeMsg, jsonStr, jsonObj = extract_json_from_response(generated_text)
+            if not successFlag:
+                all_f.write("ERROR DECODING RESPONSE AS JSON: True\n")
+                all_f.write("ATTEMPTED EXTRACTION OF JSON STRING ERROR: " + decodeMsg + "\n")
+                all_f.write("ATTEMPTED EXTRACTION OF JSON STRING EXTRACTED VALUE: " +  jsonStr + "\n")
+                jsobObj = {}
+            else:
+                all_f.write("ERROR DECODING RESPONSE AS JSON: False\n")
             jsonSimilarityScore = 0.0
             answerIsSubset = "Unknown"
             jsonSimilarityScore = utils.json_similarity(curConfig,jsonObj)
@@ -235,7 +261,7 @@ def exec_one_test(train_docs,num_few_shots,test_docs):
 train_file = "train_set.json"
 test_file = "test_set.json"
 cxDocFile = "doc.json"
-test_num_few_shots = [100,200,300,400,500,600,700,800,900,1000,1100]
+test_num_few_shots = [100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300]
 
 all_f = open("all_results.txt", "w")
 sum_f = open("summary_results.txt", "w")
