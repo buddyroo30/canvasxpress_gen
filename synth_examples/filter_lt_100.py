@@ -13,6 +13,42 @@ def empty(str):
         return True
     return False
 
+def remove_section(text, section_name):
+    """
+    Remove the section that begins with the specified section name from the input text.
+
+    Args:
+    - text (str): The input text containing various sections.
+    - section_name (str): The name of the section to remove.
+
+    Returns:
+    - str: The text with the specified section removed.
+    """
+    pattern = rf'{re.escape(section_name)}:.*?(?=\n[A-Z ]+?:|$)'
+    cleaned_text = re.sub(pattern, '', text, flags=re.DOTALL)
+    # Remove any trailing newline characters
+    cleaned_text = re.sub(r'\n+', '\n', cleaned_text).strip()
+    return cleaned_text
+
+def extract_section_value_from_string(input_string, section_name):
+    """
+    Extract the value of a specified section from the input string.
+
+    Args:
+    - input_string (str): The input string containing the section.
+    - section_name (str): The name of the section to extract the value for.
+
+    Returns:
+    - str: The extracted value if the pattern matches, otherwise None.
+    """
+    # Define a regular expression pattern to match the section and its value
+    pattern = re.compile(rf'{re.escape(section_name)}:\s*(.*?)(?=\n\S|$)', re.DOTALL)
+    
+    match = pattern.search(input_string)
+    if match:
+        return match.group(1).strip()
+    return None
+
 def extract_similarity_score_from_string(input_string):
     """
     Extract the float value of SIMILARITY SCORE from the input string.
@@ -29,9 +65,19 @@ def extract_similarity_score_from_string(input_string):
     return None
 
 def print_rec(cur_rec_txt):
-    similarity_score = extract_similarity_score_from_string(cur_rec_txt)
+    similarity_score = extract_section_value_from_string(cur_rec_txt, "SIMILARITY SCORE")
+    if similarity_score is None:
+        print("BAD BAD BAD:")
+        print(cur_rec_txt)
+        sys.exit()
+    similarity_score = float(similarity_score)
+    error_decoding_json = extract_section_value_from_string(cur_rec_txt, "ERROR DECODING RESPONSE AS JSON")
     if similarity_score is not None and similarity_score < 100.0:
-        print(cur_rec_txt, end='')
+        cleaned_text = cur_rec_txt
+        if error_decoding_json == "False":
+            cleaned_text = remove_section(cleaned_text, "LLM GENERATED RESPONSE") #Just have the pretty version of the section
+        cleaned_text = remove_section(cleaned_text, "FEW SHOT ANSWER") #Just have the pretty version of the section
+        print(cleaned_text)
 
 skip_lines = [
 "***SUMMARY***",
@@ -68,6 +114,6 @@ def filter_records_lt_100(file_path):
     if not empty(cur_rec_txt):
         print_rec(cur_rec_txt)
 
-orig_file = "length_10_prompts/all_results.txt"
+orig_file = "all_results.txt"
 filter_records_lt_100(orig_file)
 
