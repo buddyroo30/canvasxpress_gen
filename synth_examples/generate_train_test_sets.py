@@ -60,9 +60,9 @@ shuffle_array_in_place(data['examples'])
 paramsArray = data['parameters']
 write_string_to_file("parameters.json", json.dumps(paramsArray,indent=2))
 shuffledExamples = data['examples']
-trainSet = shuffledExamples[:1100]
+trainSet = shuffledExamples[:2300]
 write_string_to_file("train_set.json", json.dumps(trainSet,indent=2))
-testSet = shuffledExamples[1100:]
+testSet = shuffledExamples[2300:]
 write_string_to_file("test_set.json", json.dumps(testSet,indent=2))
 
     
