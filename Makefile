@@ -5,7 +5,7 @@ RUN_ARGS= --rm -p 5008:5000
 RUN_ARGS_DEV= --rm -p 5009:5000
 PROD=-e DEV=False
 DEV=-e DEV=True
-AWS_CREDS_BIND_MOUNT= -v ~/.aws/credentials:/root/.aws/credentials
+AWS_CREDS_BIND_MOUNT=
 BIND_MOUNT_ARGS= -v ~/.cache:/root/.cache 
 SHELL_EXTRA_ARGS=
 
