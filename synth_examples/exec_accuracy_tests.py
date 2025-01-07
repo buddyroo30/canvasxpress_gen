@@ -260,7 +260,7 @@ def exec_one_test(train_docs,num_few_shots,test_docs):
 train_file = "train_set.json"
 test_file = "test_set.json"
 cxDocFile = "doc.json"
-test_num_few_shots = [100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300]
+test_num_few_shots = [100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500]
 
 all_f = open("all_results.txt", "w")
 sum_f = open("summary_results.txt", "w")
