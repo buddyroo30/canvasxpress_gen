@@ -113,30 +113,6 @@ def clean_llm_response_text(generated_text):
     json_substring = extract_json_substring(generated_text)
     return(json_substring)
 
-def read_json_file(file_path):
-    """
-    Read a file containing JSON text and evaluate the contents to a Python dictionary.
-
-    Args:
-    - file_path (str): The path to the JSON file.
-
-    Returns:
-    - dict: The contents of the file as a Python dictionary.
-    """
-    try:
-        with open(file_path, 'r') as file:
-            # Read the file contents
-            file_contents = file.read()
-            # Parse the JSON text to a Python dictionary
-            data = json.loads(file_contents)
-            return data
-    except FileNotFoundError:
-        print(f"File not found: {file_path}")
-        return None
-    except json.JSONDecodeError:
-        print(f"Error decoding JSON from file: {file_path}")
-        return None
-
 #See here: https://pynative.com/python-generate-random-string/#h-generate-a-secure-random-string-and-password
 def random_password(len):
     password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(len)))
@@ -259,10 +235,15 @@ def getSiteMinderUser(request, validatedCookies):
 
     return(respValsHash)
 
-#json1 and json2 are each Dict
+# json1 and json2 are each Dict
 def json_similarity(json1, json2):
-
     if type(json1) != type(json2):
+        # Handle the case where one is int and the other is float
+        if isinstance(json1, (int, float)) and isinstance(json2, (int, float)):
+            if abs(float(json1) - float(json2)) <= 1.0:
+                return 100
+            else:
+                return 0
         return 0
 
     if isinstance(json1, dict):
@@ -297,10 +278,15 @@ def json_similarity(json1, json2):
         return (overlap / total_len) * 100
 
     else:
-        if isinstance(json1,str) and isinstance(json2,str):
+        if isinstance(json1, str) and isinstance(json2, str):
             json1_copy = json1.replace("\n", " ").strip()
             json2_copy = json2.replace("\n", " ").strip()
             if json1_copy == json2_copy:
+                return 100
+            else:
+                return 0
+        elif isinstance(json1, (int, float)) and isinstance(json2, (int, float)):
+            if abs(float(json1) - float(json2)) <= 1.0:
                 return 100
             else:
                 return 0
@@ -309,7 +295,8 @@ def json_similarity(json1, json2):
         else:
             return 0
 
-#Here is a Python3 function that uses recursion to check if one JSON object (json1) is a subset of another (json2):
+#Here is a Python3 function that uses recursion to check if one JSON object (json1) is a subset of another (json2).
+#It is "lenient" in checking numeric values, allowing a difference of 1.0.
 def is_subset(json1, json2):
     if isinstance(json1, dict) and isinstance(json2, dict):
         for key in json1:
@@ -330,6 +317,8 @@ def is_subset(json1, json2):
             json1_copy = json1.replace("\n", " ").strip()
             json2_copy = json2.replace("\n", " ").strip()
             return json1_copy == json2_copy
+        elif isinstance(json1, (int, float)) and isinstance(json2, (int, float)):
+            return abs(json1 - json2) <= 1.0
         else:
             return json1 == json2
 
@@ -351,3 +340,50 @@ def convert_boolean_dict_values(d):
             elif v == "false":
                 d[k] = False
     return d
+
+def read_json_file(file_path):
+    """
+    Read a file containing JSON text and evaluate the contents to a Python dictionary.
+
+    Args:
+    - file_path (str): The path to the JSON file.
+
+    Returns:
+    - dict: The contents of the file as a Python dictionary.
+    """
+    try:
+        with open(file_path, 'r') as file:
+            # Read the file contents
+            file_contents = file.read()
+            # Parse the JSON text to a Python dictionary
+            data = json.loads(file_contents)
+            return data
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        return None
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON from file: {file_path}")
+        return None
+
+def generate_prompt(canvasxpress_config_english, headers_column_names, schema_info_file="schema_info.txt", schema_info_string=None,
+                    prompt_file="prompt.md", few_shot_examples_file="few_shot_examples.txt", few_shot_examples_string=None):
+    with open(prompt_file, "r") as f:
+        prompt = f.read()
+
+    if few_shot_examples_string is None:
+        with open(few_shot_examples_file, "r") as f:
+            few_shot_examples_string = f.read()
+
+    if schema_info_string is None:
+        with open(schema_info_file, "r") as f:
+            schema_info_string = f.read()
+
+    prompt = prompt.format(
+        canvasxpress_config_english=canvasxpress_config_english, headers_column_names=headers_column_names, schema_info=schema_info_string,few_shot_examples=few_shot_examples_string
+    )
+
+    #If you need to have raw { and } chars and not have them interpreted as interpolation variables, you have to encode them as __LCB__ and __RCB__ which will get replaced below
+    prompt = prompt.replace('__LCB__', '{')
+    prompt = prompt.replace('__RCB__', '}')
+
+    return prompt
