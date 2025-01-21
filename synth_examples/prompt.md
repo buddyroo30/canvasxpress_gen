@@ -32,10 +32,13 @@ To help you in this task you are provided detailed information about the valid f
 -When "decorations" are specified in the JSON configuration and the "graphType" is one of the following: "Area", "AreaLine", "Bar", "BarLine", "Boxplot", "DotLine", "Dotplot", "Heatmap", "Line", "Lollipop", "Pareto", "Stacked", "StackedLine", "StackedPercent", "StackedPercentLine", "Violin", or "Waterfall" the "y" parameter should never be included. Instead, always include the "value" parameter.
 -Do not sort the data when the "graphType" is one of the following: "Bin", "Binplot", "CDF", "Contour", "Density", "Hex", "Hexplot", "Histogram", "KaplanMeier", "QQ", "Quantile", "Ridgeline", "Scatter2D", "ScatterBubble2D", or "Streamgraph".
 -Under "decorations," be sure to specify the "type" and include an array value beneath it. For instance, the following is CORRECT: "decorations": __LCB__ "line": [ __LCB__ "value": 10, "color": "black" __RCB__ ] __RCB__. However, this is INCORRECT: "decorations": __LCB__ "value": 10, "color": "black" __RCB__.
+-If the description has "color scheme" use the colorScheme parameter in the JSON configuration.
 -Only use VALID "colorScheme" values! For instance, "Solarized" is ACCEPTABLE, while "SolarizedBase" is NOT.
 -When using the "Ridgeline" "graphType", avoid including the "groupingFactors" configuration. Instead, use "ridgeBy". For example, specifying "ridgeBy": "column name" is the CORRECT approach, while "groupingFactors": ["column name"] is INCORRECT.
 -Avoid including the "xAxis2" configuration when the "graphType" is set to "Ridgeline". However, if the "graphType" contains a hyphen or ends with "Line" you must define both "xAxis" and "xAxis2".
 -Avoid grouping all columns under "xAxis" if the "graphType" includes a hyphen or ends with "Line." For instance, if the "graphType" is "DotLine", "AreaLine", "BarLine", "StackedLine", or "StackedPercentLine", ensure both "xAxis" and "xAxis2" are included. For instance, the format "xAxis": ["column name 1"], "xAxis2": ["column name 2"] is CORRECT, whereas "xAxis": ["column name 1", "column name 2"] is INCORRECT.
+-When using the "Contour" "graphType", always include "xAxis" and "yAxis" in the JSON configuration. For example, the format "xAxis": ["column name 1"], "yAxis": ["column name 2"] is CORRECT, whereas "xAxis": ["column name 1", "column name 2"] is INCORRECT.
+-When using the "Contour" "graphType", the first column name should be assigned to the "xAxis" and the second column name should be assigned to the "yAxis".
 
 ### Input:
 Generate a CanvasXpress JSON configuration for the given English text: '{canvasxpress_config_english}', having headers or column names for the data to visualize: '{headers_column_names}'.
