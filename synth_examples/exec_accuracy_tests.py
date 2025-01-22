@@ -13,6 +13,7 @@ from openai import AzureOpenAI
 from dotenv import load_dotenv
 import tiktoken
 import utils
+import hash_results
 
 load_dotenv()
 
@@ -163,7 +164,7 @@ def gen_vectordb(train_docs, num_docs, vectorDbFile):
 
     return(client)
 
-def exec_one_test(train_docs,num_few_shots,test_docs):
+def exec_one_test(train_docs,num_few_shots,test_docs, hashed_results):
     """
     Execute a single accuracy test.
 
@@ -184,9 +185,10 @@ def exec_one_test(train_docs,num_few_shots,test_docs):
 
     all_f.write(f"--- TESTING NUM_FEW_SHOTS {num_few_shots} ---" + "\n")
 
-    vectorDbFile = f"few_shots_{num_few_shots}.db"
-    # Generate the vector database
-    client = gen_vectordb(train_docs, num_few_shots, vectorDbFile)
+    if hashed_results is None:
+        vectorDbFile = f"few_shots_{num_few_shots}.db"
+        # Generate the vector database
+        client = gen_vectordb(train_docs, num_few_shots, vectorDbFile)
 
     for i in range(len(test_docs)):
         curRec = test_docs[i]
@@ -203,9 +205,17 @@ def exec_one_test(train_docs,num_few_shots,test_docs):
             all_f.write("FEW SHOT HEADER: " + str(curHeader) + "\n")
             all_f.write("FEW SHOT ANSWER: " + json.dumps(curConfig) + "\n")
             all_f.write("FEW SHOT ANSWER PRETTY:" + json.dumps(curConfig,indent=2,sort_keys=True) + "\n")
-            fewShotTxt = getFewShots(client, cur_prompt,numFewShots=25,filterPrompt=True,format='text')
-            overall_prompt = utils.generate_prompt(cur_prompt,str(curHeader), schema_info_file="schema_info.txt",prompt_file="prompt.md",few_shot_examples_string=fewShotTxt)
-            generated_text = generate_results_openai(overall_prompt)
+            if hashed_results is None:
+                fewShotTxt = getFewShots(client, cur_prompt,numFewShots=25,filterPrompt=True,format='text')
+                overall_prompt = utils.generate_prompt(cur_prompt,str(curHeader), schema_info_file="schema_info.txt",prompt_file="prompt.md",few_shot_examples_string=fewShotTxt)
+                generated_text = generate_results_openai(overall_prompt)
+            else:
+                subhash = hashed_results.get(cur_prompt.strip(), {})
+                generated_text = subhash.get(num_few_shots, "")
+                if utils.empty(generated_text):
+                    print(f"Error: No LLM generated response found for few shot question: '{cur_prompt}' and num few shots: {num_few_shots}")
+                    print(json.dumps(subhash,indent=2))
+                    sys.exit()
             successFlag, decodeMsg, jsonStr, jsonObj = extract_json_from_response(generated_text)
             if not successFlag:
                 all_f.write("ERROR DECODING RESPONSE AS JSON: True\n")
@@ -255,12 +265,13 @@ def exec_one_test(train_docs,num_few_shots,test_docs):
                   str(avgSimilarityScore),str(medSimilarityScore),str(maxSimilarityScore),str(minSimilarityScore)]
     sum_f.write("\t".join(sum_result) + "\n")
 
-
+hashed_results = None
+#hashed_results = hash_results.hash_results("all_results.txt")
 
 train_file = "train_set.json"
 test_file = "test_set.json"
 cxDocFile = "doc.json"
-test_num_few_shots = [100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300]
+test_num_few_shots = [100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500]
 
 all_f = open("all_results.txt", "w")
 sum_f = open("summary_results.txt", "w")
@@ -272,7 +283,7 @@ train_docs = utils.read_json_file(train_file)
 test_docs = utils.read_json_file(test_file)
 
 for num_few_shots in test_num_few_shots:
-    exec_one_test(train_docs,num_few_shots,test_docs)
+    exec_one_test(train_docs,num_few_shots,test_docs, hashed_results)
 
 
 

@@ -238,6 +238,12 @@ def getSiteMinderUser(request, validatedCookies):
 #json1 and json2 are each Dict
 def json_similarity(json1, json2):
     if type(json1) != type(json2):
+        # Handle the case where one is int and the other is float
+        if isinstance(json1, (int, float)) and isinstance(json2, (int, float)):
+            if abs(float(json1) - float(json2)) <= 1.0:
+                return 100
+            else:
+                return 0
         return 0
 
     if isinstance(json1, dict):
@@ -280,7 +286,7 @@ def json_similarity(json1, json2):
             else:
                 return 0
         elif isinstance(json1, (int, float)) and isinstance(json2, (int, float)):
-            if abs(json1 - json2) <= 1.0:
+            if abs(float(json1) - float(json2)) <= 1.0:
                 return 100
             else:
                 return 0
@@ -315,6 +321,25 @@ def is_subset(json1, json2):
             return abs(json1 - json2) <= 1.0
         else:
             return json1 == json2
+
+def convert_boolean_dict_values(d):
+    for k, v in d.items():
+        if isinstance(v, dict):
+            convert_boolean_dict_values(v)
+        elif isinstance(v, list):
+            for i in range(len(v)):
+                if isinstance(v[i], dict):
+                    convert_boolean_dict_values(v[i])
+                elif v[i] == "true":
+                    v[i] = True
+                elif v[i] == "false":
+                    v[i] = False
+        else:
+            if v == "true":
+                d[k] = True
+            elif v == "false":
+                d[k] = False
+    return d
 
 def read_json_file(file_path):
     """
