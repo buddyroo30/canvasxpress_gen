@@ -243,8 +243,8 @@ def ask():
             generated_text = llm.generate_results_llama31(prompt,model=model, max_token_count=int(max_new_tokens), topp=float(topp), temperature=float(temperature))
         elif USE_MODEL == "anthropic":
             generated_text = llm.generate_results_anthropic(prompt, model=model, max_token_count=int(max_new_tokens), topp=float(topp), temperature=float(temperature))
-        elif USE_MODEL == "openai":
-            generated_text = llm.generate_results_openai(prompt, model=model, max_new_tokens=int(max_new_tokens),topp=float(topp),temperature=float(temperature),presence_penalty=float(presence_penalty),frequency_penalty=float(frequency_penalty))
+        elif USE_MODEL == "azure_openai":
+            generated_text = llm.generate_results_azure_openai(prompt, model=model, max_new_tokens=int(max_new_tokens),topp=float(topp),temperature=float(temperature),presence_penalty=float(presence_penalty),frequency_penalty=float(frequency_penalty))
         elif USE_MODEL == 'google_gemini':
             generated_text = llm.generate_results_google_gemini(prompt,model=model,temperature=float(temperature))
         elif USE_MODEL == 'ollama':
@@ -344,8 +344,8 @@ def ask_generic():
         generated_text = llm.generate_results_llama31(prompt,model=model, max_token_count=int(max_new_tokens), topp=float(topp), temperature=float(temperature))
     elif USE_MODEL == "anthropic":
         generated_text = llm.generate_results_anthropic(prompt, model=model, max_token_count=int(max_new_tokens), topp=float(topp), temperature=float(temperature))
-    elif USE_MODEL == "openai":
-        generated_text = llm.generate_results_openai(prompt, model=model, max_new_tokens=int(max_new_tokens),topp=float(topp),temperature=float(temperature),presence_penalty=float(presence_penalty),frequency_penalty=float(frequency_penalty))
+    elif USE_MODEL == "azure_openai":
+        generated_text = llm.generate_results_azure_openai(prompt, model=model, max_new_tokens=int(max_new_tokens),topp=float(topp),temperature=float(temperature),presence_penalty=float(presence_penalty),frequency_penalty=float(frequency_penalty))
     elif USE_MODEL == 'google_gemini':
         generated_text = llm.generate_results_google_gemini(prompt,model=model,temperature=float(temperature))
     elif USE_MODEL == 'ollama':

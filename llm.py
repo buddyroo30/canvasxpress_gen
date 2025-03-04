@@ -222,7 +222,7 @@ def generate_results_anthropic(prompt, model='anthropic.claude-3-5-sonnet-202406
 
     return(generated_text)
 
-def generate_results_openai(prompt, model='gpt-4o-global', max_new_tokens=512, topp=1.0, temperature=0.0, presence_penalty=0.0, frequency_penalty=0.0):
+def generate_results_azure_openai(prompt, model='gpt-4o-global', max_new_tokens=512, topp=1.0, temperature=0.0, presence_penalty=0.0, frequency_penalty=0.0):
 
     client = AzureOpenAI()
 
@@ -252,7 +252,7 @@ def generate_results_google_gemini(prompt,model='gemini-1.5-flash',temperature=0
     return(answer_txt)
 
 def get_model_type(model):
-    #USE_MODEL="titan" or "openai" or "google_gemini" or "ollama" or "llama31" or "anthropic"
+    #USE_MODEL="titan" or "azure_openai" or "google_gemini" or "ollama" or "llama31" or "anthropic"
     modelToType = { "amazon.titan-tg1-large": "titan",
                     "mistral.mistral-large-2407-v1:0": "mistral",
                     "meta.llama3-1-405b-instruct-v1:0": "llama31",
@@ -261,12 +261,12 @@ def get_model_type(model):
                     "anthropic.claude-3-sonnet-20240229-v1:0": "anthropic",
                     "anthropic.claude-3-5-sonnet-20240620-v1:0": "anthropic",
                     "anthropic.claude-3-opus-20240229-v1:0": "anthropic",
-                    "gpt-4o-global": "openai",
-                    "gpt-4o-regional": "openai",
-                    "gpt-4o-mini": "openai",
-                    "gpt-4": "openai",
-                    "gpt-4-32k": "openai",
-                    "gpt-35-turbo-16k": "openai",
+                    "gpt-4o-global": "azure_openai",
+                    "gpt-4o-regional": "azure_openai",
+                    "gpt-4o-mini": "azure_openai",
+                    "gpt-4": "azure_openai",
+                    "gpt-4-32k": "azure_openai",
+                    "gpt-35-turbo-16k": "azure_openai",
                     "gemini-1.5-flash": "google_gemini",
                     "gemini-1.5-pro": "google_gemini" }
 
