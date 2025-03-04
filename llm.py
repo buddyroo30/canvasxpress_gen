@@ -222,6 +222,7 @@ def generate_results_anthropic(prompt, model='anthropic.claude-3-5-sonnet-202406
 
     return(generated_text)
 
+#Use this to access OpenAI models through Azure
 def generate_results_azure_openai(prompt, model='gpt-4o-global', max_new_tokens=512, topp=1.0, temperature=0.0, presence_penalty=0.0, frequency_penalty=0.0):
 
     client = AzureOpenAI()
@@ -231,14 +232,34 @@ def generate_results_azure_openai(prompt, model='gpt-4o-global', max_new_tokens=
         max_tokens=max_new_tokens,
         temperature=temperature,
         top_p=topp,
+        presence_penalty=presence_penalty,
+        frequency_penalty=frequency_penalty,
         messages=[
          {
             "role": "user",
-            "content": prompt,
-            },
-        ],
+            "content": prompt
+            }
+        ]
     )
     generated_text = completion.choices[0].message.content
+
+    return(generated_text)
+
+#Use this to directly access OpenAI's models
+def generate_results_openai(prompt, model='gpt-4o-global', max_new_tokens=512, topp=1.0, temperature=0.0, presence_penalty=0.0, frequency_penalty=0.0):
+
+    response = openai.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=max_new_tokens,  # max_new_tokens is equivalent to max_tokens in this context
+            top_p=topp,
+            temperature=temperature,
+            presence_penalty=presence_penalty,
+            frequency_penalty=frequency_penalty
+        )
+    generated_text = response.choices[0].message.content
 
     return(generated_text)
 
