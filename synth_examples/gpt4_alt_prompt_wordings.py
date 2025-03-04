@@ -117,15 +117,18 @@ for current_example in examples_data:
         continue
     alt_prompt = """The following is an English paragraph of multiple sentences that describes a data visualization, and please generate 3
                  different, alternative ways of expressing the same meaning.
-                 But important: do not change the word "sort", leave that as-is if you encounter it.
-                 Also important: do not subsitute the word "sort" for "group by" and vice versa.
-                 sort is not a synonym for group and vice versa. sort is not a synonym for organize and vice versa.
-                 Only use "like" and "different" when constructing a filtered dataset.
-                 "group" means to aggregate the data while "sort" means to order the data.
-                 Use "different" instead of "not like" when filterData is in the config.
-                 Return the 3 alternative paragraphs as a valid JSON list or array of strings.
-                 Return ONLY the JSON list/array and nothing else (no backticks, do not embed the list in another JSON object, etc.)
-                 Specifically return like this: ["ALTERNATIVE1", "ALTERNATIVE2", "ALTERNATIVE3"]. Here is the paragraph: """ + prompt
+
+                But important: Keep the word "sort" unchanged if it appears. Keep the words "group by"
+                unchanged if they appear. Avoid substituting the term "sort" with "group by," or vice versa.
+                "Sort" and "group" are not interchangeable terms and should not be treated as synonyms.
+                "Sort" and "organize" are not interchangeable; each carries a distinct meaning. "Group"
+                refers to aggregating data, while "sort" involves organizing data in a specific order.
+                When building a filtered dataset, use only "like" and "different" to define criteria.
+                Use "different" in place of "not like" whenever the word "filter" appears in the paragraph.
+                Return the 3 alternative paragraphs as a valid JSON list or array of strings. Return ONLY
+                the JSON list/array and nothing else (no backticks, do not embed the list in another JSON
+                object, etc). Specifically return like this: ["ALTERNATIVE1", "ALTERNATIVE2", "ALTERNATIVE3"].
+                Here is the paragraph: """ + prompt
     input_encoding_tokens = openai_enc.encode(alt_prompt)
     num_input_tokens = len(input_encoding_tokens)
     total_input_tokens += num_input_tokens
