@@ -54,8 +54,14 @@ shell:
 shell_dev:
 	docker run -it --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash
 
-init:
+build_schema_context:
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}:${VERSION} /bin/bash -c "python3 generate_schema_context.py" > schema.txt
+
+build_schema_context_dev:
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME}:${VERSION} /bin/bash -c "python3 generate_schema_context.py" > schema_dev.txt
+
+build_vector_db:
 	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}:${VERSION} /bin/bash -c "rm -fr /root/.cache/canvasxpress_llm.db; python3 vectorize_schema_few_shots.py"
 
-init_dev:
+build_vector_db_dev:
 	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "rm -fr /root/.cache/canvasxpress_llm_dev.db; python3 vectorize_schema_few_shots.py"
