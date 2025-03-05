@@ -11,12 +11,12 @@ The application is implemented and run using Docker, with various Makefile targe
 
 1. `make build` - build the Docker image for the production application.
 2. `make build_vector_db` - Create the vector database used in the production application for RAG by indexing the few shot examples (the vector database is stored on disk at ~/.cache/canvasxpress_llm.db)
-3. `make build_schema_context` - Create the schema.txt file used in the production application, containing the schema info for all the fields present in the few shot examples file (uses file doc.json for the schema info details)
+3. `make build_schema_context` - Create the schema.txt file used in the production application, containing the schema info for all the fields present in the few shot examples file (uses file doc.json for the schema info details and the generated file is stored at ~/.cache/schema.txt)
 4. `make runi` - run the production application interactively (i.e. you will be able to see all the Flask output, including any errors which is useful for debugging, and can exit by typing CTRL-c)
 5. `make run` - run the production application as a daemon
 6. `make exit` - shut down the production application
 
-There is also `make shell` to enter into a Shell session for the Docker image and `make buildfresh` which is the same as 'make build' except it doesn't use Docker cache.
+There is also `make shell` to enter into a Shell session for the Docker image and `make buildfresh` which is the same as 'make build' except it doesn't use Docker cache. Note that you will need to have a directory ~/.cache where the vector database file and schema information file are stored, as well as model files; please create this directory if it doesn't exist.
 
 To build and run the development version of the application there are Makefile targets corresponding to all the above by simply appending '_dev' (i.e. `make build_dev`, `make run_dev`, `make exit_dev`, etc.) Note that in the provided Makefile the production application runs on port 5008 and the development application runs on port 5009 --- edit RUN_ARGS or RUN_ARGS_DEV to change the ports if you want. Also, the running Docker containers bind mount ~/.cache to /root/.cache inside the container, so make sure you have a .cache directory in your home directory (this is used to store the [BGE-M3](https://milvus.io/docs/embed-with-bgm-m3.md) embedding model files and also the created vector database which is named canvasxpress_llm.db or canvasxpress_llm_dev.db). Also,  ~/.aws/credentials will be bind mounted to /root/.aws/credentials --- this is to support use of models in AWS Bedrock if you want to use them (not needed otherwise).
 
@@ -31,9 +31,10 @@ There are some files that support the core interactions with the LLM, i.e. that 
 
 # Quickstart
 
-File all_few_shots.json contains a large number of few shot examples and file schema.txt contains the schema information associated with them. To get the Flask application running simply execute in order:
+File all_few_shots.json (and all_few_shots_dev.json for dev) contains a large number of few shot examples to support the CanvasXpress JSON config LLM generation. To get the Flask application running simply execute in order:
 
 `make build`<br>
+`make build_schema_context`<br>
 `make build_vector_db`<br>
 `make run`<br>
 
@@ -41,12 +42,7 @@ then later to quit the application (i.e. stop and remove the Docker container ru
 
 `make exit`<br>
 
-If you ever update the all_few_shots.json file (e.g. to add or remove few shot examples) you will need to re-generate schema.txt by executing `make build_schema_context` and then regenerate the vector database by executing `make build_vector_db`. I.e. execute these steps in order to get the application running with the updated few shot examples:
-
-`make exit`<br>
-`make build_schema_context`<br>
-`make build_vector_db`<br>
-`make run`<br>
+If you ever update the all_few_shots.json file (e.g. to add or remove few shot examples) you will need to re-run all the above steps (after exiting the app with `make exit`).
 
 For the dev version of the app simply append _dev to all the Makefile targets above.
 

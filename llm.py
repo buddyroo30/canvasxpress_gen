@@ -1,4 +1,5 @@
 import os
+import sys
 from FlagEmbedding import BGEM3FlagModel
 from pymilvus import MilvusClient
 from pymilvus.model.hybrid import BGEM3EmbeddingFunction
@@ -22,6 +23,10 @@ else:
 vectorDbFile = "/root/.cache/canvasxpress_llm.db"
 if devFlag:
     vectorDbFile = "/root/.cache/canvasxpress_llm_dev.db"
+
+if not os.path.exists(vectorDbFile):
+    print("Vector database file not found, please generate the vector database first; exiting...")
+    sys.exit(1)
 
 bge_m3_ef = BGEM3EmbeddingFunction(
     model_name='BAAI/bge-m3', # Specify the model name

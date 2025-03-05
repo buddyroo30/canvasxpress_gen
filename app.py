@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, session, jsonify, send_from_directory, send_file
 from werkzeug.utils import secure_filename
 import os
+import sys
 import re
 import datetime
 import time
@@ -25,10 +26,14 @@ else:
     devFlag = False
 
 promptFile = "prompt.md"
-schemaInfoFile = "schema.txt"
+schemaInfoFile = "/root/.cache/schema.txt"
 if devFlag:
     promptFile = "prompt_dev.md"
-    schemaInfoFile = "schema_dev.txt"
+    schemaInfoFile = "/root/.cache/schema_dev.txt"
+
+if not os.path.exists(schemaInfoFile):
+    print("Schema file not found, please generate the schema file first; exiting...")
+    sys.exit(1)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = utils.random_password(16)
