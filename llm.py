@@ -4,6 +4,7 @@ from FlagEmbedding import BGEM3FlagModel
 from pymilvus import MilvusClient
 from pymilvus.model.hybrid import BGEM3EmbeddingFunction
 import boto3
+import openai
 from openai import AzureOpenAI
 import json
 from dotenv import load_dotenv
