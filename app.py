@@ -35,6 +35,14 @@ if not os.path.exists(schemaInfoFile):
     print("Schema file not found, please generate the schema file first; exiting...")
     sys.exit(1)
 
+llmModelsFile = "/root/.cache/llm_models.json"
+if not os.path.exists(llmModelsFile):
+    print("LLM models file not found, please generate the LLM models file first; exiting...")
+    sys.exit(1)
+
+llmModels = utils.read_json_file(llmModelsFile)
+llmModels_client = llm.convert_model_data(llmModels)
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = utils.random_password(16)
 app.config['UPLOAD_FOLDER'] = "/tmp"
@@ -70,11 +78,7 @@ def before_request_func():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
-
-@app.route('/dev')
-def dev():
-    return render_template('llm.html')
+    return render_template('index.html', models_arr=llmModels_client)
 
 @app.route('/userinfo',methods=['GET','POST'])
 def userinfo():
@@ -210,7 +214,11 @@ def ask():
     if utils.empty(frequency_penalty):
         frequency_penalty = 0.0
 
-    USE_MODEL = llm.get_model_type(model)
+    if model in llmModels and 'type' in llmModels[model]:
+        USE_MODEL = llmModels[model]['type']
+    else:
+        USE_MODEL = 'ollama' #assume ollama running locally
+
     print("USE_MODEL = " + USE_MODEL + ", model = " + model)
 
     resp = {}

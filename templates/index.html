@@ -53,26 +53,7 @@
 
   var thumbsCt = 0;
 
-  var models_arr = [
-      {value: "dbrx:132b-instruct-q8_0", text: "DBRX 132b Instruct q8_0 (Ollama)"},
-      {value: "mistral-nemo:12b-instruct-2407-q8_0", text: "Mistral Nemo 12B q8_0 (Ollama)"},
-      {value: "mistral.mistral-large-2407-v1:0", text: "Mistral Large 2 (24.07)"},
-      {value: "gemini-1.5-flash", text: "gemini-1.5-flash"},
-      {value: "gemini-1.5-pro", text: "gemini-1.5-pro"},
-      {value: "anthropic.claude-3-sonnet-20240229-v1:0", text: "Anthropic Claude Sonnet 3.0"},
-      {value: "anthropic.claude-3-5-sonnet-20240620-v1:0", text: "Anthropic Claude Sonnet 3.5"},
-      {value: "anthropic.claude-3-opus-20240229-v1:0", text: "Anthropic Claude Opus 3"},
-      {value: "gpt-4o-global", text: "GPT-4o"},
-      {value: "gpt-4o-regional", text: "GPT-4o Regional"},
-      {value: "gpt-4o-mini", text: "GPT-4o-mini"},
-      {value: "gpt-4", text: "GPT-4"},
-      {value: "gpt-4-32k", text: "GPT-4-32k"},
-      {value: "gpt-35-turbo-16k", text: "GPT-3.5"},
-      {value: "amazon.titan-tg1-large", text: "Amazon Titan TG1 Large"},
-      {value: "meta.llama3-1-405b-instruct-v1:0", text: "Llama 3.1 405B"},
-      {value: "meta.llama3-1-70b-instruct-v1:0", text: "Llama 3.1 70B"},
-      {value: "meta.llama3-1-8b-instruct-v1:0", text: "Llama 3.1 8B"}
-  ];
+  var models_arr = {{ models_arr|tojson|safe }};
 
   function openNav() {
     document.getElementById("mySidebar").style.width = "400px";
