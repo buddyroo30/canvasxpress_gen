@@ -277,27 +277,23 @@ def generate_results_google_gemini(prompt,model='gemini-1.5-flash',temperature=0
 
     return(answer_txt)
 
-def get_model_type(model):
-    #USE_MODEL="titan" or "azure_openai" or "google_gemini" or "ollama" or "llama31" or "anthropic"
-    modelToType = { "amazon.titan-tg1-large": "titan",
-                    "mistral.mistral-large-2407-v1:0": "mistral",
-                    "meta.llama3-1-405b-instruct-v1:0": "llama31",
-                    "meta.llama3-1-70b-instruct-v1:0": "llama31",
-                    "meta.llama3-1-8b-instruct-v1:0": "llama31",
-                    "anthropic.claude-3-sonnet-20240229-v1:0": "anthropic",
-                    "anthropic.claude-3-5-sonnet-20240620-v1:0": "anthropic",
-                    "anthropic.claude-3-opus-20240229-v1:0": "anthropic",
-                    "gpt-4o-global": "azure_openai",
-                    "gpt-4o-regional": "azure_openai",
-                    "gpt-4o-mini": "azure_openai",
-                    "gpt-4": "azure_openai",
-                    "gpt-4-32k": "azure_openai",
-                    "gpt-35-turbo-16k": "azure_openai",
-                    "gemini-1.5-flash": "google_gemini",
-                    "gemini-1.5-pro": "google_gemini" }
-
-    if model in modelToType:
-        return(modelToType[model])
-    else:
-        return("ollama")
-
+def convert_model_data(model_dict):
+    """
+    Convert a model configuration dictionary to a list of model objects, for the client to use
+    
+    Args:
+        model_dict (dict): Dictionary with model_id as keys and config details as values
+        
+    Returns:
+        list: List of dictionaries with value and text properties
+    """
+    # Convert each model entry to the new format
+    models_list = []
+    
+    for model_id, model_info in model_dict.items():
+        models_list.append({
+            "value": model_id,
+            "text": model_info["text"]
+        })
+    
+    return models_list
