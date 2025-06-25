@@ -1,0 +1,6049 @@
+[
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Density",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "decorations": {
+        "line": [
+          {
+            "color": "black",
+            "y": 4
+          }
+        ]
+      }
+    },
+    "prompt": "Create a Density of cty, hwy. Add a black horizontal line at 4. ",
+    "alt_prompts": [
+      "Generate a Density plot for cty and hwy. Insert a black horizontal line at the value of 4.",
+      "Construct a Density chart for cty and hwy. Place a black horizontal line at 4.",
+      "Build a Density graph for cty and hwy. Draw a black horizontal line at the 4 mark."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "ScatterBubble2D",
+      "xAxis": [
+        "displ"
+      ],
+      "yAxis": [
+        "cyl"
+      ],
+      "zAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a Scatter-Bubble plot of displ in the x axis, cyl in the y axis and cty in the z axis. ",
+    "alt_prompts": [
+      "Generate a Scatter-Bubble chart with displ on the x-axis, cyl on the y-axis, and cty on the z-axis.",
+      "Construct a Scatter-Bubble graph where displ is plotted on the x-axis, cyl on the y-axis, and cty on the z-axis.",
+      "Design a Scatter-Bubble diagram featuring displ along the x-axis, cyl along the y-axis, and cty along the z-axis."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "CDKN2A"
+      ],
+      "xAxis2": [
+        "TP53"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Dot-Line plot of CDKN2A in the primary axis and TP53 in the secondary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Dot-Line chart with CDKN2A on the main axis and TP53 on the secondary axis. Position the graph vertically.",
+      "Construct a Dot-Line diagram featuring CDKN2A on the primary axis and TP53 on the secondary axis. Align the graph in a vertical orientation.",
+      "Produce a Dot-Line plot displaying CDKN2A on the primary axis and TP53 on the secondary axis. Arrange the graph vertically."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Donut",
+      "xAxis": [
+        "cty"
+      ],
+      "groupingFactors": [
+        "class"
+      ],
+      "title": "Data Analysis",
+      "titleScaleFontFactor": 0.7,
+      "showLegend": false
+    },
+    "prompt": "Create a Donut of cty. Group by class. Set the title for the graph to Data Analysis. Decrease the font size of the graph title considerably. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Donut chart of cty. Group the data by class. Title the graph as Data Analysis. Significantly reduce the font size of the graph title. Do not display the legend.",
+      "Make a Donut visualization of cty. Aggregate the data by class. Name the graph Data Analysis. Lower the font size of the graph title substantially. Remove the legend.",
+      "Construct a Donut chart of cty. Group the data according to class. Label the graph Data Analysis. Decrease the font size of the graph title significantly. Conceal the legend."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Ridgeline",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "ridgeBy": "fl",
+      "yAxisTitle": "yAxisTitle",
+      "yAxisTitleScaleFontFactor": 1.2
+    },
+    "prompt": "Create a Ridgeline plot of cty, hwy in the primary axis. Ridge by fl. Set the title for the y-axis to Y Axis Title. Set the title for the y-axis to yAxisTitle. Increase the font size of the y-axis title moderately. ",
+    "alt_prompts": [
+      "Generate a Ridgeline plot with cty and hwy on the primary axis. Ridge by fl. Label the y-axis as Y Axis Title. Set the y-axis title to yAxisTitle. Adjust the y-axis title font size to be moderately larger.",
+      "Construct a Ridgeline plot featuring cty and hwy on the main axis. Ridge by fl. Assign the title Y Axis Title to the y-axis. Name the y-axis title yAxisTitle. Increase the font size of the y-axis title to a moderate level.",
+      "Create a Ridgeline plot displaying cty and hwy on the primary axis. Ridge by fl. Designate the y-axis title as Y Axis Title. Set the y-axis title to yAxisTitle. Enhance the y-axis title font size moderately."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Quantile",
+      "xAxis": [
+        "displ"
+      ],
+      "showLegend": false
+    },
+    "prompt": "Create a Quantile plot of displ in the primary axis. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Quantile plot of displ on the main axis. Remove the legend.",
+      "Construct a Quantile plot of displ on the primary axis. Omit the legend.",
+      "Build a Quantile plot of displ on the main axis. Exclude the legend."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "BarLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53",
+        "BAP1"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Bar-Line graph of ATM, CDKN2A, MSH2 in the primary axis and EPCAM, TP53, BAP1 in the secondary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Bar-Line chart with ATM, CDKN2A, and MSH2 on the primary axis, and EPCAM, TP53, and BAP1 on the secondary axis. Arrange the graph in a vertical orientation.",
+      "Construct a Bar-Line graph featuring ATM, CDKN2A, and MSH2 on the primary axis, while EPCAM, TP53, and BAP1 are displayed on the secondary axis. Position the graph vertically.",
+      "Design a Bar-Line graph that includes ATM, CDKN2A, and MSH2 on the primary axis, and EPCAM, TP53, and BAP1 on the secondary axis. Set the graph to be vertically oriented."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "BarLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53"
+      ],
+      "graphOrientation": "horizontal",
+      "filterData": [
+        [
+          "guess",
+          "Treatment",
+          "different",
+          [
+            "Placebo"
+          ]
+        ]
+      ],
+      "showLegend": true
+    },
+    "prompt": "Create a Bar-Line graph of ATM, CDKN2A in the primary axis and EPCAM, TP53 in the secondary axis. Orient the graph horizontally. Filter data where Treatment different Placebo. Show the legend. ",
+    "alt_prompts": [
+      "Generate a horizontal Bar-Line graph with ATM and CDKN2A on the primary axis, and EPCAM and TP53 on the secondary axis. Apply a filter to the data where Treatment is different from Placebo. Display the legend.",
+      "Construct a Bar-Line graph oriented horizontally, featuring ATM and CDKN2A on the primary axis, and EPCAM and TP53 on the secondary axis. Filter the dataset to exclude Treatment equal to Placebo. Include the legend in the visualization.",
+      "Create a horizontally oriented Bar-Line graph with ATM and CDKN2A on the primary axis, and EPCAM and TP53 on the secondary axis. Filter the data to show Treatment different from Placebo. Ensure the legend is visible."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Scatter3D",
+      "xAxis": [
+        "displ"
+      ],
+      "yAxis": [
+        "cyl"
+      ],
+      "zAxis": [
+        "cty"
+      ],
+      "showLegend": true,
+      "legendColumns": 2
+    },
+    "prompt": "Create a Scatter3D plot of displ in the x axis, cyl in the y axis and cty in the z axis. Show the legend. Divide the legend in two columns. ",
+    "alt_prompts": [
+      "Generate a Scatter3D chart with displ on the x-axis, cyl on the y-axis, and cty on the z-axis. Display the legend. Split the legend into two columns.",
+      "Construct a Scatter3D graph where displ is plotted on the x-axis, cyl on the y-axis, and cty on the z-axis. Include the legend. Arrange the legend into two columns.",
+      "Build a Scatter3D visualization with displ on the x-axis, cyl on the y-axis, and cty on the z-axis. Show the legend. Organize the legend into two columns."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a Hexplot of hwy in the x axis and cty in the y axis. ",
+    "alt_prompts": [
+      "Generate a Hexplot with hwy on the x-axis and cty on the y-axis.",
+      "Construct a Hexplot where hwy is plotted along the x-axis and cty along the y-axis.",
+      "Build a Hexplot displaying hwy on the x-axis and cty on the y-axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a Hexplot of hwy in the x axis and cty in the y axis. ",
+    "alt_prompts": [
+      "Generate a Hexplot with hwy on the x-axis and cty on the y-axis.",
+      "Construct a Hexplot where hwy is plotted along the x-axis and cty along the y-axis.",
+      "Build a Hexplot displaying hwy on the x-axis and cty on the y-axis."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "EPCAM"
+      ],
+      "xAxis2": [
+        "ATM"
+      ],
+      "graphOrientation": "horizontal",
+      "groupingFactors": [
+        "Treatment",
+        "Dose"
+      ]
+    },
+    "prompt": "Create a Dot-Line plot of EPCAM and ATM. Orient the graph horizontally. Group by Treatment, Dose. ",
+    "alt_prompts": [
+      "Generate a Dot-Line plot for EPCAM and ATM. Arrange the graph in a horizontal layout. Group the data by Treatment and Dose.",
+      "Construct a Dot-Line plot displaying EPCAM and ATM. Position the graph horizontally. Aggregate the data by Treatment and Dose.",
+      "Design a Dot-Line plot featuring EPCAM and ATM. Align the graph horizontally. Group the dataset by Treatment and Dose."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Area",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "stacked"
+    },
+    "prompt": "Create a Area graph of Value in the primary axis. Orient the graph vertically. Set the area graph stacked. ",
+    "alt_prompts": [
+      "Generate an Area chart displaying Value on the main axis. Align the chart vertically. Ensure the area chart is stacked.",
+      "Construct an Area plot with Value on the primary axis. Position the plot vertically. Make sure the area plot is stacked.",
+      "Build an Area diagram showing Value on the main axis. Arrange the diagram vertically. Confirm that the area diagram is stacked."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "ScatterBubble2D",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "zAxis": [
+        "cyl"
+      ],
+      "xAxisTransform": "sqrt",
+      "title": "Data Analysis"
+    },
+    "prompt": "Create a Scatter-Bubble plot of hwy in the x axis, cty in the y axis and cyl in the z axis. Transform the x-axis to sqrt. Set the title for the graph to Data Analysis. ",
+    "alt_prompts": [
+      "Generate a Scatter-Bubble chart with hwy on the x-axis, cty on the y-axis, and cyl on the z-axis. Apply a square root transformation to the x-axis. Title the graph as Data Analysis.",
+      "Construct a Scatter-Bubble diagram where hwy is plotted on the x-axis, cty on the y-axis, and cyl on the z-axis. Transform the x-axis using the square root function. Name the graph Data Analysis.",
+      "Build a Scatter-Bubble visualization with hwy on the x-axis, cty on the y-axis, and cyl on the z-axis. Perform a square root transformation on the x-axis. Label the graph Data Analysis."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53",
+        "BAP1"
+      ],
+      "graphOrientation": "horizontal"
+    },
+    "prompt": "Create a Stacked-BarLine plot of ATM, CDKN2A, MSH2 in the primary axis and EPCAM, TP53, BAP1 in the secondary axis. Orient the graph horizontally. ",
+    "alt_prompts": [
+      "Generate a Stacked-BarLine chart with ATM, CDKN2A, and MSH2 on the primary axis, and EPCAM, TP53, and BAP1 on the secondary axis. Arrange the graph horizontally.",
+      "Construct a Stacked-BarLine visualization featuring ATM, CDKN2A, and MSH2 on the primary axis, while EPCAM, TP53, and BAP1 are on the secondary axis. Display the graph in a horizontal orientation.",
+      "Design a Stacked-BarLine plot that includes ATM, CDKN2A, and MSH2 on the primary axis, and EPCAM, TP53, and BAP1 on the secondary axis. Position the graph horizontally."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Radar",
+      "xAxis": [
+        "cty",
+        "hwy",
+        "displ"
+      ],
+      "showLegend": false
+    },
+    "prompt": "Create a Radar plot of cty, hwy, displ. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Radar chart using cty, hwy, and displ. Ensure the legend is not displayed.",
+      "Construct a Radar graph with cty, hwy, and displ. Omit the legend.",
+      "Build a Radar diagram featuring cty, hwy, and displ. Exclude the legend."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Line",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "horizontal"
+    },
+    "prompt": "Create a Line of Value. Orient the graph horizontally. ",
+    "alt_prompts": [
+      "Generate a Value Line. Align the chart horizontally.",
+      "Construct a Line of Value. Position the graph horizontally.",
+      "Build a Value Line. Arrange the graph horizontally."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Dotplot",
+      "xAxis": [
+        "ATM"
+      ],
+      "groupingFactors": [
+        "Treatment"
+      ],
+      "colorBy": "Dose",
+      "bin": true,
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Dotplot of ATM. Group by Treatment. Color by Dose. Bin the data. Orient the graph vertically.",
+    "alt_prompts": [
+      "Generate a Dotplot of ATM. Group the data by Treatment. Use Dose to color the dots. Bin the data points. Set the graph orientation to vertical.",
+      "Construct a Dotplot for ATM. Aggregate the data by Treatment. Apply colors based on Dose. Bin the dataset. Position the graph vertically.",
+      "Build a Dotplot of ATM. Group the data according to Treatment. Color the dots by Dose. Bin the data. Arrange the graph in a vertical orientation."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Boxplot",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp",
+        "dose"
+      ],
+      "colorBy": "dose",
+      "smpTitle": "Sample Axis Title",
+      "smpTitleScaleFontFactor": 1.1
+    },
+    "prompt": "Create a Boxplot of len. Orient the graph vertically. Group by supp, dose. Color by dose. Set the title for the sample-axis to Sample Axis Title. Increase the font size of the sample title slightly. ",
+    "alt_prompts": [
+      "Generate a Boxplot of len. Arrange the graph in a vertical orientation. Group by supp and dose. Use dose to color the plot. Label the sample-axis as Sample Axis Title. Slightly enlarge the font size of the sample title.",
+      "Construct a Boxplot of len. Position the graph vertically. Group by supp and dose. Apply dose for coloring. Title the sample-axis as Sample Axis Title. Make the font size of the sample title a bit larger.",
+      "Produce a Boxplot of len. Set the graph to a vertical layout. Group by supp and dose. Utilize dose for coloring. Name the sample-axis Sample Axis Title. Slightly increase the font size of the sample title."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Stacked",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11"
+      ],
+      "smpOverlays": [
+        "Treatment"
+      ],
+      "title": "Data Insights",
+      "titleScaleFontFactor": 0.9
+    },
+    "prompt": "Create a Stacked-Bar plot of ATM, CDKN2A, MSH2, STK11 in the primary axis. Overlay the data with Treatment. Set the title for the graph to Data Insights. Decrease the font size of the graph title slightly. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar chart featuring ATM, CDKN2A, MSH2, and STK11 on the primary axis. Overlay this data with Treatment. Title the graph as Data Insights. Slightly reduce the font size of the graph title.",
+      "Construct a Stacked-Bar plot displaying ATM, CDKN2A, MSH2, and STK11 on the main axis. Overlay the data with Treatment. Name the graph Data Insights. Slightly decrease the font size of the graph title.",
+      "Create a Stacked-Bar graph with ATM, CDKN2A, MSH2, and STK11 on the primary axis. Overlay the data with Treatment. Set the graph title to Data Insights. Slightly reduce the font size of the title."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Binplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "xAxisTextColor": "black"
+    },
+    "prompt": "Create a Binplot of hwy in the x axis and cty in the y axis. Set the color of the x-axis ticks to black. ",
+    "alt_prompts": [
+      "Generate a Binplot with hwy on the x-axis and cty on the y-axis. Change the color of the x-axis tick marks to black.",
+      "Construct a Binplot where hwy is plotted on the x-axis and cty on the y-axis. Adjust the x-axis tick color to black.",
+      "Build a Binplot displaying hwy on the x-axis and cty on the y-axis. Modify the x-axis tick colors to black."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Stacked",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ]
+    },
+    "prompt": "Create a Stacked-Bar plot of ATM, CDKN2A, MSH2 in the primary axis. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar chart displaying ATM, CDKN2A, and MSH2 on the primary axis.",
+      "Construct a Stacked-Bar graph with ATM, CDKN2A, and MSH2 represented on the primary axis.",
+      "Build a Stacked-Bar diagram featuring ATM, CDKN2A, and MSH2 on the primary axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Meter",
+      "xAxis": [
+        "displ"
+      ],
+      "xAxisTextColor": "purple",
+      "showLegend": true,
+      "legendPosition": "right"
+    },
+    "prompt": "Create a Meter plot of displ. Set the color of the x-axis ticks to purple. Show the legend. Put the legend on the right. ",
+    "alt_prompts": [
+      "Generate a Meter plot for displ. Change the x-axis tick colors to purple. Display the legend. Position the legend on the right side.",
+      "Construct a Meter plot using displ. Adjust the x-axis tick colors to purple. Include the legend. Place the legend to the right.",
+      "Build a Meter plot with displ. Set the x-axis tick colors to purple. Show the legend. Locate the legend on the right."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Bubble",
+      "xAxis": [
+        "hwy"
+      ],
+      "groupingFactors": [
+        "class",
+        "drv"
+      ]
+    },
+    "prompt": "Create a Bubble plot of hwy in the primary axis. Group by class, drv. ",
+    "alt_prompts": [
+      "Generate a Bubble plot with hwy on the primary axis. Group the data by class and drv.",
+      "Construct a Bubble plot displaying hwy on the primary axis. Aggregate the data by class and drv.",
+      "Develop a Bubble plot where hwy is on the primary axis. Group the dataset by class and drv."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1",
+        "TP53",
+        "EPCAM"
+      ]
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. ",
+    "alt_prompts": [
+      "Generate a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM.",
+      "Construct a Heatmap featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM.",
+      "Build a Heatmap that includes ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Sunburst",
+      "xAxis": [
+        "STK11"
+      ],
+      "showLegend": false
+    },
+    "prompt": "Create a Sunburst plot of STK11. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Sunburst chart for STK11. Disable the legend.",
+      "Produce a Sunburst visualization for STK11. Turn off the legend.",
+      "Construct a Sunburst diagram for STK11. Conceal the legend."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Bubble",
+      "xAxis": [
+        "hwy"
+      ],
+      "groupingFactors": [
+        "class",
+        "drv",
+        "fl",
+        "manufacturer"
+      ],
+      "title": "Data Overview",
+      "titleScaleFontFactor": 1.3,
+      "showLegend": true,
+      "legendColumns": 2
+    },
+    "prompt": "Create a Bubble plot of hwy in the primary axis. Group by class, drv, fl, manufacturer. Set the title for the graph to Data Overview. Increase the font size of the graph title considerably. Show the legend. Divide the legend in two columns. ",
+    "alt_prompts": [
+      "Generate a Bubble plot with hwy on the primary axis. Group the data by class, drv, fl, and manufacturer. Title the graph as Data Overview. Significantly enlarge the font size of the graph title. Display the legend. Split the legend into two columns.",
+      "Construct a Bubble plot featuring hwy on the primary axis. Group by class, drv, fl, and manufacturer. Name the graph Data Overview. Increase the font size of the graph title substantially. Include the legend. Arrange the legend into two columns.",
+      "Create a Bubble plot with hwy on the primary axis. Aggregate the data by class, drv, fl, and manufacturer. Label the graph as Data Overview. Enlarge the font size of the graph title significantly. Show the legend. Organize the legend into two columns."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Density",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ]
+    },
+    "prompt": "Create a Density of cty, hwy. ",
+    "alt_prompts": [
+      "Generate a density plot for city and highway.",
+      "Construct a density visualization for city and highway.",
+      "Build a density chart for city and highway."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53"
+      ],
+      "graphOrientation": "horizontal",
+      "showLegend": true,
+      "legendColumns": 2
+    },
+    "prompt": "Create a Dot-Line plot of ATM, CDKN2A in the primary axis and EPCAM, TP53 in the secondary axis. Orient the graph horizontally. Hide the legend. Show the legend. Divide the legend in two columns. ",
+    "alt_prompts": [
+      "Generate a Dot-Line plot featuring ATM and CDKN2A on the primary axis, with EPCAM and TP53 on the secondary axis. Arrange the graph horizontally. Conceal the legend. Display the legend. Split the legend into two columns.",
+      "Construct a Dot-Line plot with ATM and CDKN2A on the primary axis, and EPCAM and TP53 on the secondary axis. Position the graph horizontally. Suppress the legend. Reveal the legend. Separate the legend into two columns.",
+      "Design a Dot-Line plot placing ATM and CDKN2A on the primary axis, and EPCAM and TP53 on the secondary axis. Align the graph horizontally. Hide the legend. Exhibit the legend. Divide the legend into two columns."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Bar",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Bar graph of Value in the primary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Bar chart displaying Value on the main axis. Position the bars vertically.",
+      "Construct a Bar graph with Value on the primary axis. Arrange the graph in a vertical orientation.",
+      "Build a Bar chart featuring Value on the primary axis. Align the bars in a vertical manner."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Meter",
+      "xAxis": [
+        "displ"
+      ],
+      "xAxisTransform": "sqrt"
+    },
+    "prompt": "Create a Meter plot of displ. Transform the data to sqrt. ",
+    "alt_prompts": [
+      "Generate a Meter plot of displ. Apply a square root transformation to the data.",
+      "Construct a Meter plot of displ. Perform a square root transformation on the data.",
+      "Develop a Meter plot of displ. Convert the data using a square root transformation."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Violin",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp"
+      ],
+      "xAxisTransform": "log10"
+    },
+    "prompt": "Create a Violin plot of len. Orient the graph vertically. Group by supp. Transform the data to log10. ",
+    "alt_prompts": [
+      "Generate a Violin plot of len. Set the orientation of the graph to vertical. Aggregate the data by supp. Apply a log10 transformation to the data.",
+      "Construct a Violin plot of len. Ensure the graph is oriented vertically. Group the data based on supp. Convert the data using a log10 transformation.",
+      "Build a Violin plot of len. Orient the graph in a vertical manner. Group the data by supp. Transform the data to a log10 scale."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Sunburst",
+      "xAxis": [
+        "TP53"
+      ],
+      "showLegend": false,
+      "colorScheme": "PiYG"
+    },
+    "prompt": "Create a Sunburst plot of TP53. Hide the legend. Use the color scheme PiYG. ",
+    "alt_prompts": [
+      "Generate a Sunburst plot for TP53. Disable the legend. Apply the PiYG color scheme.",
+      "Construct a Sunburst plot displaying TP53. Turn off the legend. Utilize the PiYG color palette.",
+      "Build a Sunburst plot featuring TP53. Conceal the legend. Implement the PiYG color scheme."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Histogram",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "yAxisTitle": "Y",
+      "yAxisTitleColor": "blue"
+    },
+    "prompt": "Create a Histogram of cty, hwy. Set the title for the y-axis to Y. Set the color of the y-axis title to blue. ",
+    "alt_prompts": [
+      "Generate a Histogram of cty, hwy. Assign the title for the y-axis as Y. Change the color of the y-axis title to blue.",
+      "Construct a Histogram of cty, hwy. Label the y-axis with the title Y. Make the y-axis title color blue.",
+      "Build a Histogram of cty, hwy. Designate the y-axis title as Y. Set the y-axis title color to blue."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Boxplot",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp"
+      ],
+      "colorBy": "supp",
+      "showBoxplotOriginalData": true,
+      "jitter": true
+    },
+    "prompt": "Create a Boxplot of len. Orient the graph vertically. Group by supp. Color by supp. Show original data. Jitter the data. ",
+    "alt_prompts": [
+      "Generate a vertical Boxplot of len. Group the data by supp. Use supp to color the plot. Display the original data points. Add jitter to the data.",
+      "Construct a Boxplot of len with a vertical orientation. Aggregate the data by supp. Apply colors based on supp. Include the original data points. Introduce jitter to the data.",
+      "Build a vertically oriented Boxplot of len. Group the data according to supp. Color the plot by supp. Show the original data points. Add jitter to the data."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Stacked",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1"
+      ]
+    },
+    "prompt": "Create a Stacked-Bar plot of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 in the primary axis. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar chart displaying ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 on the main axis.",
+      "Construct a Stacked-Bar graph featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 along the primary axis.",
+      "Build a Stacked-Bar diagram with ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 on the primary axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "ScatterBubble2D",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "zAxis": [
+        "cyl"
+      ]
+    },
+    "prompt": "Create a Scatter-Bubble plot of hwy in the x axis, cty in the y axis and cyl in the z axis. ",
+    "alt_prompts": [
+      "Generate a Scatter-Bubble chart with hwy on the x-axis, cty on the y-axis, and cyl on the z-axis.",
+      "Construct a Scatter-Bubble graph where hwy is plotted on the x-axis, cty on the y-axis, and cyl on the z-axis.",
+      "Develop a Scatter-Bubble diagram featuring hwy on the x-axis, cty on the y-axis, and cyl on the z-axis."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "PTEN"
+      ],
+      "xAxis2": [
+        "STK11"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Dot-Line plot of PTEN and STK11. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Dot-Line chart for PTEN and STK11. Align the graph in a vertical orientation.",
+      "Construct a Dot-Line visualization for PTEN and STK11. Position the graph vertically.",
+      "Develop a Dot-Line plot featuring PTEN and STK11. Arrange the graph in a vertical layout."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1",
+        "TP53",
+        "EPCAM"
+      ],
+      "smpTitle": "Title for the Samples",
+      "varTitleColor": "black",
+      "varTextColor": "black"
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Set the title for the sample-axis to Title for the Samples. Set the color of the variable title to black. Set the color of the variable labels to black. ",
+    "alt_prompts": [
+      "Generate a Heatmap featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, and EPCAM. Label the sample-axis with Title for the Samples. Change the color of the variable title to black. Adjust the color of the variable labels to black.",
+      "Construct a Heatmap including ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, and EPCAM. Assign the title Title for the Samples to the sample-axis. Set the variable title color to black. Make the variable labels color black.",
+      "Build a Heatmap with ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, and EPCAM. Title the sample-axis as Title for the Samples. Change the variable title color to black. Set the variable labels color to black."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "BarLine",
+      "xAxis": [
+        "MSH2"
+      ],
+      "xAxis2": [
+        "BAP1"
+      ],
+      "graphOrientation": "horizontal"
+    },
+    "prompt": "Create a Bar-Line graph of MSH2 in the primary axis and BAP1 in the secondary axis. Orient the graph horizontally. ",
+    "alt_prompts": [
+      "Generate a horizontal Bar-Line graph with MSH2 on the primary axis and BAP1 on the secondary axis.",
+      "Construct a Bar-Line graph with MSH2 on the main axis and BAP1 on the secondary axis, and orient it horizontally.",
+      "Design a horizontal Bar-Line graph featuring MSH2 on the primary axis and BAP1 on the secondary axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Contour",
+      "xAxis": [
+        "cyl"
+      ],
+      "yAxis": [
+        "displ"
+      ]
+    },
+    "prompt": "Create a Contour of cyl in the x axis and displ in the y axis. ",
+    "alt_prompts": [
+      "Generate a Contour plot with 'cyl' on the x-axis and 'displ' on the y-axis.",
+      "Construct a Contour chart where 'cyl' is plotted on the x-axis and 'displ' on the y-axis.",
+      "Build a Contour diagram featuring 'cyl' along the x-axis and 'displ' along the y-axis."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedPercent",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1"
+      ]
+    },
+    "prompt": "Create a Stacked-Bar-Percent plot of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 in the primary axis. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar-Percent chart featuring ATM, CDKN2A, MSH2, STK11, PTEN, and BAP1 on the main axis.",
+      "Construct a Stacked-Bar-Percent graph with ATM, CDKN2A, MSH2, STK11, PTEN, and BAP1 displayed on the primary axis.",
+      "Build a Stacked-Bar-Percent visualization that includes ATM, CDKN2A, MSH2, STK11, PTEN, and BAP1 on the primary axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "ScatterBubble2D",
+      "xAxis": [
+        "cty"
+      ],
+      "yAxis": [
+        "hwy"
+      ],
+      "zAxis": [
+        "displ"
+      ],
+      "showLegend": false
+    },
+    "prompt": "Create a Scatter-Bubble plot of cty, hwy and displ. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Scatter-Bubble chart using cty, hwy, and displ. Ensure the legend is hidden.",
+      "Construct a Scatter-Bubble graph with cty, hwy, and displ. Do not display the legend.",
+      "Build a Scatter-Bubble diagram featuring cty, hwy, and displ. Make sure the legend is not shown."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series A",
+      "Series B",
+      "Series C",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Area",
+      "xAxis": [
+        "Series C"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "percent"
+    },
+    "prompt": "Create a Area graph of Series C. Orient the graph vertically. Set the area graph percent. ",
+    "alt_prompts": [
+      "Generate an Area graph for Series C. Position the graph vertically. Adjust the area graph percentage.",
+      "Construct an Area graph using Series C. Align the graph in a vertical orientation. Configure the area graph percentage.",
+      "Build an Area graph for Series C. Arrange the graph vertically. Define the area graph percentage."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Sunburst",
+      "xAxis": [
+        "CDKN2A"
+      ],
+      "title": "Data Overview",
+      "titleColor": "gray",
+      "showLegend": true,
+      "legendPosition": "right"
+    },
+    "prompt": "Create a Sunburst plot of CDKN2A. Set the title for the graph to Data Overview. Set the color of the graph title to gray. Show the legend. Put the legend on the right. ",
+    "alt_prompts": [
+      "Generate a Sunburst plot for CDKN2A. Title the graph as Data Overview. Change the graph title color to gray. Display the legend. Position the legend on the right.",
+      "Construct a Sunburst plot featuring CDKN2A. Assign the title Data Overview to the graph. Adjust the title color to gray. Enable the legend. Place the legend on the right side.",
+      "Build a Sunburst plot with CDKN2A. Label the graph with the title Data Overview. Set the title color to gray. Make the legend visible. Align the legend to the right."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Bar",
+      "xAxis": [
+        "TP53"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Bar graph of TP53 in the primary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Bar chart for TP53 on the main axis. Align the chart vertically.",
+      "Construct a Bar graph displaying TP53 on the primary axis. Set the orientation to vertical.",
+      "Build a Bar graph with TP53 on the main axis. Position the graph in a vertical layout."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Area",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "stacked",
+      "smpTitle": "Samples",
+      "smpTitleScaleFontFactor": 0.8,
+      "xAxisTitle": "X Axis",
+      "xAxisTitleScaleFontFactor": 0.9
+    },
+    "prompt": "Create a Area graph of Value. Orient the graph vertically. Set the area graph stacked. Set the title for the sample-axis to Samples. Decrease the font size of the sample title moderately. Set the title for the x-axis to X Axis. Decrease the font size of the x-axis title slightly. ",
+    "alt_prompts": [
+      "Generate a vertical Area graph of Value. Ensure the graph is stacked. Label the sample-axis as Samples and moderately reduce the font size of this title. Label the x-axis as X Axis and slightly reduce the font size of this title.",
+      "Construct a vertically oriented Area graph of Value. Make sure the area graph is stacked. Assign the title Samples to the sample-axis and moderately decrease its font size. Assign the title X Axis to the x-axis and slightly decrease its font size.",
+      "Build a vertical Area graph of Value. Stack the area graph. Title the sample-axis as Samples and moderately lower the font size of this title. Title the x-axis as X Axis and slightly lower the font size of this title."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Dotplot",
+      "xAxis": [
+        "ATM",
+        "CDKN2A"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "Treatment",
+        "Dose"
+      ]
+    },
+    "prompt": "Create a Dotplot of ATM, CDKN2A in the primary axis. Orient the graph vertically. Group by Treatment, Dose. ",
+    "alt_prompts": [
+      "Generate a Dotplot for ATM and CDKN2A on the primary axis. Set the graph orientation to vertical. Group the data by Treatment and Dose.",
+      "Construct a Dotplot featuring ATM and CDKN2A on the primary axis. Ensure the graph is oriented vertically. Aggregate the data by Treatment and Dose.",
+      "Build a Dotplot with ATM and CDKN2A on the primary axis. Make sure the graph is vertically oriented. Group the data based on Treatment and Dose."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Density",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "showHistogramBars": true,
+      "xAxisTitle": "X Axis",
+      "xAxisTitleScaleFontFactor": 0.8
+    },
+    "prompt": "Create a Density of cty, hwy. Show histogram bars. Set the title for the x-axis to X Axis. Decrease the font size of the x-axis title moderately. ",
+    "alt_prompts": [
+      "Generate a Density plot for cty and hwy. Display histogram bars. Label the x-axis as X Axis. Slightly reduce the font size of the x-axis title.",
+      "Construct a Density chart for cty and hwy. Include histogram bars. Name the x-axis title as X Axis. Moderately decrease the font size of the x-axis title.",
+      "Build a Density graph for cty and hwy. Show histogram bars. Set the x-axis title to X Axis. Reduce the font size of the x-axis title slightly."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "displ"
+      ],
+      "decorations": {
+        "line": [
+          {
+            "color": "black",
+            "y": 0.5
+          }
+        ]
+      }
+    },
+    "prompt": "Create a CDF plot of displ. Add a black horizontal line at 0.5. ",
+    "alt_prompts": [
+      "Generate a CDF plot of displ. Include a black horizontal line at 0.5.",
+      "Construct a CDF plot of displ. Draw a black horizontal line at 0.5.",
+      "Produce a CDF plot of displ. Insert a black horizontal line at 0.5."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Contour",
+      "xAxis": [
+        "displ"
+      ],
+      "yAxis": [
+        "cyl"
+      ],
+      "xAxisTextScaleFontFactor": 1.1
+    },
+    "prompt": "Create a Contour of displ and cyl. Increase the font size of the x-axis ticks slightly. ",
+    "alt_prompts": [
+      "Generate a Contour plot of displ and cyl. Slightly enlarge the font size of the x-axis labels.",
+      "Construct a Contour graph of displ and cyl. Increase the font size of the x-axis tick marks a bit.",
+      "Build a Contour chart of displ and cyl. Make the font size of the x-axis ticks a little bigger."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "ScatterBubble2D",
+      "xAxis": [
+        "cty"
+      ],
+      "yAxis": [
+        "hwy"
+      ],
+      "zAxis": [
+        "displ"
+      ],
+      "decorations": {
+        "line": [
+          {
+            "color": "blue",
+            "y": 13
+          }
+        ]
+      }
+    },
+    "prompt": "Create a Scatter-Bubble plot of cty in the x axis, hwy in the y axis and displ in the z axis. Add a blue horizontal line at 13. ",
+    "alt_prompts": [
+      "Generate a Scatter-Bubble chart with cty on the x-axis, hwy on the y-axis, and displ on the z-axis. Include a blue horizontal line at the value 13.",
+      "Construct a Scatter-Bubble diagram where cty is plotted on the x-axis, hwy on the y-axis, and displ on the z-axis. Draw a blue horizontal line at 13.",
+      "Develop a Scatter-Bubble graph featuring cty on the x-axis, hwy on the y-axis, and displ on the z-axis. Insert a blue horizontal line at the 13 mark."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Line",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Line of Value in the primary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Line of Value on the primary axis. Align the graph in a vertical orientation.",
+      "Construct a Line of Value on the primary axis. Position the graph vertically.",
+      "Build a Line of Value on the primary axis. Set the graph to a vertical orientation."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "AreaLine",
+      "xAxis": [
+        "MSH2"
+      ],
+      "xAxis2": [
+        "BAP1"
+      ],
+      "graphOrientation": "horizontal",
+      "areaType": "overlapping",
+      "decorations": {
+        "line": [
+          {
+            "color": "red",
+            "value": 6
+          }
+        ]
+      },
+      "smpTextScaleFontFactor": 1.3
+    },
+    "prompt": "Create a Area-Line graph of MSH2 in the primary axis and BAP1 in the secondary axis. Orient the graph horizontally. Set the area graph overlapping. Add a red horizontal line at 6. Increase the font size of the sample labels considerably. ",
+    "alt_prompts": [
+      "Generate an Area-Line chart with MSH2 on the main axis and BAP1 on the secondary axis. Align the graph horizontally. Ensure the area graph overlaps. Insert a red horizontal line at the value of 6. Significantly enlarge the font size of the sample labels.",
+      "Construct an Area-Line diagram featuring MSH2 on the primary axis and BAP1 on the secondary axis. Position the graph horizontally. Make the area graph overlap. Draw a red horizontal line at the 6 mark. Substantially increase the font size of the sample labels.",
+      "Design an Area-Line plot with MSH2 on the main axis and BAP1 on the secondary axis. Arrange the graph horizontally. Allow the area graph to overlap. Place a red horizontal line at the level of 6. Greatly amplify the font size of the sample labels."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Donut",
+      "xAxis": [
+        "cty"
+      ],
+      "groupingFactors": [
+        "class"
+      ],
+      "title": "Data Overview",
+      "titleScaleFontFactor": 0.8,
+      "colorScheme": "RlatticeBackground"
+    },
+    "prompt": "Create a Donut of cty. Group by class. Set the title for the graph to Data Overview. Decrease the font size of the graph title moderately. Use the color scheme RlatticeBackground. ",
+    "alt_prompts": [
+      "Generate a Donut chart of cty. Group the data by class. Assign the title 'Data Overview' to the graph. Slightly reduce the font size of the graph title. Apply the RlatticeBackground color scheme.",
+      "Construct a Donut visualization of cty. Aggregate the data by class. Label the graph with the title 'Data Overview'. Moderately decrease the font size of the graph title. Utilize the RlatticeBackground color palette.",
+      "Create a Donut chart for cty. Group the dataset by class. Set 'Data Overview' as the graph title. Reduce the font size of the graph title slightly. Use the RlatticeBackground color scheme."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Line",
+      "xAxis": [
+        "CDKN2A"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "Treatment"
+      ]
+    },
+    "prompt": "Create a Line of CDKN2A in the primary axis. Orient the graph vertically. Group by Treatment. ",
+    "alt_prompts": [
+      "Generate a Line of CDKN2A on the primary axis. Arrange the graph in a vertical orientation. Group the data by Treatment.",
+      "Plot a Line of CDKN2A on the primary axis. Set the graph to be vertical. Group the data according to Treatment.",
+      "Draw a Line of CDKN2A on the primary axis. Position the graph vertically. Aggregate the data by Treatment."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "cyl"
+      ]
+    },
+    "prompt": "Create a CDF plot of cyl. ",
+    "alt_prompts": [
+      "Generate a CDF plot for the 'cyl' variable.",
+      "Construct a CDF plot using the 'cyl' data.",
+      "Build a CDF plot to visualize the 'cyl' values."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Violin",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp",
+        "dose"
+      ],
+      "colorBy": "supp",
+      "decorations": {
+        "line": [
+          {
+            "color": "red",
+            "value": 15
+          }
+        ]
+      }
+    },
+    "prompt": "Create a Violin plot of len in the primary axis. Orient the graph vertically. Group by supp, dose. Color by supp. Add a red horizontal line at 15. ",
+    "alt_prompts": [
+      "Generate a Violin plot of len on the main axis. Set the orientation of the graph to vertical. Group the data by supp and dose. Use supp to color the plot. Insert a red horizontal line at the value 15.",
+      "Construct a Violin plot with len on the primary axis. Ensure the graph is oriented vertically. Aggregate the data by supp and dose. Apply colors based on supp. Draw a red horizontal line at 15.",
+      "Build a Violin plot displaying len on the main axis. Make sure the graph is vertical. Group the data by supp and dose. Color the plot according to supp. Place a red horizontal line at the 15 mark."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Binplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "theme": "bw"
+    },
+    "prompt": "Create a Binplot of hwy in the x axis and cty in the y axis. Use the style bw. ",
+    "alt_prompts": [
+      "Generate a Binplot with hwy on the x-axis and cty on the y-axis. Apply the bw style.",
+      "Construct a Binplot where hwy is plotted on the x-axis and cty on the y-axis, using the bw style.",
+      "Make a Binplot displaying hwy on the x-axis and cty on the y-axis, and utilize the bw style."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1",
+        "TP53"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53",
+        "BAP1",
+        "PTEN",
+        "STK11",
+        "MSH2",
+        "CDKN2A"
+      ],
+      "graphOrientation": "horizontal",
+      "decorations": {
+        "line": [
+          {
+            "color": "black",
+            "value": 3
+          }
+        ]
+      },
+      "showLegend": true
+    },
+    "prompt": "Create a Stacked-BarLine plot of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53 in the primary axis and EPCAM, TP53, BAP1, PTEN, STK11, MSH2, CDKN2A in the secondary axis. Orient the graph horizontally. Add a black horizontal line at 3. Show the legend. ",
+    "alt_prompts": [
+      "Generate a Stacked-BarLine chart featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53 on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11, MSH2, CDKN2A on the secondary axis. Display the graph in a horizontal orientation. Include a black horizontal line at the value of 3. Ensure the legend is visible.",
+      "Construct a Stacked-BarLine graph with ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53 on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11, MSH2, CDKN2A on the secondary axis. Arrange the graph horizontally. Draw a black horizontal line at the level of 3. Display the legend.",
+      "Create a Stacked-BarLine visualization that includes ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53 on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11, MSH2, CDKN2A on the secondary axis. Set the graph to a horizontal layout. Add a black horizontal line at the position of 3. Make sure the legend is shown."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Bar",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Bar graph of Value in the primary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Bar chart displaying Value on the main axis. Position the bars vertically.",
+      "Construct a Bar graph with Value on the primary axis. Arrange the graph in a vertical orientation.",
+      "Build a Bar chart featuring Value on the primary axis. Align the bars in a vertical manner."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "STK11"
+      ],
+      "xAxis2": [
+        "PTEN"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Dot-Line plot of STK11 and PTEN. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Dot-Line chart for STK11 and PTEN. Arrange the graph in a vertical orientation.",
+      "Construct a Dot-Line plot featuring STK11 and PTEN. Position the graph vertically.",
+      "Design a Dot-Line visualization for STK11 and PTEN. Align the graph in a vertical manner."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Dotplot",
+      "xAxis": [
+        "TP53"
+      ],
+      "graphOrientation": "horizontal"
+    },
+    "prompt": "Create a Dotplot of TP53 in the primary axis. Orient the graph horizontally. ",
+    "alt_prompts": [
+      "Generate a Dotplot of TP53 on the primary axis. Set the orientation of the graph to horizontal.",
+      "Construct a Dotplot for TP53 along the primary axis. Ensure the graph is oriented horizontally.",
+      "Build a Dotplot featuring TP53 on the primary axis. Make sure the graph is displayed horizontally."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Sunburst",
+      "xAxis": [
+        "EPCAM"
+      ],
+      "showLegend": true
+    },
+    "prompt": "Create a Sunburst plot of EPCAM. Show the legend. ",
+    "alt_prompts": [
+      "Generate a Sunburst chart for EPCAM. Display the legend.",
+      "Construct a Sunburst diagram for EPCAM. Include the legend.",
+      "Produce a Sunburst visualization for EPCAM. Show the legend."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series A",
+      "Series B",
+      "Series C",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Area",
+      "xAxis": [
+        "Series A",
+        "Series B",
+        "Series C"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "overlapping"
+    },
+    "prompt": "Create a Area graph of Series A, Series B, Series C in the primary axis. Orient the graph vertically. Set the area graph overlapping. ",
+    "alt_prompts": [
+      "Generate an Area graph for Series A, Series B, and Series C on the primary axis. Align the graph vertically. Ensure the area graph is overlapping.",
+      "Construct an Area graph displaying Series A, Series B, and Series C on the primary axis. Position the graph in a vertical orientation. Make sure the area graph overlaps.",
+      "Build an Area graph featuring Series A, Series B, and Series C on the primary axis. Arrange the graph vertically. Set the area graph to overlap."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Pie",
+      "xAxis": [
+        "fl"
+      ]
+    },
+    "prompt": "Create a Pie chart of fl in the primary axis. ",
+    "alt_prompts": [
+      "Generate a Pie chart of fl on the primary axis.",
+      "Construct a Pie chart with fl on the primary axis.",
+      "Build a Pie chart displaying fl on the primary axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Histogram",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "showFilledHistogramDensity": true,
+      "yAxisTextScaleFontFactor": 0.9
+    },
+    "prompt": "Create a Histogram of cty, hwy. Show the filled density curve. Decrease the font size of the y-axis ticks slightly. ",
+    "alt_prompts": [
+      "Generate a Histogram of cty and hwy. Display the filled density curve. Slightly reduce the font size of the y-axis ticks.",
+      "Construct a Histogram for cty and hwy. Include the filled density curve. Minimize the font size of the y-axis ticks a bit.",
+      "Build a Histogram using cty and hwy. Show the filled density curve. Slightly decrease the font size of the y-axis ticks."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Area",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "stacked",
+      "xAxisTitle": "Title for the X-Axis",
+      "xAxisTitleColor": "purple",
+      "decorations": {
+        "line": [
+          {
+            "color": "blue",
+            "value": 5
+          }
+        ]
+      }
+    },
+    "prompt": "Create a Area graph of Value. Orient the graph vertically. Set the area graph stacked. Set the title for the x-axis to Title for the X-Axis. Set the color of the x-axis title to purple. Add a blue vertical line at 5. ",
+    "alt_prompts": [
+      "Generate an Area graph of Value. Align the graph vertically. Make the area graph stacked. Label the x-axis as Title for the X-Axis. Change the color of the x-axis title to purple. Insert a blue vertical line at 5.",
+      "Construct an Area graph of Value. Position the graph vertically. Configure the area graph to be stacked. Name the x-axis Title for the X-Axis. Set the x-axis title color to purple. Draw a blue vertical line at 5.",
+      "Build an Area graph of Value. Arrange the graph vertically. Ensure the area graph is stacked. Designate the x-axis title as Title for the X-Axis. Apply a purple color to the x-axis title. Place a blue vertical line at 5."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Bubble",
+      "xAxis": [
+        "cty"
+      ],
+      "groupingFactors": [
+        "class",
+        "drv"
+      ],
+      "title": "Interesting Graph",
+      "titleScaleFontFactor": 0.9,
+      "xAxisTextScaleFontFactor": 0.7
+    },
+    "prompt": "Create a Bubble plot of cty in the primary axis. Group by class, drv. Set the title for the graph to Interesting Graph. Decrease the font size of the graph title slightly. Decrease the font size of the x-axis ticks considerably. ",
+    "alt_prompts": [
+      "Generate a Bubble plot with cty on the primary axis. Group the data by class and drv. Title the graph as Interesting Graph. Slightly reduce the font size of the graph title. Significantly reduce the font size of the x-axis ticks.",
+      "Construct a Bubble plot where cty is on the primary axis. Group the data by class and drv. Name the graph Interesting Graph. Make the graph title's font size a bit smaller. Considerably shrink the font size of the x-axis ticks.",
+      "Build a Bubble plot with cty on the primary axis. Group the data by class and drv. Label the graph as Interesting Graph. Slightly decrease the font size of the graph title. Greatly reduce the font size of the x-axis ticks."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a Hexplot of hwy in the x axis and cty in the y axis. ",
+    "alt_prompts": [
+      "Generate a Hexplot with hwy on the x-axis and cty on the y-axis.",
+      "Construct a Hexplot where hwy is plotted along the x-axis and cty along the y-axis.",
+      "Build a Hexplot displaying hwy on the x-axis and cty on the y-axis."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Dotplot",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Dotplot of ATM, CDKN2A, MSH2 in the primary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Dotplot for ATM, CDKN2A, and MSH2 on the primary axis. Ensure the graph is oriented vertically.",
+      "Construct a Dotplot featuring ATM, CDKN2A, and MSH2 on the primary axis. Position the graph in a vertical orientation.",
+      "Build a Dotplot with ATM, CDKN2A, and MSH2 on the primary axis. Arrange the graph to be vertical."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "EPCAM"
+      ],
+      "xAxis2": [
+        "ATM"
+      ],
+      "graphOrientation": "vertical",
+      "sortData": [
+        [
+          "cat",
+          "smp",
+          "Treatment"
+        ]
+      ],
+      "filterData": [
+        [
+          "guess",
+          "Treatment",
+          "like",
+          [
+            "Entrec"
+          ]
+        ]
+      ]
+    },
+    "prompt": "Create a Dot-Line plot of EPCAM in the primary axis and ATM in the secondary axis. Orient the graph vertically. Sort data by Treatment. Filter data where Treatment like Entrec. ",
+    "alt_prompts": [
+      "Generate a Dot-Line chart with EPCAM on the main axis and ATM on the secondary axis. Arrange the graph in a vertical layout. Sort the data by Treatment. Filter the data where Treatment is like Entrec.",
+      "Construct a Dot-Line diagram featuring EPCAM on the primary axis and ATM on the secondary axis. Position the graph vertically. Sort the dataset by Treatment. Apply a filter to the data where Treatment is like Entrec.",
+      "Design a Dot-Line plot with EPCAM on the primary axis and ATM on the secondary axis. Align the graph vertically. Sort the data by Treatment. Filter the data to include only those where Treatment is like Entrec."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Meter",
+      "xAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a Meter plot of cty. ",
+    "alt_prompts": [
+      "Generate a Meter plot of cty.",
+      "Produce a Meter plot of cty.",
+      "Construct a Meter plot of cty."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Density",
+      "xAxis": [
+        "displ"
+      ]
+    },
+    "prompt": "Create a Density of displ. ",
+    "alt_prompts": [
+      "Generate a density plot of displacement.",
+      "Construct a density visualization for displacement.",
+      "Build a density chart for displacement."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Line",
+      "xAxis": [
+        "EPCAM"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Line of EPCAM in the primary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Line of EPCAM on the primary axis. Position the graph in a vertical orientation.",
+      "Construct a Line of EPCAM along the primary axis. Align the graph vertically.",
+      "Build a Line of EPCAM on the primary axis. Arrange the graph in a vertical layout."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Stacked",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ],
+      "sortData": [
+        [
+          "cat",
+          "smp",
+          "Dose"
+        ]
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Stacked-Bar plot of ATM, CDKN2A, MSH2 in the primary axis. Sort data by Dose. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar chart for ATM, CDKN2A, MSH2 on the primary axis. Sort the data according to Dose. Display the graph in a vertical orientation.",
+      "Construct a Stacked-Bar graph featuring ATM, CDKN2A, MSH2 on the primary axis. Sort the dataset by Dose. Arrange the graph vertically.",
+      "Build a Stacked-Bar plot with ATM, CDKN2A, MSH2 on the primary axis. Sort the information by Dose. Position the graph vertically."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53",
+        "BAP1",
+        "PTEN",
+        "STK11"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Stacked-BarLine plot of ATM, CDKN2A, MSH2, STK11, PTEN in the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 in the secondary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Stacked-BarLine chart featuring ATM, CDKN2A, MSH2, STK11, PTEN on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Ensure the graph is oriented vertically.",
+      "Construct a Stacked-BarLine visualization with ATM, CDKN2A, MSH2, STK11, PTEN on the main axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Position the graph vertically.",
+      "Design a Stacked-BarLine plot displaying ATM, CDKN2A, MSH2, STK11, PTEN on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Arrange the graph in a vertical orientation."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "ATM"
+      ],
+      "xAxis2": [
+        "EPCAM"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "Treatment",
+        "Dose"
+      ],
+      "smpTitle": "Title for the Samples",
+      "smpTitleColor": "red",
+      "title": "Data Summary"
+    },
+    "prompt": "Create a Dot-Line plot of ATM and EPCAM. Orient the graph vertically. Group by Treatment, Dose. Set the title for the sample-axis to Title for the Samples. Set the color of the sample title to red. Set the title for the graph to Data Summary. ",
+    "alt_prompts": [
+      "Generate a Dot-Line plot for ATM and EPCAM. Arrange the graph in a vertical orientation. Group the data by Treatment and Dose. Label the sample-axis with Title for the Samples. Change the color of the sample title to red. Title the graph as Data Summary.",
+      "Construct a Dot-Line plot featuring ATM and EPCAM. Position the graph vertically. Group the information by Treatment and Dose. Assign the title Title for the Samples to the sample-axis. Make the sample title color red. Name the graph Data Summary.",
+      "Build a Dot-Line plot displaying ATM and EPCAM. Set the graph to a vertical layout. Group the dataset by Treatment and Dose. Title the sample-axis as Title for the Samples. Set the sample title color to red. Title the graph Data Summary."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Contour",
+      "xAxis": [
+        "displ"
+      ],
+      "yAxis": [
+        "cyl"
+      ]
+    },
+    "prompt": "Create a Contour of displ in the x axis and cyl in the y axis. ",
+    "alt_prompts": [
+      "Generate a Contour plot with displ on the x-axis and cyl on the y-axis.",
+      "Construct a Contour chart where displ is represented on the x-axis and cyl on the y-axis.",
+      "Build a Contour diagram displaying displ along the x-axis and cyl along the y-axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Meter",
+      "xAxis": [
+        "cyl"
+      ]
+    },
+    "prompt": "Create a Meter plot of cyl. ",
+    "alt_prompts": [
+      "Generate a Meter plot of cyl.",
+      "Construct a Meter plot of cyl.",
+      "Build a Meter plot of cyl."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Scatter2D",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "decorations": {
+        "line": [
+          {
+            "color": "red",
+            "x": 13
+          }
+        ]
+      }
+    },
+    "prompt": "Create a Scatter plot of hwy in the x axis and cty in the y axis. Add a red vertical line at 13. ",
+    "alt_prompts": [
+      "Generate a Scatter plot with hwy on the x-axis and cty on the y-axis. Include a red vertical line at 13.",
+      "Construct a Scatter plot where hwy is on the x-axis and cty is on the y-axis. Draw a red vertical line at 13.",
+      "Build a Scatter plot featuring hwy on the x-axis and cty on the y-axis. Insert a red vertical line at 13."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "AreaLine",
+      "xAxis": [
+        "STK11"
+      ],
+      "xAxis2": [
+        "PTEN"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "overlapping",
+      "smpTextScaleFontFactor": 1.2
+    },
+    "prompt": "Create a Area-Line graph of STK11 and PTEN. Orient the graph vertically. Set the area graph overlapping. Increase the font size of the sample labels moderately. ",
+    "alt_prompts": [
+      "Generate a vertical Area-Line graph for STK11 and PTEN. Ensure the area graph sections overlap. Adjust the sample labels to have a moderately larger font size.",
+      "Construct a vertically oriented Area-Line graph displaying STK11 and PTEN. Make sure the area graph overlaps. Moderately enlarge the font size of the sample labels.",
+      "Design a vertical Area-Line graph featuring STK11 and PTEN. Overlap the area graph segments. Increase the font size of the sample labels to a moderate extent."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Contour",
+      "xAxis": [
+        "cyl"
+      ],
+      "yAxis": [
+        "displ"
+      ]
+    },
+    "prompt": "Create a Contour of cyl and displ. ",
+    "alt_prompts": [
+      "Generate a Contour plot using the variables cyl and displ.",
+      "Construct a Contour diagram with cyl and displ as the axes.",
+      "Build a Contour chart that displays the relationship between cyl and displ."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "AreaLine",
+      "xAxis": [
+        "BAP1"
+      ],
+      "xAxis2": [
+        "MSH2"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "overlapping"
+    },
+    "prompt": "Create a Area-Line graph of BAP1 in the primary axis and MSH2 in the secondary axis. Orient the graph vertically. Set the area graph overlapping. ",
+    "alt_prompts": [
+      "Generate an Area-Line chart with BAP1 on the primary axis and MSH2 on the secondary axis. Align the graph vertically. Ensure the area graph is overlapping.",
+      "Construct an Area-Line graph featuring BAP1 on the primary axis and MSH2 on the secondary axis. Position the graph in a vertical orientation. Make sure the area graph overlaps.",
+      "Design an Area-Line graph displaying BAP1 on the primary axis and MSH2 on the secondary axis. Arrange the graph vertically. Configure the area graph to overlap."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Line",
+      "xAxis": [
+        "ATM",
+        "CDKN2A"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "Treatment"
+      ],
+      "lineType": "spline",
+      "smpTitle": "Title for the Samples",
+      "smpTitleColor": "brown"
+    },
+    "prompt": "Create a Line of ATM, CDKN2A in the primary axis. Orient the graph vertically. Group by Treatment. Join the data points with a spline. Set the title for the sample-axis to Title for the Samples. Set the color of the sample title to brown. ",
+    "alt_prompts": [
+      "Generate a Line chart of ATM and CDKN2A on the primary axis. Arrange the graph vertically. Group the data by Treatment. Connect the data points using a spline. Label the sample-axis as Title for the Samples. Change the color of the sample title to brown.",
+      "Produce a Line graph of ATM and CDKN2A on the primary axis. Display the graph in a vertical orientation. Group the data according to Treatment. Use a spline to join the data points. Set the sample-axis title to Title for the Samples. Make the sample title color brown.",
+      "Construct a Line plot of ATM and CDKN2A on the primary axis. Position the graph vertically. Group the data by Treatment. Link the data points with a spline. Assign the title for the sample-axis as Title for the Samples. Adjust the sample title color to brown."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Histogram",
+      "xAxis": [
+        "cty",
+        "hwy",
+        "displ"
+      ]
+    },
+    "prompt": "Create a Histogram of cty, hwy, displ. ",
+    "alt_prompts": [
+      "Generate a Histogram for cty, hwy, displ.",
+      "Construct a Histogram using cty, hwy, displ.",
+      "Build a Histogram that includes cty, hwy, displ."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "BarLine",
+      "xAxis": [
+        "ATM"
+      ],
+      "xAxis2": [
+        "EPCAM"
+      ],
+      "graphOrientation": "horizontal",
+      "setMinX": 0,
+      "title": "Data Overview",
+      "titleScaleFontFactor": 1.2
+    },
+    "prompt": "Create a Bar-Line graph of ATM in the primary axis and EPCAM in the secondary axis. Orient the graph horizontally. Set the minimum value for the data to 0. Set the title for the graph to Data Overview. Increase the font size of the graph title moderately. ",
+    "alt_prompts": [
+      "Generate a horizontal Bar-Line graph with ATM on the primary axis and EPCAM on the secondary axis. Ensure the minimum data value is set to 0. Title the graph as Data Overview and moderately increase the font size of the title.",
+      "Construct a Bar-Line graph with ATM on the primary axis and EPCAM on the secondary axis, oriented horizontally. Set the data's minimum value to 0 and name the graph Data Overview, with a moderate increase in the title's font size.",
+      "Create a horizontally oriented Bar-Line graph featuring ATM on the primary axis and EPCAM on the secondary axis. Set the minimum value for the data to 0, title the graph Data Overview, and moderately enlarge the font size of the title."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1",
+        "TP53",
+        "EPCAM"
+      ],
+      "graphOrientation": "horizontal",
+      "smpTextRotate": 45
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Orient the graph horizontally. Rotate the sample labels 45 degrees. ",
+    "alt_prompts": [
+      "Generate a Heatmap for ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Arrange the graph in a horizontal orientation. Tilt the sample labels by 45 degrees.",
+      "Construct a Heatmap featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Position the graph horizontally. Angle the sample labels at 45 degrees.",
+      "Build a Heatmap displaying ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Set the graph to a horizontal layout. Rotate the sample labels to 45 degrees."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1",
+        "TP53",
+        "EPCAM"
+      ]
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. ",
+    "alt_prompts": [
+      "Generate a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM.",
+      "Construct a Heatmap featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM.",
+      "Build a Heatmap that includes ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Ridgeline",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "ridgeBy": "class"
+    },
+    "prompt": "Create a Ridgeline plot of cty, hwy in the primary axis. Ridge by class. ",
+    "alt_prompts": [
+      "Generate a Ridgeline plot with cty and hwy on the primary axis. Use class to create the ridges.",
+      "Construct a Ridgeline plot displaying cty and hwy on the main axis. Ridge according to class.",
+      "Build a Ridgeline plot featuring cty and hwy on the primary axis. Ridge based on class."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Ridgeline",
+      "xAxis": [
+        "cty"
+      ],
+      "ridgeBy": "drv"
+    },
+    "prompt": "Create a Ridgeline plot of cty in the primary axis. Ridge by drv. ",
+    "alt_prompts": [
+      "Generate a Ridgeline plot with cty on the main axis. Ridge according to drv.",
+      "Construct a Ridgeline plot where cty is displayed on the primary axis. Use drv to create the ridges.",
+      "Build a Ridgeline plot featuring cty on the primary axis. Ridge based on drv."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Boxplot",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp",
+        "dose"
+      ],
+      "smpTitle": "Sample Axis",
+      "smpTitleScaleFontFactor": 0.7,
+      "smpTextRotate": 45
+    },
+    "prompt": "Create a Boxplot of len in the primary axis. Orient the graph vertically. Group by supp, dose. Set the title for the sample-axis to Sample Axis. Decrease the font size of the sample title considerably. Rotate the sample labels 45 degrees. ",
+    "alt_prompts": [
+      "Generate a Boxplot of len on the main axis. Position the graph vertically. Group the data by supp and dose. Label the sample-axis as Sample Axis. Significantly reduce the font size of the sample title. Tilt the sample labels by 45 degrees.",
+      "Construct a Boxplot of len on the primary axis. Align the graph vertically. Group the data based on supp and dose. Name the sample-axis as Sample Axis. Lower the font size of the sample title substantially. Angle the sample labels at 45 degrees.",
+      "Create a Boxplot of len on the main axis. Arrange the graph vertically. Group the data by supp and dose. Set the sample-axis title to Sample Axis. Decrease the font size of the sample title significantly. Rotate the sample labels to 45 degrees."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "xAxisTitle": "X Axis Title",
+      "xAxisTitleScaleFontFactor": 1.2,
+      "yAxisTextScaleFontFactor": 1.2
+    },
+    "prompt": "Create a Hexplot of hwy in the x axis and cty in the y axis. Set the title for the x-axis to X Axis Title. Increase the font size of the x-axis title moderately. Increase the font size of the y-axis ticks moderately. ",
+    "alt_prompts": [
+      "Generate a Hexplot with hwy on the x-axis and cty on the y-axis. Label the x-axis as X Axis Title. Adjust the font size of the x-axis title to be moderately larger. Also, moderately increase the font size of the y-axis ticks.",
+      "Construct a Hexplot where hwy is plotted on the x-axis and cty on the y-axis. Title the x-axis as X Axis Title. Make the x-axis title font size moderately bigger. Similarly, make the y-axis tick labels moderately larger.",
+      "Create a Hexplot displaying hwy on the x-axis and cty on the y-axis. Name the x-axis X Axis Title. Enhance the font size of the x-axis title to a moderate extent. Likewise, moderately enlarge the font size of the y-axis tick labels."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Violin",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp"
+      ]
+    },
+    "prompt": "Create a Violin plot of len in the primary axis. Orient the graph vertically. Group by supp. ",
+    "alt_prompts": [
+      "Generate a Violin plot of len on the main axis. Set the orientation of the graph to vertical. Aggregate by supp.",
+      "Construct a Violin plot with len on the primary axis. Ensure the graph is oriented vertically. Group the data by supp.",
+      "Build a Violin plot displaying len on the main axis. Orient the graph in a vertical manner. Group the data based on supp."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1",
+        "TP53"
+      ]
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53. ",
+    "alt_prompts": [
+      "Generate a Heatmap for ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53.",
+      "Construct a Heatmap displaying ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53.",
+      "Build a Heatmap that includes ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Scatter3D",
+      "xAxis": [
+        "displ"
+      ],
+      "yAxis": [
+        "cyl"
+      ],
+      "zAxis": [
+        "cty"
+      ],
+      "zAxisTitle": "zAxisTitle",
+      "zAxisTitleScaleFontFactor": 0.7
+    },
+    "prompt": "Create a Scatter3D plot of displ, cyl and cty. Set the title for the z-axis to zAxisTitle. Decrease the font size of the z-axis title considerably. ",
+    "alt_prompts": [
+      "Generate a Scatter3D chart using displ, cyl, and cty. Assign zAxisTitle as the title for the z-axis. Significantly reduce the font size of the z-axis title.",
+      "Construct a Scatter3D graph with displ, cyl, and cty. Label the z-axis with zAxisTitle. Drastically decrease the font size of the z-axis title.",
+      "Create a 3D scatter plot featuring displ, cyl, and cty. Name the z-axis zAxisTitle. Substantially lower the font size of the z-axis title."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "decorations": {
+        "line": [
+          {
+            "color": "red",
+            "x": 25
+          }
+        ]
+      }
+    },
+    "prompt": "Create a Hexplot of hwy in the x axis and cty in the y axis. Add a red vertical line at 25. ",
+    "alt_prompts": [
+      "Generate a Hexplot with hwy on the x-axis and cty on the y-axis. Include a red vertical line at the 25 mark.",
+      "Construct a Hexplot displaying hwy along the x-axis and cty along the y-axis. Place a red vertical line at 25.",
+      "Design a Hexplot where hwy is plotted on the x-axis and cty on the y-axis. Draw a red vertical line at the 25 position."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Bubble",
+      "xAxis": [
+        "cty"
+      ],
+      "groupingFactors": [
+        "class",
+        "drv",
+        "fl",
+        "manufacturer"
+      ]
+    },
+    "prompt": "Create a Bubble plot of cty in the primary axis. Group by class, drv, fl, manufacturer. ",
+    "alt_prompts": [
+      "Generate a Bubble plot with cty on the primary axis. Group the data by class, drv, fl, and manufacturer.",
+      "Construct a Bubble plot where cty is displayed on the primary axis. Aggregate the data by class, drv, fl, and manufacturer.",
+      "Build a Bubble plot featuring cty on the primary axis. Group the dataset by class, drv, fl, and manufacturer."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Donut",
+      "xAxis": [
+        "cty"
+      ],
+      "groupingFactors": [
+        "class"
+      ]
+    },
+    "prompt": "Create a Donut of cty. Group by class. ",
+    "alt_prompts": [
+      "Generate a Donut chart of cty. Aggregate by class.",
+      "Construct a Donut visualization of cty. Group the data by class.",
+      "Build a Donut representation of cty. Classify by class."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Scatter3D",
+      "xAxis": [
+        "cty"
+      ],
+      "yAxis": [
+        "hwy"
+      ],
+      "zAxis": [
+        "displ"
+      ],
+      "setMaxZ": 20
+    },
+    "prompt": "Create a Scatter3D plot of cty, hwy and displ. Set the maximum value for the z-axis to 20. ",
+    "alt_prompts": [
+      "Generate a Scatter3D chart using cty, hwy, and displ. Adjust the z-axis to have a maximum value of 20.",
+      "Construct a Scatter3D graph with cty, hwy, and displ. Ensure the z-axis does not exceed a value of 20.",
+      "Build a Scatter3D visualization featuring cty, hwy, and displ. Limit the z-axis to a maximum value of 20."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Contour",
+      "xAxis": [
+        "cyl"
+      ],
+      "yAxis": [
+        "displ"
+      ],
+      "showContourDataPoints": true
+    },
+    "prompt": "Create a Contour of cyl in the x axis and displ in the y axis. Show data points. ",
+    "alt_prompts": [
+      "Generate a Contour plot with 'cyl' on the x-axis and 'displ' on the y-axis. Include data points.",
+      "Construct a Contour chart where 'cyl' is plotted on the x-axis and 'displ' is plotted on the y-axis. Display data points.",
+      "Build a Contour graph with 'cyl' along the x-axis and 'displ' along the y-axis. Show the data points."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53",
+        "BAP1",
+        "PTEN",
+        "STK11"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Stacked-BarLine plot of ATM, CDKN2A, MSH2, STK11, PTEN in the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 in the secondary axis. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Stacked-BarLine chart with ATM, CDKN2A, MSH2, STK11, PTEN on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Arrange the graph in a vertical orientation.",
+      "Construct a Stacked-BarLine visualization featuring ATM, CDKN2A, MSH2, STK11, PTEN on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Position the graph vertically.",
+      "Design a Stacked-BarLine plot displaying ATM, CDKN2A, MSH2, STK11, PTEN on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Set the graph to be vertical."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "QQ",
+      "xAxis": [
+        "cyl"
+      ]
+    },
+    "prompt": "Create a QQ plot of cyl in the primary axis. ",
+    "alt_prompts": [
+      "Generate a QQ plot for the 'cyl' variable on the main axis.",
+      "Construct a QQ plot displaying 'cyl' on the primary axis.",
+      "Develop a QQ plot with 'cyl' represented on the main axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a CDF plot of cty. ",
+    "alt_prompts": [
+      "Generate a CDF plot of cty.",
+      "Construct a CDF plot for cty.",
+      "Build a CDF plot using cty."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Histogram",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "showLegend": false
+    },
+    "prompt": "Create a Histogram of cty, hwy. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Histogram of cty and hwy. Remove the legend.",
+      "Construct a Histogram using cty and hwy. Do not display the legend.",
+      "Build a Histogram for cty and hwy. Exclude the legend."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "ScatterBubble2D",
+      "xAxis": [
+        "displ"
+      ],
+      "yAxis": [
+        "cyl"
+      ],
+      "zAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a Scatter-Bubble plot of displ, cyl and cty. ",
+    "alt_prompts": [
+      "Generate a Scatter-Bubble chart using displ, cyl, and cty.",
+      "Construct a Scatter-Bubble graph with displ, cyl, and cty.",
+      "Build a Scatter-Bubble diagram featuring displ, cyl, and cty."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Contour",
+      "xAxis": [
+        "cyl"
+      ],
+      "yAxis": [
+        "displ"
+      ]
+    },
+    "prompt": "Create a Contour of cyl and displ. ",
+    "alt_prompts": [
+      "Generate a Contour plot using the variables cyl and displ.",
+      "Construct a Contour diagram with cyl and displ as the axes.",
+      "Build a Contour chart that displays the relationship between cyl and displ."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "hwy"
+      ],
+      "xAxisTitle": "xAxisTitle",
+      "xAxisTitleColor": "black"
+    },
+    "prompt": "Create a CDF plot of hwy. Set the title for the x-axis to xAxisTitle. Set the color of the x-axis title to black. ",
+    "alt_prompts": [
+      "Generate a CDF plot of hwy. Assign the title for the x-axis as xAxisTitle. Change the color of the x-axis title to black.",
+      "Construct a CDF plot using hwy. Label the x-axis with xAxisTitle. Make sure the x-axis title is colored black.",
+      "Build a CDF plot for hwy. Name the x-axis title as xAxisTitle. Set the x-axis title color to black."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53",
+        "BAP1",
+        "PTEN",
+        "STK11"
+      ],
+      "graphOrientation": "horizontal",
+      "smpTextColor": "pink"
+    },
+    "prompt": "Create a Stacked-BarLine plot of ATM, CDKN2A, MSH2, STK11, PTEN in the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 in the secondary axis. Orient the graph horizontally. Set the color of the sample labels to pink. ",
+    "alt_prompts": [
+      "Generate a Stacked-BarLine chart with ATM, CDKN2A, MSH2, STK11, PTEN on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Arrange the graph horizontally. Change the sample labels' color to pink.",
+      "Construct a Stacked-BarLine visualization featuring ATM, CDKN2A, MSH2, STK11, PTEN on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Display the graph in a horizontal orientation. Adjust the sample labels to be pink.",
+      "Build a Stacked-BarLine plot with ATM, CDKN2A, MSH2, STK11, PTEN on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11 on the secondary axis. Position the graph horizontally. Set the color of the sample labels to pink."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedPercent",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ],
+      "graphOrientation": "horizontal",
+      "theme": "solarized"
+    },
+    "prompt": "Create a Stacked-Bar-Percent plot of ATM, CDKN2A, MSH2 in the primary axis. Orient the graph horizontally. Use the style solarized. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar-Percent chart for ATM, CDKN2A, MSH2 on the main axis. Display the graph in a horizontal orientation. Apply the solarized style.",
+      "Construct a Stacked-Bar-Percent visualization featuring ATM, CDKN2A, MSH2 on the primary axis. Arrange the graph horizontally. Utilize the solarized theme.",
+      "Build a Stacked-Bar-Percent plot showcasing ATM, CDKN2A, MSH2 on the main axis. Orient the graph horizontally. Use the solarized design."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Bubble",
+      "xAxis": [
+        "displ"
+      ],
+      "groupingFactors": [
+        "class"
+      ]
+    },
+    "prompt": "Create a Bubble plot of displ in the primary axis. Group by class. ",
+    "alt_prompts": [
+      "Generate a Bubble plot with displ on the primary axis. Aggregate by class.",
+      "Construct a Bubble plot displaying displ on the primary axis. Group the data by class.",
+      "Design a Bubble plot where displ is shown on the primary axis. Group the data according to class."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedPercent",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ],
+      "smpOverlays": [
+        "Treatment"
+      ],
+      "smpTitle": "Sample Axis Title"
+    },
+    "prompt": "Create a Stacked-Bar-Percent plot of ATM, CDKN2A, MSH2 in the primary axis. Overlay the data with Treatment. Set the title for the sample-axis to Sample Axis Title. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar-Percent chart for ATM, CDKN2A, and MSH2 on the primary axis. Overlay this data with Treatment. Label the sample-axis as Sample Axis Title.",
+      "Construct a Stacked-Bar-Percent graph featuring ATM, CDKN2A, and MSH2 on the primary axis. Overlay the data with Treatment. Title the sample-axis as Sample Axis Title.",
+      "Build a Stacked-Bar-Percent visualization for ATM, CDKN2A, and MSH2 on the primary axis. Overlay the data with Treatment. Name the sample-axis as Sample Axis Title."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Scatter3D",
+      "xAxis": [
+        "displ"
+      ],
+      "yAxis": [
+        "cyl"
+      ],
+      "zAxis": [
+        "cty"
+      ],
+      "yAxisTextScaleFontFactor": 0.9,
+      "filterData": [
+        [
+          "guess",
+          "class",
+          "different",
+          [
+            "compact"
+          ]
+        ]
+      ]
+    },
+    "prompt": "Create a Scatter3D plot of displ, cyl and cty. Decrease the font size of the y-axis ticks slightly. Filter data where class different compact. ",
+    "alt_prompts": [
+      "Generate a Scatter3D chart using displ, cyl, and cty. Slightly reduce the font size of the y-axis labels. Exclude data where class is different from compact.",
+      "Construct a Scatter3D graph with displ, cyl, and cty. Minimize the font size of the y-axis tick marks a bit. Filter out data where class is different from compact.",
+      "Build a Scatter3D visualization featuring displ, cyl, and cty. Make the y-axis tick font size a little smaller. Remove data where class is different from compact."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "QQ",
+      "xAxis": [
+        "hwy"
+      ]
+    },
+    "prompt": "Create a QQ plot of hwy in the primary axis. ",
+    "alt_prompts": [
+      "Generate a QQ plot of hwy on the main axis.",
+      "Construct a QQ plot for hwy on the primary axis.",
+      "Develop a QQ plot of hwy on the main axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Meter",
+      "xAxis": [
+        "cyl"
+      ]
+    },
+    "prompt": "Create a Meter plot of cyl. ",
+    "alt_prompts": [
+      "Generate a Meter plot of cyl.",
+      "Construct a Meter plot of cyl.",
+      "Build a Meter plot of cyl."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Line",
+      "xAxis": [
+        "MSH2"
+      ],
+      "graphOrientation": "horizontal",
+      "xAxisTextScaleFontFactor": 1.2
+    },
+    "prompt": "Create a Line of MSH2. Orient the graph horizontally. Increase the font size of the x-axis ticks moderately. ",
+    "alt_prompts": [
+      "Generate a Line of MSH2. Position the graph horizontally. Adjust the font size of the x-axis ticks to be moderately larger.",
+      "Construct a Line of MSH2. Align the graph horizontally. Enhance the font size of the x-axis ticks to a moderate extent.",
+      "Build a Line of MSH2. Arrange the graph horizontally. Moderately increase the font size of the x-axis ticks."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Binplot",
+      "xAxis": [
+        "cty"
+      ],
+      "yAxis": [
+        "hwy"
+      ],
+      "decorations": {
+        "line": [
+          {
+            "color": "red",
+            "y": 20
+          }
+        ]
+      }
+    },
+    "prompt": "Create a Binplot of cty in the x axis and hwy in the y axis. Add a red horizontal line at 20. ",
+    "alt_prompts": [
+      "Generate a Binplot with cty on the x-axis and hwy on the y-axis. Include a red horizontal line at the 20 mark.",
+      "Construct a Binplot displaying cty on the horizontal axis and hwy on the vertical axis. Draw a red horizontal line at 20.",
+      "Produce a Binplot where cty is plotted on the x-axis and hwy on the y-axis. Insert a red horizontal line at the value of 20."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Line",
+      "xAxis": [
+        "TP53"
+      ],
+      "graphOrientation": "vertical",
+      "decorations": {
+        "line": [
+          {
+            "color": "black",
+            "value": 9
+          }
+        ]
+      }
+    },
+    "prompt": "Create a Line of TP53. Orient the graph vertically. Add a black horizontal line at 9. ",
+    "alt_prompts": [
+      "Generate a Line of TP53. Position the graph in a vertical orientation. Insert a black horizontal line at the 9 mark.",
+      "Construct a Line of TP53. Arrange the graph to be vertical. Place a black horizontal line at the value of 9.",
+      "Build a Line of TP53. Set the graph to display vertically. Draw a black horizontal line at the level of 9."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Binplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "yAxisTextScaleFontFactor": 0.7
+    },
+    "prompt": "Create a Binplot of hwy in the x axis and cty in the y axis. Decrease the font size of the y-axis ticks considerably. ",
+    "alt_prompts": [
+      "Generate a Binplot with hwy on the x-axis and cty on the y-axis. Significantly reduce the font size of the y-axis tick labels.",
+      "Construct a Binplot where hwy is plotted on the x-axis and cty on the y-axis. Make the y-axis tick labels much smaller in font size.",
+      "Design a Binplot featuring hwy on the x-axis and cty on the y-axis. Drastically decrease the font size of the y-axis tick marks."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Violin",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp"
+      ],
+      "showBoxplotOriginalData": true,
+      "bin": true
+    },
+    "prompt": "Create a Violin plot of len. Orient the graph vertically. Group by supp. Show original data. Bin the data. ",
+    "alt_prompts": [
+      "Generate a Violin plot of len. Display the graph in a vertical orientation. Group the data by supp. Include the original data. Bin the data.",
+      "Construct a Violin plot of len. Orient the graph in a vertical manner. Aggregate the data by supp. Show the original data points. Bin the data.",
+      "Produce a Violin plot of len. Set the graph to be vertical. Group the data according to supp. Display the original data. Bin the data."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Bubble",
+      "xAxis": [
+        "hwy"
+      ],
+      "groupingFactors": [
+        "class"
+      ],
+      "theme": "cx"
+    },
+    "prompt": "Create a Bubble plot of hwy in the primary axis. Group by class. Use the style cx. ",
+    "alt_prompts": [
+      "Generate a Bubble plot with hwy on the main axis. Aggregate by class. Apply the cx style.",
+      "Construct a Bubble plot featuring hwy on the primary axis. Group the data by class. Utilize the cx style.",
+      "Develop a Bubble plot with hwy displayed on the primary axis. Group the data according to class. Implement the cx style."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Bar",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical",
+      "colorBy": "Series"
+    },
+    "prompt": "Create a Bar graph of Value. Orient the graph vertically. Color by Series. ",
+    "alt_prompts": [
+      "Generate a vertical Bar graph of Value. Use Series to color the bars.",
+      "Construct a Bar graph of Value with a vertical orientation. Apply colors based on Series.",
+      "Build a vertically oriented Bar graph of Value. Color the bars according to Series."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Sunburst",
+      "xAxis": [
+        "CDKN2A"
+      ]
+    },
+    "prompt": "Create a Sunburst plot of CDKN2A. ",
+    "alt_prompts": [
+      "Generate a Sunburst chart for CDKN2A.",
+      "Construct a Sunburst diagram to visualize CDKN2A.",
+      "Build a Sunburst graph representing CDKN2A."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Donut",
+      "xAxis": [
+        "cty"
+      ],
+      "groupingFactors": [
+        "class"
+      ],
+      "xAxisTextColor": "pink"
+    },
+    "prompt": "Create a Donut of cty. Group by class. Set the color of the x-axis ticks to pink. ",
+    "alt_prompts": [
+      "Generate a Donut chart of cty. Group the data by class. Change the color of the x-axis tick marks to pink.",
+      "Construct a Donut visualization of cty. Aggregate the data by class. Adjust the x-axis tick colors to pink.",
+      "Build a Donut graph of cty. Group the dataset by class. Modify the x-axis tick color to pink."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "BAP1"
+      ],
+      "xAxis2": [
+        "MSH2"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Dot-Line plot of BAP1 and MSH2. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a Dot-Line plot for BAP1 and MSH2. Position the graph in a vertical layout.",
+      "Construct a Dot-Line plot featuring BAP1 and MSH2. Arrange the graph with a vertical orientation.",
+      "Develop a Dot-Line plot displaying BAP1 and MSH2. Set the graph to be vertically oriented."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Dotplot",
+      "xAxis": [
+        "BAP1"
+      ],
+      "graphOrientation": "horizontal",
+      "groupingFactors": [
+        "Treatment",
+        "Dose"
+      ],
+      "xAxisTextScaleFontFactor": 0.9,
+      "shapeBy": "Treatment"
+    },
+    "prompt": "Create a Dotplot of BAP1. Orient the graph horizontally. Group by Treatment, Dose. Decrease the font size of the x-axis ticks slightly. Shape by Treatment. ",
+    "alt_prompts": [
+      "Generate a Dotplot for BAP1. Set the orientation of the graph to horizontal. Group the data by Treatment and Dose. Slightly reduce the font size of the x-axis labels. Use different shapes for each Treatment.",
+      "Construct a Dotplot displaying BAP1. Arrange the graph horizontally. Group the data according to Treatment and Dose. Minimize the font size of the x-axis tick marks a bit. Differentiate the shapes based on Treatment.",
+      "Create a Dotplot representing BAP1. Position the graph in a horizontal layout. Group the data by Treatment and Dose. Slightly decrease the font size of the x-axis tick labels. Use varying shapes for each Treatment."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "cty"
+      ],
+      "yAxis": [
+        "hwy"
+      ]
+    },
+    "prompt": "Create a Hexplot of cty in the x axis and hwy in the y axis. ",
+    "alt_prompts": [
+      "Generate a Hexplot with cty on the x-axis and hwy on the y-axis.",
+      "Construct a Hexplot where cty is displayed on the x-axis and hwy on the y-axis.",
+      "Build a Hexplot featuring cty along the x-axis and hwy along the y-axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Quantile",
+      "xAxis": [
+        "hwy"
+      ],
+      "decorations": {
+        "line": [
+          {
+            "color": "red",
+            "y": 0.75
+          }
+        ]
+      },
+      "colorBy": "manufacturer"
+    },
+    "prompt": "Create a Quantile plot of hwy. Add a red horizontal line at 0.75. Color by manufacturer. ",
+    "alt_prompts": [
+      "Generate a Quantile plot for hwy. Insert a red horizontal line at the 0.75 mark. Use manufacturer to color the data.",
+      "Construct a Quantile plot of hwy. Draw a red horizontal line at the 0.75 level. Color the points based on manufacturer.",
+      "Build a Quantile plot for hwy. Place a red horizontal line at the 0.75 position. Apply color coding by manufacturer."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedPercent",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ],
+      "decorations": {
+        "line": [
+          {
+            "color": "black",
+            "value": 9
+          }
+        ]
+      },
+      "smpOverlays": [
+        "Treatment"
+      ]
+    },
+    "prompt": "Create a Stacked-Bar-Percent plot of ATM, CDKN2A, MSH2 in the primary axis. Add a black vertical line at 9. Overlay the data with Treatment. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar-Percent chart for ATM, CDKN2A, and MSH2 on the main axis. Insert a black vertical line at the 9 mark. Superimpose the data with Treatment.",
+      "Construct a Stacked-Bar-Percent graph featuring ATM, CDKN2A, and MSH2 on the primary axis. Place a black vertical line at position 9. Overlay the data with Treatment.",
+      "Build a Stacked-Bar-Percent diagram for ATM, CDKN2A, and MSH2 on the main axis. Draw a black vertical line at the 9 position. Superimpose the data with Treatment."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Donut",
+      "xAxis": [
+        "cty"
+      ],
+      "groupingFactors": [
+        "class"
+      ]
+    },
+    "prompt": "Create a Donut of cty. Group by class. ",
+    "alt_prompts": [
+      "Generate a Donut chart of cty. Aggregate by class.",
+      "Construct a Donut visualization of cty. Group the data by class.",
+      "Build a Donut representation of cty. Classify by class."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Binplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a Binplot of hwy in the x axis and cty in the y axis. ",
+    "alt_prompts": [
+      "Generate a Binplot with hwy on the x-axis and cty on the y-axis.",
+      "Construct a Binplot where hwy is displayed on the x-axis and cty on the y-axis.",
+      "Produce a Binplot featuring hwy along the x-axis and cty along the y-axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Bubble",
+      "xAxis": [
+        "cty"
+      ],
+      "groupingFactors": [
+        "class"
+      ]
+    },
+    "prompt": "Create a Bubble plot of cty. Group by class. ",
+    "alt_prompts": [
+      "Generate a Bubble plot of cty. Aggregate by class.",
+      "Construct a Bubble plot of cty. Group the data by class.",
+      "Build a Bubble plot of cty. Classify by class."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Violin",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp",
+        "dose"
+      ],
+      "showLegend": true,
+      "legendPosition": "bottom",
+      "smpTitle": "Sample Axis"
+    },
+    "prompt": "Create a Violin plot of len in the primary axis. Orient the graph vertically. Group by supp, dose. Show the legend. Put the legend on the bottom. Set the title for the sample-axis to Sample Axis. ",
+    "alt_prompts": [
+      "Generate a Violin plot of len on the main axis. Arrange the graph vertically. Group by supp and dose. Display the legend. Position the legend at the bottom. Label the sample-axis as Sample Axis.",
+      "Construct a Violin plot of len on the primary axis. Orient the graph in a vertical manner. Group by supp and dose. Include the legend. Place the legend at the bottom. Title the sample-axis as Sample Axis.",
+      "Build a Violin plot of len on the main axis. Set the graph orientation to vertical. Group by supp and dose. Show the legend. Position the legend at the bottom. Name the sample-axis as Sample Axis."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53",
+        "BAP1",
+        "PTEN",
+        "STK11",
+        "MSH2"
+      ],
+      "graphOrientation": "horizontal"
+    },
+    "prompt": "Create a Stacked-BarLine plot of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 in the primary axis and EPCAM, TP53, BAP1, PTEN, STK11, MSH2 in the secondary axis. Orient the graph horizontally. ",
+    "alt_prompts": [
+      "Generate a Stacked-BarLine chart with ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11, MSH2 on the secondary axis. Arrange the graph horizontally.",
+      "Construct a Stacked-BarLine visualization featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11, MSH2 on the secondary axis. Display the graph in a horizontal orientation.",
+      "Design a Stacked-BarLine plot with ATM, CDKN2A, MSH2, STK11, PTEN, BAP1 on the primary axis and EPCAM, TP53, BAP1, PTEN, STK11, MSH2 on the secondary axis. Position the graph horizontally."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Donut",
+      "xAxis": [
+        "displ"
+      ],
+      "groupingFactors": [
+        "class"
+      ],
+      "title": "Data Insights",
+      "titleScaleFontFactor": 1.2
+    },
+    "prompt": "Create a Donut of displ. Group by class. Set the title for the graph to Data Insights. Increase the font size of the graph title moderately. ",
+    "alt_prompts": [
+      "Generate a Donut chart of displ. Group the data by class. Title the graph as Data Insights. Adjust the graph title's font size to be moderately larger.",
+      "Construct a Donut visualization of displ. Aggregate the data by class. Label the graph with the title Data Insights. Enhance the font size of the graph title to a moderate extent.",
+      "Build a Donut representation of displ. Group the dataset by class. Name the graph Data Insights. Moderately increase the font size of the graph title."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Donut",
+      "xAxis": [
+        "hwy"
+      ],
+      "groupingFactors": [
+        "class"
+      ],
+      "showLegend": true,
+      "legendPosition": "right",
+      "xAxisTextScaleFontFactor": 0.7
+    },
+    "prompt": "Create a Donut of hwy. Group by class. Show the legend. Put the legend on the right. Decrease the font size of the x-axis ticks considerably. ",
+    "alt_prompts": [
+      "Generate a Donut chart of highway data. Group the data by class. Display the legend. Position the legend on the right side. Significantly reduce the font size of the x-axis labels.",
+      "Construct a Donut visualization for highway information. Aggregate the data by class. Include the legend. Place the legend to the right. Substantially decrease the font size of the x-axis tick marks.",
+      "Build a Donut chart using highway data. Group the data by class. Show the legend. Align the legend to the right. Drastically reduce the font size of the x-axis tick labels."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "hwy"
+      ]
+    },
+    "prompt": "Create a CDF plot of hwy. ",
+    "alt_prompts": [
+      "Generate a CDF plot for the highway data.",
+      "Construct a CDF plot using the highway dataset.",
+      "Develop a CDF plot based on the highway information."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Density",
+      "xAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a Density of cty. ",
+    "alt_prompts": [
+      "Generate a Density plot of cty.",
+      "Construct a Density chart of cty.",
+      "Build a Density graph of cty."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Scatter3D",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "zAxis": [
+        "cyl"
+      ]
+    },
+    "prompt": "Create a Scatter3D plot of hwy, cty and cyl. ",
+    "alt_prompts": [
+      "Generate a Scatter3D chart using hwy, cty, and cyl.",
+      "Construct a 3D scatter plot with hwy, cty, and cyl.",
+      "Build a Scatter3D visualization featuring hwy, cty, and cyl."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "yAxisTitle": "Y Axis Title",
+      "yAxisTitleColor": "gray"
+    },
+    "prompt": "Create a Hexplot of hwy in the x axis and cty in the y axis. Set the title for the y-axis to Y Axis Title. Set the color of the y-axis title to gray. ",
+    "alt_prompts": [
+      "Generate a Hexplot with hwy on the x-axis and cty on the y-axis. Label the y-axis as Y Axis Title and color the y-axis title in gray.",
+      "Construct a Hexplot where hwy is plotted on the x-axis and cty on the y-axis. The y-axis should be titled Y Axis Title, with the title colored gray.",
+      "Build a Hexplot displaying hwy on the x-axis and cty on the y-axis. The y-axis should have the title Y Axis Title, and the title should be colored gray."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Histogram",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "showLegend": true,
+      "legendPosition": "bottom",
+      "yAxisTitle": "Y Axis",
+      "yAxisTitleScaleFontFactor": 1.3
+    },
+    "prompt": "Create a Histogram of cty, hwy. Show the legend. Put the legend on the bottom. Set the title for the y-axis to Y Axis. Increase the font size of the y-axis title considerably. ",
+    "alt_prompts": [
+      "Generate a Histogram of cty and hwy. Display the legend. Position the legend at the bottom. Label the y-axis as Y Axis. Significantly enlarge the font size of the y-axis label.",
+      "Construct a Histogram using cty and hwy. Make sure the legend is visible. Place the legend below. Name the y-axis Y Axis. Substantially increase the font size of the y-axis title.",
+      "Build a Histogram for cty and hwy. Ensure the legend is shown. Set the legend at the bottom. Title the y-axis as Y Axis. Greatly amplify the font size of the y-axis title."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "AreaLine",
+      "xAxis": [
+        "EPCAM"
+      ],
+      "xAxis2": [
+        "ATM"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "overlapping"
+    },
+    "prompt": "Create a Area-Line graph of EPCAM in the primary axis and ATM in the secondary axis. Orient the graph vertically. Set the area graph overlapping. ",
+    "alt_prompts": [
+      "Generate a vertically oriented Area-Line graph with EPCAM on the primary axis and ATM on the secondary axis. Ensure the area graph is overlapping.",
+      "Construct a vertical Area-Line graph featuring EPCAM on the primary axis and ATM on the secondary axis. Make sure the area graph overlaps.",
+      "Design a vertical Area-Line graph with EPCAM plotted on the primary axis and ATM on the secondary axis. The area graph should be set to overlap."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a CDF plot of cty. ",
+    "alt_prompts": [
+      "Generate a CDF plot of cty.",
+      "Produce a CDF plot of cty.",
+      "Construct a CDF plot of cty."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Line",
+      "xAxis": [
+        "BAP1"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "Treatment"
+      ],
+      "xAxisTextColor": "gray",
+      "showLegend": false
+    },
+    "prompt": "Create a Line of BAP1. Orient the graph vertically. Group by Treatment. Set the color of the x-axis ticks to gray. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Line of BAP1. Position the graph in a vertical orientation. Group the data by Treatment. Change the color of the x-axis tick marks to gray. Remove the legend.",
+      "Construct a Line of BAP1. Align the graph vertically. Aggregate the data by Treatment. Adjust the x-axis tick color to gray. Conceal the legend.",
+      "Build a Line of BAP1. Arrange the graph in a vertical layout. Group the data according to Treatment. Set the x-axis tick color to gray. Omit the legend."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Boxplot",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "supp",
+        "dose"
+      ],
+      "colorBy": "supp",
+      "setMaxX": 15,
+      "smpTitle": "Title for the Samples"
+    },
+    "prompt": "Create a Boxplot of len in the primary axis. Orient the graph vertically. Group by supp, dose. Color by supp. Set the maximum value for the data to 15. Set the title for the sample-axis to Title for the Samples. ",
+    "alt_prompts": [
+      "Generate a Boxplot of len on the main axis. Position the graph vertically. Group the data by supp and dose. Use supp for coloring. Limit the data's maximum value to 15. Label the sample-axis as Title for the Samples.",
+      "Construct a Boxplot of len on the primary axis. Arrange the graph in a vertical orientation. Group the data by supp and dose. Apply colors based on supp. Cap the data's maximum value at 15. Name the sample-axis Title for the Samples.",
+      "Create a Boxplot of len on the main axis. Set the graph to be vertical. Group by supp and dose. Color according to supp. Restrict the maximum data value to 15. Title the sample-axis as Title for the Samples."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series A",
+      "Series B",
+      "Series C",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Area",
+      "xAxis": [
+        "Series A",
+        "Series B"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "percent",
+      "showLegend": true,
+      "smpTitle": "Title for the Samples",
+      "smpTitleScaleFontFactor": 0.8
+    },
+    "prompt": "Create a Area graph of Series A, Series B in the primary axis. Orient the graph vertically. Set the area graph percent. Show the legend. Set the title for the sample-axis to Title for the Samples. Decrease the font size of the sample title moderately. ",
+    "alt_prompts": [
+      "Generate an Area graph for Series A and Series B on the primary axis. Position the graph vertically. Adjust the area graph percentage. Display the legend. Assign the title 'Title for the Samples' to the sample-axis. Reduce the font size of the sample title slightly.",
+      "Construct an Area graph featuring Series A and Series B on the primary axis. Align the graph vertically. Modify the area graph percentage. Include the legend. Label the sample-axis with 'Title for the Samples'. Slightly decrease the font size of the sample title.",
+      "Build an Area graph with Series A and Series B on the primary axis. Arrange the graph vertically. Set the area graph percentage. Make the legend visible. Title the sample-axis 'Title for the Samples'. Slightly reduce the font size of the sample title."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Dotplot",
+      "xAxis": [
+        "EPCAM"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "Treatment",
+        "Dose"
+      ]
+    },
+    "prompt": "Create a Dotplot of EPCAM. Orient the graph vertically. Group by Treatment, Dose. ",
+    "alt_prompts": [
+      "Generate a Dotplot for EPCAM. Arrange the graph in a vertical orientation. Group the data by Treatment and Dose.",
+      "Construct a Dotplot displaying EPCAM. Set the graph to be vertical. Aggregate the data by Treatment and Dose.",
+      "Produce a Dotplot illustrating EPCAM. Position the graph vertically. Group the data according to Treatment and Dose."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Radar",
+      "xAxis": [
+        "hwy"
+      ],
+      "showLegend": false
+    },
+    "prompt": "Create a Radar plot of hwy. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Radar chart of hwy. Do not display the legend.",
+      "Construct a Radar graph of hwy. Ensure the legend is hidden.",
+      "Build a Radar diagram of hwy. Make sure the legend is not shown."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "DotLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53"
+      ],
+      "graphOrientation": "vertical",
+      "groupingFactors": [
+        "Treatment",
+        "Dose"
+      ]
+    },
+    "prompt": "Create a Dot-Line plot of ATM, CDKN2A in the primary axis and EPCAM, TP53 in the secondary axis. Orient the graph vertically. Group by Treatment, Dose. ",
+    "alt_prompts": [
+      "Generate a Dot-Line chart with ATM and CDKN2A on the primary axis and EPCAM and TP53 on the secondary axis. Arrange the graph in a vertical orientation. Group the data by Treatment and Dose.",
+      "Construct a Dot-Line plot featuring ATM and CDKN2A on the primary axis, and EPCAM and TP53 on the secondary axis. Position the graph vertically. Aggregate the data by Treatment and Dose.",
+      "Create a Dot-Line graph displaying ATM and CDKN2A on the primary axis, with EPCAM and TP53 on the secondary axis. Set the graph to a vertical layout. Group the data according to Treatment and Dose."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Bar",
+      "xAxis": [
+        "TP53"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Bar graph of TP53. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a vertical Bar chart for TP53.",
+      "Construct a Bar graph for TP53 with a vertical orientation.",
+      "Design a vertically oriented Bar graph for TP53."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "ScatterBubble2D",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "zAxis": [
+        "cyl"
+      ],
+      "showLegend": true
+    },
+    "prompt": "Create a Scatter-Bubble plot of hwy, cty and cyl. Show the legend. ",
+    "alt_prompts": [
+      "Generate a Scatter-Bubble chart using hwy, cty, and cyl. Display the legend.",
+      "Construct a Scatter-Bubble graph with hwy, cty, and cyl. Include the legend.",
+      "Build a Scatter-Bubble diagram featuring hwy, cty, and cyl. Show the legend."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "len",
+      "supp",
+      "dose"
+    ],
+    "config": {
+      "graphType": "Violin",
+      "xAxis": [
+        "len"
+      ],
+      "graphOrientation": "horizontal",
+      "groupingFactors": [
+        "supp"
+      ],
+      "colorBy": "dose",
+      "smpTitle": "Sample Axis Title",
+      "smpTitleColor": "green",
+      "colorScheme": "BuGn"
+    },
+    "prompt": "Create a Violin plot of len. Orient the graph horizontally. Group by supp. Color by dose. Set the title for the sample-axis to Sample Axis Title. Set the color of the sample title to green. Use the color scheme BuGn. ",
+    "alt_prompts": [
+      "Generate a Violin plot of len. Orient the chart horizontally. Group the data by supp. Apply color based on dose. Title the sample-axis as Sample Axis Title. Change the sample title color to green. Implement the BuGn color scheme.",
+      "Construct a Violin plot of len. Position the graph horizontally. Group the dataset by supp. Use dose to color the plot. Label the sample-axis with Sample Axis Title. Make the sample title green. Utilize the BuGn color palette.",
+      "Build a Violin plot of len. Arrange the graph horizontally. Group the information by supp. Color the plot according to dose. Set the sample-axis title to Sample Axis Title. Set the sample title color to green. Apply the BuGn color scheme."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Area",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "stacked"
+    },
+    "prompt": "Create a Area graph of Value in the primary axis. Orient the graph vertically. Set the area graph stacked. ",
+    "alt_prompts": [
+      "Generate an Area chart displaying Value on the main axis. Align the chart vertically. Ensure the area chart is stacked.",
+      "Construct an Area plot with Value on the primary axis. Position the plot vertically. Make sure the area plot is stacked.",
+      "Build an Area diagram showing Value on the main axis. Arrange the diagram vertically. Confirm that the area diagram is stacked."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Ridgeline",
+      "xAxis": [
+        "cty"
+      ],
+      "ridgeBy": "class",
+      "showLegend": false
+    },
+    "prompt": "Create a Ridgeline plot of cty in the primary axis. Ridge by class. Hide the legend. ",
+    "alt_prompts": [
+      "Generate a Ridgeline plot with cty on the main axis. Ridge according to class. Do not display the legend.",
+      "Construct a Ridgeline plot featuring cty on the primary axis. Ridge based on class. Omit the legend.",
+      "Build a Ridgeline plot with cty on the primary axis. Ridge by class. Exclude the legend."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "StackedPercent",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN"
+      ],
+      "title": "Data Insights",
+      "titleColor": "pink"
+    },
+    "prompt": "Create a Stacked-Bar-Percent plot of ATM, CDKN2A, MSH2, STK11, PTEN in the primary axis. Set the title for the graph to Data Insights. Set the color of the graph title to pink. ",
+    "alt_prompts": [
+      "Generate a Stacked-Bar-Percent chart featuring ATM, CDKN2A, MSH2, STK11, and PTEN on the primary axis. Title the graph as Data Insights and make the title color pink.",
+      "Construct a Stacked-Bar-Percent visualization with ATM, CDKN2A, MSH2, STK11, and PTEN on the main axis. Name the graph Data Insights and set the title color to pink.",
+      "Build a Stacked-Bar-Percent graph displaying ATM, CDKN2A, MSH2, STK11, and PTEN on the primary axis. Label the graph Data Insights and change the title color to pink."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "QQ",
+      "xAxis": [
+        "hwy"
+      ],
+      "showLegend": true,
+      "legendColumns": 2,
+      "decorations": {
+        "line": [
+          {
+            "color": "blue",
+            "x": 0.75
+          }
+        ]
+      }
+    },
+    "prompt": "Create a QQ plot of hwy. Show the legend. Divide the legend in two columns. Add a blue vertical line at 0.75. ",
+    "alt_prompts": [
+      "Generate a QQ plot of hwy. Display the legend. Arrange the legend into two columns. Insert a blue vertical line at 0.75.",
+      "Construct a QQ plot for hwy. Make the legend visible. Split the legend into two columns. Draw a blue vertical line at 0.75.",
+      "Produce a QQ plot of hwy. Show the legend. Separate the legend into two columns. Place a blue vertical line at 0.75."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1"
+      ]
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1. ",
+    "alt_prompts": [
+      "Generate a Heatmap for ATM, CDKN2A, MSH2, STK11, PTEN, BAP1.",
+      "Construct a Heatmap featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1.",
+      "Build a Heatmap that includes ATM, CDKN2A, MSH2, STK11, PTEN, BAP1."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Radar",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ],
+      "showLegend": false,
+      "xAxisTitle": "X",
+      "xAxisTitleScaleFontFactor": 1.3
+    },
+    "prompt": "Create a Radar plot of cty, hwy. Hide the legend. Set the title for the x-axis to X. Increase the font size of the x-axis title considerably. ",
+    "alt_prompts": [
+      "Generate a Radar plot using cty and hwy. Remove the legend. Label the x-axis as X. Significantly enlarge the font size of the x-axis title.",
+      "Construct a Radar plot with cty and hwy. Omit the legend. Name the x-axis X. Substantially increase the font size of the x-axis title.",
+      "Build a Radar plot featuring cty and hwy. Exclude the legend. Designate the x-axis title as X. Greatly amplify the font size of the x-axis title."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "AreaLine",
+      "xAxis": [
+        "PTEN"
+      ],
+      "xAxis2": [
+        "STK11"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "overlapping"
+    },
+    "prompt": "Create a Area-Line graph of PTEN in the primary axis and STK11 in the secondary axis. Orient the graph vertically. Set the area graph overlapping. ",
+    "alt_prompts": [
+      "Generate an Area-Line graph with PTEN on the primary axis and STK11 on the secondary axis. Position the graph vertically. Ensure the area graph is overlapping.",
+      "Construct an Area-Line graph displaying PTEN on the primary axis and STK11 on the secondary axis. Align the graph vertically. Make sure the area graph overlaps.",
+      "Build an Area-Line graph featuring PTEN on the primary axis and STK11 on the secondary axis. Arrange the graph in a vertical orientation. Set the area graph to overlap."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "cty"
+      ]
+    },
+    "prompt": "Create a CDF plot of cty in the primary axis. ",
+    "alt_prompts": [
+      "Generate a CDF plot of cty on the main axis.",
+      "Construct a CDF plot for cty on the primary axis.",
+      "Build a CDF plot of cty on the main axis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "cty"
+      ],
+      "yAxis": [
+        "hwy"
+      ],
+      "theme": "classic",
+      "yAxisTextScaleFontFactor": 1.2
+    },
+    "prompt": "Create a Hexplot of cty in the x axis and hwy in the y axis. Use the style classic. Increase the font size of the y-axis ticks moderately. ",
+    "alt_prompts": [
+      "Generate a Hexplot with cty on the x-axis and hwy on the y-axis. Apply the classic style. Moderately enlarge the font size of the y-axis ticks.",
+      "Construct a Hexplot where cty is plotted on the x-axis and hwy on the y-axis. Utilize the classic style. Adjust the y-axis tick font size to be moderately larger.",
+      "Design a Hexplot featuring cty on the x-axis and hwy on the y-axis. Implement the classic style. Increase the y-axis tick font size to a moderate extent."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Bar",
+      "xAxis": [
+        "STK11"
+      ],
+      "graphOrientation": "vertical",
+      "xAxisTitle": "xAxisTitle"
+    },
+    "prompt": "Create a Bar graph of STK11 in the primary axis. Orient the graph vertically. Set the title for the x-axis to xAxisTitle. ",
+    "alt_prompts": [
+      "Generate a vertical Bar graph of STK11 on the primary axis. Label the x-axis with the title xAxisTitle.",
+      "Construct a Bar graph of STK11 on the primary axis and orient it vertically. Title the x-axis as xAxisTitle.",
+      "Build a vertical Bar graph of STK11 on the primary axis and set the x-axis title to xAxisTitle."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Sunburst",
+      "xAxis": [
+        "STK11"
+      ],
+      "title": "Interesting Graph",
+      "titleColor": "red"
+    },
+    "prompt": "Create a Sunburst plot of STK11. Set the title for the graph to Interesting Graph. Set the color of the graph title to red. ",
+    "alt_prompts": [
+      "Generate a Sunburst plot for STK11. Assign the title 'Interesting Graph' to the chart. Change the title color to red.",
+      "Construct a Sunburst plot using STK11. Label the graph as 'Interesting Graph'. Make sure the title is colored red.",
+      "Build a Sunburst plot featuring STK11. Name the graph 'Interesting Graph' and set the title's color to red."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "AreaLine",
+      "xAxis": [
+        "BAP1"
+      ],
+      "xAxis2": [
+        "MSH2"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "overlapping"
+    },
+    "prompt": "Create a Area-Line graph of BAP1 and MSH2. Orient the graph vertically. Set the area graph overlapping. ",
+    "alt_prompts": [
+      "Generate a vertical Area-Line graph for BAP1 and MSH2. Ensure the area graph is overlapping.",
+      "Construct a vertically oriented Area-Line graph featuring BAP1 and MSH2, with the area graph set to overlap.",
+      "Design a vertical Area-Line graph that includes BAP1 and MSH2, making sure the area graph overlaps."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "AreaLine",
+      "xAxis": [
+        "EPCAM"
+      ],
+      "xAxis2": [
+        "ATM"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "overlapping"
+    },
+    "prompt": "Create a Area-Line graph of EPCAM in the primary axis and ATM in the secondary axis. Orient the graph vertically. Set the area graph overlapping. ",
+    "alt_prompts": [
+      "Generate a vertically oriented Area-Line graph with EPCAM on the primary axis and ATM on the secondary axis. Ensure the area graph is overlapping.",
+      "Construct a vertical Area-Line graph featuring EPCAM on the primary axis and ATM on the secondary axis. Make sure the area graph overlaps.",
+      "Design a vertical Area-Line graph with EPCAM plotted on the primary axis and ATM on the secondary axis. The area graph should be set to overlap."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "AreaLine",
+      "xAxis": [
+        "ATM",
+        "CDKN2A"
+      ],
+      "xAxis2": [
+        "EPCAM",
+        "TP53"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "overlapping"
+    },
+    "prompt": "Create a Area-Line graph of ATM, CDKN2A in the primary axis and EPCAM, TP53 in the secondary axis. Orient the graph vertically. Set the area graph overlapping. ",
+    "alt_prompts": [
+      "Generate an Area-Line chart with ATM and CDKN2A on the primary axis, and EPCAM and TP53 on the secondary axis. Position the graph vertically. Ensure the area graph is overlapping.",
+      "Construct an Area-Line graph featuring ATM and CDKN2A on the primary axis, while EPCAM and TP53 are on the secondary axis. Align the graph vertically. Make sure the area graph overlaps.",
+      "Build an Area-Line graph displaying ATM and CDKN2A on the primary axis, and EPCAM and TP53 on the secondary axis. Arrange the graph in a vertical orientation. Set the area graph to overlap."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Binplot",
+      "xAxis": [
+        "hwy"
+      ],
+      "yAxis": [
+        "cty"
+      ],
+      "setMinX": 10
+    },
+    "prompt": "Create a Binplot of hwy in the x axis and cty in the y axis. Set the minimum value for the x-axis to 10. ",
+    "alt_prompts": [
+      "Generate a Binplot with hwy on the x-axis and cty on the y-axis. Ensure the x-axis starts at a minimum value of 10.",
+      "Construct a Binplot where hwy is plotted on the x-axis and cty on the y-axis, with the x-axis beginning at a minimum value of 10.",
+      "Design a Binplot featuring hwy on the x-axis and cty on the y-axis, setting the x-axis to have a minimum value of 10."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "QQ",
+      "xAxis": [
+        "displ"
+      ],
+      "xAxisTextScaleFontFactor": 0.9
+    },
+    "prompt": "Create a QQ plot of displ in the primary axis. Decrease the font size of the x-axis ticks slightly. ",
+    "alt_prompts": [
+      "Generate a QQ plot of displ on the primary axis. Slightly reduce the font size of the x-axis tick labels.",
+      "Construct a QQ plot for displ on the main axis. Minimize the font size of the x-axis tick marks a bit.",
+      "Produce a QQ plot of displ on the primary axis. Slightly diminish the font size of the x-axis tick labels."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "BarLine",
+      "xAxis": [
+        "MSH2"
+      ],
+      "xAxis2": [
+        "BAP1"
+      ],
+      "graphOrientation": "vertical",
+      "xAxisTextColor": "yellow",
+      "xAxis2Title": "X Axis 2 Title",
+      "xAxis2Show": true
+    },
+    "prompt": "Create a Bar-Line graph of MSH2 in the primary axis and BAP1 in the secondary axis. Orient the graph vertically. Set the color of the x-axis ticks to yellow. Set the title for the x-axis2 to X Axis 2 Title. Show the x-axis2. ",
+    "alt_prompts": [
+      "Generate a Bar-Line chart with MSH2 on the primary axis and BAP1 on the secondary axis. Arrange the graph in a vertical orientation. Change the x-axis tick marks to yellow. Label the x-axis2 as X Axis 2 Title. Display the x-axis2.",
+      "Construct a Bar-Line graph featuring MSH2 on the primary axis and BAP1 on the secondary axis. Position the graph vertically. Adjust the x-axis tick colors to yellow. Name the x-axis2 as X Axis 2 Title. Make the x-axis2 visible.",
+      "Build a Bar-Line graph with MSH2 on the primary axis and BAP1 on the secondary axis. Set the graph to a vertical layout. Modify the x-axis tick color to yellow. Title the x-axis2 as X Axis 2 Title. Ensure the x-axis2 is shown."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "BarLine",
+      "xAxis": [
+        "ATM"
+      ],
+      "xAxis2": [
+        "EPCAM"
+      ],
+      "graphOrientation": "vertical"
+    },
+    "prompt": "Create a Bar-Line graph of ATM and EPCAM. Orient the graph vertically. ",
+    "alt_prompts": [
+      "Generate a vertical Bar-Line chart for ATM and EPCAM.",
+      "Construct a vertically oriented Bar-Line graph displaying ATM and EPCAM.",
+      "Design a Bar-Line graph for ATM and EPCAM with a vertical orientation."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Pie",
+      "xAxis": [
+        "fl"
+      ],
+      "title": "Data Overview",
+      "titleScaleFontFactor": 1.1,
+      "showLegend": true,
+      "legendColumns": 2
+    },
+    "prompt": "Create a Pie chart of fl in the primary axis. Set the title for the graph to Data Overview. Increase the font size of the graph title slightly. Show the legend. Divide the legend in two columns. ",
+    "alt_prompts": [
+      "Generate a Pie chart of fl on the primary axis. Title the graph as Data Overview. Slightly enlarge the font size of the graph title. Display the legend. Split the legend into two columns.",
+      "Construct a Pie chart of fl on the main axis. Label the graph with the title Data Overview. Make the font size of the graph title a bit larger. Include the legend. Arrange the legend into two columns.",
+      "Create a Pie chart with fl on the primary axis. Name the graph Data Overview. Slightly increase the font size of the graph title. Show the legend. Organize the legend into two columns."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "QQ",
+      "xAxis": [
+        "displ"
+      ],
+      "filterData": [
+        [
+          "guess",
+          "class",
+          "like",
+          [
+            "midsize"
+          ]
+        ]
+      ],
+      "theme": "ggblanket"
+    },
+    "prompt": "Create a QQ plot of displ. Filter data where class like midsize. Use the style ggblanket. ",
+    "alt_prompts": [
+      "Generate a QQ plot of displ. Filter the data to include only entries where class is like midsize. Apply the ggblanket style.",
+      "Construct a QQ plot of displ. Filter the dataset to show only records where class is like midsize. Utilize the ggblanket style.",
+      "Build a QQ plot of displ. Filter the data to retain only those entries where class is like midsize. Use the ggblanket style."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Area",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical",
+      "areaType": "stacked"
+    },
+    "prompt": "Create a Area graph of Value in the primary axis. Orient the graph vertically. Set the area graph stacked. ",
+    "alt_prompts": [
+      "Generate an Area chart displaying Value on the main axis. Align the chart vertically. Ensure the area chart is stacked.",
+      "Construct an Area plot with Value on the primary axis. Position the plot vertically. Make sure the area plot is stacked.",
+      "Build an Area diagram showing Value on the main axis. Arrange the diagram vertically. Confirm that the area diagram is stacked."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1"
+      ]
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1. ",
+    "alt_prompts": [
+      "Generate a Heatmap for ATM, CDKN2A, MSH2, STK11, PTEN, BAP1.",
+      "Construct a Heatmap featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1.",
+      "Build a Heatmap that includes ATM, CDKN2A, MSH2, STK11, PTEN, BAP1."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1"
+      ],
+      "varTextScaleFontFactor": 1.2
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1. Increase the font size of the variable labels moderately. ",
+    "alt_prompts": [
+      "Generate a Heatmap for ATM, CDKN2A, MSH2, STK11, PTEN, BAP1. Adjust the font size of the variable labels to be slightly larger.",
+      "Construct a Heatmap featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1. Make the variable labels' font size moderately bigger.",
+      "Produce a Heatmap with ATM, CDKN2A, MSH2, STK11, PTEN, BAP1. Enhance the font size of the variable labels to a moderate extent."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "cyl"
+      ],
+      "xAxisTitle": "xAxisTitle"
+    },
+    "prompt": "Create a CDF plot of cyl in the primary axis. Set the title for the x-axis to xAxisTitle. ",
+    "alt_prompts": [
+      "Generate a CDF plot of cyl on the main axis. Label the x-axis with xAxisTitle.",
+      "Construct a CDF plot for cyl on the primary axis. Assign xAxisTitle as the title for the x-axis.",
+      "Build a CDF plot of cyl on the primary axis. Set xAxisTitle as the x-axis title."
+    ]
+  },
+  {
+    "header": [
+      "Month",
+      "Series",
+      "Value",
+      "Quarter"
+    ],
+    "config": {
+      "graphType": "Bar",
+      "xAxis": [
+        "Value"
+      ],
+      "graphOrientation": "vertical",
+      "colorScheme": "PaulTol"
+    },
+    "prompt": "Create a Bar graph of Value. Orient the graph vertically. Use the color scheme PaulTol. ",
+    "alt_prompts": [
+      "Generate a vertical Bar graph of Value. Apply the PaulTol color scheme.",
+      "Construct a Bar graph of Value with a vertical orientation. Utilize the PaulTol color scheme.",
+      "Build a vertically oriented Bar graph of Value. Implement the PaulTol color scheme."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Histogram",
+      "xAxis": [
+        "cty",
+        "hwy"
+      ]
+    },
+    "prompt": "Create a Histogram of cty, hwy. ",
+    "alt_prompts": [
+      "Generate a Histogram of cty, hwy.",
+      "Construct a Histogram of cty, hwy.",
+      "Build a Histogram of cty, hwy."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Meter",
+      "xAxis": [
+        "cyl"
+      ]
+    },
+    "prompt": "Create a Meter plot of cyl. ",
+    "alt_prompts": [
+      "Generate a Meter plot of cyl.",
+      "Construct a Meter plot of cyl.",
+      "Build a Meter plot of cyl."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Hexplot",
+      "xAxis": [
+        "cty"
+      ],
+      "yAxis": [
+        "hwy"
+      ]
+    },
+    "prompt": "Create a Hexplot of cty in the x axis and hwy in the y axis. ",
+    "alt_prompts": [
+      "Generate a Hexplot with cty on the x-axis and hwy on the y-axis.",
+      "Construct a Hexplot where cty is displayed on the x-axis and hwy on the y-axis.",
+      "Build a Hexplot featuring cty along the x-axis and hwy along the y-axis."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Dotplot",
+      "xAxis": [
+        "PTEN"
+      ],
+      "graphOrientation": "horizontal",
+      "smpTitle": "Sample Axis Title",
+      "smpTitleColor": "purple"
+    },
+    "prompt": "Create a Dotplot of PTEN. Orient the graph horizontally. Set the title for the sample-axis to Sample Axis Title. Set the color of the sample title to purple. ",
+    "alt_prompts": [
+      "Generate a Dotplot for PTEN. Align the graph horizontally. Label the sample-axis with Sample Axis Title. Change the color of the sample title to purple.",
+      "Construct a Dotplot displaying PTEN. Position the graph horizontally. Assign the title Sample Axis Title to the sample-axis. Make the sample title purple.",
+      "Build a Dotplot for PTEN. Arrange the graph horizontally. Name the sample-axis title as Sample Axis Title. Set the sample title color to purple."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Dotplot",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2"
+      ],
+      "graphOrientation": "horizontal",
+      "smpTextScaleFontFactor": 0.7
+    },
+    "prompt": "Create a Dotplot of ATM, CDKN2A, MSH2 in the primary axis. Orient the graph horizontally. Decrease the font size of the sample labels considerably. ",
+    "alt_prompts": [
+      "Generate a Dotplot featuring ATM, CDKN2A, and MSH2 on the primary axis. Align the graph horizontally. Significantly reduce the font size of the sample labels.",
+      "Construct a Dotplot with ATM, CDKN2A, and MSH2 on the main axis. Position the graph horizontally. Substantially decrease the font size of the sample labels.",
+      "Build a Dotplot displaying ATM, CDKN2A, and MSH2 on the primary axis. Set the graph orientation to horizontal. Greatly minimize the font size of the sample labels."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Ridgeline",
+      "xAxis": [
+        "cyl"
+      ],
+      "ridgeBy": "drv",
+      "showHistogramDataPoints": true,
+      "title": "Data Analysis"
+    },
+    "prompt": "Create a Ridgeline plot of cyl. Ridge by drv. Show the density data point. Set the title for the graph to Data Analysis. ",
+    "alt_prompts": [
+      "Generate a Ridgeline plot of cyl. Ridge sorted by drv. Display the density data points. Title the graph as Data Analysis.",
+      "Construct a Ridgeline plot of cyl. Ridge ordered by drv. Illustrate the density data points. Name the graph Data Analysis.",
+      "Build a Ridgeline plot of cyl. Ridge sorted by drv. Present the density data points. Label the graph Data Analysis."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "Bubble",
+      "xAxis": [
+        "displ"
+      ],
+      "groupingFactors": [
+        "class",
+        "drv",
+        "fl",
+        "manufacturer"
+      ]
+    },
+    "prompt": "Create a Bubble plot of displ. Group by class, drv, fl, manufacturer. ",
+    "alt_prompts": [
+      "Generate a Bubble plot of displ. Group the data by class, drv, fl, and manufacturer.",
+      "Construct a Bubble plot of displ. Aggregate the data by class, drv, fl, and manufacturer.",
+      "Build a Bubble plot of displ. Group the dataset by class, drv, fl, and manufacturer."
+    ]
+  },
+  {
+    "header": [
+      "Id",
+      "manufacturer",
+      "model",
+      "displ",
+      "year",
+      "cyl",
+      "trans",
+      "drv",
+      "cty",
+      "hwy",
+      "fl",
+      "class"
+    ],
+    "config": {
+      "graphType": "CDF",
+      "xAxis": [
+        "hwy"
+      ]
+    },
+    "prompt": "Create a CDF plot of hwy. ",
+    "alt_prompts": [
+      "Generate a CDF plot of hwy.",
+      "Construct a CDF plot for hwy.",
+      "Build a CDF plot using hwy."
+    ]
+  },
+  {
+    "header": [
+      "SubId",
+      "RelTiming",
+      "Dose",
+      "Location",
+      "Treatment",
+      "ATM",
+      "CDKN2A",
+      "MSH2",
+      "STK11",
+      "PTEN",
+      "BAP1",
+      "TP53",
+      "EPCAM"
+    ],
+    "config": {
+      "graphType": "Heatmap",
+      "xAxis": [
+        "ATM",
+        "CDKN2A",
+        "MSH2",
+        "STK11",
+        "PTEN",
+        "BAP1",
+        "TP53",
+        "EPCAM"
+      ],
+      "smpTextScaleFontFactor": 1.3
+    },
+    "prompt": "Create a Heatmap of ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Increase the font size of the sample labels considerably. ",
+    "alt_prompts": [
+      "Generate a Heatmap for ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Significantly enlarge the font size of the sample labels.",
+      "Construct a Heatmap displaying ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Make sure to greatly increase the font size of the sample labels.",
+      "Produce a Heatmap featuring ATM, CDKN2A, MSH2, STK11, PTEN, BAP1, TP53, EPCAM. Substantially boost the font size of the sample labels."
+    ]
+  }
+]

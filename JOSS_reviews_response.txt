@@ -1,0 +1,278 @@
+To the editors at JOSS:
+
+Below, we provide our detailed responses to the two reviews of our submitted paper. We hope these responses will be acceptable to the reviewers and editors. Please note that we have not yet begun implementing the changes described below. Before proceeding, we would like to confirm with the reviewers and editors that our proposed actions to address the concerns are acceptable, or to hear any follow-up feedback the reviewers might have.
+
+Once we have reached agreement on the proposed course of action, we will then work to implement the necessary changes.
+
+Thank you for your time and consideration.
+
+Sincerely,
+Andrew Smith
+Isaac Neuhaus
+
+
+Reviewer 1:
+Dear @buddyroo30 ,
+Thanks for your patience. Since the repository is a bit dense, it would be nice to better format the README.md file for readability. Here are some first level comments from my end:
+
+**response:** Thank you for your review. We address your feedback about improving the README.md formatting and reducing repository density in our responses to the specific points below, particularly in our comments about documentation and example usage.
+
+*Request the authors to list the software dependencies, and the contribution guidelines.
+**response:** We already have a requirements.txt file listing the required/dependent software, although we will try to clean this up (e.g. some listed packages in there are commented out and we will remove those). And we will create a CONTRIBUTING.md file providing information about how others can contribute to the project.
+*Addition of a sphinx style documentation for the package if possible would be useful.
+**response:** We prefer Markdown-based documentation for its simplicity and GitHub integration, and we would prefer to just continue that. But We'll work to organize better the documentation into clear sections following documentation best practices. Also, please see our response about example usage below where we highlight that the main use of our system is as a backend service supporting CanvasXpress and so we don't expect users to import our modules and call functions from them, etc. --- so this kind of API-oriented documentation is less applicable for our service-based architecture than it would be for a traditional library.
+*It would be advisable to have automated unit tests implemented for some key functionalities.
+**response:** Yes, this makes sense and we will add some automated unit tests, e.g. we will implement unit tests for core functionality including the RAG system, JSON configuration generation and embedding verification, basically unit tests that test the full system from English question to generated JSON configuration (and confirming that correct JSON configuration is generated).
+*Would request the authors to highlight key differentiating features of their software compared to any other software packages.
+**response:** In this paper we are not arguing in favor of CanvasXpress itself (i.e., that it is superior to other visualization packages). Instead, we are focusing on the new copilot and LLM generation capabilities that we are providing for CanvasXpress, which is the focus and novelty in the paper.  The second author, Isaac Neuhaus, is the creator and developer of CanvasXpress itself, and he has investigated and doesn't find anything similar to what we have done in other visualization packages. There are several key attributes that make CanvasXpress particularly suitable for LLM-based visualization generation: 1. Its well-structured JSON schema with semantically meaningful field names creates a natural mapping between English descriptions and configuration elements. 2. Its declarative approach (unlike ggplot2's sequential function calls or D3.js's DOM manipulation) is more compatible with one-shot generation by LLMs. 3. CanvasXpress implements sensible defaults and handles missing parameters gracefully, reducing errors in LLM-generated configurations. 4. The scientific domain focus and balanced configuration complexity make it well-suited for the kinds of visualizations researchers commonly need. While tools like Plotly also use JSON configurations and could potentially be adapted to our approach, many visualization libraries would require generating procedural code rather than declarative configurations, making them significantly more challenging for LLM-based generation. We will add discussion of these advantages to the paper while being mindful of word limits.
+*A lot of the python scripts are in the main folder. Might be worthwhile considering moving some of them into modules which you call/inherit in app.py.
+**response:** Okay, we will do a code refactoring like this to modularize and simplify the codebase.
+*Please provide an example usage. While it is provided in the paper, it is not discussed in the Github documentation.
+**response:** Our system is not really meant to be used as modules in other Python projects. Basically we have created a kind of monolithic app that you would run that would serve as the backend service layer for CanvasXpress to generate JSON configs from user English text. That is why our instructions detail how to build the Docker image for the system and run it as a container, which is the intended usage of the system. End users are not expected to be importing the modules of our code and calling Python functions that we have developed, but rather simply using the service with CanvasXpress to support the generation of JSON configs from user supplied English descriptions of visualizations. However, I can now see that it isn't so clear how to actually connect the running service to CanvasXpress (although we do provide somewhat cryptic notes about it) and we will work to clarify that.
+
+Let me know once most of these are carried out. Further difficulties will be raised as issues in the target repository before completing the review checklist.
+**response:** We appreciate your thorough review and will work on implementing these changes. We look forward to your feedback on our updates and will monitor the repository issues for any additional suggestions that arise during the review process.
+Thanks
+Rahul
+
+Reviewer 2:
+@crvernon @buddyroo30 My apologies on dragging this on for so long. In my view, major revisions are needed.
+
+Scope & Scholarly Effort
+My major concern is on "scholarly effort" and whether this is out-of-scope.
+
+The core of this work is (A) "a broad and illustrative set of few-shot examples" that maps natural language description to CanvasXpress configurations + (B) similarity-based matching to find the few-shot examples similar to user input, and send them as a prompt to LLM.
+
+**response:** We understand your concerns about the scholarly effort and scope of our work. Our contribution extends beyond just writing few-shot examples - we've created a novel system that integrates guided autocomplete with LLM generation for visualization creation in a complementary manner.
+
+Regarding the two core components you identified:
+
+1. **Few-shot examples**: The guided autocomplete system automatically generates synthetic, large-scale few-shot examples that feed into the LLM component. It's important to note that these are synthetic examples, not manually created ones. However, because they're generated through our guided workflow, they represent valid, high-quality examples of natural language to CanvasXpress mappings. This synthetic data approach allows us to generate thousands of diverse examples that would be prohibitively time-consuming to create manually.
+
+2. **Similarity-based matching**: While we utilize established vector database search techniques, the application of these techniques to scientific visualization generation represents innovation through novel application. The second author, Isaac Neuhaus, as the creator and developer of CanvasXpress, has investigated and confirmed there is nothing similar to our approach in other visualization packages.
+
+The guided autocomplete and LLM components work together as an integrated system with complementary strengths:
+- The guided autocomplete provides perfect accuracy for common visualization requests through its structured workflow
+- The LLM component provides flexibility for free-form, specialized visualization requests
+- Together, they create a system that balances precision with flexibility
+
+Scientific visualization generation presents unique challenges for LLM applications due to its technical complexity and need for precision. CanvasXpress's declarative JSON configuration model made this approach possible, whereas many visualization libraries would require generating complex procedural code rather than configuration objects, making them significantly more challenging for LLM generation.
+
+We believe this implementation addresses a significant research challenge: enabling domain scientists to create complex visualizations without specialized programming knowledge.
+
+Writing prompts / few-shot examples
+While useful for many areas of research, pre-trained machine learning models and notebooks are not in-scope for JOSS.
+
+I'm wondering how does this apply in the age of training-free few-shot / zero-shot / RAG era. Is writing prompt / examples equivalent to pre-training models? @crvernon Your input here is greatly appreciated.
+
+**response:** We want to clarify that our system is not equivalent to pre-trained machine learning models or notebooks. While JOSS excludes submissions that are primarily pre-trained models, our submission is fundamentally different - it's a complete software system that *uses* machine learning (specifically LLMs) but is not itself a machine learning model.
+
+Regarding prompt engineering, we invested significant effort in continuously refining our prompts through an iterative process. We conducted systematic accuracy testing using our copilot-generated examples to identify areas that required prompt improvements. This involved carefully structuring the instructions provided to the LLM, testing different formulations, analyzing error patterns, and progressively improving the prompt to better handle the specialized language of data visualization. The prompt development was methodical and data-driven, resulting in significant improvements to system accuracy over multiple iterations, achieving close to perfect accuracy in the end.
+
+The few-shot examples in our system are more akin to software configuration or reference data that enable the system's functionality, rather than being a pre-trained model. These examples are:
+1. Automatically generated by our guided autocomplete system (not manually curated ML training data)
+2. Used at runtime through a retrieval mechanism (not during a training phase)
+3. Part of a larger software architecture that includes multiple integrated components
+4. Included in our GitHub repository as part of the software release - we provide the full set of examples we generated with the system
+5. Highly flexible - while the guided autocomplete provides the easiest way to generate large-scale synthetic examples, users can also add their own manually created examples tailored to their specific needs, or use a combination of both approaches
+6. Self-improving - users can leverage the guided autocomplete system themselves to generate additional few-shot examples
+7. Reusable - users could even use the generated few-shot examples to fine-tune their own LLM models to solve the task
+
+This flexibility and the ability for users to expand the system's capabilities further distinguishes our work from pre-trained models, as users can adapt and enhance the system to meet their particular requirements without needing to modify the core code.
+
+Our contribution is the software architecture and implementation that makes visualization generation accessible through natural language. The system includes components for guided autocomplete, vector embedding, retrieval mechanisms, integration with visualization tools, and carefully engineered prompts - all of which represent software engineering rather than model training. While we leverage existing LLMs as a component, we could replace the specific LLM being used without changing our core architecture and approach.
+
+RAG + few-shot
+I appreciate the effort for "thoughtfully curating a broad and illustrative set of few-shot examples". Using RAG to select few-shot examples and construct a prompt is a standard practice (Example).
+
+**response:** You're right that using RAG to select few-shot examples is a standard practice, and we're not claiming novelty in the RAG component itself. The RAG implementation is just one piece of our system, not the core innovation.
+
+Our novel contribution lies in:
+
+1. Creating an integrated system that combines guided autocomplete with LLM-based generation for scientific visualization
+2. Using the guided autocomplete system to automatically generate high-quality synthetic examples at large-scale, rather than having to use a laborious manual curation process
+3. Building a complete end-to-end pipeline that bridges natural language descriptions to interactive scientific visualizations
+
+We've developed a workflow where guided autocomplete assists users directly while also generating synthetic training data that improves the LLM component. This creates a synergistic relationship where the guided system enhances the capabilities of the LLM-based approach.
+
+While we use standard techniques like RAG as implementation components, the complete system architecture, its application to scientific visualization generation, and the integration with CanvasXpress represent the novel aspects of our work. We'll clarify these distinctions in the paper to better highlight the actual innovations versus the standard techniques we've employed.
+
+CanvasXpress
+submissions that rely upon a proprietary/closed source language or development environment are acceptable. If an open source or free variant of the programming language exists, feel free to encourage the submitting author to consider making their software compatible with the open source/free variant.
+
+This software generates configurations only for CanvasXpress, whose license isn't OSS-compatible. This is acceptable, but I encourage the authors to explore whether the system can be extended to open source/free variant such as Matplotlib / D3 etc.
+
+that either enables some new research challenges to be addressed or makes addressing research challenges significantly better
+
+**response:** Regarding the licensing aspect of CanvasXpress, we addressed this concern with the JOSS editors prior to the review process. The vast majority of users of CanvasXpress are academic or not-for-profit users who can freely use it without limitation. Additionally, CanvasXpress's license is similar to what some other large visualization packages use (e.g., Highcharts), so it's not unusual within the data visualization ecosystem.
+
+There are several key attributes that make CanvasXpress particularly suitable for LLM-based visualization generation:
+
+1. Its well-structured, self-documenting JSON schema with semantically meaningful field names and values creates a natural mapping between English descriptions and configuration elements.
+2. Its declarative approach (unlike ggplot2's sequential function calls or D3.js's DOM manipulation) is more compatible with one-shot generation by LLMs.
+3. CanvasXpress implements sensible defaults and handles missing parameters gracefully, reducing errors in LLM-generated configurations.
+4. The scientific domain focus and balanced configuration complexity make it well-suited for the kinds of visualizations researchers commonly need.
+
+We acknowledge your suggestion about extending our approach to fully open-source alternatives. There are technical challenges in adapting our approach to libraries like D3.js or Matplotlib since they use procedural code rather than declarative configurations, which would require more complex code generation. However, we agree that supporting fully open-source visualization libraries would broaden the research impact by making the system accessible to more researchers without licensing constraints. 
+
+Plotly would be a promising candidate for adaptation since it uses JSON configurations (similar to CanvasXpress) while being fully open source under the MIT license. We will discuss the potential adaptability of our system to Plotly and other visualization libraries in the paper and consider this as an important direction for future work to maximize research accessibility and impact.
+
+Could you add a description of how CanvasXpress is solving research challenges, as an argument that this new system is indirectly solving research challenges?
+
+**response:**  We appreciate the question about research challenges, but would like to clarify that our paper isn't proposing CanvasXpress itself as a novel contribution - rather, our innovation is the natural language interface that makes visualization creation more accessible.
+
+That said, we will expand the paper to better articulate how our natural language system addresses research challenges by making scientific visualization more accessible. Our system enables researchers without programming expertise to create sophisticated visualizations for complex scientific data. This directly addresses a significant research bottleneck: many domain scientists have deep knowledge of their field but limited visualization programming skills, creating a technical barrier to effective data exploration and communication.
+
+By providing a natural language interface to visualization creation, our system:
+1. Reduces the time from data analysis to visualization
+2. Enables researchers to explore more visualization options without technical obstacles
+3. Democratizes access to advanced visualization capabilities for a broader range of scientists
+4. Eliminates the need for specialized visualization support or collaboration with programmers
+
+We'll include examples in the paper showing how this system can accelerate specific research workflows, particularly in data-intensive scientific domains where visualization is critical to discovery and communication of findings.
+
+Package and Features
+JOSS requires that software should be feature-complete (i.e., no half-baked solutions)
+
+Thumb up / thump down feature has no real effect on the backend. Consider adding some documentation on what's done and what's the plan for future?
+
+**response:** Thank you for pointing this out - we should clarify the role of this feature. The thumbs up/down feature appears in a simple development/testing web UI that we included with the Docker image/container. This web UI is not the intended primary interface for end users - it's a rudimentary implementation meant for development and testing. Users can use this simple interface to verify they have set up the system correctly before integrating with CanvasXpress (i.e. if they are able to use it to generate visualizations correctly they know they have set it up correctly). The actual intended user interface is directly integrated into CanvasXpress itself, which connects to our backend service via API calls.
+
+We consider the core functionality of our system to be feature-complete, with the thumbs up/down UI element being an auxiliary feature that doesn't affect the system's primary visualization generation capabilities. We have no plans to implement backend functionality for this element in the testing UI, as it's not part of the core system.
+
+We will improve the documentation to clarify this distinction between the development UI and the production UI within CanvasXpress, ensuring users understand the purpose and limitations of the testing interface.
+
+packaged appropriately according to common community standards for the programming language being used
+
+As other reviewers mentioned, right now the files are all in one place. Consider following this guideline to package the software as a Python package.
+
+**response:** We agree with this suggestion and recognize the importance of following standard Python packaging guidelines to improve code organization and usability. As noted by another reviewer, many of the Python scripts are currently in the main folder. We will refactor the codebase to modularize and simplify it by moving scripts into organized modules and submodules. The main entry point will remain `app.py`, which will call the appropriate modules.
+
+That said, we want to clarify that our system is designed as a backend service for CanvasXpress, not as a traditional Python library that users would import and call directly. End users interact with the system through CanvasXpress, which connects to our backend service via API calls. As such, module-level documentation is less critical for our service-based architecture than it would be for a library intended for direct use in Python projects. However, we will ensure that the refactored codebase is well-organized and documented to support maintainability and extensibility.
+
+Additionally, while the publicly available CanvasXpress instance already runs this service and allows users to generate visualizations from English descriptions, some users may have data security concerns and prefer not to send their data to a public server. For such cases, our system allows users to set up and run their own instance of the LLM service within their corporate network or VPN, ensuring that sensitive data remains secure. We will update the documentation to reflect the new structure and provide clear instructions for installation, usage, and connecting the running service to CanvasXpress, so users can easily set up and use the system as intended.
+
+Documentation
+Please address these items in the JOSS Checklist. There are some tools that could be helpful: pydoc, unittest; GitHub contribution guideline
+
+Functionality documentation: Is the core functionality of the software documented to a satisfactory level (e.g., API method documentation)?
+Automated tests: Are there automated tests or manual steps described so that the functionality of the software can be verified?
+Community guidelines: Are there clear guidelines for third parties wishing to 1) Contribute to the software 2) Report issues or problems with the software 3) Seek support
+
+Further, consider adding documentation on what features are implemented and what are on-going/placeholders.
+
+**response:** We appreciate your detailed feedback on documentation and agree with your suggestions. Clear and comprehensive documentation is critical for ensuring the usability and maintainability of our system, and we will address the points you raised as follows:
+
+1. **Functionality documentation:** We will improve functionality documentation, particularly for the API endpoints that connect CanvasXpress to our backend service. Since our system is service-based, this documentation will focus on how to interact with the service rather than internal Python methods. We prefer Markdown-based documentation for its simplicity and GitHub integration, and we will organize the documentation into clear sections following best practices. Additionally, we will clarify how to connect the running service to CanvasXpress, as this is the primary intended usage of the system.
+
+2. **Automated tests:** We will implement automated unit tests for core functionality, including the RAG system, JSON configuration generation, and embedding verification. These tests will validate the full system workflow, from English input to the generated JSON configuration, ensuring correctness and reliability.
+
+3. **Community guidelines:** We will create a CONTRIBUTING.md file providing information about how others can contribute to the project. And we will document how to seek support (e.g. contact).
+
+4. **Implemented features vs. placeholders:** We will add documentation that clearly distinguishes between currently implemented features and planned future work. For example, auxiliary features like the thumbs up/down functionality in the testing UI will be documented as placeholders with no current backend implementation.
+
+5. **Code organization:** As noted by another reviewer, many of the Python scripts are currently in the main folder. We will refactor the codebase to modularize and simplify it by moving scripts into organized modules and submodules. The main entry point will remain `app.py`, which will call the appropriate modules.
+
+We will complete these improvements before final submission to ensure the system meets JOSS's documentation standards and provides a seamless experience for users and contributors.
+
+Software paper
+Could you more directly address how this software (through CanvasXpress) solves research problems?
+
+**response:** We will expand our discussion of how this software solves research challenges by enabling domain scientists to create complex visualizations through natural language. Many researchers in fields like genomics, proteomics, and clinical studies face significant technical barriers when creating visualizations, as they often lack specialized programming skills. Our system lowers these barriers by allowing researchers to describe their desired visualizations in plain English, which the system translates into precise CanvasXpress configurations. 
+
+This capability accelerates the research process by enabling faster data exploration, better communication of findings, and more efficient hypothesis generation. In the paper, we will include specific examples of research scenarios where visualization is critical but technical barriers exist, to illustrate how our system facilitates scientific inquiry.
+
+Could you discuss more on the state of the field? e.g. other RAG+few shot implementation, other plotting software.
+
+**response:** We will expand the paper to include a more comprehensive discussion of the state of the field, providing better context for our work and highlighting its specific contributions. This discussion will address the following areas:
+
+1. **RAG + Few-shot Implementations:** While RAG and few-shot learning are standard techniques, we will highlight how our application of these techniques to scientific visualization generation is novel, particularly in the integration of guided autocomplete to generate synthetic few-shot examples at scale. This approach avoids the need for laborious manual curation and creates a system that balances precision and flexibility.
+
+2. **Visualization Tools:** We will compare CanvasXpress to other visualization libraries, such as Plotly, Matplotlib, and D3.js. CanvasXpress has several unique attributes that make it particularly suitable for LLM-based visualization generation:
+   - Its well-structured, self-documenting JSON schema with semantically meaningful field names and values creates a natural mapping between English descriptions and configuration elements.
+   - Its declarative approach (unlike ggplot2's sequential function calls or D3.js's DOM manipulation) is more compatible with one-shot generation by LLMs.
+   - It implements sensible defaults and handles missing parameters gracefully, reducing errors in LLM-generated configurations.
+   - Its scientific domain focus and balanced configuration complexity make it well-suited for the kinds of visualizations researchers commonly need.
+
+   While tools like Plotly also use JSON configurations and could potentially be adapted to our approach, many other libraries rely on procedural code rather than declarative configurations, making them significantly more challenging for LLM-based generation. We will also discuss the challenges and opportunities of adapting our approach to fully open-source alternatives like Plotly, Matplotlib, or D3.js.
+
+Please directly cite the original source of software / algorithms:
+For Milvus:
+
+@inproceedings{2021milvus,
+  title={Milvus: A Purpose-Built Vector Data Management System},
+  author={Wang, Jianguo and Yi, Xiaomeng and Guo, Rentong and Jin, Hai and Xu, Peng and Li, Shengjun and Wang, Xiangyu and Guo, Xiangzhou and Li, Chengming and Xu, Xiaohai and others},
+  booktitle={Proceedings of the 2021 International Conference on Management of Data},
+  pages={2614--2627},
+  year={2021}
+}
+
+@article{2022manu,
+  title={Manu: a cloud native vector database management system},
+  author={Guo, Rentong and Luan, Xiaofan and Xiang, Long and Yan, Xiao and Yi, Xiaomeng and Luo, Jigao and Cheng, Qianya and Xu, Weizhi and Luo, Jiarui and Liu, Frank and others},
+  journal={Proceedings of the VLDB Endowment},
+  volume={15},
+  number={12},
+  pages={3548--3561},
+  year={2022},
+  publisher={VLDB Endowment}
+}
+For few-shot learning:
+https://papers.nips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html
+
+**response:** Thank you for providing these references. We will add the suggested citations for Milvus and few-shot learning to properly acknowledge the foundational work upon which our system is built. Milvus is a critical component of our system for managing vector data and enabling similarity-based matching, while the few-shot learning reference provides the theoretical foundation for our approach to leveraging LLMs for visualization generation.
+
+Could you elaborate how the few-shot examples were "thoughtfully created" and quantitatively how broad do they cover?
+Could you give details on "JSON similarity score"?
+
+**response:** We will add details about how the few-shot examples were created. Specifically, we used the guided autocomplete system to generate thousands of examples that cover a wide range of visualization types and configurations. These examples were thoughtfully created to ensure meaningful coverage across:
+- Common chart types (e.g., bar charts, scatter plots, line charts, heatmaps)
+- Different data structures (e.g., categorical, numerical, time-series data)
+- Customization options (e.g., colors, labels, axis scaling)
+
+This approach ensures that the examples are representative of the most frequent use cases while also supporting flexibility for less common scenarios.
+
+For the JSON similarity score, we implemented a recursive comparison function that calculates a similarity score between two JSON objects by recursively comparing their structure and values. It handles dictionaries by comparing keys and recursively evaluating values, lists by measuring overlapping elements, and primitive types (e.g., strings, numbers) with specific rules for equality or tolerance. This approach provides a holistic measure of similarity, and we will include detailed technical explanations in the documentation.
+
+The codebase
+Will raise issues later to provide suggestions.
+
+**response:** We appreciate your thorough review and will address all the points you've raised. We believe our system represents a meaningful contribution that combines established techniques in a novel way to address the challenge of creating scientific visualizations through natural language. We will make the requested revisions to clarify our contribution, improve documentation and packaging, and better position our work within the broader field.
+
+**response regarding word count issues:**
+We appreciate the comprehensive feedback from both reviewers and will work to address all the points raised. However, we note that implementing all the requested additions (expanded research context, technical details about few-shot example creation, JSON similarity calculation methodology, state of the field comparisons, etc.) could potentially cause the paper to exceed JOSS word count guidelines.
+
+Our approach will be to:
+
+1. First, draft comprehensive responses to all issues raised by both reviewers
+2. Then evaluate the resulting document against JOSS guidelines
+3. If necessary, work with the editor to determine which sections might be abbreviated or moved to supplementary materials/documentation
+
+We believe certain technical details (like the specific algorithm for JSON similarity calculation) might be better placed in the software documentation rather than the main paper. Similarly, some aspects of the comparative analysis could potentially be summarized in the paper with fuller details in the repository.
+
+Our priority will be to address the core concerns about scholarly contribution, CanvasXpress's role in solving research challenges, and the technical novelty of our approach, while ensuring the paper remains within reasonable length constraints.
+
+------
+
+The editor and reviewer's replied that they accept our plan above. So now we need to proceed to implement it. However, one of the reviewers DID have a small follow-up question/clarification and we sent this to reply to it:
+
+Dear @xavieryao,
+
+Thank you for your follow-up and for highlighting the need for clarity.
+
+To confirm: 
+
+All few-shot examples used in our system—including those for evaluation and accuracy testing—are generated automatically by our guided autocomplete system (Copilot). We did not manually curate any examples for the default set; the process is fully automated. However, as described in the paper, users do have the option to add their own manually created examples if they wish, but we did not do this for our reported results.
+
+We do describe the guided autocomplete system and its ability to generate synthetic examples in the current paper (see the “Guided Autocomplete” and “Prompt Engineering” sections), but we appreciate that this may not have been sufficiently prominent or explicit. We will revise the paper to:
+
+- Clearly and explicitly state that all examples used for evaluation are generated by the guided autocomplete system,
+- Further highlight the guided autocomplete/Copilot as a core innovation,
+- Clarify its role in generating synthetic examples for RAG and evaluation, and
+- Clearly state that while users can add manual examples, we did not do so for our results.
+
+Thank you again for your feedback. We will notify you once these changes are implemented in the paper and repository.
+
+Best regards, 
+Andrew Smith 
+Isaac Neuhaus
