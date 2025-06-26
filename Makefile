@@ -15,8 +15,9 @@ build:
                         -t ${NAME}:${VERSION} \
                         -f Dockerfile .
 
-build_dev: 
+build_dev:
 	docker build --platform linux/amd64 \
+                        --build-arg INSTALL_DEV=true \
                         -t ${NAME_DEV}:${VERSION} \
                         -f Dockerfile .
 
@@ -25,8 +26,9 @@ buildfresh:
                         -t ${NAME}:${VERSION} \
                         -f Dockerfile .
 
-buildfresh_dev: 
+buildfresh_dev:
 	docker build --platform linux/amd64 --no-cache \
+                        --build-arg INSTALL_DEV=true \
                         -t ${NAME_DEV}:${VERSION} \
                         -f Dockerfile .
 
@@ -67,13 +69,22 @@ build_vector_db_dev:
 	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "rm -fr /root/.cache/canvasxpress_llm_dev.db; python3 vectorize_schema_few_shots.py"
 
 test:
-	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}:${VERSION} /bin/bash -c "python3 -m pytest tests/ -v"
+	docker build --platform linux/amd64 --build-arg INSTALL_DEV=true -t ${NAME}-test .
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}-test /bin/bash -c "python3 -m pytest tests/ -v"
 
 test_dev:
 	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "python3 -m pytest tests/ -v"
 
+test_coverage:
+	docker build --platform linux/amd64 --build-arg INSTALL_DEV=true -t ${NAME}-test .
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}-test /bin/bash -c "python3 -m pytest tests/ --cov=src/canvasxpress_gen --cov-report=term-missing"
+
+test_coverage_dev:
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "python3 -m pytest tests/ --cov=src/canvasxpress_gen --cov-report=term-missing"
+
 test_rag:
-	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}:${VERSION} /bin/bash -c "python3 -m pytest tests/test_rag.py -v"
+	docker build --platform linux/amd64 --build-arg INSTALL_DEV=true -t ${NAME}-test .
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}-test /bin/bash -c "python3 -m pytest tests/test_rag.py -v"
 
 test_rag_dev:
 	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "python3 -m pytest tests/test_rag.py -v"
