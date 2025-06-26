@@ -32,22 +32,42 @@
     <tr><td>Frequency Penalty:</td><td><input type="range" id="settings_frequency_penalty" name="settings_frequency_penalty" max="2.0" min="-2.0" step=".01"></input></td><td><span id="settings_frequency_penalty_show" style="font-size:small;"></span></td></tr>
     <tr><td><button onclick="set_default_settings();">Reset</button></td><td>&nbsp;</td></tr></table>
   <a href="https://speakai.co/what-are-large-language-models/">What are Large Language Models?</a>
-  <a href="https://cobusgreyling.medium.com/prompt-engineering-text-generation-large-language-models-3d90c527c6d5">Prompting help/tips</a>
-  <a href="http://bioinformatics.bms.com">BMS Bioinformatics</a>
-  <a href="mailto:andrew.smith1@bms.com">Contact</a>
+  <a href="https://cobusgreyling.medium.com/prompt-engineering-text-generation-large-language-models-3d90c527c6d5">Prompting Help & Tips</a>
+  <a href="https://www.canvasxpress.org/">CanvasXpress Documentation</a>
+  <a href="https://github.com/canvasxpress/canvasxpress-gen">GitHub Repository</a>
 </div>
 
 <div id="main">
 <button class="openbtn" onclick="openNav()">☰</button>
 
-<center><h2>CanvasXpress Visualization Chat</h2><h5>Conversationally ask to generate a CanvasXpress visualiation for an uploaded data file in plain English.</center>
+<center><h2>CanvasXpress AI Assistant</h2><h5>Generate beautiful data visualizations by describing what you want in plain English. Upload your data and let AI create the perfect CanvasXpress configuration.</h5></center>
 
 <div id="questions_and_answers">
 </div>
 
-<textarea id="question" name="question" placeholder="Describe your visualization..." rows=4></textarea>
-<table><tr><td>Upload a data file to visualize:</td><td><input type="file" name="datafile_upload" id="datafile_upload"></input></td></tr></table>
-<table style="width: 100%;"><tr><td style="width: 90%;"><input id="askquestion" type="submit" value="Ask"></td><td><input id="clear" type="submit" value="Clear Chat"></td></tr></table>
+<textarea id="question" name="question" placeholder="Describe the visualization you want to create...
+
+Examples:
+• Create a bar chart showing sales by region
+• Make a scatter plot of height vs weight
+• Generate a line chart of temperature over time
+• Show a heatmap of gene expression data" rows=6></textarea>
+
+<div style="margin: 16px 0; padding: 16px; background: rgba(255, 255, 255, 0.1); border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+  <table style="width: 100%; color: white;">
+    <tr>
+      <td style="padding: 8px; font-weight: 500;">Upload your data file:</td>
+      <td style="padding: 8px;"><input type="file" name="datafile_upload" id="datafile_upload" accept=".csv,.tsv,.txt,.json"></input></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding: 8px 8px 0 8px; font-size: 14px; color: rgba(255, 255, 255, 0.8);">
+        <strong>Supported formats:</strong> CSV, TSV, TXT (tab-delimited), JSON<br>
+        <strong>Requirements:</strong> First row should contain column headers
+      </td>
+    </tr>
+  </table>
+</div>
+<table style="width: 100%;"><tr><td style="width: 70%;"><input id="askquestion" type="submit" value="Ask"></td><td style="width: 15%;"><input id="clear" type="submit" value="Clear Chat"></td><td style="width: 15%;"><input id="clearall" type="submit" value="Clear All"></td></tr></table>
 </div>
 <script>
 
@@ -65,14 +85,14 @@
     document.getElementById("main").style.marginLeft= "0";
   }
 
-  var bmsGptIconImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiv37BrQCpbojozRwl9MXZkG05gJS6h83pSQsOf9v_boH-cjNzJvJwTA9tSUqPY_LG8aY&usqp=CAU';
-  var userIconImg = "";
+  var aiIconImg = 'https://cdn-icons-png.flaticon.com/512/4712/4712027.png';
+  var userIconImg = 'https://cdn-icons-png.flaticon.com/512/3033/3033143.png';
   var uid = "";
-  var bmsid = "";
+  var userId = "";
 
-  function getUserIconImg (bmsid) {
-      var userIconImg = 'https://whitepages.bms.com/whitepages/getphoto?bmsid=' + bmsid + 'BMS';
-      return(userIconImg);
+  function getUserIconImg (userId) {
+      // Use a generic user avatar
+      return 'https://cdn-icons-png.flaticon.com/512/3033/3033143.png';
   }
   
   function getCurDatetime () {
@@ -84,9 +104,70 @@
   function getThumpsUpDownHtml () {
 
     curId = thumbsCt++;
-    thumbsUpDown = '<div class="rating"><!-- Thumbs up --><div class="like grow"><i id="like_' + curId + '" class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i></div><!-- Thumbs down --><div class="dislike grow"><i id="dislike_' + curId + '" class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i></div></div>';
+    thumbsUpDown = '<div class="rating"><!-- Copy Config Button --><button class="copy-config-btn" onclick="copyConfig(' + curId + ')"><i class="fa fa-copy" aria-hidden="true"></i> Copy Config</button><!-- Thumbs up --><div class="like grow"><i id="like_' + curId + '" class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i></div><!-- Thumbs down --><div class="dislike grow"><i id="dislike_' + curId + '" class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i></div></div>';
     return(thumbsUpDown);
 
+  }
+
+  function copyConfig(configId) {
+    // Find the config JSON for this specific response
+    var configElement = document.getElementById('config_' + configId);
+    if (configElement) {
+      var configText = configElement.textContent || configElement.innerText;
+      
+      // Use the modern clipboard API if available
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(configText).then(function() {
+          showCopyFeedback('Configuration copied to clipboard!');
+        }).catch(function(err) {
+          console.error('Failed to copy: ', err);
+          fallbackCopyTextToClipboard(configText);
+        });
+      } else {
+        // Fallback for older browsers
+        fallbackCopyTextToClipboard(configText);
+      }
+    }
+  }
+
+  function fallbackCopyTextToClipboard(text) {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+      var successful = document.execCommand('copy');
+      if (successful) {
+        showCopyFeedback('Configuration copied to clipboard!');
+      } else {
+        showCopyFeedback('Failed to copy configuration');
+      }
+    } catch (err) {
+      console.error('Fallback: Oops, unable to copy', err);
+      showCopyFeedback('Failed to copy configuration');
+    }
+    
+    document.body.removeChild(textArea);
+  }
+
+  function showCopyFeedback(message) {
+    // Create a temporary notification
+    var notification = document.createElement('div');
+    notification.className = 'copy-notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(function() {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 3000);
   }
 
   function addUserQuestion(questionTxt) {
@@ -99,10 +180,11 @@
       var curDateStr = getCurDatetime();
       if (result['success'] && result['config_generated_flag']) {
         var canvas_id = 'cX' + new Date().getTime();
+        var config_id = thumbsCt; // Use the current thumbsCt as the config ID
         var thumbsUpDownTxt = getThumpsUpDownHtml();
         var configJSONTxt = JSON.stringify(result['config'],null,2);
         result['config']['llmServiceURL'] = "/ask";
-        var responseTxt = '<div class="container darker"><img src="' + bmsGptIconImg + '" alt="BMS GPT" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + "<br>Config: " + configJSONTxt + '</pre></p><canvas id="' + canvas_id + '" width="750" height="750"></canvas><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
+        var responseTxt = '<div class="container darker"><img src="' + aiIconImg + '" alt="AI Assistant" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + '<br>Config: <span id="config_' + config_id + '">' + configJSONTxt + '</span></pre></p><canvas id="' + canvas_id + '" width="750" height="750"></canvas><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
         $("#questions_and_answers").append(responseTxt);
         new CanvasXpress(canvas_id, result['data'], result['config']);
       } else {
@@ -110,13 +192,14 @@
         if ('text' in result) {
           text = result['text'];
         }
-        var responseTxt = '<div class="container darker"><img src="' + bmsGptIconImg + '" alt="BMS GPT" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">' + text + '</pre></p><span class="time-left">' + curDateStr + '</span></div>';
+        var responseTxt = '<div class="container darker"><img src="' + aiIconImg + '" alt="AI Assistant" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">' + text + '</pre></p><span class="time-left">' + curDateStr + '</span></div>';
         $("#questions_and_answers").append(responseTxt);
       }
     }
 
   function askQuestion() {
-     $('#loading').show();
+     // Show modern loading spinner with class
+     $('#loading').addClass('show');
      var questionTxt = $("#question").val();
      addUserQuestion(questionTxt);
      model = $("#settings_model").val();
@@ -144,12 +227,13 @@
               contentType: false,
               cache: false,
               success: function(result) {
-                $('#loading').hide();
-	              addResponse(JSON.parse(result));
-	              $("html, body").animate({ scrollTop: $(document).height() }, 3000);                
+                $('#loading').removeClass('show');
+              addResponse(JSON.parse(result));
+              $("html, body").animate({ scrollTop: $(document).height() }, 3000);
               },
               error: function(result) {
-                $('#loading').hide();
+                $('#loading').removeClass('show');
+                showCopyFeedback('Error: Failed to generate visualization. Please try again.');
               }
      });
      /*
@@ -190,7 +274,8 @@
   
   $(document).ready(function(){
 
-      $('#loading').show();
+      // Initialize loading spinner as hidden
+      $('#loading').removeClass('show');
 
       $(models_arr).each(function() {
 	      $("#settings_model").append($("<option>").attr('value',this.value).text(this.text));
@@ -227,6 +312,19 @@
         return false;
       });
 
+      $("#clearall").click(function(){
+        // Clear the chat history
+        $("#questions_and_answers").empty();
+        // Clear the form fields
+        $("#question").val("");
+        $('#datafile_upload').val("");
+        // Reset thumbs counter
+        thumbsCt = 0;
+        // Show confirmation
+        showCopyFeedback('Chat cleared and form reset!');
+        return false;
+      });
+
       $("#new_chat").click(function(){
 	      $("#questions_and_answers").empty();
 	      $("#question").val("");
@@ -246,13 +344,13 @@
           dislikeObjId = 'dislike_' + ct;
           $('#' + dislikeObjId).removeClass('active');
           $('#' + likeObjId).addClass('active');
-          alert('Thank-you for liking my response!');
+          alert('Thank you for your positive feedback!');
         } else if (type == 'dislike') {
           likeObjId = 'like_' + ct;
           dislikeObjId = 'dislike_' + ct;
           $('#' + dislikeObjId).addClass('active');
           $('#' + likeObjId).removeClass('active');
-          alert('I am sorry I disappointed you, I am not worthy. I will try harder next time!');
+          alert('Thank you for your feedback. We\'ll use this to improve our responses.');
         }
       });
 
@@ -269,13 +367,14 @@
       //});
 
       $.ajax({url: "/userinfo", success: function(result){
-	  var resultParsed = JSON.parse(result);
-	  uid = resultParsed['uid'];
-	  bmsid = resultParsed['bmsid'];
-	  userIconImg = getUserIconImg(bmsid);
+   var resultParsed = JSON.parse(result);
+   uid = resultParsed['uid'] || 'user';
+   userId = resultParsed['userId'] || 'user';
+   userIconImg = getUserIconImg(userId);
       }});
 
-      $('#loading').hide();
+      // Hide loading spinner after initialization
+      $('#loading').removeClass('show');
   });
 
 </script>

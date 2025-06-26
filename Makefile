@@ -65,3 +65,15 @@ build_vector_db:
 
 build_vector_db_dev:
 	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "rm -fr /root/.cache/canvasxpress_llm_dev.db; python3 vectorize_schema_few_shots.py"
+
+test:
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}:${VERSION} /bin/bash -c "python3 -m pytest tests/ -v"
+
+test_dev:
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "python3 -m pytest tests/ -v"
+
+test_rag:
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${PROD} ${NAME}:${VERSION} /bin/bash -c "python3 -m pytest tests/test_rag.py -v"
+
+test_rag_dev:
+	docker run --rm --privileged ${BIND_MOUNT_ARGS} ${AWS_CREDS_BIND_MOUNT} ${DEV} ${NAME_DEV}:${VERSION} /bin/bash -c "python3 -m pytest tests/test_rag.py -v"

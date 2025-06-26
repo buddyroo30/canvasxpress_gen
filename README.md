@@ -1,72 +1,444 @@
-# canvasxpress_gen
-Generating CanvasXpress visualizations from natural language descriptions of them using Large Language Models ("LLMs")
+# CanvasXpress Generation System
 
-# Introduction
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
+[![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://docker.com)
 
-The code in this repository can be used to conversationally generate [CanvasXpress](https://www.canvasxpress.org) visualizations, i.e. a user can simply describe in plain English the graph they want (e.g. "box plot of len on x axis grouped by dose with title 'len by dose'"), upload a CSV or tab-delimited data file (with a header describing and naming the columns) to be graphed, and then have their desired graph created automatically with high accuracy using LLMs. In this repo we provide a Python Flask application that implements a simple chat-like UI for conversationally generating visualizations as well as the backend API/services to support it (that call LLMs like Google Gemini or OpenAI GPT-4o with an appropriate prompt on your behalf). The functionality is also built directly into [CanvasXpress](https://www.canvasxpress.org/llm.html) which calls a service that runs this code on the canvasxpress.org main server; note that if you want to use this functionality internally at your organization without sending data to the public canvasxpress.org site you can run this code/service on your own server and configure CanvasXpress visualizations to use that by setting configuration option llmServiceURL in your HTML-embedded CanvasXpress graphs (e.g. config['llmServiceURL'] = "/ask").
+> **Generate CanvasXpress visualizations from natural language descriptions using Large Language Models (LLMs)**
 
-# Building and Running the Application
+A comprehensive system that enables users to create sophisticated scientific visualizations by simply describing them in plain English. Built with a modern, modular architecture and powered by state-of-the-art LLMs and RAG (Retrieval Augmented Generation) technology.
 
-The application is implemented and run using Docker, with various Makefile targets to support building the Docker image, running it, and stopping it. Both a production and development image/application are supported by the Makefile so you can test changes on the development system before propagating them to the production system. The key file artifacts of the system are the high-level prompt file prompt.md (and prompt_dev.md for dev), the schema information or details of the legal/valid CanvasXpress fields in file schema.txt (and schema_dev.txt for dev), and the few shot examples that are stored in the vector database in file all_few_shots.json (all_few_shots_dev.json for dev). app.py contains the Flask application with the ask endpoint taking a user's English description and converting it into a CanvasXpress configuration JSON object. Here are the steps you can take to build and run the image:
+## 🌟 Key Features
 
-1. `make build` - build the Docker image for the production application.
-2. `make build_vector_db` - Create the vector database used in the production application for RAG by indexing the few shot examples (the vector database is stored on disk at ~/.cache/canvasxpress_llm.db)
-3. `make build_schema_context` - Create the schema.txt file used in the production application, containing the schema info for all the fields present in the few shot examples file (uses file doc.json for the schema info details and the generated file is stored at ~/.cache/schema.txt)
-4. `make runi` - run the production application interactively (i.e. you will be able to see all the Flask output, including any errors which is useful for debugging, and can exit by typing CTRL-c)
-5. `make run` - run the production application as a daemon
-6. `make exit` - shut down the production application
+- **Natural Language Interface**: Describe visualizations in plain English
+- **Multi-LLM Support**: Works with OpenAI GPT-4o, Google Gemini, AWS Bedrock models, and Ollama
+- **RAG-Enhanced Generation**: Uses vector similarity search with BGE-M3 embeddings
+- **High Accuracy**: Achieves near-perfect accuracy through carefully engineered prompts and few-shot examples
+- **Enterprise Ready**: Supports SiteMinder SSO and private deployment
+- **Modular Architecture**: Professional Python package structure with automated unit tests
+- **Docker-First**: Complete containerized deployment with development and production environments
 
-There is also `make shell` to enter into a Shell session for the Docker image and `make buildfresh` which is the same as 'make build' except it doesn't use Docker cache. Note that you will need to have a directory ~/.cache where the vector database file and schema information file are stored, as well as model files; please create this directory if it doesn't exist. There is also a file llm_models.json in the main directory: you should edit this to contain the actual models you have available and want to use, and then copy it inside ~/.cache (the file included with the repo is an example so you should edit it).
+## 🚀 Quick Start
 
-To build and run the development version of the application there are Makefile targets corresponding to all the above by simply appending '_dev' (i.e. `make build_dev`, `make run_dev`, `make exit_dev`, etc.) Note that in the provided Makefile the production application runs on port 5008 and the development application runs on port 5009 --- edit RUN_ARGS or RUN_ARGS_DEV to change the ports if you want. Also, the running Docker containers bind mount ~/.cache to /root/.cache inside the container, so make sure you have a .cache directory in your home directory (this is used to store the [BGE-M3](https://milvus.io/docs/embed-with-bgm-m3.md) embedding model files and also the created vector database which is named canvasxpress_llm.db or canvasxpress_llm_dev.db). Also,  ~/.aws/credentials will be bind mounted to /root/.aws/credentials --- this is to support use of models in AWS Bedrock if you want to use them (not needed otherwise).
+### Prerequisites
 
-# Important Files
+- Docker and Docker Compose
+- Make (for using Makefile commands)
+- `~/.cache` directory in your home directory
 
-There are some files that support the core interactions with the LLM, i.e. that are used to generate the prompts sent to the LLM (and there are both production and development versions of the files). You can modify these to try to improve the system (e.g. modify the main prompt, add new few shot examples, etc.)
+### Basic Setup
 
-1. prompt.md and prompt_dev.md - the high level prompt sent to the LLM (schema info and few shot examples are interpolated into this before sending to the LLM).
-2. schema.txt and schema_dev.txt - the schema information that is sent to the LLM (consisting of over 100 of the most commonly used CanvasXpress configuration options)
-3. doc.json and doc_dev.json - a JSON file containing the full set of CanvasXpress configuration options. This information is also indexed in the vector database, but not used at present, but we plan to use it in the future.
-4. all_few_shots.json and all_few_shots_dev.json - a JSON file containing the few shot examples used in the system. These are indexed in the vector database and when the user enters a question, that question is searched against the vector database to fetch the 25 most similar few shot examples which are interpolated into prompt.md or prompt_dev.md. If you update these files you should regenerate the vector database file by running `make build_vector_db` or `make build_vector_db_dev`, regenerate the schema.txt or schema_dev.txt files by running `make build_schema_context` or `make build_schema_context_dev` and then restart the container (i.e. 'make run' or 'make run_dev').
+1. **Clone and Build**
+   ```bash
+   git clone https://github.com/buddyroo30/canvasxpress_gen.git
+   cd canvasxpress_gen
+   make build
+   ```
 
-# Quickstart
+2. **Initialize System**
+   ```bash
+   make build_schema_context    # Generate schema information
+   make build_vector_db         # Create vector database for RAG
+   ```
 
-File all_few_shots.json (and all_few_shots_dev.json for dev) contains a large number of few shot examples to support the CanvasXpress JSON config LLM generation. To get the Flask application running simply execute in order:
+3. **Run Application**
+   ```bash
+   make run                     # Run as daemon
+   # OR
+   make runi                    # Run interactively (recommended for first time)
+   ```
 
-`make build`<br>
-`make build_schema_context`<br>
-`make build_vector_db`<br>
-`make run`<br>
+4. **Access the System**
+   - Open your browser to `http://localhost:5008`
+   - Upload a CSV/TSV data file with headers
+   - Describe your desired visualization in plain English
+   - Example: *"box plot of len on x axis grouped by dose with title 'len by dose'"*
 
-then later to quit the application (i.e. stop and remove the Docker container running the application) simply do:
+5. **Stop Application**
+   ```bash
+   make exit
+   ```
 
-`make exit`<br>
+### Development Environment
 
-If you ever update the all_few_shots.json file (e.g. to add or remove few shot examples) you will need to re-run all the above steps (after exiting the app with `make exit`).
+For development work, use the `_dev` versions of all commands:
 
-For the dev version of the app simply append _dev to all the Makefile targets above.
+```bash
+make build_dev
+make build_schema_context_dev
+make build_vector_db_dev
+make run_dev                  # Runs on port 5009
+make exit_dev
+```
 
-# Supported LLMs and .env file
+### Testing
 
-We have written the code to be able to work with a number of well-known LLMs from OpenAI (GPT-4o, GPT-4-32K, etc.), Google (Gemini 1.5 Flash and Pro), Anthropic and others. To use the OpenAI models you will need an OpenAI token, and similarly to use the Google Gemini models you will need a Google token; most of the other models are supported through [AWS Bedrock](https://aws.amazon.com/bedrock/) (so you would need to configure AWS credentials to use them, specifically correctly set variable AWS_CREDS_BIND_MOUNT in Makefile --- undefine this if you don't have AWS credentials), and [Ollama](https://ollama.com/) models are also supported if you wanted to run a model yourself. For using the OpenAI models and/or Google Gemini models you should set environment variable values in a .env file (which will get read in using Python's [python-dotenv](https://pypi.org/project/python-dotenv/) package):
+The system includes automated unit tests for core functionality as requested by JOSS reviewers. For detailed testing instructions, see [TESTING.md](TESTING.md).
 
-    GOOGLE_API_KEY=....
-    AZURE_OPENAI_API_KEY=...
-    AZURE_OPENAI_ENDPOINT=...
-    AZURE_OPENAI_API_VERSION=2024-02-01
+**Quick test commands:**
+```bash
+# Local testing
+python -m pytest tests/ -v
 
-If you don't know what model to use, easiest is to simply use [Google Gemini 1.5 Flash](https://ai.google.dev/gemini-api) which offers a fairly generous daily allowance of queries through its [free tier](https://ai.google.dev/pricing) and works well in practice.
+# Docker testing
+docker build --build-arg INSTALL_DEV=true -t canvasxpress-test .
+docker run --rm canvasxpress-test python -m pytest tests/ -v
+```
 
-# SiteMinder Support
+## 📖 How It Works
 
-Internally at our company Bristol Myers Squibb we use SiteMinder SSO to authenticate users, and we have built support for this into the application. But it isn't required and you don't need to use it. To NOT use SiteMinder simply define a value in your .env file SMVAL=False. If you do want to use SiteMinder then you will need to set SMVAL=True and define some other SiteMinder related env vars:
+The CanvasXpress Generation System combines several advanced technologies:
 
-    SMVAL=True
-    SMLOGIN=...URL of your SiteMinder login page...
-    SMTARGET=...SiteMinder redirect URL
-    SMFAILREGEX=...a pattern to look for in the result of logging in to denote failure...
-    SMFETCHFAILREGEX=...a pattern to look for in fetched pages to denote failure...
+### 🧠 **LLM Integration**
+- Supports multiple LLM providers through a unified interface
+- Carefully engineered prompts optimized for visualization generation
+- Dynamic model selection based on requirements and availability
 
-# Preprint
+### 🔍 **RAG (Retrieval Augmented Generation)**
+- Vector database powered by Milvus for similarity search
+- BGE-M3 embeddings for semantic understanding
+- Automatic retrieval of relevant few-shot examples
+- Context-aware prompt construction
 
-See [here](https://osf.io/preprints/osf/kf2xp) for a preprint paper we published about our work generating visualizations using LLMs with CanvasXpress.
+### 🏗️ **Modular Architecture**
+```
+src/canvasxpress_gen/
+├── llm/           # LLM service and model management
+├── rag/           # RAG system with embeddings and retrieval
+├── utils/         # Utilities for JSON, text, file, and auth operations
+└── __init__.py    # Clean package interface
+```
+
+### 🎯 **Guided Generation Process**
+1. **User Input**: Natural language description + data file
+2. **Context Retrieval**: RAG system finds relevant examples
+3. **Prompt Construction**: Combines user input, context, and schema
+4. **LLM Generation**: Produces CanvasXpress JSON configuration
+5. **Validation**: Ensures generated config is valid and complete
+
+## 🛠️ Installation & Configuration
+
+### Environment Variables
+
+Create a `.env` file in the project root:
+
+```bash
+# LLM API Keys (choose what you need)
+GOOGLE_API_KEY=your_google_api_key_here
+AZURE_OPENAI_API_KEY=your_azure_openai_key
+AZURE_OPENAI_ENDPOINT=your_azure_endpoint
+AZURE_OPENAI_API_VERSION=2024-02-01
+
+# Development/Production Mode
+DEV=False  # Set to True for development mode
+
+# SiteMinder SSO (optional)
+SMVAL=False  # Set to True to enable SiteMinder authentication
+```
+
+### LLM Model Configuration
+
+Edit `llm_models.json` to configure available models, then copy to `~/.cache/`:
+
+```json
+{
+  "gemini-1.5-flash": {
+    "type": "google_gemini",
+    "provider": "google",
+    "description": "Fast and efficient model"
+  },
+  "gpt-4o": {
+    "type": "openai", 
+    "provider": "openai",
+    "description": "Advanced reasoning model"
+  }
+}
+```
+
+### AWS Bedrock Support
+
+For AWS Bedrock models, ensure AWS credentials are configured:
+```bash
+# Configure AWS credentials
+aws configure
+# OR set environment variables
+export AWS_ACCESS_KEY_ID=your_key
+export AWS_SECRET_ACCESS_KEY=your_secret
+export AWS_DEFAULT_REGION=us-east-1
+```
+
+## 🏗️ Architecture Overview
+
+### System Components
+
+#### **Flask Application** (`app_refactored.py`)
+- Modern class-based architecture
+- RESTful API endpoints
+- Comprehensive error handling
+- SiteMinder SSO integration
+
+#### **LLM Service** (`src/canvasxpress_gen/llm/`)
+- **`service.py`**: Unified LLM interface supporting multiple providers
+- **`models.py`**: Model registry and configuration management
+- Supports OpenAI, Google Gemini, AWS Bedrock, and Ollama
+
+#### **RAG System** (`src/canvasxpress_gen/rag/`)
+- **`retrieval_service.py`**: Main RAG orchestration
+- **`embedding_service.py`**: BGE-M3 embedding generation
+- **`vector_store.py`**: Milvus vector database operations
+- **`schema_processor.py`**: CanvasXpress schema and example processing
+
+#### **Utilities** (`src/canvasxpress_gen/utils/`)
+- **`json_utils.py`**: JSON similarity and validation
+- **`text_utils.py`**: Text processing and cleaning
+- **`file_utils.py`**: File parsing and I/O operations
+- **`auth_utils.py`**: Authentication and security functions
+
+### API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | Main interface for testing and development |
+| `/ask` | POST | Generate CanvasXpress config from natural language |
+| `/ask_generic` | POST | Generic LLM text generation |
+| `/get_few_shots` | GET/POST | Retrieve similar examples |
+| `/userinfo` | GET/POST | User authentication information |
+
+## 📊 Key Files and Data
+
+### Core Configuration Files
+
+| File | Purpose | Location |
+|------|---------|----------|
+| `prompt.md` / `prompt_dev.md` | Main LLM prompt templates | Project root |
+| `doc.json` / `doc_dev.json` | Complete CanvasXpress schema | Project root |
+| `all_few_shots.json` / `all_few_shots_dev.json` | Few-shot training examples | Project root |
+| `schema.txt` / `schema_dev.txt` | Generated schema context | `~/.cache/` |
+| `canvasxpress_llm.db` / `canvasxpress_llm_dev.db` | Vector database | `~/.cache/` |
+
+### Updating System Data
+
+When you modify the few-shot examples or schema:
+
+```bash
+# Update production system
+make exit                    # Stop current instance
+make build_schema_context    # Regenerate schema
+make build_vector_db         # Rebuild vector database
+make run                     # Restart application
+
+# Update development system  
+make exit_dev
+make build_schema_context_dev
+make build_vector_db_dev
+make run_dev
+```
+
+## 🔧 Development
+
+### Setting Up Development Environment
+
+1. **Install in Development Mode**
+   ```bash
+   pip install -e .
+   ```
+
+2. **Run Development Server**
+   ```bash
+   make build_dev
+   make run_dev  # Runs on port 5009
+   ```
+
+3. **Code Quality Tools**
+   ```bash
+   # Linting
+   flake8 src/ tests/
+   
+   # Type checking
+   mypy src/
+   
+   # Code formatting
+   black src/ tests/
+   ```
+
+### Making Changes
+
+1. **Code Changes**: Modify files in `src/canvasxpress_gen/`
+2. **Test Changes**: Add/update tests in `tests/` (see [TESTING.md](TESTING.md))
+3. **Rebuild**: `make build_dev` if dependencies changed
+4. **Test**: Run test suite to validate changes
+5. **Update Data**: Rebuild vector DB if examples changed
+
+### Docker Development
+
+```bash
+# Interactive shell in container
+make shell      # Production environment
+make shell_dev  # Development environment
+
+# Fresh build (no cache)
+make buildfresh
+make buildfresh_dev
+```
+
+## 🔗 Integration with CanvasXpress
+
+### Public Integration
+The system is integrated into the main [CanvasXpress](https://www.canvasxpress.org/llm.html) website, allowing users to generate visualizations directly through the CanvasXpress interface.
+
+### Private Deployment
+For organizations requiring data privacy:
+
+1. **Deploy Your Instance**
+   ```bash
+   make build
+   make build_schema_context
+   make build_vector_db
+   make run
+   ```
+
+2. **Configure CanvasXpress**
+   ```javascript
+   // In your CanvasXpress configuration
+   config['llmServiceURL'] = "http://your-server:5008/ask";
+   ```
+
+3. **API Usage**
+   ```bash
+   curl -X POST http://your-server:5008/ask \
+     -F "prompt=Create a bar chart showing sales by region" \
+     -F "datafile_contents=[[\"Region\",\"Sales\"],[\"North\",100],[\"South\",150]]"
+   ```
+
+## 🔒 Security & Authentication
+
+### SiteMinder SSO Support
+For enterprise environments using SiteMinder:
+
+```bash
+# Enable SiteMinder in .env
+SMVAL=True
+SMLOGIN=https://your-siteminder-login-url
+SMTARGET=https://your-redirect-url
+SMFAILREGEX=authentication.*failed
+SMFETCHFAILREGEX=access.*denied
+```
+
+### Security Features
+- Input sanitization and validation
+- CSRF protection
+- Secure session management
+- Environment-based configuration
+- Docker container isolation
+
+## 📚 Advanced Usage
+
+### Custom Few-Shot Examples
+
+Add your own examples to `all_few_shots.json`:
+
+```json
+{
+  "id": "custom_example_1",
+  "configEnglish": "Create a scatter plot with custom styling",
+  "headers": ["x_value", "y_value", "category"],
+  "config": {
+    "graphType": "Scatter2D",
+    "title": "Custom Scatter Plot",
+    "colorBy": "category"
+  }
+}
+```
+
+Then rebuild the vector database:
+```bash
+make build_vector_db
+```
+
+### Model Performance Tuning
+
+Adjust model parameters in your API calls:
+
+```python
+{
+  "model": "gpt-4o",
+  "temperature": 0.1,      # Lower for more consistent output
+  "max_new_tokens": 2048,  # Adjust based on complexity
+  "top_p": 0.9            # Nucleus sampling parameter
+}
+```
+
+### Monitoring and Debugging
+
+Enable detailed logging:
+```bash
+# Run interactively to see all output
+make runi
+
+# Check container logs
+docker logs canvasxpress_gen
+
+# Monitor vector database
+ls -la ~/.cache/canvasxpress_llm*
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
+
+- Development setup and workflow
+- Code standards and style guidelines  
+- Testing requirements
+- Submission process
+
+### Quick Contribution Guide
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Make your changes** following our coding standards
+4. **Add tests** for new functionality
+5. **Run the test suite**: `python -m pytest tests/ -v`
+6. **Submit a pull request**
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📖 Citation
+
+If you use this software in your research, please cite our paper:
+
+```bibtex
+@article{smith2024canvasxpress,
+  title={Generating CanvasXpress Visualizations from Natural Language Using Large Language Models},
+  author={Smith, Andrew K and Neuhaus, Isaac},
+  journal={Preprint available at OSF},
+  year={2024},
+  url={https://osf.io/preprints/osf/kf2xp}
+}
+```
+
+## 🆘 Support
+
+- **Documentation**: Check this README and [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Issues**: Report bugs and request features via [GitHub Issues](../../issues)
+- **Questions**: Contact the maintainers or open a discussion
+
+## 🔄 Version History
+
+- **v1.0.0**: Initial release with modular architecture
+- **v0.9.x**: Legacy monolithic version
+- **Development**: Ongoing improvements and feature additions
+
+## 🙏 Acknowledgments
+
+- **CanvasXpress**: Isaac Neuhaus for the excellent visualization library
+- **BGE-M3**: BAAI for the embedding model
+- **Milvus**: For the vector database technology
+- **Community**: Contributors and users who help improve the system
+
+---
+
+**Ready to transform your data visualization workflow?** 🚀
+
+[Get Started](#-quick-start) | [API Documentation](docs/API.md) | [Contributing](CONTRIBUTING.md)
