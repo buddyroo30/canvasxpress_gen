@@ -66,6 +66,103 @@
     font-weight: bold !important;
     margin-left: 10px !important;
 }
+
+/* Chat bubble fixes */
+.container {
+    max-width: 80% !important;
+    margin: 10px 0 !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+    word-wrap: break-word !important;
+    overflow: hidden !important;
+}
+
+/* User question bubbles - align left, smaller size */
+.container:not(.darker) {
+    background-color: #f1f1f1 !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    max-width: 60% !important;
+}
+
+/* AI response bubbles - align right, contain canvas */
+.container.darker {
+    background-color: #04AA6D !important;
+    color: white !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 90% !important;
+    overflow: visible !important;
+}
+
+/* Fix canvas sizing within chat bubbles */
+.container.darker canvas {
+    max-width: 600px !important;
+    width: 600px !important;
+    height: 600px !important;
+    margin: 10px 0 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    display: block !important;
+}
+
+/* Fix pre text sizing in bubbles */
+.container pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    font-size: 14px !important;
+    margin: 5px 0 !important;
+}
+
+/* User question text styling */
+.container:not(.darker) pre {
+    color: black !important;
+    background: transparent !important;
+}
+
+/* AI response text styling */
+.container.darker pre {
+    color: white !important;
+    background: transparent !important;
+}
+
+/* Fix image alignment in bubbles */
+.container img {
+    vertical-align: top !important;
+    margin-right: 10px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Time stamps */
+.time-right, .time-left {
+    font-size: 11px !important;
+    color: #999 !important;
+    margin-top: 10px !important;
+    display: block !important;
+}
+
+.container.darker .time-left {
+    color: #ccc !important;
+}
+
+/* Canvas container for proper containment */
+.canvas-container {
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 10px auto !important;
+    padding: 10px !important;
+    background: white !important;
+    border-radius: 5px !important;
+    overflow: visible !important;
+    text-align: center !important;
+}
+
+.canvas-container canvas {
+    display: block !important;
+    margin: 0 auto !important;
+}
 </style>
 </head>
 <body>
@@ -242,7 +339,7 @@ Examples:
         var thumbsUpDownTxt = getThumpsUpDownHtml();
         var configJSONTxt = JSON.stringify(result['config'],null,2);
         result['config']['llmServiceURL'] = "/ask";
-        var responseTxt = '<div class="container darker"><img src="' + aiIconImg + '" alt="AI Assistant" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + '<br>Config: <span id="config_' + config_id + '">' + configJSONTxt + '</span></pre></p><canvas id="' + canvas_id + '" width="750" height="750"></canvas><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
+        var responseTxt = '<div class="container darker"><img src="' + aiIconImg + '" alt="AI Assistant" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + '<br>Config: <span id="config_' + config_id + '">' + configJSONTxt + '</span></pre></p><div class="canvas-container"><canvas id="' + canvas_id + '" width="600" height="600"></canvas></div><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
         $("#questions_and_answers").append(responseTxt);
         new CanvasXpress(canvas_id, result['data'], result['config']);
       } else {
