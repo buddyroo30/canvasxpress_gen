@@ -197,8 +197,8 @@ def constant_time_compare(a: str, b: str) -> bool:
 
 
 # SiteMinder configuration
-REDIRECT_URL = "http://smusauth.net.bms.com/rdproxy/redirect.cgi"
-VALIDATE_URL = "http://smusauth.net.bms.com/rdproxy/validate.cgi"
+REDIRECT_URL = "http://smusath.net.bms.com/rdproxy/redirect.cgi"
+VALIDATE_URL = "http://smusath.net.bms.com/rdproxy/validate.cgi"
 
 
 def getSMRedirectUrl(request) -> str:

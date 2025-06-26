@@ -166,9 +166,15 @@ class SupportedModels:
     
     @classmethod
     def get_model_by_name(cls, name: str) -> Optional[ModelConfig]:
-        """Get a model configuration by name."""
+        """Get a model configuration by name or alias."""
+        # First check by display name
         models = cls.get_all_models()
-        return models.get(name)
+        model = models.get(name)
+        if model:
+            return model
+        
+        # Then check by alias
+        return MODEL_ALIASES.get(name)
     
     @classmethod
     def get_models_by_provider(cls, provider: ModelProvider) -> Dict[str, ModelConfig]:

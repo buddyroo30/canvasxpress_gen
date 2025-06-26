@@ -21,11 +21,11 @@ from dotenv import load_dotenv
 from typing import Dict, Any, List, Optional, Tuple
 
 # Import our new modular components
-from canvasxpress_gen.llm import LLMService
-from canvasxpress_gen.rag import RetrievalService
-from canvasxpress_gen.utils import (
-    JSONSimilarity, ConfigValidator, 
-    read_json_file, empty, random_password,
+from src.canvasxpress_gen.llm import LLMService
+from src.canvasxpress_gen.rag import RetrievalService
+from src.canvasxpress_gen.utils import (
+    JSONSimilarity, ConfigValidator,
+    load_json_file, empty, random_password,
     clean_llm_response_text, parse_file,
     getSiteMinderUser, getSMRedirectUrl
 )
@@ -105,22 +105,33 @@ class CanvasXpressApp:
             # Load and validate LLM models
             llm_models_file = "/root/.cache/llm_models.json"
             if os.path.exists(llm_models_file):
-                self.llm_models = read_json_file(llm_models_file)
+                self.llm_models = load_json_file(llm_models_file)
                 self.llm_models_client = self._convert_model_data(self.llm_models)
             else:
                 print(f"LLM models file not found: {llm_models_file}")
                 print("Please generate the LLM models file first; exiting...")
                 sys.exit(1)
             
-            # Initialize RAG service
-            self.retrieval_service = RetrievalService()
-            if os.path.exists(self.docs_file) or os.path.exists(self.examples_file):
-                self.retrieval_service.initialize(
-                    docs_file=self.docs_file,
-                    examples_file=self.examples_file
+            # Initialize direct PyMilvus connection (same as vectorize_schema_few_shots.py)
+            from pymilvus import MilvusClient
+            from pymilvus.model.hybrid import BGEM3EmbeddingFunction
+            
+            self.vector_db_file = "/root/.cache/canvasxpress_llm_dev.db" if self.dev_flag else "/root/.cache/canvasxpress_llm.db"
+            
+            if os.path.exists(self.vector_db_file):
+                # Direct connection using same approach as vectorize_schema_few_shots.py
+                self.milvus_client = MilvusClient(self.vector_db_file)
+                self.bge_m3_ef = BGEM3EmbeddingFunction(
+                    model_name='BAAI/bge-m3',
+                    device='cpu',
+                    use_fp16=False
                 )
+                print(f"Direct PyMilvus connection established: {self.vector_db_file}")
+                self.retrieval_service = "direct_milvus"  # Flag for direct connection
             else:
-                print("Warning: RAG service could not be fully initialized - missing data files")
+                print(f"Warning: Vector database not found: {self.vector_db_file}")
+                print("Please run 'make build_vector_db' first")
+                self.retrieval_service = None
             
             print("Services initialized successfully")
             
@@ -134,9 +145,9 @@ class CanvasXpressApp:
         client_models = []
         for model_name, model_info in models.items():
             client_model = {
-                'name': model_name,
+                'value': model_name,  # JavaScript expects 'value' property
+                'text': model_info.get('description', model_name),  # JavaScript expects 'text' property
                 'type': model_info.get('type', 'unknown'),
-                'description': model_info.get('description', ''),
                 'provider': model_info.get('provider', 'unknown')
             }
             client_models.append(client_model)
@@ -202,44 +213,111 @@ class CanvasXpressApp:
             format_type = 'text'
         
         try:
-            if self.retrieval_service:
+            if self.retrieval_service == "direct_milvus" and hasattr(self, 'milvus_client'):
                 if num == 'all':
-                    # Get all examples
-                    examples = self.retrieval_service.schema_processor.few_shot_examples
-                    if format_type == 'json':
-                        return json.dumps([{
-                            'id': ex.id,
-                            'configEnglish': ex.config_english,
-                            'headers': ex.headers,
-                            'config': ex.config
-                        } for ex in examples])
-                    else:
-                        return '\n\n'.join([
-                            f"Example {ex.id}:\n{ex.config_english}\nConfig: {json.dumps(ex.config)}"
-                            for ex in examples
-                        ])
+                    # Get all examples using direct PyMilvus query
+                    return self._get_all_few_shots_direct(format_type)
                 else:
-                    # Get specific number of examples
+                    # Get specific number of examples using direct PyMilvus search
                     num_shots = int(num) if num else 5
-                    examples = self.retrieval_service.retrieve_examples(prompt, limit=num_shots)
-                    
-                    if format_type == 'json':
-                        return json.dumps([{
-                            'id': ex.id,
-                            'configEnglish': ex.config_english,
-                            'headers': ex.headers,
-                            'config': ex.config
-                        } for ex in examples])
-                    else:
-                        return '\n\n'.join([
-                            f"Example {ex.id}:\n{ex.config_english}\nConfig: {json.dumps(ex.config)}"
-                            for ex in examples
-                        ])
+                    return self._get_few_shots_direct(prompt, num_shots, filter_prompt, format_type)
             else:
                 return "RAG service not available"
                 
         except Exception as e:
             return f"Error retrieving few-shot examples: {str(e)}"
+    
+    def _get_all_few_shots_direct(self, format_type: str = 'text') -> str:
+        """Get all few-shot examples using direct PyMilvus query."""
+        try:
+            all_res = self.milvus_client.query(
+                "few_shot_examples",
+                filter="id >= 0",
+                output_fields=["config", "configEnglish", "headers", "id"]
+            )
+            
+            few_shot_txt = ""
+            few_shot_obj = []
+            
+            for hit in all_res:
+                cur_config = hit['config'].replace("\n", " ")
+                cur_english_config = hit['configEnglish'].replace("\n", " ")
+                cur_headers_column_names = hit['headers'].replace("\n", " ")
+                
+                if format_type == 'text':
+                    few_shot_txt += f"English Text: {cur_english_config}; Headers/Column Names: {cur_headers_column_names}, Answer: {cur_config}\n"
+                elif format_type == 'json':
+                    cur_rec = {
+                        'English Text': cur_english_config,
+                        'Headers/Column Names': cur_headers_column_names,
+                        'Answer': cur_config
+                    }
+                    few_shot_obj.append(cur_rec)
+            
+            if format_type == 'json':
+                return json.dumps(few_shot_obj)
+            
+            return few_shot_txt
+            
+        except Exception as e:
+            raise Exception(f"Failed to get all few-shot examples: {e}")
+    
+    def _get_few_shots_direct(self, prompt: str, num_few_shots: int = 25, filter_prompt: bool = False, format_type: str = 'text') -> str:
+        """Get few-shot examples using direct PyMilvus search."""
+        try:
+            in_num_few_shots = num_few_shots
+            if filter_prompt:
+                num_few_shots = num_few_shots + 1
+            
+            prompt = prompt.replace("\n", " ")
+            queries = [prompt]
+            
+            # Encode query using BGE-M3
+            query_embeddings = self.bge_m3_ef.encode_queries(queries)
+            
+            # Search in PyMilvus
+            res = self.milvus_client.search(
+                collection_name="few_shot_examples",
+                data=[query_embeddings["dense"][0]],
+                limit=num_few_shots,
+                output_fields=["config", "configEnglish", "headers", "id"],
+            )
+            
+            few_shot_txt = ""
+            few_shot_obj = []
+            few_shots_ct = 0
+            
+            for hits in res:
+                for hit in hits:
+                    if few_shots_ct < in_num_few_shots:
+                        cur_config = hit['entity']['config'].replace("\n", " ")
+                        cur_english_config = hit['entity']['configEnglish'].replace("\n", " ")
+                        
+                        # Filter out the exact prompt if requested
+                        if filter_prompt and prompt == cur_english_config:
+                            continue
+                            
+                        cur_headers_column_names = hit['entity']['headers'].replace("\n", " ")
+                        
+                        if format_type == 'text':
+                            few_shot_txt += f"English Text: {cur_english_config}; Headers/Column Names: {cur_headers_column_names}, Answer: {cur_config}\n"
+                        elif format_type == 'json':
+                            cur_rec = {
+                                'English Text': cur_english_config,
+                                'Headers/Column Names': cur_headers_column_names,
+                                'Answer': cur_config
+                            }
+                            few_shot_obj.append(cur_rec)
+                        
+                        few_shots_ct += 1
+            
+            if format_type == 'json':
+                return json.dumps(few_shot_obj)
+            
+            return few_shot_txt
+            
+        except Exception as e:
+            raise Exception(f"Failed to get few-shot examples: {e}")
     
     def _ask(self) -> str:
         """Main CanvasXpress generation route."""
@@ -361,41 +439,44 @@ class CanvasXpressApp:
         return None
     
     def _generate_canvasxpress_config(self, request_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Generate CanvasXpress configuration using LLM and RAG."""
+        """Generate CanvasXpress configuration using LLM and direct PyMilvus RAG."""
         start_time = time.time()
         
         try:
-            # Get context from RAG system
-            context = ""
-            if self.retrieval_service:
-                retrieval_result = self.retrieval_service.retrieve(
-                    query=request_data['prompt'],
-                    limit=request_data['num_few_shots']
+            # Get few-shot examples using direct PyMilvus retrieval
+            few_shot_examples = ""
+            if self.retrieval_service == "direct_milvus" and hasattr(self, 'milvus_client'):
+                few_shot_examples = self._get_few_shots_direct(
+                    request_data['prompt'],
+                    request_data['num_few_shots'],
+                    request_data['filter_prompt_from_few_shots'],
+                    'text'
                 )
-                context = retrieval_result.context
+            
+            # Load schema information
+            with open(self.schema_info_file, 'r') as f:
+                schema_info = f.read()
             
             # Generate configuration using LLM service
-            config_result = self.llm_service.generate_json_config(
-                user_prompt=request_data['prompt'],
-                data_headers=request_data['header_row'],
-                model_name=request_data['model'],
-                context=context,
-                temperature=request_data['temperature'],
-                max_tokens=request_data['max_new_tokens'],
-                top_p=request_data['topp']
-            )
-            
-            if not config_result.success:
+            try:
+                config_dict = self.llm_service.generate_json_config(
+                    prompt=request_data['prompt'],
+                    schema_info=schema_info,
+                    few_shot_examples=few_shot_examples,
+                    model=request_data['model']
+                )
+                
+                # Validate the generated configuration
+                if not self.config_validator.validate_config(config_dict):
+                    return {
+                        'text': f"Error: Generated configuration is invalid",
+                        'success': False,
+                        'config_generated_flag': False
+                    }
+                
+            except Exception as e:
                 return {
-                    'text': f"Error: {config_result.error}",
-                    'success': False,
-                    'config_generated_flag': False
-                }
-            
-            # Validate the generated configuration
-            if not self.config_validator.validate_config(config_result.config):
-                return {
-                    'text': f"Error: Generated configuration is invalid",
+                    'text': f"Error generating configuration: {str(e)}",
                     'success': False,
                     'config_generated_flag': False
                 }
@@ -405,7 +486,7 @@ class CanvasXpressApp:
             
             response = {
                 'success': True,
-                'config': config_result.config,
+                'config': config_dict,
                 'config_generated_flag': True,
                 'total_time_taken': generation_time,
                 'prompt': request_data['orig_prompt'],
