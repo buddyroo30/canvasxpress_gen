@@ -99,6 +99,16 @@ docker run --rm canvasxpress-test python -m pytest tests/ -v
 
 ## 📖 How It Works
 
+The CanvasXpress Generation System is a **standalone service** that generates CanvasXpress configurations from natural language descriptions. It works in conjunction with the main CanvasXpress library but operates independently.
+
+### 🔗 Relationship to CanvasXpress
+
+- **This Repository**: Contains the LLM-powered generation system that creates CanvasXpress configurations from text descriptions
+- **Main CanvasXpress**: The guided autocomplete/copilot features described in the JOSS paper are part of the main CanvasXpress library at [github.com/neuhausi/canvasXpress](https://github.com/neuhausi/canvasXpress)
+- **Integration**: This generation system can be integrated with CanvasXpress to provide natural language visualization creation capabilities
+
+### 🛠️ System Architecture
+
 The CanvasXpress Generation System combines several advanced technologies:
 
 ### 🧠 **LLM Integration**

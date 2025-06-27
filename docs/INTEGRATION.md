@@ -94,6 +94,16 @@ Less effective prompts:
 
 ## Overview
 
+The CanvasXpress Generation System is a **standalone service** that generates CanvasXpress configurations from natural language descriptions. It is designed to work with the main CanvasXpress library but operates as an independent system.
+
+### System Relationship
+
+- **This Generation System**: Provides LLM-powered natural language to CanvasXpress configuration conversion
+- **Main CanvasXpress Library**: The guided autocomplete/copilot features mentioned in the JOSS paper are part of the main CanvasXpress library ([github.com/neuhausi/canvasXpress](https://github.com/neuhausi/canvasXpress))
+- **Complementary Functionality**: This system generates configurations that are consumed by CanvasXpress visualizations
+
+### Integration Patterns
+
 The CanvasXpress Generation System can be integrated with CanvasXpress in several ways:
 
 1. **Direct Integration**: CanvasXpress automatically calls your API service
