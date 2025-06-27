@@ -10,32 +10,261 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='loading_spinner.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='thumbsupdown.css') }}">
 <style>
+/* CanvasXpress.org Styling */
+@import url(https://rsms.me/inter/inter.css);
+
+/* Add CanvasXpress.org gradient top border */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ffaa4f, #ff6f6f 50%, #00b4df);
+    z-index: 1000;
+}
+
+/* CanvasXpress.org Typography and Base Styles */
+html {
+    font-family: Inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: "Inter UI", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: #fff !important;
+    color: #495057 !important;
+    margin: 0;
+    padding-top: 3px; /* Account for gradient border */
+}
+
+/* CanvasXpress.org Header Styling */
+#main h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #2f2f2f;
+    margin-bottom: 1rem;
+}
+
+#main h5 {
+    font-size: 1.1rem;
+    color: #6e747f;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* CanvasXpress.org Button Styling */
+input[type="submit"] {
+    background-color: #5369ff !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    border-radius: 0.375rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease-in-out !important;
+    font-family: inherit !important;
+}
+
+input[type="submit"]:hover {
+    background-color: #2d48ff !important;
+}
+
+/* CanvasXpress.org Textarea Styling */
+#question {
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.375rem !important;
+    padding: 0.75rem !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    color: #495057 !important;
+    background-color: #fff !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+    width: 100% !important;
+    resize: vertical !important;
+}
+
+#question:focus {
+    border-color: #5369ff !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba(83, 105, 255, 0.25) !important;
+}
+
+/* CanvasXpress.org File Upload Styling */
+input[type="file"] {
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.375rem !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    color: #495057 !important;
+    background-color: #fff !important;
+    width: 100% !important;
+}
+
+/* CanvasXpress.org Hamburger Icon Styling */
+.openbtn {
+    background-color: #5369ff !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem !important;
+    font-size: 1.25rem !important;
+    cursor: pointer !important;
+    border-radius: 0.375rem !important;
+    transition: background-color 0.15s ease-in-out !important;
+    font-family: inherit !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.openbtn:hover {
+    background-color: #2d48ff !important;
+}
+
+/* CanvasXpress.org Sidebar Styling */
+.sidebar {
+    background-color: #fff !important;
+    border-right: 1px solid #dee2e6 !important;
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,.08) !important;
+}
+
+.sidebar a {
+    color: #e9ecef !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: color 0.15s ease-in-out !important;
+    padding: 0.75rem 1rem !important;
+    display: block !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.sidebar a:hover {
+    color: #ffffff !important;
+    background-color: rgba(255,255,255,0.1) !important;
+}
+
+.sidebar .closebtn {
+    color: #ffffff !important;
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    padding: 0.5rem 1rem !important;
+    background-color: rgba(255,255,255,0.1) !important;
+    border-radius: 0.375rem !important;
+    margin: 0.5rem !important;
+    text-align: center !important;
+    display: block !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    line-height: 2rem !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+.sidebar .closebtn:hover {
+    color: #ffffff !important;
+    background-color: rgba(255,255,255,0.2) !important;
+    transform: scale(1.05) !important;
+}
+
+/* CanvasXpress.org Settings Table Styling */
+#settings_table {
+    background: #fff !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.375rem !important;
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+}
+
+#settings_table td {
+    padding: 0.5rem !important;
+    color: #495057 !important;
+    font-weight: 500 !important;
+}
+
 /* Force range sliders to be visible and styled */
 #settings_table input[type="range"] {
     width: 150px !important;
-    height: 20px !important;
+    height: 1.4rem !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    background: #ddd !important;
+    background: transparent !important;
     outline: none !important;
-    -webkit-appearance: slider-horizontal !important;
-    appearance: auto !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
     margin: 5px 0 !important;
 }
 
-/* Fix select dropdown styling */
+/* CanvasXpress.org Range Slider Track Styling */
+#settings_table input[type="range"]::-webkit-slider-track {
+    width: 100%;
+    height: 0.5rem;
+    cursor: pointer;
+    background: #6c757d;
+    border-radius: 0.25rem;
+    border: 1px solid #495057;
+}
+
+#settings_table input[type="range"]::-webkit-slider-thumb {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    background: #5369ff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -0.35rem;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#settings_table input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 0.5rem;
+    cursor: pointer;
+    background: #6c757d;
+    border-radius: 0.25rem;
+    border: 1px solid #495057;
+}
+
+#settings_table input[type="range"]::-moz-range-thumb {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    background: #5369ff;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* CanvasXpress.org Select Dropdown Styling */
 #settings_model {
     width: 200px !important;
-    height: 30px !important;
+    height: calc(2.375rem + 2px) !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    background: white !important;
-    color: black !important;
-    border: 1px solid #ccc !important;
-    padding: 5px !important;
-    font-size: 14px !important;
+    background: #fff !important;
+    color: #495057 !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.375rem !important;
+    padding: 0.375rem 0.75rem !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+#settings_model:focus {
+    border-color: #5369ff !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba(83, 105, 255, 0.25) !important;
 }
 
 #settings_model option {
@@ -67,32 +296,36 @@
     margin-left: 10px !important;
 }
 
-/* Chat bubble fixes */
+/* CanvasXpress.org Chat Bubble Styling */
 .container {
     max-width: 80% !important;
-    margin: 10px 0 !important;
-    padding: 15px !important;
-    border-radius: 10px !important;
+    margin: 1rem 0 !important;
+    padding: 1.5rem !important;
+    border-radius: 0.625rem !important;
     word-wrap: break-word !important;
     overflow: hidden !important;
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,.08) !important;
 }
 
-/* User question bubbles - align left, smaller size */
+/* User question bubbles - CanvasXpress.org styling */
 .container:not(.darker) {
-    background-color: #f1f1f1 !important;
+    background-color: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    color: #495057 !important;
     margin-left: 0 !important;
     margin-right: auto !important;
     max-width: 60% !important;
 }
 
-/* AI response bubbles - align right, contain canvas */
+/* AI response bubbles - CanvasXpress.org primary color */
 .container.darker {
-    background-color: #04AA6D !important;
+    background-color: #5369ff !important;
     color: white !important;
     margin-left: auto !important;
     margin-right: 0 !important;
     max-width: 90% !important;
     overflow: visible !important;
+    border: 1px solid #5369ff !important;
 }
 
 /* Fix canvas sizing within chat bubbles */
@@ -184,19 +417,22 @@
 }
 
 .copy-config-btn {
-    background: rgba(255,255,255,0.9) !important;
-    color: #04AA6D !important;
-    border: 1px solid rgba(255,255,255,0.3) !important;
-    padding: 4px 8px !important;
-    border-radius: 3px !important;
-    font-size: 11px !important;
+    background: rgba(255,255,255,0.95) !important;
+    color: #5369ff !important;
+    border: 1px solid rgba(255,255,255,0.8) !important;
+    padding: 0.375rem 0.75rem !important;
+    border-radius: 0.375rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
     cursor: pointer !important;
-    font-weight: bold !important;
+    transition: all 0.15s ease-in-out !important;
+    font-family: inherit !important;
 }
 
 .copy-config-btn:hover {
     background: white !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,.15) !important;
+    transform: translateY(-1px) !important;
 }
 
 .like, .dislike {
@@ -268,7 +504,6 @@
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a id="new_chat" href="#">New Chat</a>
   <a id="settings" href="#">Settings</a><table id='settings_table' style="display:none;">
     <tr><td>Model:</td><td><select id="settings_model"></select></td></tr>
     <tr><td>Max New Tokens:</td><td><input type="range" id="settings_max_new_tokens" name="settings_max_new_tokens" max="2048" min="10"></input></td><td><span id="settings_max_new_tokens_show" style="font-size:small;"></span></td></tr>
@@ -284,7 +519,7 @@
 </div>
 
 <div id="main">
-<button class="openbtn" onclick="openNav()">☰</button>
+<button class="openbtn" onclick="openNav()">&#9776;</button>
 
 <center><h2>CanvasXpress AI Assistant</h2><h5>Generate beautiful data visualizations by describing what you want in plain English. Upload your data and let AI create the perfect CanvasXpress configuration.</h5></center>
 
@@ -319,7 +554,7 @@ Examples:
 
   var thumbsCt = 0;
 
-  var models_arr = {{ models_arr|tojson|safe }};
+  var models_arr = JSON.parse('{{ models_arr|tojson|safe }}');
 
   function openNav() {
     document.getElementById("mySidebar").style.width = "400px";
