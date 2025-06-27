@@ -59,6 +59,18 @@ A comprehensive system that enables users to create sophisticated scientific vis
    make exit
    ```
 
+## 🖥️ Demo Web Interface
+
+The system includes a user-friendly web demo interface for quick experimentation:
+
+- **Access**: Navigate to `http://localhost:5008` (or `http://localhost:5009` for dev)
+- **Features**: Interactive chat interface, file upload, parameter controls, and real-time visualization generation
+- **No Programming Required**: Simply describe your visualization in natural language
+- **Professional UI**: CanvasXpress.org branded interface with export functionality
+- **Port Customization**: You can change the default ports by editing the `Makefile`
+
+For detailed usage instructions and screenshots, see the [Demo Web Interface section](docs/INTEGRATION.md#demo-web-interface) in the Integration Guide.
+
 ### Development Environment
 
 For development work, use the `_dev` versions of all commands:

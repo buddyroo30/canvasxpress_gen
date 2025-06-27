@@ -4,6 +4,7 @@ This guide provides detailed instructions for integrating the CanvasXpress Gener
 
 ## Table of Contents
 
+- [Demo Web Interface](#demo-web-interface)
 - [Overview](#overview)
 - [Quick Integration](#quick-integration)
 - [Configuration Options](#configuration-options)
@@ -11,6 +12,85 @@ This guide provides detailed instructions for integrating the CanvasXpress Gener
 - [Enterprise Deployment](#enterprise-deployment)
 - [Troubleshooting](#troubleshooting)
 - [Advanced Examples](#advanced-examples)
+
+## Demo Web Interface
+
+The CanvasXpress Generation System includes a user-friendly web demo interface that allows users to quickly try out the system without any programming knowledge. This interface provides an intuitive way to generate CanvasXpress visualizations using natural language descriptions.
+
+### Accessing the Demo
+
+The demo interface is available when running the system locally:
+
+```bash
+# Start the system
+make build
+make build_schema_context
+make build_vector_db
+make run
+
+# Access the demo at:
+# http://localhost:5008 (production)
+# http://localhost:5009 (development - use make run_dev)
+```
+
+**Note**: You can customize the default ports by editing the `Makefile` if needed.
+
+### Demo Features
+
+- **Natural Language Input**: Describe your desired visualization in plain English
+- **File Upload Support**: Upload CSV, TSV, TXT, or JSON data files
+- **Interactive Chat Interface**: Conversational interface with AI assistant
+- **Real-time Visualization**: Immediate CanvasXpress chart generation
+- **Parameter Controls**: Adjust LLM settings (temperature, tokens, etc.)
+- **Professional Styling**: CanvasXpress.org branded interface
+- **Export Functionality**: Copy generated configurations for use in your applications
+
+### Using the Demo
+
+1. **Upload Your Data**: Click "Choose File" to upload your dataset (CSV, TSV, TXT, or JSON format)
+2. **Describe Your Visualization**: Type a natural language description like:
+   - "Create a bar chart showing sales by region"
+   - "Make a scatter plot of height vs weight with correlation"
+   - "Generate a heatmap of gene expression data with clustering"
+3. **Adjust Settings**: Use the sidebar to configure:
+   - LLM model selection
+   - Temperature (creativity level)
+   - Max tokens (response length)
+   - Top P, Top K, and penalty parameters
+4. **Generate**: Click "Ask" to generate your visualization
+5. **Copy Configuration**: Use the "Copy Config" button to get the JSON configuration for your own applications
+
+### Demo Interface Components
+
+- **Main Chat Area**: Interactive conversation with the AI assistant
+- **File Upload Section**: Drag-and-drop or click to upload data files
+- **Settings Sidebar**: Configure LLM parameters and model selection
+- **Control Buttons**: Ask, Clear Chat, and Clear All functionality
+- **Responsive Design**: Works on desktop and mobile devices
+
+### Example Prompts
+
+The demo works best with clear, descriptive prompts:
+
+```
+Good prompts:
+- "Interactive bar chart with hover tooltips showing quarterly sales data"
+- "Scatter plot with regression line comparing temperature and humidity"
+- "Clustered heatmap of gene expression with dendrograms"
+- "Multi-series line chart showing stock prices over time"
+
+Less effective prompts:
+- "Make a chart"
+- "Visualize this"
+- "Show me the data"
+```
+
+### Technical Notes
+
+- The demo uses the same API endpoints as the integration examples below
+- Generated configurations can be directly used in production CanvasXpress applications
+- The interface includes error handling and user feedback for failed generations
+- All processing happens server-side; no data is stored permanently
 
 ## Overview
 
