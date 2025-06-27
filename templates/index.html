@@ -147,21 +147,112 @@
     color: #ccc !important;
 }
 
+/* Copy Config button at top */
+.copy-config-top {
+    position: absolute !important;
+    top: 10px !important;
+    left: 15px !important;
+    z-index: 10 !important;
+}
+
+/* Bottom row with timestamp and thumbs */
+.bottom-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+/* Thumbs buttons at bottom */
+.thumbs-bottom {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+/* Make container relative for absolute positioning */
+.container.darker {
+    background-color: #04AA6D !important;
+    color: white !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 90% !important;
+    overflow: visible !important;
+    position: relative !important;
+}
+
+.copy-config-btn {
+    background: rgba(255,255,255,0.9) !important;
+    color: #04AA6D !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    padding: 4px 8px !important;
+    border-radius: 3px !important;
+    font-size: 11px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+}
+
+.copy-config-btn:hover {
+    background: white !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+.like, .dislike {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    display: inline-block !important;
+    cursor: pointer !important;
+}
+
+.grow {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    vertical-align: middle !important;
+}
+
+.grow:hover {
+    opacity: 0.7 !important;
+}
+
+/* Fix FontAwesome icons in thumbs buttons */
+.like i, .dislike i {
+    color: white !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    display: block !important;
+    line-height: 1 !important;
+}
+
 /* Canvas container for proper containment */
 .canvas-container {
     width: 100% !important;
     max-width: 620px !important;
+    height: 620px !important;
     margin: 10px auto !important;
     padding: 10px !important;
     background: white !important;
     border-radius: 5px !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     text-align: center !important;
+    position: relative !important;
 }
 
 .canvas-container canvas {
     display: block !important;
     margin: 0 auto !important;
+    max-width: 600px !important;
+    max-height: 600px !important;
 }
 </style>
 </head>
@@ -257,11 +348,14 @@ Examples:
   }
 
   function getThumpsUpDownHtml () {
-
     curId = thumbsCt++;
-    thumbsUpDown = '<div class="rating"><!-- Copy Config Button --><button class="copy-config-btn" onclick="copyConfig(' + curId + ')"><i class="fa fa-copy" aria-hidden="true"></i> Copy Config</button><!-- Thumbs up --><div class="like grow"><i id="like_' + curId + '" class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i></div><!-- Thumbs down --><div class="dislike grow"><i id="dislike_' + curId + '" class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i></div></div>';
+    // Just return the thumbs buttons for bottom placement
+    thumbsUpDown = '<div class="thumbs-bottom"><div class="like grow"><i id="like_' + curId + '" class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i></div><div class="dislike grow"><i id="dislike_' + curId + '" class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i></div></div>';
     return(thumbsUpDown);
+  }
 
+  function getCopyConfigHtml(configId) {
+    return '<div class="copy-config-top"><button class="copy-config-btn" onclick="copyConfig(' + configId + ')"><i class="fa fa-copy" aria-hidden="true"></i> Copy Config</button></div>';
   }
 
   function copyConfig(configId) {
@@ -339,7 +433,8 @@ Examples:
         var thumbsUpDownTxt = getThumpsUpDownHtml();
         var configJSONTxt = JSON.stringify(result['config'],null,2);
         result['config']['llmServiceURL'] = "/ask";
-        var responseTxt = '<div class="container darker"><img src="' + aiIconImg + '" alt="AI Assistant" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + '<br>Config: <span id="config_' + config_id + '">' + configJSONTxt + '</span></pre></p><div class="canvas-container"><canvas id="' + canvas_id + '" width="600" height="600"></canvas></div><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
+        var copyConfigHtml = getCopyConfigHtml(config_id);
+        var responseTxt = '<div class="container darker"><img src="' + aiIconImg + '" alt="AI Assistant" class="right" style="width:40px;height:40px;">' + copyConfigHtml + '<p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + '<br>Config: <span id="config_' + config_id + '">' + configJSONTxt + '</span></pre></p><div class="canvas-container"><canvas id="' + canvas_id + '" width="600" height="600"></canvas></div><div class="bottom-row"><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div></div>';
         $("#questions_and_answers").append(responseTxt);
         new CanvasXpress(canvas_id, result['data'], result['config']);
       } else {
