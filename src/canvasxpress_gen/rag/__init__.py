@@ -6,14 +6,20 @@ functionality for enhancing LLM responses with relevant context from CanvasXpres
 documentation and few-shot examples.
 """
 
-from .embedding_service import EmbeddingService
-from .vector_store import VectorStore
-from .retrieval_service import RetrievalService
-from .schema_processor import SchemaProcessor
+from .embedding_service import EmbeddingService, EmbeddingConfig
+from .vector_store import VectorStore, VectorStoreConfig, SearchResult
+from .retrieval_service import RetrievalService, RetrievalConfig
+from .schema_processor import SchemaProcessor, SchemaField, FewShotExample
 
 __all__ = [
     'EmbeddingService',
-    'VectorStore', 
+    'EmbeddingConfig',
+    'VectorStore',
+    'VectorStoreConfig',
+    'SearchResult',
     'RetrievalService',
-    'SchemaProcessor'
+    'RetrievalConfig',
+    'SchemaProcessor',
+    'SchemaField',
+    'FewShotExample'
 ]
