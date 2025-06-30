@@ -219,7 +219,8 @@ class CanvasXpressApp:
                     return self._get_all_few_shots_direct(format_type)
                 else:
                     # Get specific number of examples using direct PyMilvus search
-                    num_shots = int(num) if num else 5
+                    # Use environment variable default if no specific number provided
+                    num_shots = int(num) if num else int(os.getenv('NUM_FEW_SHOTS', 5))
                     return self._get_few_shots_direct(prompt, num_shots, filter_prompt, format_type)
             else:
                 return "RAG service not available"
@@ -262,9 +263,13 @@ class CanvasXpressApp:
         except Exception as e:
             raise Exception(f"Failed to get all few-shot examples: {e}")
     
-    def _get_few_shots_direct(self, prompt: str, num_few_shots: int = 25, filter_prompt: bool = False, format_type: str = 'text') -> str:
+    def _get_few_shots_direct(self, prompt: str, num_few_shots: int = None, filter_prompt: bool = False, format_type: str = 'text') -> str:
         """Get few-shot examples using direct PyMilvus search."""
         try:
+            # Use environment variable if num_few_shots not specified
+            if num_few_shots is None:
+                num_few_shots = int(os.getenv('NUM_FEW_SHOTS', 25))
+            
             in_num_few_shots = num_few_shots
             if filter_prompt:
                 num_few_shots = num_few_shots + 1
@@ -446,9 +451,14 @@ class CanvasXpressApp:
             # Get few-shot examples using direct PyMilvus retrieval
             few_shot_examples = ""
             if self.retrieval_service == "direct_milvus" and hasattr(self, 'milvus_client'):
+                # Use environment variable if num_few_shots not provided in request
+                num_shots = request_data.get('num_few_shots')
+                if num_shots is None:
+                    num_shots = int(os.getenv('NUM_FEW_SHOTS', 25))
+                
                 few_shot_examples = self._get_few_shots_direct(
                     request_data['prompt'],
-                    request_data['num_few_shots'],
+                    num_shots,
                     request_data['filter_prompt_from_few_shots'],
                     'text'
                 )
