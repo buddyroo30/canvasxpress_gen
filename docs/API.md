@@ -31,7 +31,7 @@ The CanvasXpress Generation System provides a RESTful API that enables applicati
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │   Client App    │───▶│  Flask API       │───▶│  LLM Service    │
-│                 │    │  (app.py)        │    │                 │
+│                 │    │(app_refactored.py)│    │                 │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
                               │                          │
                               ▼                          ▼
@@ -126,7 +126,7 @@ curl -X GET http://localhost:5008/
 | `topp` | float | No | Top-p sampling parameter (default: 1.0) |
 | `presence_penalty` | float | No | Presence penalty (default: 0.0) |
 | `frequency_penalty` | float | No | Frequency penalty (default: 0.0) |
-| `num_few_shots` | integer | No | Number of few-shot examples (default: 25) |
+| `num_few_shots` | integer | No | Number of few-shot examples (default: 25, configurable via NUM_FEW_SHOTS env var) |
 | `filter_prompt_from_few_shots` | boolean | No | Filter prompt from examples (default: false) |
 | `config_only` | boolean | No | Return only config without data (default: false) |
 | `callback` | string | No | JSONP callback function name |

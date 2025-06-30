@@ -49,6 +49,10 @@ The CanvasXpress Generation System is a tool for generating CanvasXpress visuali
    GOOGLE_API_KEY=your_google_api_key
    AZURE_OPENAI_API_KEY=your_azure_openai_key
    AZURE_OPENAI_ENDPOINT=your_azure_endpoint
+   
+   # RAG Configuration
+   NUM_FEW_SHOTS=25  # Number of few-shot examples to retrieve
+   AZURE_OPENAI_ENDPOINT=your_azure_endpoint
    AZURE_OPENAI_API_VERSION=2024-02-01
    ```
 
@@ -238,6 +242,9 @@ For feature requests, please provide:
 ### Documentation
 
 - **README.md**: Basic setup and usage instructions
+- **TESTING.md**: Comprehensive testing guide with 85+ automated tests
+- **docs/INTEGRATION.md**: Integration guide with CanvasXpress
+- **docs/API.md**: Complete API documentation
 - **Paper**: Academic paper describing the system (in `paper/` directory)
 - **Code comments**: Inline documentation in the source code
 
