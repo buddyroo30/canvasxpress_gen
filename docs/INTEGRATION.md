@@ -215,7 +215,7 @@ var config = {
         temperature: 0.1,                 // Generation randomness (0.0-1.0)
         maxTokens: 1024,                  // Maximum response length
         topP: 0.9,                        // Nucleus sampling parameter
-        numFewShots: 25,                  // Number of examples to use
+        numFewShots: 25,                  // Number of examples to use (configurable via NUM_FEW_SHOTS env var)
         filterPrompt: true,               // Filter prompt from examples
         configOnly: false                 // Return only config (no data)
     },
