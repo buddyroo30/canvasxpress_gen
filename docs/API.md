@@ -31,7 +31,7 @@ The CanvasXpress Generation System provides a RESTful API that enables applicati
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │   Client App    │───▶│  Flask API       │───▶│  LLM Service    │
-│                 │    │(app_refactored.py)│    │                 │
+│                 │    │    (app.py)      │    │                 │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
                               │                          │
                               ▼                          ▼

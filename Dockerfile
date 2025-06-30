@@ -16,5 +16,5 @@ RUN if [ "$INSTALL_DEV" = "true" ] ; then pip3 install -r requirements-dev.txt ;
 
 RUN pip3 install -e .
 EXPOSE 5000
-CMD python app_refactored.py
+CMD python app.py
 

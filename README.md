@@ -217,7 +217,7 @@ export AWS_DEFAULT_REGION=us-east-1
 
 ### System Components
 
-#### **Flask Application** (`app_refactored.py`)
+#### **Flask Application** (`app.py`)
 - Modern class-based architecture
 - RESTful API endpoints
 - Comprehensive error handling
