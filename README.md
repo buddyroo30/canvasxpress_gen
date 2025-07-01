@@ -42,7 +42,7 @@ make run                     # Run as daemon (or 'make runi' for interactive)
 - *"Scatter plot of hwy vs cty colored by drv"*
 - *"Area graph of hwy with title 'Highway MPG Distribution'"*
 
-**Note**: This web interface is for development and testing. The production interface is integrated directly into CanvasXpress.
+**Note**: This web interface is a quick and easy way to see the system in action and confirm it's working. The production interface is integrated directly into CanvasXpress.
 
 ## 🔗 Connecting to CanvasXpress
 
