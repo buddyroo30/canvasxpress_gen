@@ -1,229 +1,134 @@
 # Contributing to CanvasXpress Generation System
 
-Thank you for your interest in contributing to the CanvasXpress Generation System! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing! This guide provides information about how others can contribute to the project, report issues, and seek support.
 
-## Table of Contents
-
-- [Getting Started](#getting-started)
-- [Development Setup](#development-setup)
-- [How to Contribute](#how-to-contribute)
-- [Code Style Guidelines](#code-style-guidelines)
-- [Testing](#testing)
-- [Submitting Changes](#submitting-changes)
-- [Reporting Issues](#reporting-issues)
-- [Getting Help](#getting-help)
-
-## Getting Started
-
-The CanvasXpress Generation System is a tool for generating CanvasXpress visualizations from natural language descriptions using Large Language Models (LLMs) and guided autocomplete.
+## 🚀 Quick Setup
 
 ### Prerequisites
+- Python 3.8+, Docker, Git
+- LLM API access (OpenAI, Google, AWS Bedrock, or Ollama)
 
-- Python 3.8 or higher
-- Docker (for containerized deployment)
-- Git
-- Access to LLM providers (OpenAI, Google, AWS Bedrock, or Ollama)
+### Development Environment
+```bash
+git clone https://github.com/buddyroo30/canvasxpress_gen.git
+cd canvasxpress_gen
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
 
-## Development Setup
+# Set up environment
+cp .env.example .env  # Add your API keys
+make build_dev
+make build_vector_db_dev
+make run_dev  # Runs on port 5009
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/buddyroo30/canvasxpress_gen.git
-   cd canvasxpress_gen
-   ```
+## 🤝 How to Contribute
 
-2. **Create a virtual environment:**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+### 1. Contributing to the Software
 
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+**Types of Contributions:**
+- Bug fixes and issue resolution
+- Feature enhancements and new functionality
+- Documentation improvements
+- Test coverage expansion
+- Performance optimizations
+- Few-shot examples for improved LLM accuracy
 
-4. **Set up environment variables:**
-   Create a `.env` file with your API keys:
-   ```
-   GOOGLE_API_KEY=your_google_api_key
-   AZURE_OPENAI_API_KEY=your_azure_openai_key
-   AZURE_OPENAI_ENDPOINT=your_azure_endpoint
-   
-   # RAG Configuration
-   NUM_FEW_SHOTS=25  # Number of few-shot examples to retrieve
-   AZURE_OPENAI_ENDPOINT=your_azure_endpoint
-   AZURE_OPENAI_API_VERSION=2024-02-01
-   ```
-
-5. **Build the vector database:**
-   ```bash
-   make build_vector_db
-   make build_schema_context
-   ```
-
-## How to Contribute
-
-### Types of Contributions
-
-We welcome several types of contributions:
-
-- **Bug fixes**: Fix issues in the codebase
-- **Feature enhancements**: Add new functionality
-- **Documentation improvements**: Enhance README, code comments, or guides
-- **Test coverage**: Add unit tests or integration tests
-- **Performance optimizations**: Improve system efficiency
-- **Few-shot examples**: Add new training examples for better LLM performance
-
-### Contribution Process
-
-1. **Fork the repository** on GitHub
-2. **Create a feature branch** from the main branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Make your changes** following our coding standards
+**Contribution Process:**
+1. **Fork** the repository on GitHub
+2. **Create branch**: `git checkout -b feature/your-feature`
+3. **Make changes** following our coding standards
 4. **Add tests** for new functionality
-5. **Update documentation** as needed
-6. **Test your changes** thoroughly
-7. **Submit a pull request**
+5. **Run tests**: `python -m pytest`
+6. **Submit PR** with clear description
 
-## Code Style Guidelines
+### 2. Code Standards
 
-### Python Code Style
-
-- Follow [PEP 8](https://pep8.org/) style guidelines
-- Use meaningful variable and function names
-- Add docstrings to all functions and classes
-- Keep functions focused and concise
-- Use type hints where appropriate
-
-### Example:
+Follow Python packaging standards and best practices:
 
 ```python
-def generate_config(prompt: str, model: str = "gpt-4") -> dict:
-    """
-    Generate CanvasXpress configuration from natural language prompt.
+def generate_config(prompt: str, model: str = "gpt-4o") -> dict:
+    """Generate CanvasXpress config from natural language.
     
     Args:
-        prompt: Natural language description of desired visualization
-        model: LLM model to use for generation
+        prompt: Description like "box plot of cty grouped by manufacturer"
+        model: LLM model to use
         
     Returns:
-        Dictionary containing CanvasXpress configuration
-        
-    Raises:
-        ValueError: If prompt is empty or invalid
+        CanvasXpress configuration dictionary
     """
     if not prompt.strip():
         raise ValueError("Prompt cannot be empty")
-    
-    # Implementation here
     return config
 ```
 
-### File Organization
+**Standards:**
+- Follow [PEP 8](https://pep8.org/) style guidelines
+- Add docstrings to functions and classes
+- Use type hints where appropriate
+- Keep functions focused and concise
 
-- Place new modules in appropriate directories under `src/canvasxpress_gen/`
-- Keep related functionality together
-- Use clear, descriptive file names
-- Add `__init__.py` files to make directories proper Python packages
+## 🧪 Testing Requirements
 
-## Testing
-
-### Running Tests
+All contributions must include appropriate tests:
 
 ```bash
-# Run all tests
+# Run all tests (uses real APIs if configured, mocks otherwise)
 python -m pytest
 
 # Run with coverage
-python -m pytest --cov=src/canvasxpress_gen
+python -m pytest --cov=src/canvasxpress_gen --cov-report=term-missing
 
-# Run specific test file
-python -m pytest tests/test_llm.py
+# Integration tests only
+python -m pytest tests/test_integration.py -v
 ```
 
-### Writing Tests
-
-- Write unit tests for all new functions
-- Use descriptive test names
+**Test Requirements:**
+- Add unit tests for new functionality
 - Test both success and failure cases
-- Mock external dependencies (API calls, file operations)
+- Use realistic automotive data examples in tests
+- Ensure tests work with and without API keys
 
-### Example Test:
-
-```python
-import pytest
-from src.canvasxpress_gen.llm import LLMService
-
-def test_generate_config_success():
-    """Test successful config generation."""
-    service = LLMService()
-    result = service.generate_config("Create a bar chart")
-    
-    assert isinstance(result, dict)
-    assert "data" in result
-    assert "config" in result
-
-def test_generate_config_empty_prompt():
-    """Test error handling for empty prompt."""
-    service = LLMService()
-    
-    with pytest.raises(ValueError, match="Prompt cannot be empty"):
-        service.generate_config("")
-```
-
-## Submitting Changes
-
-### Pull Request Guidelines
-
-1. **Clear title and description**: Explain what your PR does and why
-2. **Reference issues**: Link to related GitHub issues
-3. **Small, focused changes**: Keep PRs manageable in size
-4. **Update documentation**: Include relevant documentation updates
-5. **Add tests**: Ensure new code is tested
-
-### PR Template
-
-```markdown
-## Description
-Brief description of changes made.
-
-## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Documentation update
-- [ ] Performance improvement
-- [ ] Other (please describe)
-
-## Testing
-- [ ] Added unit tests
-- [ ] Tested manually
-- [ ] All existing tests pass
-
-## Checklist
-- [ ] Code follows style guidelines
-- [ ] Self-review completed
-- [ ] Documentation updated
-- [ ] No breaking changes (or clearly documented)
-```
-
-## Reporting Issues
+## 🐛 Reporting Issues or Problems
 
 ### Bug Reports
-
 When reporting bugs, please include:
 
 - **Clear title** describing the issue
 - **Steps to reproduce** the problem
 - **Expected behavior** vs actual behavior
-- **Environment details** (OS, Python version, etc.)
+- **Environment details** (OS, Python version, Docker version)
 - **Error messages** or logs if applicable
-- **Screenshots** if relevant
+- **Data examples** if relevant (use automotive data format)
+
+**Template:**
+```markdown
+## Bug Description
+Brief description of the issue
+
+## Steps to Reproduce
+1. Step one
+2. Step two
+3. Step three
+
+## Expected Behavior
+What should happen
+
+## Actual Behavior
+What actually happens
+
+## Environment
+- OS: [e.g., Ubuntu 20.04]
+- Python: [e.g., 3.9.16]
+- Docker: [e.g., 20.10.21]
+
+## Error Messages
+```
+Paste any error messages here
+```
+```
 
 ### Feature Requests
-
 For feature requests, please provide:
 
 - **Clear description** of the proposed feature
@@ -231,65 +136,108 @@ For feature requests, please provide:
 - **Possible implementation** ideas (if any)
 - **Alternatives considered**
 
-## Getting Help
+## 🆘 Seeking Support
 
-### Communication Channels
+### Support Channels
 
-- **GitHub Issues**: For bug reports and feature requests
-- **GitHub Discussions**: For questions and general discussion
-- **Email**: Contact the maintainers directly for sensitive issues
+1. **GitHub Issues**: For bug reports and feature requests
+   - Use appropriate labels (bug, enhancement, question, etc.)
+   - Search existing issues before creating new ones
 
-### Documentation
+2. **GitHub Discussions**: For questions and general discussion
+   - Best for "how-to" questions
+   - Community support and knowledge sharing
 
-- **README.md**: Basic setup and usage instructions
-- **TESTING.md**: Comprehensive testing guide with 85+ automated tests
-- **docs/INTEGRATION.md**: Integration guide with CanvasXpress
-- **docs/API.md**: Complete API documentation
-- **Paper**: Academic paper describing the system (in `paper/` directory)
-- **Code comments**: Inline documentation in the source code
+3. **Direct Contact**: For sensitive issues or security concerns
+   - Contact maintainers directly via email
+   - Use for security vulnerabilities or private matters
 
-## Development Guidelines
+### Getting Help
 
-### Adding New LLM Models
+**Before seeking support:**
+1. Check this README and documentation files
+2. Search existing GitHub issues
+3. Review the [API Documentation](docs/API.md) and [Integration Guide](docs/INTEGRATION.md)
+4. Try the development interface at `http://localhost:5008` to verify setup
 
-To add support for a new LLM provider:
+**When asking for help:**
+- Provide clear, specific questions
+- Include relevant code examples
+- Share error messages and logs
+- Describe what you've already tried
 
-1. Add model configuration to `llm_models.json`
-2. Implement the model interface in `src/canvasxpress_gen/llm/`
-3. Add appropriate error handling and validation
-4. Update documentation and tests
+## 📚 Documentation
 
-### Adding Few-Shot Examples
+### Current Documentation Structure
+- **README.md**: Setup and usage instructions
+- **docs/API.md**: Complete API reference for service endpoints
+- **docs/INTEGRATION.md**: CanvasXpress integration details
+- **TESTING.md**: Comprehensive testing instructions
+- **Paper**: Academic paper in `paper/` directory
 
-To improve system accuracy:
+### Contributing to Documentation
+- Use realistic automotive data examples
+- Keep examples concise and practical
+- Cross-reference related sections
+- Follow existing formatting and style
 
-1. Use the guided autocomplete system to generate examples
+## 🏗️ System Architecture
+
+### Backend Service Design
+This system is designed as a **backend service** for CanvasXpress, not as a traditional Python library:
+
+```
+src/canvasxpress_gen/
+├── llm/           # LLM service and model management
+├── rag/           # RAG system with embeddings and retrieval
+└── utils/         # JSON, text, file, and auth utilities
+```
+
+### Adding New Features
+
+**New LLM Models:**
+1. Add configuration to `llm_models.json`
+2. Implement interface in `src/canvasxpress_gen/llm/`
+3. Add error handling and validation
+4. Update tests and documentation
+
+**Few-Shot Examples:**
+1. Use guided autocomplete to generate examples (preferred)
 2. Validate examples work correctly
-3. Add to the appropriate few-shot files
-4. Regenerate vector database
+3. Add to `all_few_shots.json`
+4. Rebuild vector database: `make build_vector_db`
 
-### Performance Considerations
+## 📋 Pull Request Guidelines
 
-- Profile code changes for performance impact
-- Consider memory usage with large datasets
-- Optimize vector database queries
-- Cache expensive operations where appropriate
+### PR Checklist
+- [ ] Clear title and description
+- [ ] References related issues
+- [ ] Includes tests for new code
+- [ ] Documentation updated
+- [ ] All tests pass
+- [ ] Code follows style guidelines
+- [ ] No breaking changes (or clearly documented)
 
-## Code of Conduct
+### PR Review Process
+1. Automated tests must pass
+2. Code review by maintainers
+3. Documentation review
+4. Integration testing
+5. Merge approval
 
-We are committed to providing a welcoming and inclusive environment for all contributors. Please be respectful and professional in all interactions.
+## 📄 License
 
-## License
+By contributing, you agree your contributions will be licensed under the same MIT license as the project.
 
-By contributing to this project, you agree that your contributions will be licensed under the same license as the project.
+## 🙏 Recognition
 
-## Questions?
+Contributors will be acknowledged in:
+- Repository contributors list
+- Release notes for significant contributions
+- Academic citations where appropriate
 
-If you have questions about contributing, please:
+---
 
-1. Check existing documentation
-2. Search GitHub issues for similar questions
-3. Create a new issue with the "question" label
-4. Contact the maintainers directly if needed
+**Questions?** Check existing documentation, search GitHub issues, or create a new issue with the "question" label.
 
-Thank you for contributing to the CanvasXpress Generation System!
+Thank you for contributing to the CanvasXpress Generation System! 🎉
