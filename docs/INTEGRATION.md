@@ -8,7 +8,7 @@ The CanvasXpress Generation System is a **backend service** that generates Canva
 
 ### System Relationship
 - **This Generation System**: Provides LLM-powered natural language to CanvasXpress configuration conversion
-- **Main CanvasXpress Library**: The guided autocomplete/copilot features mentioned in the JOSS paper are part of the main CanvasXpress library
+- **Main CanvasXpress Library**: The guided autocomplete/copilot features are part of the main CanvasXpress library
 - **Integration**: This backend service generates configurations that are consumed by CanvasXpress visualizations
 
 ## Development Interface vs Production Interface

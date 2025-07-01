@@ -19,7 +19,7 @@ A backend service system that enables users to create scientific visualizations 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Docker and Docker Compose
+- Docker
 - Make (for using Makefile commands)
 
 ### Setup & Run
@@ -178,12 +178,11 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed gu
 
 MIT License - see [LICENSE](LICENSE) file.
 
-If you use this software in research, please cite our JOSS paper:
+If you use this software in research, please cite:
 ```bibtex
 @article{smith2024canvasxpress,
   title={Generating Visualizations Conversationally using Guided Autocomplete and LLMs},
   author={Smith, Andrew K and Neuhaus, Isaac},
-  journal={Journal of Open Source Software},
   year={2024}
 }
 ```

@@ -123,9 +123,9 @@ python -m pytest --version  # Verify pytest installation
 docker build --build-arg INSTALL_DEV=true -t canvasxpress-test .
 ```
 
-## 📝 JOSS Review Requirements
+## 📝 Test Coverage
 
-The automated tests address JOSS reviewer requirements:
+The automated tests provide comprehensive validation:
 
 1. **Core Functionality Testing**: Unit tests for key system components
 2. **RAG System Validation**: Vector database operations and retrieval testing
@@ -133,7 +133,7 @@ The automated tests address JOSS reviewer requirements:
 4. **Embedding Verification**: BGE-M3 embedding generation and similarity matching
 5. **Full System Workflow**: End-to-end tests from English input to JSON output
 
-These tests ensure system reliability and correctness as requested by JOSS reviewers.
+These tests ensure system reliability and correctness for production use.
 
 ## 🎯 Test Examples with Automotive Data
 
