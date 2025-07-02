@@ -21,10 +21,12 @@ Comprehensive testing instructions for the CanvasXpress Generation System with *
 
 ## 🚀 Quick Start
 
-### Local Testing
+**All tests must be run inside the Docker container:**
+
 ```bash
-# Install dependencies and run all tests
-pip install -r requirements-dev.txt
+# Build the container and run all tests
+make build
+make shell
 python -m pytest
 
 # Verbose output with coverage
@@ -34,9 +36,9 @@ python -m pytest -v --cov=src/canvasxpress_gen --cov-report=term-missing
 python -m pytest tests/test_integration.py -v
 ```
 
-### Docker Testing
+### Fresh Environment Testing
 ```bash
-# Fresh environment testing (uses mocks)
+# Test in completely fresh environment (uses mocks)
 make buildfresh
 make shell
 python -m pytest
@@ -68,6 +70,8 @@ tests/
 
 ## 🔧 Running Specific Tests
 
+**All commands must be run inside the Docker container (`make shell` first):**
+
 ### By Test File
 ```bash
 python -m pytest tests/test_integration.py -v  # End-to-end integration
@@ -85,6 +89,8 @@ python -m pytest -m "not slow" -v  # Skip slow tests
 
 ## 📊 Coverage Reporting
 
+**All coverage commands must be run inside the Docker container (`make shell` first):**
+
 ```bash
 # Terminal coverage report
 python -m pytest --cov=src/canvasxpress_gen --cov-report=term-missing
@@ -96,6 +102,8 @@ python -m pytest --cov=src/canvasxpress_gen --cov-report=html
 
 ## 🔍 Debugging Test Failures
 
+**All debugging commands must be run inside the Docker container (`make shell` first):**
+
 ```bash
 # Maximum verbosity with local variables
 python -m pytest -vvv -s --tb=long --showlocals
@@ -106,12 +114,12 @@ python -m pytest -x
 
 ## 🚨 Common Issues & Solutions
 
-**Import Errors:**
+**Import Errors (run inside Docker container):**
 ```bash
 pip install -e .  # Install in development mode
 ```
 
-**Missing Dependencies:**
+**Missing Dependencies (run inside Docker container):**
 ```bash
 pip install -r requirements-dev.txt
 python -m pytest --version  # Verify pytest installation
