@@ -241,20 +241,6 @@ SMVAL=False
 - **Ollama**: Local Ollama server (if configured)
 
 **Note:** The `llm_models.json` file contains additional models that may not be fully supported by the current LLM service implementation. Use the models listed above for guaranteed compatibility.
-## Development vs Production Interface
-
-### Development Interface
-- **Purpose**: Testing and verification that the service is working correctly
-- **Access**: `http://localhost:5008` (web UI)
-- **Features**: Simple file upload and prompt testing
-- **Limitations**: Thumbs up/down feature has no backend implementation (placeholder)
-
-### Production Interface
-- **Purpose**: Actual user interaction for visualization generation
-- **Access**: Integrated directly into CanvasXpress
-- **Features**: Full natural language visualization generation within CanvasXpress
-- **Usage**: Configure `llmServiceURL` in CanvasXpress config
-
 ## Realistic Data Examples
 
 The system works with automotive datasets containing fields like:
