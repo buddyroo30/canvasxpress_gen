@@ -220,26 +220,27 @@ SMVAL=False
 ```
 
 ### Available Models
-Configure in `llm_models.json`:
 
+**Currently Supported Models:**
 ```json
 {
   "gemini-1.5-flash": {"type": "google_gemini", "text": "Gemini 1.5 Flash"},
+  "gemini-1.5-pro": {"type": "google_gemini", "text": "Gemini 1.5 Pro"},
   "gpt-4o-global": {"type": "azure_openai", "text": "GPT-4o"},
   "anthropic.claude-3-5-sonnet-20240620-v1:0": {"type": "anthropic", "text": "Anthropic Claude Sonnet 3.5"},
+  "anthropic.claude-3-opus-20240229-v1:0": {"type": "anthropic", "text": "Anthropic Claude Opus 3"},
   "mistral.mistral-large-2407-v1:0": {"type": "mistral", "text": "Mistral Large 2 (24.07)"},
-  "meta.llama3-1-70b-instruct-v1:0": {"type": "llama31", "text": "Llama 3.1 70B"},
-  "gpt-4-32k": {"type": "azure_openai", "text": "GPT-4-32k"}
+  "amazon.titan-tg1-large": {"type": "titan", "text": "Amazon Titan TG1 Large"}
 }
 ```
 
 **Service Providers:**
 - **Google Gemini**: Direct Google AI API
 - **Azure OpenAI**: Microsoft Azure OpenAI Service
-- **Anthropic/Mistral/Llama**: AWS Bedrock
-- **Ollama**: Local Ollama server
+- **Anthropic/Mistral/Titan**: AWS Bedrock
+- **Ollama**: Local Ollama server (if configured)
 
-*Note: The "type" values are internal routing identifiers. See `llm_models.json` for the complete list.*
+**Note:** The `llm_models.json` file contains additional models that may not be fully supported by the current LLM service implementation. Use the models listed above for guaranteed compatibility.
 ## Development vs Production Interface
 
 ### Development Interface
