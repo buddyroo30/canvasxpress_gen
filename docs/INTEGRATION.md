@@ -141,30 +141,18 @@ var config = {
 
 ## Enterprise Integration
 
-### SiteMinder SSO Support
-For enterprise environments:
+### Private Deployment
+For enterprise environments, deploy the service within your corporate network:
 
-```bash
-# Enable SiteMinder in .env
-SMVAL=True
-SMLOGIN=https://your-siteminder-login-url
-SMTARGET=https://your-redirect-url
-```
-
-### Secure Configuration
 ```javascript
-const enterpriseConfig = {
+// Point to your internal service
+var config = {
     llmServiceURL: "https://viz-api.company.com/ask",
-    authentication: {
-        type: "siteminder",
-        credentials: "include"
-    },
-    requestOptions: {
-        timeout: 45000,
-        retries: 3
-    }
+    // ... rest of your CanvasXpress configuration
 };
 ```
+
+**Note**: The service includes optional SiteMinder SSO support via environment variables (`SMVAL=True`) if needed in legacy corporate environments. This is server-side authentication only.
 
 ## Complete Integration Example
 
@@ -249,8 +237,8 @@ const response = await fetch('http://localhost:5008/ask', {
 
 ### Authentication Problems
 ```bash
-# Check SiteMinder session (enterprise)
-curl -b cookies.txt http://localhost:5008/userinfo
+# Check service accessibility
+curl http://localhost:5008/userinfo
 ```
 
 ### Generation Failures
@@ -274,8 +262,8 @@ const options = {
 ### Setup for Private Deployment
 1. Deploy the backend service within your corporate network
 2. Configure CanvasXpress to point to your internal service URL
-3. Set up appropriate authentication (SiteMinder, etc.)
-4. Configure firewall rules as needed
+3. Set up appropriate network security and firewall rules
+4. Configure environment variables as needed
 
 ---
 
