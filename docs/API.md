@@ -70,6 +70,7 @@ curl -X POST http://localhost:5008/ask \
 ```
 
 #### Response Format
+**Success Response:**
 ```json
 {
   "success": true,
@@ -85,9 +86,29 @@ curl -X POST http://localhost:5008/ask \
     ["toyota", 28],
     ["ford", 25]
   ],
-  "total_time_taken": 2.34
+  "header": ["manufacturer", "cty"],
+  "datafilename": "automotive_data.csv",
+  "total_time_taken": 2.34,
+  "prompt": "Box plot of cty grouped by manufacturer",
+  "datetime": "2024-01-15 14:30",
+  "target": "optional_target_id",
+  "client": "optional_client_id"
 }
 ```
+
+**Error Response:**
+```json
+{
+  "success": false,
+  "config_generated_flag": false,
+  "text": "Error: you must provide a description of the visualization you want"
+}
+```
+
+**Notes:**
+- `data`, `header`, `datafilename` are omitted when `config_only=true`
+- `target` and `client` are included only if provided in request
+- Response may be wrapped in JSONP callback if `callback` parameter provided
 
 ### 2. Get Few-Shot Examples
 
