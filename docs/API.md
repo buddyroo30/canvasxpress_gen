@@ -114,8 +114,55 @@ curl -X POST http://localhost:5008/ask \
 
 **`GET /get_few_shots`** - Retrieve similar examples for a prompt
 
+#### Parameters
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `prompt` | string | No* | Natural language description to find similar examples |
+| `num` | string/integer | No | Number of examples (default: 5) or "all" for all examples |
+| `format` | string | No | Response format: "text" or "json" (default: "text") |
+| `filter_prompt` | boolean | No | Filter out exact prompt match (default: false) |
+
+*Required unless `num=all`
+
+#### Examples
+
+**Get similar examples:**
 ```bash
 curl "http://localhost:5008/get_few_shots?prompt=scatter plot&num=3&format=json"
+```
+
+**Get all examples:**
+```bash
+curl "http://localhost:5008/get_few_shots?num=all&format=json"
+```
+
+**Text format response:**
+```bash
+curl "http://localhost:5008/get_few_shots?prompt=box plot&num=2&format=text"
+```
+
+#### Response Formats
+
+**JSON Format:**
+```json
+[
+  {
+    "English Text": "Create a scatter plot of hwy vs cty colored by manufacturer",
+    "Headers/Column Names": "manufacturer model hwy cty drv",
+    "Answer": "{\"graphType\":\"Scatter\",\"xAxis\":[\"hwy\"],\"yAxis\":[\"cty\"],\"colorBy\":\"manufacturer\"}"
+  },
+  {
+    "English Text": "Box plot of cty grouped by drv",
+    "Headers/Column Names": "manufacturer model hwy cty drv",
+    "Answer": "{\"graphType\":\"Boxplot\",\"yAxis\":[\"cty\"],\"groupingFactors\":[\"drv\"]}"
+  }
+]
+```
+
+**Text Format:**
+```
+English Text: Create a scatter plot of hwy vs cty colored by manufacturer; Headers/Column Names: manufacturer model hwy cty drv, Answer: {"graphType":"Scatter","xAxis":["hwy"],"yAxis":["cty"],"colorBy":"manufacturer"}
+English Text: Box plot of cty grouped by drv; Headers/Column Names: manufacturer model hwy cty drv, Answer: {"graphType":"Boxplot","yAxis":["cty"],"groupingFactors":["drv"]}
 ```
 
 ### 3. Generic LLM Query
@@ -131,70 +178,9 @@ curl -X POST http://localhost:5008/ask_generic \
 
 **`GET /userinfo`** - Get authentication info (enterprise only)
 
-## CanvasXpress Integration
+## Integration
 
-### Direct Integration
-Configure CanvasXpress to automatically use your API service:
-
-```javascript
-// Basic CanvasXpress setup with LLM integration
-var config = {
-    // Your existing CanvasXpress configuration
-    graphType: "Bar",
-    title: "My Visualization",
-    
-    // Add LLM service configuration
-    llmServiceURL: "http://localhost:5008/ask",  // or your domain
-    
-    // Optional: Configure LLM parameters
-    llmOptions: {
-        model: "gemini-1.5-flash",
-        temperature: 0.1,
-        maxTokens: 1024
-    }
-};
-
-// Initialize CanvasXpress
-var cx = new CanvasXpress("canvasId", data, config);
-```
-
-### Custom Integration
-For manual API calls with custom processing:
-
-```javascript
-async function generateVisualization(prompt, data) {
-    const formData = new FormData();
-    formData.append('prompt', prompt);
-    formData.append('datafile_contents', JSON.stringify(data));
-    
-    const response = await fetch('http://localhost:5008/ask', {
-        method: 'POST',
-        body: formData
-    });
-    
-    const result = await response.json();
-    
-    if (result.success) {
-        new CanvasXpress("canvasId", result.data, result.config);
-        return result.config;
-    } else {
-        throw new Error(result.text);
-    }
-}
-
-// Usage with automotive data
-const automotiveData = [
-    ["manufacturer", "model", "hwy", "cty", "drv"],
-    ["toyota", "camry", 35, 28, "f"],
-    ["ford", "f150", 25, 20, "4"],
-    ["honda", "civic", 40, 32, "f"]
-];
-
-generateVisualization(
-    "Scatter plot of hwy vs cty colored by manufacturer",
-    automotiveData
-);
-```
+For complete integration examples and deployment guidance, see the [Integration Guide](INTEGRATION.md).
 
 ## Error Handling
 
