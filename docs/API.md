@@ -193,13 +193,15 @@ For complete integration examples and deployment guidance, see the [Integration 
 }
 ```
 
-### Common Errors
-| Error | Description | Solution |
-|-------|-------------|----------|
-| `MISSING_PROMPT` | No prompt provided | Include 'prompt' parameter |
-| `MISSING_DATA` | No data source | Include data via file or JSON |
-| `INVALID_MODEL` | Model not available | Check available models |
-| `LLM_ERROR` | Generation failed | Retry with different parameters |
+### Common Error Messages
+| Error Message | Cause | Solution |
+|---------------|-------|----------|
+| `"Error: you must provide a description of the visualization you want"` | Missing or empty `prompt` parameter | Include a valid `prompt` parameter |
+| `"Error: you must upload a data file to visualize or pass in a header"` | No data source provided | Include `datafile_contents`, `datafile_upload`, or `header` parameter |
+| `"Error: Generated configuration is invalid"` | LLM generated invalid JSON config | Retry request or try different parameters |
+| `"Error generating configuration: [details]"` | LLM service error or generation failure | Check LLM service availability, retry with different model |
+| `"Error: you must provide a prompt for the LLM"` | Missing prompt in `/ask_generic` endpoint | Include `prompt` parameter |
+| `"Unexpected error: [details]"` | System error | Check logs, retry request |
 
 ## Configuration
 
