@@ -82,14 +82,15 @@ async function generateVisualization(prompt, data) {
     const result = await response.json();
     
     if (result.success) {
-        new CanvasXpress(result.data, result.config, "canvasId");
+        // Note: result.data contains the data, result.config contains the configuration
+        new CanvasXpress("canvasId", result.data, result.config);
         return result.config;
     } else {
-        throw new Error(result.text);
+        throw new Error(result.text || 'Failed to generate visualization');
     }
 }
 
-// Usage with automotive data
+// Usage with automotive data (2D array format)
 const automotiveData = [
     ["manufacturer", "model", "hwy", "cty", "drv"],
     ["toyota", "camry", 35, 28, "f"],
