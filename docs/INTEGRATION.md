@@ -225,15 +225,6 @@ curl http://localhost:5008/
 # Should return HTML page
 ```
 
-### CORS Issues
-```javascript
-// Ensure proper request configuration
-const response = await fetch('http://localhost:5008/ask', {
-    method: 'POST',
-    body: formData,
-    mode: 'cors'
-});
-```
 
 ### Authentication Problems
 ```bash
