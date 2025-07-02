@@ -33,7 +33,7 @@ make run                     # Run as daemon (or 'make runi' for interactive)
 ```
 
 ### Verify Setup
-1. Open browser to `http://localhost:5008`
+1. Open browser to `http://localhost:5008` (or your domain if deployed online)
 2. Upload a CSV/TSV data file with headers
 3. Describe your visualization in plain English
 
@@ -57,7 +57,7 @@ var config = {
     title: "My Visualization",
     
     // Add LLM service configuration
-    llmServiceURL: "http://localhost:5008/ask"
+    llmServiceURL: "http://localhost:5008/ask"  // or your domain: "https://your-domain.com:5008/ask"
 };
 
 var cx = new CanvasXpress("canvasId", data, config);

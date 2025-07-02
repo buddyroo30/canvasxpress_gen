@@ -8,7 +8,7 @@ The CanvasXpress Generation System provides a RESTful API that enables CanvasXpr
 
 ## Base URLs
 
-- **Production**: `http://localhost:5008/`
+- **Production**: `http://localhost:5008/` (or your domain for internet access)
 - **Development**: `http://localhost:5009/`
 
 ## Authentication
@@ -105,7 +105,7 @@ var config = {
     title: "My Visualization",
     
     // Add LLM service configuration
-    llmServiceURL: "http://localhost:5008/ask",
+    llmServiceURL: "http://localhost:5008/ask",  // or your domain
     
     // Optional: Configure LLM parameters
     llmOptions: {

@@ -21,7 +21,8 @@ The CanvasXpress Generation System is a **backend service** that generates Canva
 ```bash
 # Start the service
 make build && make build_schema_context && make build_vector_db && make run
-# Access at: http://localhost:5008
+# Access locally: http://localhost:5008
+# Or over the internet: http://your-domain.com:5008
 ```
 
 **Features**:
@@ -40,8 +41,10 @@ make build && make build_schema_context && make build_vector_db && make run
 
 ## Connecting to CanvasXpress
 
+**Note**: Replace `http://localhost:5008` with your actual service URL (e.g., `https://your-domain.com:5008`) when deploying over the internet.
+
 ### Method 1: Direct Integration
-Configure CanvasXpress to automatically use your backend service:
+Configure CanvasXpress to automatically use your backend service (localhost or internet-accessible):
 
 ```javascript
 // Basic CanvasXpress setup with LLM integration

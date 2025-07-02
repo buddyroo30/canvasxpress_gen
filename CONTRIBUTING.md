@@ -158,7 +158,7 @@ For feature requests, please provide:
 1. Check this README and documentation files
 2. Search existing GitHub issues
 3. Review the [API Documentation](docs/API.md) and [Integration Guide](docs/INTEGRATION.md)
-4. Try the development interface at `http://localhost:5008` to verify setup
+4. Try the development interface at `http://localhost:5008` (or your deployed URL) to verify setup
 
 **When asking for help:**
 - Provide clear, specific questions
