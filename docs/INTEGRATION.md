@@ -16,6 +16,8 @@ The CanvasXpress Generation System is a **backend service** that generates Canva
 ### Development Interface (Testing)
 **Purpose**: Verify that your service is set up correctly before integrating with CanvasXpress
 
+*This is a simple demo/test web UI to quickly try out the system, not intended for production use.*
+
 ```bash
 # Start the service
 make build && make build_schema_context && make build_vector_db && make run
