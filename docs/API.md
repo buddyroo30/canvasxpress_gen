@@ -13,8 +13,8 @@ The CanvasXpress Generation System provides a RESTful API that enables CanvasXpr
 
 ## Authentication
 
-- **Development**: No authentication required
-- **Enterprise**: SiteMinder SSO (`SMVAL=True` requires session cookies)
+- **Default**: No authentication required
+- **Optional**: SiteMinder SSO support available via environment variables if needed
 
 ## API Endpoints
 
