@@ -28,11 +28,21 @@ The CanvasXpress Generation System provides a RESTful API that enables CanvasXpr
 | `prompt` | string | Yes | Natural language description |
 | `datafile_contents` | string (JSON) | No* | JSON data array |
 | `datafile_upload` | file | No* | CSV/TSV file |
+| `header` | string (JSON) | No* | JSON array of column headers only |
 | `model` | string | No | LLM model (default: "gpt-4-32k") |
 | `temperature` | float | No | Generation temperature (default: 0.0) |
+| `max_new_tokens` | integer | No | Max tokens to generate (default: 1024) |
+| `topp` | float | No | Top-p sampling (default: 1.0) |
+| `presence_penalty` | float | No | Presence penalty (default: 0.0) |
+| `frequency_penalty` | float | No | Frequency penalty (default: 0.0) |
 | `num_few_shots` | integer | No | RAG examples (default: 25) |
+| `filter_prompt_from_few_shots` | boolean | No | Filter exact prompt from examples (default: false) |
+| `config_only` | boolean | No | Return config only, no data (default: false) |
+| `target` | string | No | Optional target identifier |
+| `client` | string | No | Optional client identifier |
+| `callback` | string | No | JSONP callback function name |
 
-*At least one data source required
+*At least one data source required (`datafile_contents`, `datafile_upload`, or `header`)
 
 #### Examples with Automotive Data
 
@@ -49,6 +59,14 @@ curl -X POST http://localhost:5008/ask \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "prompt=Scatter plot of hwy vs cty colored by drv" \
   -d "datafile_contents=[[\"hwy\",\"cty\",\"drv\"],[35,28,\"f\"],[30,25,\"4\"]]"
+```
+
+**Headers Only:**
+```bash
+curl -X POST http://localhost:5008/ask \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "prompt=Box plot of cty grouped by manufacturer" \
+  -d "header=[\"manufacturer\",\"model\",\"hwy\",\"cty\",\"drv\"]"
 ```
 
 #### Response Format
