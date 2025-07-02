@@ -233,7 +233,13 @@ Configure in `llm_models.json`:
 }
 ```
 
-*Note: This shows a subset of available models. See `llm_models.json` for the complete list.*
+**Service Providers:**
+- **Google Gemini**: Direct Google AI API
+- **Azure OpenAI**: Microsoft Azure OpenAI Service
+- **Anthropic/Mistral/Llama**: AWS Bedrock
+- **Ollama**: Local Ollama server
+
+*Note: The "type" values are internal routing identifiers. See `llm_models.json` for the complete list.*
 ## Development vs Production Interface
 
 ### Development Interface
