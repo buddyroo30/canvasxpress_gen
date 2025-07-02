@@ -60,7 +60,7 @@ var config = {
     llmServiceURL: "http://localhost:5008/ask"
 };
 
-var cx = new CanvasXpress(data, config, "canvasId");
+var cx = new CanvasXpress("canvasId", data, config);
 ```
 
 ### API Usage

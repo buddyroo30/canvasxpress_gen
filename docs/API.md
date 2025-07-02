@@ -116,7 +116,7 @@ var config = {
 };
 
 // Initialize CanvasXpress
-var cx = new CanvasXpress(data, config, "canvasId");
+var cx = new CanvasXpress("canvasId", data, config);
 ```
 
 ### Custom Integration
@@ -136,7 +136,7 @@ async function generateVisualization(prompt, data) {
     const result = await response.json();
     
     if (result.success) {
-        new CanvasXpress(result.data, result.config, "canvasId");
+        new CanvasXpress("canvasId", result.data, result.config);
         return result.config;
     } else {
         throw new Error(result.text);

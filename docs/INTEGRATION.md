@@ -62,7 +62,7 @@ var config = {
 };
 
 // Initialize CanvasXpress
-var cx = new CanvasXpress(data, config, "canvasId");
+var cx = new CanvasXpress("canvasId", data, config);
 ```
 
 ### Method 2: Manual API Integration
@@ -215,7 +215,7 @@ Box plot of cty grouped by manufacturer
                 const result = await response.json();
                 
                 if (result.success) {
-                    new CanvasXpress(result.data, result.config, "canvas");
+                    new CanvasXpress("canvas", result.data, result.config);
                 } else {
                     alert('Generation failed: ' + result.text);
                 }
