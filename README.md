@@ -1,7 +1,7 @@
 # CanvasXpress Generation System
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
+[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://python.org)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://docker.com)
 
 > **Generate CanvasXpress visualizations from natural language descriptions using Large Language Models (LLMs)**

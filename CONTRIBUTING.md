@@ -5,7 +5,7 @@ Thank you for your interest in contributing! This guide provides information abo
 ## 🚀 Quick Setup
 
 ### Prerequisites
-- Python 3.8+, Docker, Git
+- Python 3.9+, Docker, Git
 - LLM API access (OpenAI, Google, AWS Bedrock, or Ollama)
 
 ### Development Environment
