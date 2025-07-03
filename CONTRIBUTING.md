@@ -1,30 +1,18 @@
 # Contributing to CanvasXpress Generation System
 
-Thank you for your interest in contributing! This guide provides information about how others can contribute to the project, report issues, and seek support.
+Thank you for considering contributing to the CanvasXpress Generation System! 🎉
 
-## 🚀 Quick Setup
+This guide provides information about how others can contribute to the project, report issues, and seek support.
 
-### Prerequisites
-- Python 3.9+, Docker, Git
-- LLM API access (OpenAI, Google, AWS Bedrock, or Ollama)
+## 🚀 Getting Started
 
-### Development Environment
-```bash
-git clone https://github.com/buddyroo30/canvasxpress_gen.git
-cd canvasxpress_gen
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
+**First-time setup:** Follow the complete setup instructions in [README.md](README.md)
 
-# Set up environment
-cp .env.example .env  # Add your API keys
-make build_dev
-make build_vector_db_dev
-make run_dev  # Runs on port 5009
-```
+**For development:** Use the development setup and commands detailed in the README.md
 
-## 🤝 How to Contribute
+## 🤝 How To Contribute
 
-### 1. Contributing to the Software
+### 1. Contributing To The Software
 
 **Types of Contributions:**
 - Bug fixes and issue resolution
@@ -39,27 +27,35 @@ make run_dev  # Runs on port 5009
 2. **Create branch**: `git checkout -b feature/your-feature`
 3. **Make changes** following our coding standards
 4. **Add tests** for new functionality
-5. **Run tests**: `python -m pytest`
+5. **Run tests**: `make shell` then `python -m pytest` (tests must run in Docker)
 6. **Submit PR** with clear description
 
 ### 2. Code Standards
 
+**Keep PRs Small and Focused:**
+- Submit small, focused pull requests for easier review
+- One feature or fix per PR when possible
+- Break large changes into logical, reviewable chunks
+
 Follow Python packaging standards and best practices:
 
 ```python
-def generate_config(prompt: str, model: str = "gpt-4o") -> dict:
-    """Generate CanvasXpress config from natural language.
+def validate_prompt(prompt: str) -> str:
+    """Validate and clean user input prompt.
     
     Args:
-        prompt: Description like "box plot of cty grouped by manufacturer"
-        model: LLM model to use
+        prompt: User's natural language description
         
     Returns:
-        CanvasXpress configuration dictionary
+        Cleaned and validated prompt string
+        
+    Raises:
+        ValueError: If prompt is empty or invalid
     """
-    if not prompt.strip():
+    if not prompt or not prompt.strip():
         raise ValueError("Prompt cannot be empty")
-    return config
+    
+    return prompt.strip()
 ```
 
 **Standards:**
@@ -70,9 +66,12 @@ def generate_config(prompt: str, model: str = "gpt-4o") -> dict:
 
 ## 🧪 Testing Requirements
 
-All contributions must include appropriate tests:
+All contributions must include appropriate tests. **All test commands must be run inside the Docker container:**
 
 ```bash
+# First enter Docker container
+make shell
+
 # Run all tests (uses real APIs if configured, mocks otherwise)
 python -m pytest
 
@@ -155,10 +154,10 @@ For feature requests, please provide:
 ### Getting Help
 
 **Before seeking support:**
-1. Check this README and documentation files
+1. Check [README.md](README.md) and documentation files
 2. Search existing GitHub issues
 3. Review the [API Documentation](docs/API.md) and [Integration Guide](docs/INTEGRATION.md)
-4. Try the development interface at `http://localhost:5008` (or your deployed URL) to verify setup
+4. Try the development interface at `http://localhost:5009` (dev) or `http://localhost:5008` (production) to verify setup
 
 **When asking for help:**
 - Provide clear, specific questions
@@ -166,46 +165,36 @@ For feature requests, please provide:
 - Share error messages and logs
 - Describe what you've already tried
 
-## 📚 Documentation
+## 📚 Contributing to Documentation
 
-### Current Documentation Structure
-- **README.md**: Setup and usage instructions
-- **docs/API.md**: Complete API reference for service endpoints
-- **docs/INTEGRATION.md**: CanvasXpress integration details
-- **TESTING.md**: Comprehensive testing instructions
-- **Paper**: Academic paper in `paper/` directory
-
-### Contributing to Documentation
-- Use realistic automotive data examples
+When updating documentation:
+- Use realistic automotive data examples (not fictional data)
 - Keep examples concise and practical
 - Cross-reference related sections
 - Follow existing formatting and style
+- Update relevant files: [README.md](README.md), [docs/API.md](docs/API.md), [docs/INTEGRATION.md](docs/INTEGRATION.md), [TESTING.md](TESTING.md)
 
-## 🏗️ System Architecture
-
-### Backend Service Design
-This system is designed as a **backend service** for CanvasXpress, not as a traditional Python library:
-
-```
-src/canvasxpress_gen/
-├── llm/           # LLM service and model management
-├── rag/           # RAG system with embeddings and retrieval
-└── utils/         # JSON, text, file, and auth utilities
-```
-
-### Adding New Features
+## 🏗️ Adding New Features
 
 **New LLM Models:**
-1. Add configuration to `llm_models.json`
-2. Implement interface in `src/canvasxpress_gen/llm/`
+1. Add configuration to [`llm_models.json`](llm_models.json)
+2. Implement interface in [`src/canvasxpress_gen/llm/`](src/canvasxpress_gen/llm/)
 3. Add error handling and validation
 4. Update tests and documentation
 
 **Few-Shot Examples:**
 1. Use guided autocomplete to generate examples (preferred)
 2. Validate examples work correctly
-3. Add to `all_few_shots.json`
+3. Add to [`all_few_shots.json`](all_few_shots.json)
 4. Rebuild vector database: `make build_vector_db`
+
+**Code Structure:**
+```
+src/canvasxpress_gen/
+├── llm/           # LLM service and model management
+├── rag/           # RAG system with embeddings and retrieval
+└── utils/         # JSON, text, file, and auth utilities
+```
 
 ## 📋 Pull Request Guidelines
 
@@ -216,7 +205,7 @@ src/canvasxpress_gen/
 - [ ] Documentation updated
 - [ ] All tests pass
 - [ ] Code follows style guidelines
-- [ ] No breaking changes (or clearly documented)
+- [ ] No breaking changes (or, if breaking changes are necessary, they are clearly documented in the PR description and release notes)
 
 ### PR Review Process
 1. Automated tests must pass

@@ -87,6 +87,18 @@ python -m pytest -m integration -v # Integration tests only
 python -m pytest -m "not slow" -v  # Skip slow tests
 ```
 
+**Custom Test Markers:**
+- `@pytest.mark.unit` - Unit tests for individual components
+- `@pytest.mark.integration` - End-to-end integration tests
+- `@pytest.mark.slow` - Tests that take longer to run
+
+To add custom markers to your tests, use the decorator syntax:
+```python
+@pytest.mark.unit
+def test_my_function():
+    assert my_function() == expected_result
+```
+
 ## 📊 Coverage Reporting
 
 **All coverage commands must be run inside the Docker container (`make shell` first):**
@@ -97,7 +109,7 @@ python -m pytest --cov=src/canvasxpress_gen --cov-report=term-missing
 
 # HTML coverage report
 python -m pytest --cov=src/canvasxpress_gen --cov-report=html
-# View: open htmlcov/index.html
+# View: open htmlcov/index.html (from the project root directory)
 ```
 
 ## 🔍 Debugging Test Failures
@@ -127,9 +139,11 @@ python -m pytest --version  # Verify pytest installation
 
 **Docker Issues:**
 ```bash
-# Ensure dev dependencies in container
+# Rebuild container with dev dependencies (for troubleshooting only)
 docker build --build-arg INSTALL_DEV=true -t canvasxpress-test .
 ```
+
+**Note:** The standard `make build_dev` command already includes development dependencies. The above command is only needed for troubleshooting Docker-specific issues.
 
 ## 📝 Test Coverage
 
@@ -168,5 +182,11 @@ def test_automotive_visualization_generation():
 
 **Quick Commands:**
 - `python -m pytest` - Run all tests
-- `python -m pytest -v` - Verbose output  
+- `python -m pytest -v` - Verbose output
 - `python -m pytest tests/test_integration.py -v` - Integration tests only
+
+---
+
+**For more details on integration and API usage, see:**
+- [API Documentation](docs/API.md) - Complete API reference
+- [Integration Guide](docs/INTEGRATION.md) - CanvasXpress integration details

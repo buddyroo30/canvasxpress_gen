@@ -21,8 +21,12 @@ A backend service system that enables users to create scientific visualizations 
 ### Prerequisites
 - Docker
 - Make (for using Makefile commands)
+- Python 3.9+ (for development)
+- Git
 
 ### Setup & Run
+
+**Production Setup:**
 ```bash
 git clone https://github.com/buddyroo30/canvasxpress_gen.git
 cd canvasxpress_gen
@@ -30,6 +34,52 @@ make build
 make build_schema_context    # Generate schema information
 make build_vector_db         # Create vector database for RAG
 make run                     # Run as daemon (or 'make runi' for interactive)
+```
+
+**Development Setup:**
+```bash
+git clone https://github.com/buddyroo30/canvasxpress_gen.git
+cd canvasxpress_gen
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+
+# Build and run development environment
+make build_dev
+make build_vector_db_dev
+make run_dev  # Runs on port 5009
+```
+
+### Environment Variables (Optional)
+
+Configure LLM API access and system behavior by setting these environment variables:
+
+**LLM API Configuration:**
+```bash
+export OPENAI_API_TYPE="azure"                    # OpenAI API type (azure or openai)
+export OPENAI_API_KEY="your-openai-key"          # OpenAI API key
+export AZURE_OPENAI_API_KEY="your-azure-key"     # Azure OpenAI API key
+export AZURE_OPENAI_ENDPOINT="your-endpoint"     # Azure OpenAI endpoint URL
+export OPENAI_API_BASE="your-base-url"           # OpenAI API base URL
+export OPENAI_API_VERSION="2023-05-15"           # OpenAI API version
+export AZURE_OPENAI_API_VERSION="2024-02-01"     # Azure OpenAI API version
+export GOOGLE_API_KEY="your-google-key"          # For Google Gemini models
+```
+
+**SiteMinder Authentication (Corporate Environments):**
+```bash
+export SMVAL="True"                               # Enable SiteMinder validation
+export SMLOGIN="your-login-url"                  # SiteMinder login URL
+export SMTARGET="your-target-url"                # SiteMinder target URL
+export SMFAILREGEX=".*<html.*AUTHENTICATION.*"   # Login failure regex pattern
+export SMFETCHFAILREGEX=".*<title>BMS.*"         # Fetch failure regex pattern
+```
+
+**System Configuration:**
+```bash
+export DEV="True"                                 # Enable development mode
+export NUM_FEW_SHOTS=25                          # Number of RAG examples to retrieve
+export PORT=5000                                 # Server port (cx_llm_service only)
+export SERVICE_URL="your-service-url"            # Service URL (cx_llm_service only)
 ```
 
 ### Verify Setup
