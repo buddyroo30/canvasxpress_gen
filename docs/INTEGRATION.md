@@ -32,7 +32,7 @@ make build && make build_schema_context && make build_vector_db && make run
 - **Note**: Thumbs up/down feature is a placeholder with no backend implementation
 
 **Usage**:
-1. Upload automotive data file
+1. Upload data file (e.g. automotive data sets as in main CanvasXpress library)
 2. Test prompts like: *"Box plot of cty grouped by manufacturer"*
 3. Verify JSON configuration is generated correctly
 
@@ -54,14 +54,7 @@ var config = {
     title: "My Visualization",
     
     // Add LLM service configuration
-    llmServiceURL: "http://localhost:5008/ask",
-    
-    // Optional: Configure LLM parameters
-    llmOptions: {
-        model: "gemini-1.5-flash",
-        temperature: 0.1,
-        maxTokens: 1024
-    }
+    llmServiceURL: "http://localhost:5008/ask"
 };
 
 // Initialize CanvasXpress
@@ -93,7 +86,7 @@ async function generateVisualization(prompt, data) {
     }
 }
 
-// Usage with automotive data (2D array format)
+// Usage with automotive data (2D array format), as seen in main CanvasXpress library
 const automotiveData = [
     ["manufacturer", "model", "hwy", "cty", "drv"],
     ["toyota", "camry", 35, 28, "f"],
@@ -115,7 +108,7 @@ Use the publicly available CanvasXpress instance:
 - **Usage**: Integrated LLM generation already available
 - **Data**: Sent to public servers
 
-### Private Deployment
+### Private Deployment (e.g. within an enterprise)
 Run your own instance for data security:
 
 ```bash
@@ -139,19 +132,6 @@ make run
 var config = {
     llmServiceURL: "https://your-internal-server:5008/ask",
     // ... rest of your configuration
-};
-```
-
-## Enterprise Integration
-
-### Private Deployment
-For enterprise environments, deploy the service within your corporate network:
-
-```javascript
-// Point to your internal service
-var config = {
-    llmServiceURL: "https://viz-api.company.com/ask",
-    // ... rest of your CanvasXpress configuration
 };
 ```
 
@@ -225,7 +205,8 @@ Box plot of cty grouped by manufacturer
 ```bash
 # Verify service is running
 curl http://localhost:5008/
-# Should return HTML page
+# Should return HTML content (the development interface page)
+# If you get connection refused or timeout, the service isn't running
 ```
 
 
