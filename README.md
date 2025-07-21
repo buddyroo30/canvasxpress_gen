@@ -21,7 +21,7 @@ A backend service system that enables users to create scientific visualizations 
 ### Prerequisites
 - Docker
 - Make (for using Makefile commands)
-- Python 3.9+ (for development)
+- Python 3.9+ Docker image (used by the containerized system)
 - Git
 
 ### Setup & Run
@@ -33,25 +33,23 @@ cd canvasxpress_gen
 make build
 make build_schema_context    # Generate schema information
 make build_vector_db         # Create vector database for RAG
-make run                     # Run as daemon (or 'make runi' for interactive)
+make run                     # Run as daemon (or 'make runi' for interactive) on port 5008
 ```
 
 **Development Setup:**
 ```bash
 git clone https://github.com/buddyroo30/canvasxpress_gen.git
 cd canvasxpress_gen
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-
 # Build and run development environment
 make build_dev
+make build_schema_context_dev
 make build_vector_db_dev
 make run_dev  # Runs on port 5009
 ```
 
 ### Environment Variables (Optional)
 
-Configure LLM API access and system behavior by setting these environment variables:
+Configure LLM API access and system behavior by setting environment variables, here is a complete list of available environment variables for system configuration:
 
 **LLM API Configuration:**
 ```bash
@@ -141,7 +139,7 @@ This system is designed as a **backend service** for CanvasXpress, not as a trad
 ## 🛠️ Configuration
 
 ### Environment Variables
-Create a `.env` file:
+Create a `.env` file (commonly needed variables below, see above for exhaustive list):
 ```bash
 # LLM API Keys (choose what you need)
 GOOGLE_API_KEY=your_google_api_key_here
@@ -192,14 +190,6 @@ python -m pytest tests/test_integration.py -v
 - ✅ Works in fresh environments
 
 For detailed testing instructions, see [TESTING.md](TESTING.md).
-
-## 🔧 Development
-
-### Development Environment
-```bash
-make build_dev
-make run_dev  # Runs on port 5009
-```
 
 ### Code Organization
 The codebase follows Python packaging standards:
