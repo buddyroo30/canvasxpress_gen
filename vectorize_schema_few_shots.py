@@ -138,7 +138,7 @@ def gen_vectordb(train_docs, vectorDbFile):
 
     return(client)
 
-vectordb_docs = utils.load_json_file(allFewShotsFile)
+vectordb_docs = utils.read_json_file(allFewShotsFile)
 client = gen_vectordb(vectordb_docs['examples'], vectorDbFile)
 
 
