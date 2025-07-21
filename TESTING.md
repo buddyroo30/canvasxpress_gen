@@ -21,23 +21,13 @@ Comprehensive testing instructions for the CanvasXpress Generation System with *
 
 ## 🚀 Quick Start
 
-**Prerequisites:**
-Before running tests, ensure you have built the necessary components:
-```bash
-# For production testing
-make build_schema_context
-make build_vector_db
-
-# For development testing
-make build_schema_context_dev
-make build_vector_db_dev
-```
-
 **All tests must be run inside the Docker container:**
 
 ```bash
 # Build the container and run all tests (add _dev to build and shell for dev testing)
 make build
+make build_schema_context
+make build_vector_db
 make shell
 python -m pytest
 
@@ -48,13 +38,7 @@ python -m pytest -v --cov=src/canvasxpress_gen --cov-report=term-missing
 python -m pytest tests/test_integration.py -v
 ```
 
-### Fresh Environment Testing
-```bash
-# Test in completely fresh environment (uses mocks)
-make buildfresh
-make shell
-python -m pytest
-```
+Note: use `make buildfresh` or `make buildfresh_dev` for a fresh Docker rebuild without cache.
 
 ## 📋 Test Structure
 
