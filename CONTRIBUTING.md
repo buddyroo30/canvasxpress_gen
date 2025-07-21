@@ -27,7 +27,7 @@ This guide provides information about how others can contribute to the project, 
 2. **Create branch**: `git checkout -b feature/your-feature`
 3. **Make changes** following our coding standards
 4. **Add tests** for new functionality
-5. **Run tests**: `make shell` then `python -m pytest` (tests must run in Docker)
+5. **Run tests**: See [TESTING.md](TESTING.md) for detailed testing instructions
 6. **Submit PR** with clear description
 
 ### 2. Code Standards
@@ -66,27 +66,14 @@ def validate_prompt(prompt: str) -> str:
 
 ## 🧪 Testing Requirements
 
-All contributions must include appropriate tests. **All test commands must be run inside the Docker container:**
+All contributions must include appropriate tests. For detailed testing instructions and requirements, see [TESTING.md](TESTING.md).
 
-```bash
-# First enter Docker container
-make shell
-
-# Run all tests (uses real APIs if configured, mocks otherwise)
-python -m pytest
-
-# Run with coverage
-python -m pytest --cov=src/canvasxpress_gen --cov-report=term-missing
-
-# Integration tests only
-python -m pytest tests/test_integration.py -v
-```
-
-**Test Requirements:**
+**Quick summary:**
 - Add unit tests for new functionality
 - Test both success and failure cases
 - Use realistic automotive data examples in tests
 - Ensure tests work with and without API keys
+- All tests must be run inside the Docker container
 
 ## 🐛 Reporting Issues or Problems
 
@@ -148,7 +135,7 @@ For feature requests, please provide:
    - Community support and knowledge sharing
 
 3. **Direct Contact**: For sensitive issues or security concerns
-   - Contact maintainers directly via email
+   - Contact maintainers directly via email (andrewsmith_97@yahoo.com)
    - Use for security vulnerabilities or private matters
 
 ### Getting Help
@@ -168,7 +155,7 @@ For feature requests, please provide:
 ## 📚 Contributing to Documentation
 
 When updating documentation:
-- Use realistic automotive data examples (not fictional data)
+- Use realistic automotive data examples as in main CanvasXpress library (not fictional data)
 - Keep examples concise and practical
 - Cross-reference related sections
 - Follow existing formatting and style
