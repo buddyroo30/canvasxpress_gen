@@ -21,10 +21,22 @@ Comprehensive testing instructions for the CanvasXpress Generation System with *
 
 ## 🚀 Quick Start
 
+**Prerequisites:**
+Before running tests, ensure you have built the necessary components:
+```bash
+# For production testing
+make build_schema_context
+make build_vector_db
+
+# For development testing
+make build_schema_context_dev
+make build_vector_db_dev
+```
+
 **All tests must be run inside the Docker container:**
 
 ```bash
-# Build the container and run all tests
+# Build the container and run all tests (add _dev to build and shell for dev testing)
 make build
 make shell
 python -m pytest
@@ -99,6 +111,8 @@ def test_my_function():
     assert my_function() == expected_result
 ```
 
+**Note:** Custom markers are configured in [`pytest.ini`](pytest.ini) in the project root.
+
 ## 📊 Coverage Reporting
 
 **All coverage commands must be run inside the Docker container (`make shell` first):**
@@ -159,7 +173,7 @@ These tests ensure system reliability and correctness for production use.
 
 ## 🎯 Test Examples with Automotive Data
 
-The integration tests use realistic automotive data examples:
+The integration tests use realistic automotive data examples (as in the main CanvasXpress library):
 
 ```python
 def test_automotive_visualization_generation():
