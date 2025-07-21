@@ -47,6 +47,16 @@ make build_vector_db_dev
 make run_dev  # Runs on port 5009
 ```
 
+**Fresh Environment Setup (for testing without cached dependencies):**
+```bash
+git clone https://github.com/buddyroo30/canvasxpress_gen.git
+cd canvasxpress_gen
+make buildfresh              # Build without using Docker cache
+make build_schema_context    # Generate schema information
+make build_vector_db         # Create vector database for RAG
+make run                     # Run as daemon on port 5008
+```
+
 ### Environment Variables (Optional)
 
 Configure LLM API access and system behavior by setting environment variables, here is a complete list of available environment variables for system configuration:
