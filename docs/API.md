@@ -2,6 +2,24 @@
 
 REST API documentation for the CanvasXpress Generation System backend service.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Base URLs](#base-urls)
+- [Authentication](#authentication)
+- [API Endpoints](#api-endpoints)
+  - [Generate CanvasXpress Configuration](#1-generate-canvasxpress-configuration)
+  - [Get Few-Shot Examples](#2-get-few-shot-examples)
+  - [Generic LLM Query](#3-generic-llm-query)
+  - [User Information](#4-user-information)
+- [Integration](#integration)
+- [Error Handling](#error-handling)
+- [Configuration](#configuration)
+  - [Environment Variables](#environment-variables)
+  - [Available Models](#available-models)
+  - [LLM Parameter Glossary](#llm-parameter-glossary)
+- [Realistic Data Examples](#realistic-data-examples)
+
 ## Overview
 
 The CanvasXpress Generation System provides a RESTful API that enables CanvasXpress to generate visualizations from natural language descriptions. This is a **backend service** designed for integration with CanvasXpress.
@@ -306,6 +324,24 @@ For the complete list of environment variables, see [README.md](../README.md#env
 - **Ollama**: Local Ollama server (if configured)
 
 **Note:** The `llm_models.json` file contains additional models that may not be fully supported by the current LLM service implementation. Use the models listed above for guaranteed compatibility.
+
+### LLM Parameter Glossary
+
+These parameters allow you to fine-tune the behavior of the LLM for specific use cases, such as generating consistent configurations or creative text. Understanding these parameters helps optimize your API requests for better results:
+
+| Parameter | Description | Effect | Recommended Values |
+|-----------|-------------|--------|-------------------|
+| `temperature` | Controls randomness in text generation | **Lower (0.0-0.3)**: More focused, deterministic output<br>**Higher (0.7-1.0)**: More creative, varied output | **0.0-0.1** for CanvasXpress configs<br>**0.3-0.7** for creative text |
+| `topp` | Controls nucleus sampling (cumulative probability) | **Lower (0.1-0.5)**: More focused vocabulary<br>**Higher (0.8-1.0)**: Broader vocabulary selection | **0.9-1.0** for most use cases |
+| `presence_penalty` | Penalizes repeated tokens to encourage diversity | **0.0**: No penalty<br>**Positive**: Reduces repetition<br>**Negative**: Allows more repetition | **0.0-0.6** for balanced output |
+| `frequency_penalty` | Penalizes frequent tokens to reduce repetition | **0.0**: No penalty<br>**Positive**: Reduces common words<br>**Negative**: Allows frequent words | **0.0-0.3** for natural text |
+| `max_new_tokens` | Maximum number of tokens to generate | Controls output length | **512-1024** for configs<br>**1024-2048** for detailed responses |
+
+**Tips for CanvasXpress Configuration Generation:**
+- Use **low temperature (0.0-0.1)** for consistent, accurate configurations
+- Keep **max_new_tokens** moderate (512-1024) to avoid overly complex configs
+- **presence_penalty** and **frequency_penalty** are typically not needed for config generation
+
 ## Realistic Data Examples
 
 The system works with automotive datasets (as used in main CanvasXpress library examples) containing fields like:
