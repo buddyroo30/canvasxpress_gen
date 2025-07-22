@@ -6,6 +6,8 @@ REST API documentation for the CanvasXpress Generation System backend service.
 
 The CanvasXpress Generation System provides a RESTful API that enables CanvasXpress to generate visualizations from natural language descriptions. This is a **backend service** designed for integration with CanvasXpress.
 
+**Prerequisites:** Ensure the system is properly set up and configured before using the API. See the [Setup & Run](../README.md#setup--run) section in README.md for complete instructions.
+
 ## Base URLs
 
 - **Production**: `http://localhost:5008/` (or your domain for internet access)
@@ -169,14 +171,74 @@ English Text: Box plot of cty grouped by drv; Headers/Column Names: manufacturer
 
 **`POST /ask_generic`** - Send generic prompts to LLM
 
+#### Parameters
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `prompt` | string | Yes | Natural language prompt for the LLM |
+| `model` | string | No | LLM model (default: "gpt-4-32k") |
+| `temperature` | float | No | Generation temperature (default: 0.0) |
+| `max_new_tokens` | integer | No | Max tokens to generate (default: 1024) |
+| `topp` | float | No | Top-p sampling (default: 1.0) |
+| `callback` | string | No | JSONP callback function name |
+
+#### Example
 ```bash
 curl -X POST http://localhost:5008/ask_generic \
-  -d "prompt=Explain correlation between highway and city MPG"
+  -d "prompt=Explain correlation between highway and city MPG" \
+  -d "model=gpt-4-32k" \
+  -d "temperature=0.1"
+```
+
+#### Response Format
+**Success Response:**
+```json
+{
+  "success": true,
+  "text": "Highway and city MPG are typically correlated because they both measure fuel efficiency, though highway driving usually yields higher MPG due to consistent speeds and fewer stops.",
+  "total_time_taken": 1.23,
+  "datetime": "2024-01-15 14:30"
+}
+```
+
+**Error Response:**
+```json
+{
+  "success": false,
+  "text": "Error: you must provide a prompt for the LLM"
+}
 ```
 
 ### 4. User Information
 
 **`GET /userinfo`** - Get authentication info (enterprise only)
+
+#### Description
+Returns user authentication information when SiteMinder SSO is enabled. Uses implicit SSO cookies for authentication.
+
+#### Parameters
+None (uses SSO cookies automatically)
+
+#### Response Format
+**With SiteMinder SSO enabled:**
+```json
+{
+  "uid": "john.doe",
+  "bmsid": "12345"
+}
+```
+
+**Without SiteMinder SSO (default):**
+```json
+{
+  "uid": "NA",
+  "bmsid": "NA"
+}
+```
+
+#### Example
+```bash
+curl http://localhost:5008/userinfo
+```
 
 ## Integration
 
@@ -212,18 +274,21 @@ GOOGLE_API_KEY=your_key
 AZURE_OPENAI_API_KEY=your_key
 AZURE_OPENAI_ENDPOINT=your_endpoint
 
-# RAG Configuration  
+# RAG Configuration
 NUM_FEW_SHOTS=25
 
 # Enterprise SSO
 SMVAL=False
 ```
 
+For the complete list of environment variables, see [README.md](../README.md#environment-variables-optional).
+
 ### Available Models
 
 **Currently Supported Models:**
 ```json
 {
+  "gpt-4-32k": {"type": "openai", "text": "GPT-4 32K (default)"},
   "gemini-1.5-flash": {"type": "google_gemini", "text": "Gemini 1.5 Flash"},
   "gemini-1.5-pro": {"type": "google_gemini", "text": "Gemini 1.5 Pro"},
   "gpt-4o-global": {"type": "azure_openai", "text": "GPT-4o"},
@@ -243,7 +308,7 @@ SMVAL=False
 **Note:** The `llm_models.json` file contains additional models that may not be fully supported by the current LLM service implementation. Use the models listed above for guaranteed compatibility.
 ## Realistic Data Examples
 
-The system works with automotive datasets containing fields like:
+The system works with automotive datasets (as used in main CanvasXpress library examples) containing fields like:
 - `manufacturer`: toyota, ford, honda, etc.
 - `model`: camry, f150, civic, etc.  
 - `hwy`: Highway MPG (numeric)
