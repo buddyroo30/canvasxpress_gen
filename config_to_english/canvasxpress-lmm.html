@@ -1,0 +1,1773 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>CanvasXpress LLM Questions</title>
+  <!-- CanvasXpress -->
+  <!--
+  <link rel="stylesheet" href="https://canvasxpress.org/dist/canvasXpress.css" type="text/css" />
+  <script type="text/javascript" src="https://canvasxpress.org/dist/canvasXpress.min.js"></script>
+  -->
+  <link rel="stylesheet" href="http://localhost:8000/build/canvasXpress.css" type="text/css" />
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.init.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.process.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.start.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.dataset.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.aesthetics.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.scale.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.geometry.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.statistics.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.facets.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.coordinates.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.theme.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.render.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.UI.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.dom.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.svg.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.interface.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.save.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.config.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.date.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.text.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.time.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.color.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.attributes.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.algorithm.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.primitives.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.utilsGeneral.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.utilsPlot.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.utilsConfig.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.utils3d.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.utilsApi.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.utilsDimension.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.utils.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.legend.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.marker.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.filter.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.cluster.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.sort.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.numeric.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.jLouvain.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.cola.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.crypt.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.math.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.sankeyUtils.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.circlePackUtils.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.treeUtils.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.networkUtils.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.complex.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.fft.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.contour.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.density.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.hist.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.loess.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.quantreg.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.lapack.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.layout.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.viewport.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.menu.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.links.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.tooltip.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.tooltipMouse.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.tooltipDiv.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.toolbar.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.code.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.bin.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.customizer.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.datafilter.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.datatable.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.resizer.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.motion.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.drag.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.key.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.select.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.dendrogram.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.canvas.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.cleanup.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.events.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.animation.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.example.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.data.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.dataUtils.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.random.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.fx.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.remote.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.graph.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.axis.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.cxplot.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.pie.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.venn.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.correlation.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.scatter2d.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.scatter3d.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.onedplot.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.network.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.genome.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.circular.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.map.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.orthographic.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.images.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.icons.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.doc.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.react.js"></script>
+  <script type="text/javascript" src="http://localhost:8000/build/js/canvasXpress.IO.js"></script>
+
+  <style>
+    div.content {
+      top: 25px;
+      left: 25px;
+      position: absolute;
+    }
+
+    div.container {
+      border: 1px solid #d3d3d3;
+      position: relative;
+      height: 100%;
+      border-radius: 4px;
+      background: white;
+      float: left;
+      margin: 5px;
+      max-width: 810px;
+    }
+
+    div.title {
+      position: relative;
+      height: 40px;
+      max-width: 500px;
+      line-height: 40px;
+      align-items: center;
+      border-radius: 4px;
+      font-size: 22px;
+      flex-grow: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: center !important;
+      font-weight: bold;
+      background: #f5f5f5;
+    }
+
+    div.plot {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      margin: 5px 5px 5px 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+  </div>
+  <script>
+    var json = {
+      "mpg": [
+        ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+        [1, "compact", 18, 4, "f", "p", "audi", "a4", "auto(l5)", 1999, 1.8, 29],
+        [2, "compact", 21, 4, "f", "p", "audi", "a4", "manual(m5)", 1999, 1.8, 29],
+        [3, "compact", 20, 4, "f", "p", "audi", "a4", "manual(m6)", 2008, 2, 31],
+        [4, "compact", 21, 4, "f", "p", "audi", "a4", "auto(av)", 2008, 2, 30],
+        [5, "compact", 16, 6, "f", "p", "audi", "a4", "auto(l5)", 1999, 2.8, 26],
+        [6, "compact", 18, 6, "f", "p", "audi", "a4", "manual(m5)", 1999, 2.8, 26],
+        [7, "compact", 18, 6, "f", "p", "audi", "a4", "auto(av)", 2008, 3.1, 27],
+        [8, "compact", 18, 4, "4", "p", "audi", "a4 quattro", "manual(m5)", 1999, 1.8, 26],
+        [9, "compact", 16, 4, "4", "p", "audi", "a4 quattro", "auto(l5)", 1999, 1.8, 25],
+        [10, "compact", 20, 4, "4", "p", "audi", "a4 quattro", "manual(m6)", 2008, 2, 28],
+        [11, "compact", 19, 4, "4", "p", "audi", "a4 quattro", "auto(s6)", 2008, 2, 27],
+        [12, "compact", 15, 6, "4", "p", "audi", "a4 quattro", "auto(l5)", 1999, 2.8, 25],
+        [13, "compact", 17, 6, "4", "p", "audi", "a4 quattro", "manual(m5)", 1999, 2.8, 25],
+        [14, "compact", 17, 6, "4", "p", "audi", "a4 quattro", "auto(s6)", 2008, 3.1, 25],
+        [15, "compact", 15, 6, "4", "p", "audi", "a4 quattro", "manual(m6)", 2008, 3.1, 25],
+        [16, "midsize", 15, 6, "4", "p", "audi", "a6 quattro", "auto(l5)", 1999, 2.8, 24],
+        [17, "midsize", 17, 6, "4", "p", "audi", "a6 quattro", "auto(s6)", 2008, 3.1, 25],
+        [18, "midsize", 16, 8, "4", "p", "audi", "a6 quattro", "auto(s6)", 2008, 4.2, 23],
+        [19, "suv", 14, 8, "r", "r", "chevrolet", "c1500 suburban 2wd", "auto(l4)", 2008, 5.3, 20],
+        [20, "suv", 11, 8, "r", "e", "chevrolet", "c1500 suburban 2wd", "auto(l4)", 2008, 5.3, 15],
+        [21, "suv", 14, 8, "r", "r", "chevrolet", "c1500 suburban 2wd", "auto(l4)", 2008, 5.3, 20],
+        [22, "suv", 13, 8, "r", "r", "chevrolet", "c1500 suburban 2wd", "auto(l4)", 1999, 5.7, 17],
+        [23, "suv", 12, 8, "r", "r", "chevrolet", "c1500 suburban 2wd", "auto(l4)", 2008, 6, 17],
+        [24, "2seater", 16, 8, "r", "p", "chevrolet", "corvette", "manual(m6)", 1999, 5.7, 26],
+        [25, "2seater", 15, 8, "r", "p", "chevrolet", "corvette", "auto(l4)", 1999, 5.7, 23],
+        [26, "2seater", 16, 8, "r", "p", "chevrolet", "corvette", "manual(m6)", 2008, 6.2, 26],
+        [27, "2seater", 15, 8, "r", "p", "chevrolet", "corvette", "auto(s6)", 2008, 6.2, 25],
+        [28, "2seater", 15, 8, "r", "p", "chevrolet", "corvette", "manual(m6)", 2008, 7, 24],
+        [29, "suv", 14, 8, "4", "r", "chevrolet", "k1500 tahoe 4wd", "auto(l4)", 2008, 5.3, 19],
+        [30, "suv", 11, 8, "4", "e", "chevrolet", "k1500 tahoe 4wd", "auto(l4)", 2008, 5.3, 14],
+        [31, "suv", 11, 8, "4", "r", "chevrolet", "k1500 tahoe 4wd", "auto(l4)", 1999, 5.7, 15],
+        [32, "suv", 14, 8, "4", "d", "chevrolet", "k1500 tahoe 4wd", "auto(l4)", 1999, 6.5, 17],
+        [33, "midsize", 19, 4, "f", "r", "chevrolet", "malibu", "auto(l4)", 1999, 2.4, 27],
+        [34, "midsize", 22, 4, "f", "r", "chevrolet", "malibu", "auto(l4)", 2008, 2.4, 30],
+        [35, "midsize", 18, 6, "f", "r", "chevrolet", "malibu", "auto(l4)", 1999, 3.1, 26],
+        [36, "midsize", 18, 6, "f", "r", "chevrolet", "malibu", "auto(l4)", 2008, 3.5, 29],
+        [37, "midsize", 17, 6, "f", "r", "chevrolet", "malibu", "auto(s6)", 2008, 3.6, 26],
+        [38, "minivan", 18, 4, "f", "r", "dodge", "caravan 2wd", "auto(l3)", 1999, 2.4, 24],
+        [39, "minivan", 17, 6, "f", "r", "dodge", "caravan 2wd", "auto(l4)", 1999, 3, 24],
+        [40, "minivan", 16, 6, "f", "r", "dodge", "caravan 2wd", "auto(l4)", 1999, 3.3, 22],
+        [41, "minivan", 16, 6, "f", "r", "dodge", "caravan 2wd", "auto(l4)", 1999, 3.3, 22],
+        [42, "minivan", 17, 6, "f", "r", "dodge", "caravan 2wd", "auto(l4)", 2008, 3.3, 24],
+        [43, "minivan", 17, 6, "f", "r", "dodge", "caravan 2wd", "auto(l4)", 2008, 3.3, 24],
+        [44, "minivan", 11, 6, "f", "e", "dodge", "caravan 2wd", "auto(l4)", 2008, 3.3, 17],
+        [45, "minivan", 15, 6, "f", "r", "dodge", "caravan 2wd", "auto(l4)", 1999, 3.8, 22],
+        [46, "minivan", 15, 6, "f", "r", "dodge", "caravan 2wd", "auto(l4)", 1999, 3.8, 21],
+        [47, "minivan", 16, 6, "f", "r", "dodge", "caravan 2wd", "auto(l6)", 2008, 3.8, 23],
+        [48, "minivan", 16, 6, "f", "r", "dodge", "caravan 2wd", "auto(l6)", 2008, 4, 23],
+        [49, "pickup", 15, 6, "4", "r", "dodge", "dakota pickup 4wd", "manual(m6)", 2008, 3.7, 19],
+        [50, "pickup", 14, 6, "4", "r", "dodge", "dakota pickup 4wd", "auto(l4)", 2008, 3.7, 18],
+        [51, "pickup", 13, 6, "4", "r", "dodge", "dakota pickup 4wd", "auto(l4)", 1999, 3.9, 17],
+        [52, "pickup", 14, 6, "4", "r", "dodge", "dakota pickup 4wd", "manual(m5)", 1999, 3.9, 17],
+        [53, "pickup", 14, 8, "4", "r", "dodge", "dakota pickup 4wd", "auto(l5)", 2008, 4.7, 19],
+        [54, "pickup", 14, 8, "4", "r", "dodge", "dakota pickup 4wd", "auto(l5)", 2008, 4.7, 19],
+        [55, "pickup", 9, 8, "4", "e", "dodge", "dakota pickup 4wd", "auto(l5)", 2008, 4.7, 12],
+        [56, "pickup", 11, 8, "4", "r", "dodge", "dakota pickup 4wd", "manual(m5)", 1999, 5.2, 17],
+        [57, "pickup", 11, 8, "4", "r", "dodge", "dakota pickup 4wd", "auto(l4)", 1999, 5.2, 15],
+        [58, "suv", 13, 6, "4", "r", "dodge", "durango 4wd", "auto(l4)", 1999, 3.9, 17],
+        [59, "suv", 13, 8, "4", "r", "dodge", "durango 4wd", "auto(l5)", 2008, 4.7, 17],
+        [60, "suv", 9, 8, "4", "e", "dodge", "durango 4wd", "auto(l5)", 2008, 4.7, 12],
+        [61, "suv", 13, 8, "4", "r", "dodge", "durango 4wd", "auto(l5)", 2008, 4.7, 17],
+        [62, "suv", 11, 8, "4", "r", "dodge", "durango 4wd", "auto(l4)", 1999, 5.2, 16],
+        [63, "suv", 13, 8, "4", "r", "dodge", "durango 4wd", "auto(l5)", 2008, 5.7, 18],
+        [64, "suv", 11, 8, "4", "r", "dodge", "durango 4wd", "auto(l4)", 1999, 5.9, 15],
+        [65, "pickup", 12, 8, "4", "r", "dodge", "ram 1500 pickup 4wd", "manual(m6)", 2008, 4.7, 16],
+        [66, "pickup", 9, 8, "4", "e", "dodge", "ram 1500 pickup 4wd", "auto(l5)", 2008, 4.7, 12],
+        [67, "pickup", 13, 8, "4", "r", "dodge", "ram 1500 pickup 4wd", "auto(l5)", 2008, 4.7, 17],
+        [68, "pickup", 13, 8, "4", "r", "dodge", "ram 1500 pickup 4wd", "auto(l5)", 2008, 4.7, 17],
+        [69, "pickup", 12, 8, "4", "r", "dodge", "ram 1500 pickup 4wd", "manual(m6)", 2008, 4.7, 16],
+        [70, "pickup", 9, 8, "4", "e", "dodge", "ram 1500 pickup 4wd", "manual(m6)", 2008, 4.7, 12],
+        [71, "pickup", 11, 8, "4", "r", "dodge", "ram 1500 pickup 4wd", "auto(l4)", 1999, 5.2, 15],
+        [72, "pickup", 11, 8, "4", "r", "dodge", "ram 1500 pickup 4wd", "manual(m5)", 1999, 5.2, 16],
+        [73, "pickup", 13, 8, "4", "r", "dodge", "ram 1500 pickup 4wd", "auto(l5)", 2008, 5.7, 17],
+        [74, "pickup", 11, 8, "4", "r", "dodge", "ram 1500 pickup 4wd", "auto(l4)", 1999, 5.9, 15],
+        [75, "suv", 11, 8, "r", "r", "ford", "expedition 2wd", "auto(l4)", 1999, 4.6, 17],
+        [76, "suv", 11, 8, "r", "r", "ford", "expedition 2wd", "auto(l4)", 1999, 5.4, 17],
+        [77, "suv", 12, 8, "r", "r", "ford", "expedition 2wd", "auto(l6)", 2008, 5.4, 18],
+        [78, "suv", 14, 6, "4", "r", "ford", "explorer 4wd", "auto(l5)", 1999, 4, 17],
+        [79, "suv", 15, 6, "4", "r", "ford", "explorer 4wd", "manual(m5)", 1999, 4, 19],
+        [80, "suv", 14, 6, "4", "r", "ford", "explorer 4wd", "auto(l5)", 1999, 4, 17],
+        [81, "suv", 13, 6, "4", "r", "ford", "explorer 4wd", "auto(l5)", 2008, 4, 19],
+        [82, "suv", 13, 8, "4", "r", "ford", "explorer 4wd", "auto(l6)", 2008, 4.6, 19],
+        [83, "suv", 13, 8, "4", "r", "ford", "explorer 4wd", "auto(l4)", 1999, 5, 17],
+        [84, "pickup", 14, 6, "4", "r", "ford", "f150 pickup 4wd", "auto(l4)", 1999, 4.2, 17],
+        [85, "pickup", 14, 6, "4", "r", "ford", "f150 pickup 4wd", "manual(m5)", 1999, 4.2, 17],
+        [86, "pickup", 13, 8, "4", "r", "ford", "f150 pickup 4wd", "manual(m5)", 1999, 4.6, 16],
+        [87, "pickup", 13, 8, "4", "r", "ford", "f150 pickup 4wd", "auto(l4)", 1999, 4.6, 16],
+        [88, "pickup", 13, 8, "4", "r", "ford", "f150 pickup 4wd", "auto(l4)", 2008, 4.6, 17],
+        [89, "pickup", 11, 8, "4", "r", "ford", "f150 pickup 4wd", "auto(l4)", 1999, 5.4, 15],
+        [90, "pickup", 13, 8, "4", "r", "ford", "f150 pickup 4wd", "auto(l4)", 2008, 5.4, 17],
+        [91, "subcompact", 18, 6, "r", "r", "ford", "mustang", "manual(m5)", 1999, 3.8, 26],
+        [92, "subcompact", 18, 6, "r", "r", "ford", "mustang", "auto(l4)", 1999, 3.8, 25],
+        [93, "subcompact", 17, 6, "r", "r", "ford", "mustang", "manual(m5)", 2008, 4, 26],
+        [94, "subcompact", 16, 6, "r", "r", "ford", "mustang", "auto(l5)", 2008, 4, 24],
+        [95, "subcompact", 15, 8, "r", "r", "ford", "mustang", "auto(l4)", 1999, 4.6, 21],
+        [96, "subcompact", 15, 8, "r", "r", "ford", "mustang", "manual(m5)", 1999, 4.6, 22],
+        [97, "subcompact", 15, 8, "r", "r", "ford", "mustang", "manual(m5)", 2008, 4.6, 23],
+        [98, "subcompact", 15, 8, "r", "r", "ford", "mustang", "auto(l5)", 2008, 4.6, 22],
+        [99, "subcompact", 14, 8, "r", "p", "ford", "mustang", "manual(m6)", 2008, 5.4, 20],
+        [100, "subcompact", 28, 4, "f", "r", "honda", "civic", "manual(m5)", 1999, 1.6, 33],
+        [101, "subcompact", 24, 4, "f", "r", "honda", "civic", "auto(l4)", 1999, 1.6, 32],
+        [102, "subcompact", 25, 4, "f", "r", "honda", "civic", "manual(m5)", 1999, 1.6, 32],
+        [103, "subcompact", 23, 4, "f", "p", "honda", "civic", "manual(m5)", 1999, 1.6, 29],
+        [104, "subcompact", 24, 4, "f", "r", "honda", "civic", "auto(l4)", 1999, 1.6, 32],
+        [105, "subcompact", 26, 4, "f", "r", "honda", "civic", "manual(m5)", 2008, 1.8, 34],
+        [106, "subcompact", 25, 4, "f", "r", "honda", "civic", "auto(l5)", 2008, 1.8, 36],
+        [107, "subcompact", 24, 4, "f", "c", "honda", "civic", "auto(l5)", 2008, 1.8, 36],
+        [108, "subcompact", 21, 4, "f", "p", "honda", "civic", "manual(m6)", 2008, 2, 29],
+        [109, "midsize", 18, 4, "f", "r", "hyundai", "sonata", "auto(l4)", 1999, 2.4, 26],
+        [110, "midsize", 18, 4, "f", "r", "hyundai", "sonata", "manual(m5)", 1999, 2.4, 27],
+        [111, "midsize", 21, 4, "f", "r", "hyundai", "sonata", "auto(l4)", 2008, 2.4, 30],
+        [112, "midsize", 21, 4, "f", "r", "hyundai", "sonata", "manual(m5)", 2008, 2.4, 31],
+        [113, "midsize", 18, 6, "f", "r", "hyundai", "sonata", "auto(l4)", 1999, 2.5, 26],
+        [114, "midsize", 18, 6, "f", "r", "hyundai", "sonata", "manual(m5)", 1999, 2.5, 26],
+        [115, "midsize", 19, 6, "f", "r", "hyundai", "sonata", "auto(l5)", 2008, 3.3, 28],
+        [116, "subcompact", 19, 4, "f", "r", "hyundai", "tiburon", "auto(l4)", 1999, 2, 26],
+        [117, "subcompact", 19, 4, "f", "r", "hyundai", "tiburon", "manual(m5)", 1999, 2, 29],
+        [118, "subcompact", 20, 4, "f", "r", "hyundai", "tiburon", "manual(m5)", 2008, 2, 28],
+        [119, "subcompact", 20, 4, "f", "r", "hyundai", "tiburon", "auto(l4)", 2008, 2, 27],
+        [120, "subcompact", 17, 6, "f", "r", "hyundai", "tiburon", "auto(l4)", 2008, 2.7, 24],
+        [121, "subcompact", 16, 6, "f", "r", "hyundai", "tiburon", "manual(m6)", 2008, 2.7, 24],
+        [122, "subcompact", 17, 6, "f", "r", "hyundai", "tiburon", "manual(m5)", 2008, 2.7, 24],
+        [123, "suv", 17, 6, "4", "d", "jeep", "grand cherokee 4wd", "auto(l5)", 2008, 3, 22],
+        [124, "suv", 15, 6, "4", "r", "jeep", "grand cherokee 4wd", "auto(l5)", 2008, 3.7, 19],
+        [125, "suv", 15, 6, "4", "r", "jeep", "grand cherokee 4wd", "auto(l4)", 1999, 4, 20],
+        [126, "suv", 14, 8, "4", "r", "jeep", "grand cherokee 4wd", "auto(l4)", 1999, 4.7, 17],
+        [127, "suv", 9, 8, "4", "e", "jeep", "grand cherokee 4wd", "auto(l5)", 2008, 4.7, 12],
+        [128, "suv", 14, 8, "4", "r", "jeep", "grand cherokee 4wd", "auto(l5)", 2008, 4.7, 19],
+        [129, "suv", 13, 8, "4", "r", "jeep", "grand cherokee 4wd", "auto(l5)", 2008, 5.7, 18],
+        [130, "suv", 11, 8, "4", "p", "jeep", "grand cherokee 4wd", "auto(l5)", 2008, 6.1, 14],
+        [131, "suv", 11, 8, "4", "p", "land rover", "range rover", "auto(l4)", 1999, 4, 15],
+        [132, "suv", 12, 8, "4", "r", "land rover", "range rover", "auto(s6)", 2008, 4.2, 18],
+        [133, "suv", 12, 8, "4", "r", "land rover", "range rover", "auto(s6)", 2008, 4.4, 18],
+        [134, "suv", 11, 8, "4", "p", "land rover", "range rover", "auto(l4)", 1999, 4.6, 15],
+        [135, "suv", 11, 8, "r", "r", "lincoln", "navigator 2wd", "auto(l4)", 1999, 5.4, 17],
+        [136, "suv", 11, 8, "r", "p", "lincoln", "navigator 2wd", "auto(l4)", 1999, 5.4, 16],
+        [137, "suv", 12, 8, "r", "r", "lincoln", "navigator 2wd", "auto(l6)", 2008, 5.4, 18],
+        [138, "suv", 14, 6, "4", "r", "mercury", "mountaineer 4wd", "auto(l5)", 1999, 4, 17],
+        [139, "suv", 13, 6, "4", "r", "mercury", "mountaineer 4wd", "auto(l5)", 2008, 4, 19],
+        [140, "suv", 13, 8, "4", "r", "mercury", "mountaineer 4wd", "auto(l6)", 2008, 4.6, 19],
+        [141, "suv", 13, 8, "4", "r", "mercury", "mountaineer 4wd", "auto(l4)", 1999, 5, 17],
+        [142, "compact", 21, 4, "f", "r", "nissan", "altima", "manual(m5)", 1999, 2.4, 29],
+        [143, "compact", 19, 4, "f", "r", "nissan", "altima", "auto(l4)", 1999, 2.4, 27],
+        [144, "midsize", 23, 4, "f", "r", "nissan", "altima", "auto(av)", 2008, 2.5, 31],
+        [145, "midsize", 23, 4, "f", "r", "nissan", "altima", "manual(m6)", 2008, 2.5, 32],
+        [146, "midsize", 19, 6, "f", "p", "nissan", "altima", "manual(m6)", 2008, 3.5, 27],
+        [147, "midsize", 19, 6, "f", "p", "nissan", "altima", "auto(av)", 2008, 3.5, 26],
+        [148, "midsize", 18, 6, "f", "r", "nissan", "maxima", "auto(l4)", 1999, 3, 26],
+        [149, "midsize", 19, 6, "f", "r", "nissan", "maxima", "manual(m5)", 1999, 3, 25],
+        [150, "midsize", 19, 6, "f", "p", "nissan", "maxima", "auto(av)", 2008, 3.5, 25],
+        [151, "suv", 14, 6, "4", "r", "nissan", "pathfinder 4wd", "auto(l4)", 1999, 3.3, 17],
+        [152, "suv", 15, 6, "4", "r", "nissan", "pathfinder 4wd", "manual(m5)", 1999, 3.3, 17],
+        [153, "suv", 14, 6, "4", "p", "nissan", "pathfinder 4wd", "auto(l5)", 2008, 4, 20],
+        [154, "suv", 12, 8, "4", "p", "nissan", "pathfinder 4wd", "auto(s5)", 2008, 5.6, 18],
+        [155, "midsize", 18, 6, "f", "r", "pontiac", "grand prix", "auto(l4)", 1999, 3.1, 26],
+        [156, "midsize", 16, 6, "f", "p", "pontiac", "grand prix", "auto(l4)", 1999, 3.8, 26],
+        [157, "midsize", 17, 6, "f", "r", "pontiac", "grand prix", "auto(l4)", 1999, 3.8, 27],
+        [158, "midsize", 18, 6, "f", "r", "pontiac", "grand prix", "auto(l4)", 2008, 3.8, 28],
+        [159, "midsize", 16, 8, "f", "p", "pontiac", "grand prix", "auto(s4)", 2008, 5.3, 25],
+        [160, "suv", 18, 4, "4", "r", "subaru", "forester awd", "manual(m5)", 1999, 2.5, 25],
+        [161, "suv", 18, 4, "4", "r", "subaru", "forester awd", "auto(l4)", 1999, 2.5, 24],
+        [162, "suv", 20, 4, "4", "r", "subaru", "forester awd", "manual(m5)", 2008, 2.5, 27],
+        [163, "suv", 19, 4, "4", "p", "subaru", "forester awd", "manual(m5)", 2008, 2.5, 25],
+        [164, "suv", 20, 4, "4", "r", "subaru", "forester awd", "auto(l4)", 2008, 2.5, 26],
+        [165, "suv", 18, 4, "4", "p", "subaru", "forester awd", "auto(l4)", 2008, 2.5, 23],
+        [166, "subcompact", 21, 4, "4", "r", "subaru", "impreza awd", "auto(l4)", 1999, 2.2, 26],
+        [167, "subcompact", 19, 4, "4", "r", "subaru", "impreza awd", "manual(m5)", 1999, 2.2, 26],
+        [168, "subcompact", 19, 4, "4", "r", "subaru", "impreza awd", "manual(m5)", 1999, 2.5, 26],
+        [169, "subcompact", 19, 4, "4", "r", "subaru", "impreza awd", "auto(l4)", 1999, 2.5, 26],
+        [170, "compact", 20, 4, "4", "p", "subaru", "impreza awd", "auto(s4)", 2008, 2.5, 25],
+        [171, "compact", 20, 4, "4", "r", "subaru", "impreza awd", "auto(s4)", 2008, 2.5, 27],
+        [172, "compact", 19, 4, "4", "p", "subaru", "impreza awd", "manual(m5)", 2008, 2.5, 25],
+        [173, "compact", 20, 4, "4", "r", "subaru", "impreza awd", "manual(m5)", 2008, 2.5, 27],
+        [174, "suv", 15, 4, "4", "r", "toyota", "4runner 4wd", "manual(m5)", 1999, 2.7, 20],
+        [175, "suv", 16, 4, "4", "r", "toyota", "4runner 4wd", "auto(l4)", 1999, 2.7, 20],
+        [176, "suv", 15, 6, "4", "r", "toyota", "4runner 4wd", "auto(l4)", 1999, 3.4, 19],
+        [177, "suv", 15, 6, "4", "r", "toyota", "4runner 4wd", "manual(m5)", 1999, 3.4, 17],
+        [178, "suv", 16, 6, "4", "r", "toyota", "4runner 4wd", "auto(l5)", 2008, 4, 20],
+        [179, "suv", 14, 8, "4", "r", "toyota", "4runner 4wd", "auto(l5)", 2008, 4.7, 17],
+        [180, "midsize", 21, 4, "f", "r", "toyota", "camry", "manual(m5)", 1999, 2.2, 29],
+        [181, "midsize", 21, 4, "f", "r", "toyota", "camry", "auto(l4)", 1999, 2.2, 27],
+        [182, "midsize", 21, 4, "f", "r", "toyota", "camry", "manual(m5)", 2008, 2.4, 31],
+        [183, "midsize", 21, 4, "f", "r", "toyota", "camry", "auto(l5)", 2008, 2.4, 31],
+        [184, "midsize", 18, 6, "f", "r", "toyota", "camry", "auto(l4)", 1999, 3, 26],
+        [185, "midsize", 18, 6, "f", "r", "toyota", "camry", "manual(m5)", 1999, 3, 26],
+        [186, "midsize", 19, 6, "f", "r", "toyota", "camry", "auto(s6)", 2008, 3.5, 28],
+        [187, "compact", 21, 4, "f", "r", "toyota", "camry solara", "auto(l4)", 1999, 2.2, 27],
+        [188, "compact", 21, 4, "f", "r", "toyota", "camry solara", "manual(m5)", 1999, 2.2, 29],
+        [189, "compact", 21, 4, "f", "r", "toyota", "camry solara", "manual(m5)", 2008, 2.4, 31],
+        [190, "compact", 22, 4, "f", "r", "toyota", "camry solara", "auto(s5)", 2008, 2.4, 31],
+        [191, "compact", 18, 6, "f", "r", "toyota", "camry solara", "auto(l4)", 1999, 3, 26],
+        [192, "compact", 18, 6, "f", "r", "toyota", "camry solara", "manual(m5)", 1999, 3, 26],
+        [193, "compact", 18, 6, "f", "r", "toyota", "camry solara", "auto(s5)", 2008, 3.3, 27],
+        [194, "compact", 24, 4, "f", "r", "toyota", "corolla", "auto(l3)", 1999, 1.8, 30],
+        [195, "compact", 24, 4, "f", "r", "toyota", "corolla", "auto(l4)", 1999, 1.8, 33],
+        [196, "compact", 26, 4, "f", "r", "toyota", "corolla", "manual(m5)", 1999, 1.8, 35],
+        [197, "compact", 28, 4, "f", "r", "toyota", "corolla", "manual(m5)", 2008, 1.8, 37],
+        [198, "compact", 26, 4, "f", "r", "toyota", "corolla", "auto(l4)", 2008, 1.8, 35],
+        [199, "suv", 11, 8, "4", "r", "toyota", "land cruiser wagon 4wd", "auto(l4)", 1999, 4.7, 15],
+        [200, "suv", 13, 8, "4", "r", "toyota", "land cruiser wagon 4wd", "auto(s6)", 2008, 5.7, 18],
+        [201, "pickup", 15, 4, "4", "r", "toyota", "toyota tacoma 4wd", "manual(m5)", 1999, 2.7, 20],
+        [202, "pickup", 16, 4, "4", "r", "toyota", "toyota tacoma 4wd", "auto(l4)", 1999, 2.7, 20],
+        [203, "pickup", 17, 4, "4", "r", "toyota", "toyota tacoma 4wd", "manual(m5)", 2008, 2.7, 22],
+        [204, "pickup", 15, 6, "4", "r", "toyota", "toyota tacoma 4wd", "manual(m5)", 1999, 3.4, 17],
+        [205, "pickup", 15, 6, "4", "r", "toyota", "toyota tacoma 4wd", "auto(l4)", 1999, 3.4, 19],
+        [206, "pickup", 15, 6, "4", "r", "toyota", "toyota tacoma 4wd", "manual(m6)", 2008, 4, 18],
+        [207, "pickup", 16, 6, "4", "r", "toyota", "toyota tacoma 4wd", "auto(l5)", 2008, 4, 20],
+        [208, "compact", 21, 4, "f", "r", "volkswagen", "gti", "manual(m5)", 1999, 2, 29],
+        [209, "compact", 19, 4, "f", "r", "volkswagen", "gti", "auto(l4)", 1999, 2, 26],
+        [210, "compact", 21, 4, "f", "p", "volkswagen", "gti", "manual(m6)", 2008, 2, 29],
+        [211, "compact", 22, 4, "f", "p", "volkswagen", "gti", "auto(s6)", 2008, 2, 29],
+        [212, "compact", 17, 6, "f", "r", "volkswagen", "gti", "manual(m5)", 1999, 2.8, 24],
+        [213, "compact", 33, 4, "f", "d", "volkswagen", "jetta", "manual(m5)", 1999, 1.9, 44],
+        [214, "compact", 21, 4, "f", "r", "volkswagen", "jetta", "manual(m5)", 1999, 2, 29],
+        [215, "compact", 19, 4, "f", "r", "volkswagen", "jetta", "auto(l4)", 1999, 2, 26],
+        [216, "compact", 22, 4, "f", "p", "volkswagen", "jetta", "auto(s6)", 2008, 2, 29],
+        [217, "compact", 21, 4, "f", "p", "volkswagen", "jetta", "manual(m6)", 2008, 2, 29],
+        [218, "compact", 21, 5, "f", "r", "volkswagen", "jetta", "auto(s6)", 2008, 2.5, 29],
+        [219, "compact", 21, 5, "f", "r", "volkswagen", "jetta", "manual(m5)", 2008, 2.5, 29],
+        [220, "compact", 16, 6, "f", "r", "volkswagen", "jetta", "auto(l4)", 1999, 2.8, 23],
+        [221, "compact", 17, 6, "f", "r", "volkswagen", "jetta", "manual(m5)", 1999, 2.8, 24],
+        [222, "subcompact", 35, 4, "f", "d", "volkswagen", "new beetle", "manual(m5)", 1999, 1.9, 44],
+        [223, "subcompact", 29, 4, "f", "d", "volkswagen", "new beetle", "auto(l4)", 1999, 1.9, 41],
+        [224, "subcompact", 21, 4, "f", "r", "volkswagen", "new beetle", "manual(m5)", 1999, 2, 29],
+        [225, "subcompact", 19, 4, "f", "r", "volkswagen", "new beetle", "auto(l4)", 1999, 2, 26],
+        [226, "subcompact", 20, 5, "f", "r", "volkswagen", "new beetle", "manual(m5)", 2008, 2.5, 28],
+        [227, "subcompact", 20, 5, "f", "r", "volkswagen", "new beetle", "auto(s6)", 2008, 2.5, 29],
+        [228, "midsize", 21, 4, "f", "p", "volkswagen", "passat", "manual(m5)", 1999, 1.8, 29],
+        [229, "midsize", 18, 4, "f", "p", "volkswagen", "passat", "auto(l5)", 1999, 1.8, 29],
+        [230, "midsize", 19, 4, "f", "p", "volkswagen", "passat", "auto(s6)", 2008, 2, 28],
+        [231, "midsize", 21, 4, "f", "p", "volkswagen", "passat", "manual(m6)", 2008, 2, 29],
+        [232, "midsize", 16, 6, "f", "p", "volkswagen", "passat", "auto(l5)", 1999, 2.8, 26],
+        [233, "midsize", 18, 6, "f", "p", "volkswagen", "passat", "manual(m5)", 1999, 2.8, 26],
+        [234, "midsize", 17, 6, "f", "p", "volkswagen", "passat", "auto(s6)", 2008, 3.6, 26]
+      ],
+      "tooth": [
+        ["Id", "dose", "supp", "len"],
+        [1, 0.5, "VC", 4.2],
+        [2, 0.5, "VC", 11.5],
+        [3, 0.5, "VC", 7.3],
+        [4, 0.5, "VC", 5.8],
+        [5, 0.5, "VC", 6.4],
+        [6, 0.5, "VC", 10],
+        [7, 0.5, "VC", 11.2],
+        [8, 0.5, "VC", 11.2],
+        [9, 0.5, "VC", 5.2],
+        [10, 0.5, "VC", 7],
+        [11, 1, "VC", 16.5],
+        [12, 1, "VC", 16.5],
+        [13, 1, "VC", 15.2],
+        [14, 1, "VC", 17.3],
+        [15, 1, "VC", 22.5],
+        [16, 1, "VC", 17.3],
+        [17, 1, "VC", 13.6],
+        [18, 1, "VC", 14.5],
+        [19, 1, "VC", 18.8],
+        [20, 1, "VC", 15.5],
+        [21, 2, "VC", 23.6],
+        [22, 2, "VC", 18.5],
+        [23, 2, "VC", 33.9],
+        [24, 2, "VC", 25.5],
+        [25, 2, "VC", 26.4],
+        [26, 2, "VC", 32.5],
+        [27, 2, "VC", 26.7],
+        [28, 2, "VC", 21.5],
+        [29, 2, "VC", 23.3],
+        [30, 2, "VC", 29.5],
+        [31, 0.5, "OJ", 15.2],
+        [32, 0.5, "OJ", 21.5],
+        [33, 0.5, "OJ", 17.6],
+        [34, 0.5, "OJ", 9.7],
+        [35, 0.5, "OJ", 14.5],
+        [36, 0.5, "OJ", 10],
+        [37, 0.5, "OJ", 8.2],
+        [38, 0.5, "OJ", 9.4],
+        [39, 0.5, "OJ", 16.5],
+        [40, 0.5, "OJ", 9.7],
+        [41, 1, "OJ", 19.7],
+        [42, 1, "OJ", 23.3],
+        [43, 1, "OJ", 23.6],
+        [44, 1, "OJ", 26.4],
+        [45, 1, "OJ", 20],
+        [46, 1, "OJ", 25.2],
+        [47, 1, "OJ", 25.8],
+        [48, 1, "OJ", 21.2],
+        [49, 1, "OJ", 14.5],
+        [50, 1, "OJ", 27.3],
+        [51, 2, "OJ", 25.5],
+        [52, 2, "OJ", 26.4],
+        [53, 2, "OJ", 22.4],
+        [54, 2, "OJ", 24.5],
+        [55, 2, "OJ", 24.8],
+        [56, 2, "OJ", 30.9],
+        [57, 2, "OJ", 26.4],
+        [58, 2, "OJ", 27.3],
+        [59, 2, "OJ", 29.4],
+        [60, 2, "OJ", 23]
+      ],
+      "ds6x3x1": [
+        ["Month", "Series A", "Series B", "Series C", "Quarter"],
+        ["Jan", 10, 5, 2, "Q1"],
+        ["Feb", 11, 8, 3, "Q1"],
+        ["Mar", 13, 10, 6, "Q1"],
+        ["Apr", 4, 12, 4, "Q2"],
+        ["May", 18, 15, 8, "Q2"],
+        ["Jun", 21, 10, 6, "Q2"]
+      ],
+      "ds12x3x1": [
+        ["Month", "Series A", "Series B", "Series C", "Quarter"],
+        ["Jan", 10, 5, 2, "Q1"],
+        ["Feb", 11, 8, 3, "Q1"],
+        ["Mar", 13, 10, 6, "Q1"],
+        ["Apr", 4, 12, 4, "Q2"],
+        ["May", 18, 15, 8, "Q2"],
+        ["Jun", 21, 10, 6, "Q2"],
+        ["Jul", 14, 8, 3, "Q3"],
+        ["Aug", 16, 9, 4, "Q3"],
+        ["Sep", 19, 12, 6, "Q3"],
+        ["Oct", 8, 10, 4, "Q4"],
+        ["Nov", 12, 15, 8, "Q4"],
+        ["Dec", 15, 10, 6, "Q4"]
+      ],
+      "Questions": [
+        {
+          "Question": "Area graph of 'Series A' with no legend rotating the labels by 90 degrees oriented vertically. Set the graph title to 'Area graph with one series'",
+          "Type": "Area",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "title": "Area graph with one series",
+            "graphType": "Area",
+            "xAxis": ["Series A"],
+            "graphOrientation": "vertical",
+            "showLegend": false,
+            "smpTextRotate": 90
+          }
+        },
+        {
+          "Question": "Area graph of 'Series A' with vertical orientation, labels rotated 90 degrees, and with a sample title of 'Month' and a primary axis title of 'Value'. Hide the legend and style the graph like a GGPlot",
+          "Type": "Area",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphType": "Area",
+            "xAxis": ["Series A"],
+            "graphOrientation": "vertical",
+            "showLegend": false,
+            "smpTextRotate": 90,
+            "lineType": "spline",
+            "xAxisTitle": "Value",
+            "smpTitle": "Month",
+            "theme": "ggplot"
+          }
+        },
+        {
+          "Question": "Area graph in a vertical orientation using splines, medium transparency, labels rotated 90 degrees, and a sample title of 'Month' and a primary axis title of 'Value'. Set the graph title to 'Area graph with three overlapping data series' and the subtitle to 'random data'. Use a GGPlot color scheme",
+          "Type": "Area",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphType": "Area",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "title": "Area graph with three overlapping data series",
+            "subtitle": "random data",
+            "graphOrientation": "vertical",
+            "smpTextRotate": 90,
+            "objectColorTransparency": 0.5,
+            "lineType": "spline",
+            "xAxisTitle": "Value",
+            "smpTitle": "Month",
+            "colorScheme": "GGPlot"
+          }
+        },
+        {
+          "Question": "Area graph with all the data stacked in a vertical orientation using splines, labels rotated 90 degrees, and a sample title of 'Month' and a primary axis title of 'Value'. Use a Pastel color scheme",
+          "Type": "Area",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "areaType": "stacked",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "graphOrientation": "vertical",
+            "graphType": "Area",
+            "lineType": "spline",
+            "smpTextRotate": 90,
+            "smpTitle": "Month",
+            "xAxisTitle": "Value",
+            "colorScheme": "Pastel",
+          }
+        },
+        {
+          "Question": "Area graph with all the data 100% stacked in a vertical orientation using splines, labels rotated 90 degrees, and a sample title of 'Month' and a primary axis title of 'Value'. Use the BMS color scheme",
+          "Type": "Area",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "areaType": "percent",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "graphOrientation": "vertical",
+            "graphType": "Area",
+            "lineType": "spline",
+            "smpTextRotate": 90,
+            "smpTitle": "Month",
+            "xAxisTitle": "Value",
+            "colorScheme": "BMS",
+          }
+        },
+        {
+          "Question": "Area graph with in a vertical orientation using splines, labels rotated 90 degrees, and a sample title of 'Month' and a primary axis title of 'Value'. Exclude 'Series C'",
+          "Type": "Area",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphOrientation": "vertical",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "graphType": "Area",
+            "lineType": "spline",
+            "smpTextRotate": 90,
+            "smpTitle": "Month",
+            "xAxisTitle": "Value",
+            "filterData": [["guess", false, "different", ["Series C"]]]
+          }
+        },
+        {
+          "Question": "Area graph with in a vertical orientation using splines, labels rotated 90 degrees, and a sample title of 'Month' and a primary axis title of 'Value'. Include only 'Series A'",
+          "Type": "Area",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphOrientation": "vertical",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "graphType": "Area",
+            "lineType": "spline",
+            "smpTextRotate": 90,
+            "smpTitle": "Month",
+            "xAxisTitle": "Value",
+            "filterData": [["guess", false, "exact", ["Series A"]]]
+          }
+        },
+        {
+          "Question": "Area graph of hwy with title Simple Area Graph and no legend. Style the graph like a GGPlot",
+          "Type": "Area",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "title": "Simple Area Graph",
+            "graphType": "Area",
+            "xAxis": ["hwy"],
+            "graphOrientation": "vertical",
+            "showLegend": false,
+            "theme": "ggplot"
+          }
+        },
+        {
+          "Question": "Overlapping area graph of cty and hwy",
+          "Type": "Area",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Area",
+            "xAxis": ["cty", "hwy"],
+            "graphOrientation": "vertical"
+          }
+        },
+        {
+          "Question": "Stacked area graph of hwy and cty",
+          "Type": "Area",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Area",
+            "areaType": "stacked",
+            "xAxis": ["hwy", "cty"],
+            "graphOrientation": "vertical"
+          }
+        },
+        {
+          "Question": "Percentage stacked area graph of hwy and cty",
+          "Type": "Area",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Area",
+            "areaType": "percent",
+            "xAxis": ["hwy", "cty"],
+            "graphOrientation": "vertical"
+          }
+        },
+        {
+          "Question": "Area graph of hwy with a line graph of displ showing the secondary axis. Label the primary axis as hwy and the secondary axis as displ",
+          "Type": "AreaLine",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "AreaLine",
+            "xAxis": ["hwy"],
+            "xAxis2": ["displ"],
+            "graphOrientation": "vertical",
+            "xAxis2Show": true,
+            "xAxisTitle": "hwy",
+            "xAxis2Title": "displ"
+          }
+        },
+        {
+          "Question": "Area-line combination graph in a vertical orientation using splines and thick lines with labels rotated 90 degrees. 'Series A' should go in the first axis and 'Series B' should go in the second axis. Set the sample title to 'Month', and designate 'Value' for the first axis and 'Value2' for the second axis. Show both axes and set the minimum value for both axes to 0. Use the following custom colors: rgb(160,81,149), rgb(47,75,124), rgb(102,81,145), rgb(255,166,0), rgb(0,63,92), rgb(160,81,149). Put the legend on the top right corner",
+          "Type": "Area",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphOrientation": "vertical",
+            "graphType": "AreaLine",
+            "legendPosition": "topRight",
+            "lineThickness": 3,
+            "lineType": "spline",
+            "setMinX": 0,
+            "setMinX2": 0,
+            "smpTextRotate": 90,
+            "smpTitle": "Month",
+            "xAxis": ["Series A"],
+            "xAxis2": ["Series B"],
+            "xAxis2Show": true,
+            "xAxis2Title": "Value2",
+            "xAxisTitle": "Value",
+            "colors": ["rgb(160,81,149)", "rgb(255,166,0)", "rgb(0,63,92)"]
+          }
+        },
+        {
+          "Question": "Bar graph of 'Series A' with GGPlot style. Rotate the sample text by 90 degrees and hide the legend. Set the title to 'Bar graph of Series A'",
+          "Type": "Bar",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphType": "Bar",
+            "xAxis": ["Series A"],
+            "graphOrientation": "vertical",
+            "showLegend": false,
+            "title": "Bar graph of Series A",
+            "smpTextRotate": 90,
+            "theme": "ggplot"
+          }
+        },
+        {
+          "Question": "Bar graph all data using the Behance color scheme in an horizontal orientation. Set the title to 'Bar graph of All Series'. Place the legend inside the graph at the top right corner",
+          "Type": "Bar",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphType": "Bar",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "graphOrientation": "horizontal",
+            "title": "Bar graph of All Series",
+            "colorScheme": "Behance",
+            "legendPosition": "topRight",
+            "legendInside": true
+          }
+        },
+        {
+          "Question": "Bar graph with totals by Quarter. Rotate the sample text by 90 degrees.",
+          "Type": "Bar",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphType": "Bar",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 90,
+            "groupingFactors": ["Quarter"],
+            "summaryType": "sum"
+          }
+        },
+        {
+          "Question": "Bar graph with totals by Quarter excluding the month of Jun. Rotate the sample text by 90 degrees. Use a blue color scheme.",
+          "Type": "Bar",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphType": "Bar",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 90,
+            "groupingFactors": ["Quarter"],
+            "summaryType": "sum",
+            "filterData": [["guess", false, "different", ["Jun"]]],
+            "colorScheme": "Blues"
+          }
+        },
+        {
+          "Question": "Bar graph with totals by Quarter excluding the months of Mar and Jun. Rotate the sample text by 90 degrees. Style the graph like a GGPlot",
+          "Type": "Bar",
+          "Header": ["Month", "Series A", "Series B", "Series C", "Quarter"],
+          "Data": "ds6x3x1",
+          "Answer": {
+            "graphType": "Bar",
+            "xAxis": ["Series A", "Series B", "Series C"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 90,
+            "groupingFactors": ["Quarter"],
+            "summaryType": "sum",
+            "filterData": [["guess", false, "different", ["Mar", "Jun"]]],
+            "theme": "ggplot"
+          }
+        },
+        {
+          "Question": "Bar graph of hwy grouped by class. Rotate the sample text by 45 degrees.",
+          "Type": "Bar",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Bar",
+            "groupingFactors": ["class"],
+            "xAxis": ["hwy"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 45
+          }
+        },
+        {
+          "Question": "Count data grouped by class. Hide the legend and set the title to Count of class. Align the title to the center.",
+          "Type": "Bar",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Bar",
+            "groupingFactors": ["class"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 45,
+            "summaryType": "count",
+            "showLegend": false,
+            "title": "Count of class",
+            "titleAlign": "center"
+          }
+        },
+        {
+          "Question": "A vertical bar graph of the counts in data grouped by class and stacked and colored by drv. Rotate the sample text by 45 degrees. Make it look like a Highcharts graph.",
+          "Type": "Bar",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Bar",
+            "groupingFactors": ["class"],
+            "graphOrientation": "vertical",
+            "summaryType": "count",
+            "smpTextRotate": 45,
+            "stackBy": "drv",
+            "colorBy": "drv",
+            "colorScheme": "Highcharts"
+          }
+        },
+        {
+          "Question": "Count data grouped by class and cyl using a bar graph in a vertical orientation. Color by cyl",
+          "Type": "Bar",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Bar",
+            "groupingFactors": ["class", "cyl"],
+            "graphOrientation": "vertical",
+            "summaryType": "count",
+            "colorBy": "cyl"
+          }
+        },
+        {
+          "Question": "Bar graph of hwy grouped and colored by drv. Draw a red line at 20 labeled as Cutoff. Set the graph orientation to horizontal. Set maximum value of x-axis to 30. Use the solarized style for the graph.",
+          "Type": "Bar",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Bar",
+            "groupingFactors": ["drv"],
+            "colorBy": ["drv"],
+            "xAxis": ["hwy"],
+            "graphOrientation": "horizontal",
+            "smpTextRotate": 0,
+            "setMaxX": 30,
+            "decorations": {
+              "line": [
+                {
+                  "align": "left",
+                  "color": "rgb(255,0,0)",
+                  "label": "Cutoff",
+                  "value": 20
+                }
+              ]
+            },
+            "theme": "solarized"
+          }
+        },
+        {
+          "Question": "Draw a Bar graph of cty and hwy in the primary axis and a line graph of displ and cyl in the secondary axis. Group data by class. Put the legend at the bottom in 4 columns. Show the secondary axis. Set maximum value of primary axis to 30.",
+          "Type": "BarLine",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "BarLine",
+            "groupingFactors": ["class"],
+            "xAxis": ["cty", "hwy"],
+            "xAxis2": ["displ", "cyl"],
+            "graphOrientation": "vertical",
+            "legendPosition": "bottom",
+            "legendColumns": 4,
+            "xAxis2Show": true,
+            "setMaxX": 30
+          }
+        },
+        {
+          "Question": "Boxplot of hwy by class",
+          "Type": "Boxplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "groupingFactors": ["class"],
+            "xAxis": ["hwy"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 45,
+          }
+        },
+        {
+          "Question": "Boxplot of hwy and cty by class. Set the graph orientation to horizontal and show the original data binned. Hide the whiskers.",
+          "Type": "Boxplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "groupingFactors": ["class"],
+            "xAxis": ["hwy", "cty"],
+            "graphOrientation": "horizontal",
+            "showBoxplotOriginalData": true,
+            "binned": true,
+            "boxplotWhiskersType": "none"
+          }
+        },
+        {
+          "Question": "Vertical boxplot of len by supp. Show the original data. Color by supp and size by dose. Rotate the sample text by 90 degrees. Use the Matlab color scheme.",
+          "Type": "Boxplot",
+          "Header": ["Id", "dose", "supp", "len"],
+          "Data": "tooth",
+          "Answer": {
+            "graphType": "Boxplot",
+            "groupingFactors": ["supp"],
+            "xAxis": ["len"],
+            "graphOrientation": "vertical",
+            "showBoxplotOriginalData": true,
+            "sizeBy": "dose",
+            "colorBy": "supp",
+            "smpTextRotate": 90,
+            "colorScheme": "Matlab"
+          }
+        },
+        {
+          "Question": "Vertical boxplot of hwy and cty by class. Show the original data points jittered and shaped by 'drv'. Exclude the class '2seater' and 'pickup'. Use the Tableau style.",
+          "Type": "Boxplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "graphOrientation": "vertical",
+            "groupingFactors": ["class"],
+            "xAxis": ["hwy", "cty"],
+            "showBoxplotOriginalData": true,
+            "shapeBy": "drv",
+            "jitter": true,
+            "filterData": [["guess", 'class', "different", ["2seater", "pickup"]]],
+            "theme": "tableau"
+          }
+        },
+        {
+          "Question": "Boxplot of hwy grouped by class and cyl. Convert cyl to string and color by cyl. Use the GGPlot style.",
+          "Type": "Boxplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "graphOrientation": "vertical",
+            "groupingFactors": ["class", "cyl"],
+            "stringSampleFactors": ["cyl"],
+            "colorBy": "cyl",
+            "xAxis": ["hwy"],
+            "theme": "GGPlot"
+          }
+        },
+        {
+          "Question": "Show notched boxplot of hwy by class using single whiskers. Split the samples by class.",
+          "Type": "Boxplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "boxplotNotched": true,
+            "boxplotWhiskersType": "single",
+            "groupingFactors": ["class"],
+            "splitSamplesBy": "class",
+            "xAxis": ["hwy"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 45,
+          }
+        },
+        {
+          "Question": "Boxplot of hwy grouped by drv and class. Color the boxplot by drv and connect the boxplot. Set the graph orientation to horizontal. Hide the primary axis and show the secondary axis.",
+          "Type": "Boxplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "groupingFactors": ["drv", "class"],
+            "colorBy": ["drv"],
+            "xAxis": ["hwy"],
+            "graphOrientation": "horizontal",
+            "boxplotConnect": true,
+            "xAxisShow": false,
+            "xAxis2Show": true
+          }
+        },
+        {
+          "Question": "Range Boxplot of cty grouped by drv. Set the graph orientation to horizontal. Hide the legend and set the title Range Boxplot of cty grouped by drv in bold.",
+          "Type": "Boxplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "boxplotType": "range",
+            "groupingFactors": ["drv"],
+            "xAxis": ["cty"],
+            "graphOrientation": "horizontal",
+            "showLegend": false,
+            "title": "Range Boxplot of cty grouped by drv",
+            "titleFontStyle": "bold"
+          }
+        },
+        {
+          "Question": "Bubble plot of hwy by class, cyl and drv color by year",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Circular",
+            "circularType": "bubble",
+            "hierarchy": ["class", "cyl", "drv"],
+            "xAxis": ["hwy"],
+            "colorBy": "class"
+          }
+        },
+        {
+          "Question": "Filled Contour plot of cty and hwy",
+          "Type": "Contour",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cty"],
+            "yAxis": ["hwy"],
+            "isContour": true,
+            "contourFilled": true
+          }
+        },
+        {
+          "Question": "Contour plot of cyl and dspl. Show the data points.Set the minimum value of x-axis to 2.5 and maximum value of x-axis to 10. Set the minimum value of y-axis to 0 and maximum value of y-axis to 7.5.",
+          "Type": "Contour",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cyl"],
+            "yAxis": ["displ"],
+            "isContour": true,
+            "showContourDataPoints": true,
+            "setMinX": 2.5,
+            "setMaxX": 10,
+            "setMinY": 0,
+            "setMaxY": 7.5
+          }
+        },
+        {
+          "Question": "Density plot of hwy.",
+          "Type": "Density",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy"],
+            "hideHistogram": true,
+            "showHistogramDensity": true,
+            "showFilledHistogramDensity": true,
+            "showHistogram": true,
+            "showHistogramDensity": true
+          }
+        },
+        {
+          "Question": "Density plot of hwy and cty. Show the median line.",
+          "Type": "Density",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy", "cty"],
+            "hideHistogram": true,
+            "showHistogramDensity": true,
+            "showFilledHistogramDensity": true,
+            "showHistogram": true,
+            "showHistogramDensity": true,
+            "showHistogramMedian": true,
+          }
+        },
+        {
+          "Question": "Density plot with histogram of hwy and cty.",
+          "Type": "Density",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy", "cty"],
+            "hideHistogram": false,
+            "showHistogramDensity": true,
+            "showFilledHistogramDensity": true,
+            "showHistogram": true,
+            "showHistogramDensity": true,
+          }
+        },
+        {
+          "Question": "Show a sctter plot of hwy and cty with side histograms. Show the median line.",
+          "Type": "Density",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["hwy"],
+            "yAxis": ["cty"],
+            "hideHistogram": false,
+            "showHistogramDensity": true,
+            "showFilledHistogramDensity": true,
+            "showHistogramDensity": true,
+            "showHistogramMedian": true,
+            "xAxisHistogramShow": true,
+            "yAxisHistogramShow": true
+          }
+        },
+        {
+          "Question": "Donut plot of hwy by class.",
+          "Type": "Donut",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Circular",
+            "circularType": "sunburst",
+            "hierarchy": ["class"],
+            "xAxis": ["hwy"],
+            "showLegend": false,
+            "objectBorderColor": "black"
+          }
+        },
+        {
+          "Question": "Sunburst plot of hwy by class and cyl.",
+          "Type": "Sunburst",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Circular",
+            "circularType": "sunburst",
+            "colorBy": "class",
+            "hierarchy": ["class", "cyl"],
+            "xAxis": ["hwy"],
+            "showLegend": false,
+            "objectBorderColor": "black"
+          }
+        },
+        {
+          "Question": "Dotplot of cty grouped by class with jitter data points.",
+          "Type": "Dotplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Dotplot",
+            "groupingFactors": ["class"],
+            "xAxis": ["cty"],
+            "graphOrientation": "vertical",
+            "jitter": true,
+            "smpTextRotate": 45
+          }
+        },
+        {
+          "Question": "Dotplot of cty grouped by class with binned data points and colored by drv.",
+          "Type": "Dotplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Dotplot",
+            "groupingFactors": ["class"],
+            "xAxis": ["cty"],
+            "graphOrientation": "vertical",
+            "binned": true,
+            "colorBy": "drv",
+            "smpTextRotate": 45
+          }
+        },
+        {
+          "Question": "Draw a dotplot of cty and hwy in the primary axis with jitter and a line graph of displ and cyl in the secondary axis. Group data by class. Put the legend at the top in 2 columns.",
+          "Type": "DotLine",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "DotLine",
+            "groupingFactors": ["class"],
+            "jitter": true,
+            "xAxis": ["cty", "hwy"],
+            "xAxis2": ["displ", "cyl"],
+            "graphOrientation": "vertical",
+            "legendPosition": "top",
+            "legendColumns": 2,
+            "xAxis2Show": true
+          }
+        },
+        {
+          "Question": "Cluster data using hwy and cty",
+          "Type": "Heatmap",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Heatmap",
+            "xAxis": ["hwy", "cty"],
+            "samplesClustered": true
+          }
+        },
+        {
+          "Question": "Cluster data using hwy and cty. Overlay the class on the heatmap.",
+          "Type": "Heatmap",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Heatmap",
+            "smpOverlays": ["class"],
+            "xAxis": ["hwy", "cty"],
+            "samplesClustered": true
+          }
+        },
+        {
+          "Question": "Bin data in a scatter plot with hwy and cty",
+          "Type": "Hexplot-Binplot",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "scatterType": "bin2d",
+            "xAxis": ["hwy"],
+            "yAxis": ["cty"]
+          }
+        },
+        {
+          "Question": "Histogram of hwy",
+          "Type": "Histogram",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy"],
+            "showHistogram": true
+          }
+        },
+        {
+          "Question": "Histogram of hwy and cty",
+          "Type": "Histogram",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy", "cty"],
+            "histogramType": "staggered",
+            "showHistogram": true
+          }
+        },
+        {
+          "Question": "Dodge histogram of hwy and cty",
+          "Type": "Histogram",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy", "cty"],
+            "histogramType": "doged",
+            "showHistogram": true
+          }
+        },
+        {
+          "Question": "Stacked Histogram of hwy and cty",
+          "Type": "Histogram",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy", "cty"],
+            "histogramType": "stacked",
+            "showHistogram": true
+          }
+        },
+        {
+          "Question": "Histogram of hwy colored by cyl",
+          "Type": "Histogram",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy"],
+            "showHistogram": "cyl",
+            "histogramType": "stacked"
+          }
+        },
+        {
+          "Question": "Line graph of hwy and no legend",
+          "Type": "Line",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Line",
+            "xAxis": ["hwy"],
+            "graphOrientation": "vertical",
+            "showLegend": false
+          }
+        },
+        {
+          "Question": "Line graph of hwy and cty grouped by class. Set the graph orientation to horizontal.",
+          "Type": "Line",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Line",
+            "xAxis": ["hwy", "cty"],
+            "groupingFactors": ["class"],
+            "graphOrientation": "horizontal"
+          }
+        },
+        {
+          "Question": "Line graph of hwy and cty grouped by class show error bars as area using a spline. Set the title to Line Graph of hwy and cty grouped by class.",
+          "Type": "Line",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Line",
+            "title": "Line Graph of hwy and cty grouped by class",
+            "xAxis": ["hwy", "cty"],
+            "groupingFactors": ["class"],
+            "lineErrorType": "area",
+            "lineType": "spline",
+            "graphOrientation": "vertical"
+          }
+        },
+        {
+          "Question": "QQ plot of cty",
+          "Type": "QQ",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cty"],
+            "yAxis": ["cty"],
+            "scatterType": "qq"
+          }
+        },
+        {
+          "Question": "QQ plot of hwy colored by class",
+          "Type": "QQ",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "colorBy": "class",
+            "xAxis": ["hwy"],
+            "yAxis": ["hwy"],
+            "scatterType": "qq"
+          }
+        },
+        {
+          "Question": "Quantile reregression of hwy and cty",
+          "Type": "Quantile",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["hwy"],
+            "yAxis": ["cty"],
+            "showQuantileRegressionFit": true
+          }
+        },
+        {
+          "Question": "Gauge plot of the average of hwy by drv",
+          "Type": "Meter",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Meter",
+            "meterGroup": "drv",
+            "meterSummaryType": "average",
+            "meterType": "gauge",
+            "xAxis": ["hwy"]
+          }
+        },
+        {
+          "Question": "Draw a digital meter of the average of hwy by cyl",
+          "Type": "Meter",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Meter",
+            "meterGroup": "cyl",
+            "meterSummaryType": "sum",
+            "meterType": "digital",
+            "xAxis": ["hwy"]
+          }
+        },
+        {
+          "Question": "Pie chart of class",
+          "Type": "Pie",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Pie",
+            "pieBy": "class",
+          }
+        },
+        {
+          "Question": "Line graph in a radar plot of hwy and hide the sample names",
+          "Type": "Radar",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Circular",
+            "circularType": "radar",
+            "ringGraphType": ["line"],
+            "xAxis": ["hwy"],
+            "showSampleNames": false
+          }
+        },
+        {
+          "Question": "Dot plot in a radar plot of cty and hide the sample names",
+          "Type": "Radar",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Circular",
+            "circularType": "radar",
+            "ringGraphType": ["dot"],
+            "xAxis": ["cty"],
+            "showSampleNames": false
+          }
+        },
+        {
+          "Question": "Ridgeline plot of hwy by class",
+          "Type": "Ridgeline",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy"],
+            "ridgeBy": "class",
+            "hideHistogram": true,
+            "showHistogramDensity": true,
+            "showFilledHistogramDensity": true
+          }
+        },
+        {
+          "Question": "Ridgeline plot of hwy and cty by class",
+          "Type": "Ridgeline",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy", "cty"],
+            "ridgeBy": "class",
+            "hideHistogram": true,
+            "showHistogramDensity": true,
+            "showFilledHistogramDensity": true
+          }
+        },
+        {
+          "Question": "Ridgeline plot of hwy and cty by class and show the histogram quantiles",
+          "Type": "Ridgeline",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy", "cty"],
+            "ridgeBy": "class",
+            "hideHistogram": true,
+            "showHistogramDensity": true,
+            "showFilledHistogramDensity": true,
+            "showHistogramQuantiles": true
+          }
+        },
+        {
+          "Question": "Ridgeline plot of hwy by class and show the original data",
+          "Type": "Ridgeline",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "yAxis": ["hwy"],
+            "ridgeBy": "class",
+            "hideHistogram": true,
+            "showHistogramDensity": true,
+            "showFilledHistogramDensity": true,
+            "showHistogramDataPoints": true,
+          }
+        },
+        {
+          "Question": "Scatter plot of cty and hwy colored by cyl and shaped by drv. Draw a red line at y=20 and a blue line at y=35 and a black line at x=20",
+          "Type": "Scatter2D",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cty"],
+            "yAxis": ["hwy"],
+            "stringVariableFactors": ["cyl"],
+            "colorBy": "cyl",
+            "shapeBy": "drv",
+            "decorations": {
+              "line": [
+                {
+                  "color": "rgba(255,0,0)",
+                  "y": 35
+                },
+                {
+                  "color": "rgba(0,0,255)",
+                  "y": 20
+                },
+                {
+                  "color": "rgba(0,0,0)",
+                  "x": 20
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Question": "Correlation between cty and hwy",
+          "Type": "Scatter2D",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cty"],
+            "yAxis": ["hwy"],
+            "showRegressionFit": true
+          }
+        },
+        {
+          "Question": "Correlation between cty and displ color by cyl",
+          "Type": "Scatter2D",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cty"],
+            "yAxis": ["displ"],
+            "showRegressionFit": "cyl",
+            "stringVariableFactors": ["cyl"],
+            "colorBy": "cyl",
+          }
+        },
+        {
+          "Question": "Fit hwy and cty with loess",
+          "Type": "Scatter2D",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cty"],
+            "yAxis": ["hwy"],
+            "showLoessFit": true
+          }
+        },
+        {
+          "Question": "Scatter bubble plot of cty sized by displ colored by cyl.",
+          "Type": "Scatter3D",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter3D",
+            "xAxis": ["cty"],
+            "yAxis": ["hwy"],
+            "zAxis": ["displ"],
+            "stringVariableFactors": ["cyl"],
+            "colorBy": "cyl",
+          }
+        },
+        {
+          "Question": "Scatter plot of cty, hwy and displ colored by cyl.",
+          "Type": "ScatterBubble2D",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "ScatterBubble2D",
+            "xAxis": ["cty"],
+            "yAxis": ["hwy"],
+            "zAxis": ["displ"],
+            "stringVariableFactors": ["cyl"],
+            "colorBy": "cyl",
+          }
+        },
+        {
+          "Question": "Stacked bar of drv grouped by class",
+          "Type": "Stacked",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Stacked",
+            "summaryType": "sum",
+            "stackBy": ["drv"],
+            "groupingFactors": ["class"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 45
+          }
+        },
+        {
+          "Question": "Stacked bar of hwy, cty, displ, and cyl grouped by class. Set the graph orientation to horizontal",
+          "Type": "Stacked",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Stacked",
+            "summaryType": "sum",
+            "xAxis": ["hwy", "cty", "displ", "cyl"],
+            "groupingFactors": ["class"],
+            "graphOrientation": "horizontal"
+          }
+        },
+        {
+          "Question": "Draw a stacked bar of cty and hwy in the primary axis and a line graph of displ and cyl in the secondary axis. Group data by class.",
+          "Type": "StackedLine",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "StackedLine",
+            "summaryType": "sum",
+            "groupingFactors": ["class"],
+            "xAxis": ["cty", "hwy"],
+            "xAxis2": ["displ", "cyl"],
+            "setMaxX": 2500,
+            "graphOrientation": "vertical",
+            "xAxis2Show": true
+          }
+        },
+        {
+          "Question": "Stacked percent bar of hwy, cty, displ, and cyl grouped by class.",
+          "Type": "StackedPercent",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "StackedPercent",
+            "summaryType": "sum",
+            "xAxis": ["hwy", "cty", "displ", "cyl"],
+            "groupingFactors": ["class"]
+          }
+        },
+        {
+          "Question": "Violin plot grouped by class and color the original data by cyl",
+          "Type": "Violin",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "groupingFactors": ["class"],
+            "xAxis": ["hwy"],
+            "showBoxplotOriginalData": true,
+            "colorBy": ["cyl"],
+            "stringSampleFactors": ["cyl"],
+            "showViolinBoxplot": true,
+            "jitter": true,
+            "graphOrientation": "vertical",
+            "showBoxplotIfViolin": false,
+            "smpTextRotate": 45
+          }
+        },
+        {
+          "Question": "Violin plot of hwy grouped by class. Set the graph orientation to horizontal. Do not trim the violin. Hide the legend. Set the title to Violin plot of hwy grouped by class.",
+          "Type": "Violin",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "title": "Violin plot of hwy grouped by class",
+            "graphType": "Boxplot",
+            "groupingFactors": ["class"],
+            "xAxis": ["hwy"],
+            "showViolinBoxplot": true,
+            "graphOrientation": "horizontal",
+            "showBoxplotIfViolin": false,
+            "violinTrim": false,
+            "showLegend": false
+          }
+        },
+        {
+          "Question": "Violin plot of cty grouped by cyl with a boxplot. Set the graph orientation to vertical. Set the title to Violin plot of cty grouped by cyl. Rotate the sample text by 90 degrees.",
+          "Type": "Violin",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "title": "Violin plot of cty grouped by cyl",
+            "graphType": "Boxplot",
+            "groupingFactors": ["cyl"],
+            "xAxis": ["cty"],
+            "showViolinBoxplot": true,
+            "graphOrientation": "vertical",
+            "showBoxplotIfViolin": true,
+            "smpTextRotate": 90
+          }
+        },
+        {
+          "Question": "Boxplot of hwy by class, faceted by cyl",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Boxplot",
+            "groupingFactors": ["class"],
+            "xAxis": ["hwy"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 45,
+            "segregateSamplesBy": ["cyl"]
+          }
+        },
+        {
+          "Question": "Bar graph of hwy grouped by class and faceted by cyl and drv",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Bar",
+            "groupingFactors": ["class"],
+            "xAxis": ["hwy"],
+            "graphOrientation": "vertical",
+            "smpTextRotate": 45,
+            "segregateSamplesBy": ["cyl", "drv"]
+          }
+        },
+        {
+          "Question": "Scatter plot of cty and hwy segregated by cyl and drv",
+          "Type": "Scatter2D",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cty"],
+            "yAxis": ["hwy"],
+            "segregateVariablesBy": ["cyl", "drv"]
+          }
+        },
+        {
+          "Question": "Explore meta data of a scatter plot of cty and hwy",
+          "Header": ["Id", "class", "cty", "cyl", "drv", "fl", "manufacturer", "model", "trans", "year", "displ", "hwy"],
+          "Data": "mpg",
+          "Answer": {
+            "graphType": "Scatter2D",
+            "xAxis": ["cty"],
+            "yAxis": ["hwy"],
+            "asDOE": true
+          }
+        }
+      ]
+    }
+
+    var insertContainer = function (id, title, width, height) {
+      if (id) {
+        var cnt = document.createElement("div");
+        cnt.className = "container";
+        var tit = document.createElement("div");
+        tit.className = "title";
+        tit.innerHTML = title;
+        var plt = document.createElement("div");
+        plt.className = "plot";
+        var div = document.createElement("div");
+        var cnv = document.createElement("canvas");
+        cnv.id = id;
+        cnv.width = width || 500;
+        cnv.height = height || 500;
+        cnv.dataset.aspectRatio = "1:1";
+        cnv.dataset.responsive = "true";
+        cnt.appendChild(tit);
+        cnt.appendChild(plt);
+        plt.appendChild(div);
+        div.appendChild(cnv);
+        document.querySelector(".content").appendChild(cnt);
+      }
+    };
+
+    var getData = function (data) {
+      return JSON.parse(JSON.stringify(json[data]));
+    }
+
+    var insertVis = function (id, title, width, height, data, cnf) {
+      insertContainer(id, title, width, height);
+      new CanvasXpress(id, getData(data), cnf);
+    }
+
+    for (var ii = 0; ii < json.Questions.length; ii++) {
+      if (ii != 20) {
+        //continue;
+      }
+      var q = json.Questions[ii];
+      var d = q.Data;
+      var t = q.Question;
+      var j = q.Answer;
+      var c = "Q" + (ii + 1);
+      if (Object.keys(j).length == 0) {
+        continue;
+      }
+      insertVis(c, t, 500, 500, d, j);
+    }
+  </script>
+</body>
+
+</html>

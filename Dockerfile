@@ -9,6 +9,12 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
 RUN pip3 install -r requirements.txt
+
+# Optional development dependencies for testing
+ARG INSTALL_DEV=false
+RUN if [ "$INSTALL_DEV" = "true" ] ; then pip3 install -r requirements-dev.txt ; fi
+
+RUN pip3 install -e .
 EXPOSE 5000
 CMD python app.py
 

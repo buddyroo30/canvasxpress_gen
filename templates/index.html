@@ -9,6 +9,496 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='chatgpt.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='loading_spinner.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='thumbsupdown.css') }}">
+<style>
+/* CanvasXpress.org Styling */
+@import url(https://rsms.me/inter/inter.css);
+
+/* Add CanvasXpress.org gradient top border */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ffaa4f, #ff6f6f 50%, #00b4df);
+    z-index: 1000;
+}
+
+/* CanvasXpress.org Typography and Base Styles */
+html {
+    font-family: Inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: "Inter UI", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: #fff !important;
+    color: #495057 !important;
+    margin: 0;
+    padding-top: 3px; /* Account for gradient border */
+}
+
+/* CanvasXpress.org Header Styling */
+#main h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #2f2f2f;
+    margin-bottom: 1rem;
+}
+
+#main h5 {
+    font-size: 1.1rem;
+    color: #6e747f;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* CanvasXpress.org Button Styling */
+input[type="submit"] {
+    background-color: #5369ff !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    border-radius: 0.375rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease-in-out !important;
+    font-family: inherit !important;
+}
+
+input[type="submit"]:hover {
+    background-color: #2d48ff !important;
+}
+
+/* CanvasXpress.org Textarea Styling */
+#question {
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.375rem !important;
+    padding: 0.75rem !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    color: #495057 !important;
+    background-color: #fff !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+    width: 100% !important;
+    resize: vertical !important;
+}
+
+#question:focus {
+    border-color: #5369ff !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba(83, 105, 255, 0.25) !important;
+}
+
+/* CanvasXpress.org File Upload Styling */
+input[type="file"] {
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.375rem !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    color: #495057 !important;
+    background-color: #fff !important;
+    width: 100% !important;
+}
+
+/* CanvasXpress.org Hamburger Icon Styling */
+.openbtn {
+    background-color: #5369ff !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem !important;
+    font-size: 1.25rem !important;
+    cursor: pointer !important;
+    border-radius: 0.375rem !important;
+    transition: background-color 0.15s ease-in-out !important;
+    font-family: inherit !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.openbtn:hover {
+    background-color: #2d48ff !important;
+}
+
+/* CanvasXpress.org Sidebar Styling */
+.sidebar {
+    background-color: #fff !important;
+    border-right: 1px solid #dee2e6 !important;
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,.08) !important;
+}
+
+.sidebar a {
+    color: #e9ecef !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: color 0.15s ease-in-out !important;
+    padding: 0.75rem 1rem !important;
+    display: block !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.sidebar a:hover {
+    color: #ffffff !important;
+    background-color: rgba(255,255,255,0.1) !important;
+}
+
+.sidebar .closebtn {
+    color: #ffffff !important;
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    padding: 0.5rem 1rem !important;
+    background-color: rgba(255,255,255,0.1) !important;
+    border-radius: 0.375rem !important;
+    margin: 0.5rem !important;
+    text-align: center !important;
+    display: block !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    line-height: 2rem !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+.sidebar .closebtn:hover {
+    color: #ffffff !important;
+    background-color: rgba(255,255,255,0.2) !important;
+    transform: scale(1.05) !important;
+}
+
+/* CanvasXpress.org Settings Table Styling */
+#settings_table {
+    background: #fff !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.375rem !important;
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+}
+
+#settings_table td {
+    padding: 0.5rem !important;
+    color: #495057 !important;
+    font-weight: 500 !important;
+}
+
+/* Force range sliders to be visible and styled */
+#settings_table input[type="range"] {
+    width: 150px !important;
+    height: 1.4rem !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: linear-gradient(to right, #343a40 0%, #343a40 100%) !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    margin: 5px 0 !important;
+    border: 2px solid #212529 !important;
+    border-radius: 0.375rem !important;
+    padding: 0 !important;
+}
+
+/* CanvasXpress.org Range Slider Track Styling */
+#settings_table input[type="range"]::-webkit-slider-track {
+    width: 100% !important;
+    height: 0.75rem !important;
+    cursor: pointer !important;
+    background: #343a40 !important;
+    border-radius: 0.375rem !important;
+    border: 2px solid #212529 !important;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3) !important;
+    -webkit-appearance: none !important;
+}
+
+#settings_table input[type="range"]::-webkit-slider-thumb {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    border-radius: 50% !important;
+    background: #5369ff !important;
+    cursor: pointer !important;
+    -webkit-appearance: none !important;
+    margin-top: -0.5rem !important;
+    border: 3px solid #fff !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4) !important;
+}
+
+#settings_table input[type="range"]::-moz-range-track {
+    width: 100% !important;
+    height: 0.75rem !important;
+    cursor: pointer !important;
+    background: #343a40 !important;
+    border-radius: 0.375rem !important;
+    border: 2px solid #212529 !important;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3) !important;
+    -moz-appearance: none !important;
+}
+
+#settings_table input[type="range"]::-moz-range-thumb {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    border-radius: 50% !important;
+    background: #5369ff !important;
+    cursor: pointer !important;
+    border: 3px solid #fff !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4) !important;
+    -moz-appearance: none !important;
+}
+
+/* CanvasXpress.org Select Dropdown Styling */
+#settings_model {
+    width: 200px !important;
+    height: calc(2.375rem + 2px) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #fff !important;
+    color: #495057 !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0.375rem !important;
+    padding: 0.375rem 0.75rem !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+#settings_model:focus {
+    border-color: #5369ff !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba(83, 105, 255, 0.25) !important;
+}
+
+#settings_model option {
+    background: white !important;
+    color: black !important;
+    padding: 5px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Settings table styling */
+#settings_table {
+    background: rgba(255, 255, 255, 0.9) !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    margin: 10px 0 !important;
+}
+
+#settings_table td {
+    padding: 5px !important;
+    color: black !important;
+}
+
+/* Value display spans */
+#settings_table span {
+    color: black !important;
+    font-weight: bold !important;
+    margin-left: 10px !important;
+}
+
+/* CanvasXpress.org Chat Bubble Styling */
+.container {
+    max-width: 80% !important;
+    margin: 1rem 0 !important;
+    padding: 1.5rem !important;
+    border-radius: 0.625rem !important;
+    word-wrap: break-word !important;
+    overflow: hidden !important;
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,.08) !important;
+}
+
+/* User question bubbles - CanvasXpress.org styling */
+.container:not(.darker) {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    color: #495057 !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    max-width: 60% !important;
+}
+
+/* AI response bubbles - CanvasXpress.org primary color */
+.container.darker {
+    background-color: #5369ff !important;
+    color: white !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 90% !important;
+    overflow: visible !important;
+    border: 1px solid #5369ff !important;
+}
+
+/* Fix canvas sizing within chat bubbles */
+.container.darker canvas {
+    max-width: 600px !important;
+    width: 600px !important;
+    height: 600px !important;
+    margin: 10px 0 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    display: block !important;
+}
+
+/* Fix pre text sizing in bubbles */
+.container pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    font-size: 14px !important;
+    margin: 5px 0 !important;
+}
+
+/* User question text styling */
+.container:not(.darker) pre {
+    color: black !important;
+    background: transparent !important;
+}
+
+/* AI response text styling */
+.container.darker pre {
+    color: white !important;
+    background: transparent !important;
+}
+
+/* Fix image alignment in bubbles */
+.container img {
+    vertical-align: top !important;
+    margin-right: 10px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Time stamps */
+.time-right, .time-left {
+    font-size: 11px !important;
+    color: #999 !important;
+    margin-top: 10px !important;
+    display: block !important;
+}
+
+.container.darker .time-left {
+    color: #ccc !important;
+}
+
+/* Copy Config button at top */
+.copy-config-top {
+    position: absolute !important;
+    top: 10px !important;
+    left: 15px !important;
+    z-index: 10 !important;
+}
+
+/* Bottom row with timestamp and thumbs */
+.bottom-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+/* Thumbs buttons at bottom */
+.thumbs-bottom {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+/* Make container relative for absolute positioning */
+.container.darker {
+    background-color: #04AA6D !important;
+    color: white !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 90% !important;
+    overflow: visible !important;
+    position: relative !important;
+}
+
+.copy-config-btn {
+    background: rgba(255,255,255,0.95) !important;
+    color: #5369ff !important;
+    border: 1px solid rgba(255,255,255,0.8) !important;
+    padding: 0.375rem 0.75rem !important;
+    border-radius: 0.375rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease-in-out !important;
+    font-family: inherit !important;
+}
+
+.copy-config-btn:hover {
+    background: white !important;
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,.15) !important;
+    transform: translateY(-1px) !important;
+}
+
+.like, .dislike {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    display: inline-block !important;
+    cursor: pointer !important;
+}
+
+.grow {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    vertical-align: middle !important;
+}
+
+.grow:hover {
+    opacity: 0.7 !important;
+}
+
+/* Fix FontAwesome icons in thumbs buttons */
+.like i, .dislike i {
+    color: white !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    display: block !important;
+    line-height: 1 !important;
+}
+
+/* Canvas container for proper containment */
+.canvas-container {
+    width: 100% !important;
+    max-width: 620px !important;
+    height: 620px !important;
+    margin: 10px auto !important;
+    padding: 10px !important;
+    background: white !important;
+    border-radius: 5px !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    position: relative !important;
+}
+
+.canvas-container canvas {
+    display: block !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+    max-height: 600px !important;
+}
+</style>
 </head>
 <body>
 
@@ -22,7 +512,6 @@
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a id="new_chat" href="#">New Chat</a>
   <a id="settings" href="#">Settings</a><table id='settings_table' style="display:none;">
     <tr><td>Model:</td><td><select id="settings_model"></select></td></tr>
     <tr><td>Max New Tokens:</td><td><input type="range" id="settings_max_new_tokens" name="settings_max_new_tokens" max="2048" min="10"></input></td><td><span id="settings_max_new_tokens_show" style="font-size:small;"></span></td></tr>
@@ -32,28 +521,48 @@
     <tr><td>Frequency Penalty:</td><td><input type="range" id="settings_frequency_penalty" name="settings_frequency_penalty" max="2.0" min="-2.0" step=".01"></input></td><td><span id="settings_frequency_penalty_show" style="font-size:small;"></span></td></tr>
     <tr><td><button onclick="set_default_settings();">Reset</button></td><td>&nbsp;</td></tr></table>
   <a href="https://speakai.co/what-are-large-language-models/">What are Large Language Models?</a>
-  <a href="https://cobusgreyling.medium.com/prompt-engineering-text-generation-large-language-models-3d90c527c6d5">Prompting help/tips</a>
-  <a href="http://bioinformatics.bms.com">BMS Bioinformatics</a>
-  <a href="mailto:andrew.smith1@bms.com">Contact</a>
+  <a href="https://cobusgreyling.medium.com/prompt-engineering-text-generation-large-language-models-3d90c527c6d5">Prompting Help & Tips</a>
+  <a href="https://www.canvasxpress.org/">CanvasXpress Documentation</a>
+  <a href="https://github.com/canvasxpress/canvasxpress-gen">GitHub Repository</a>
 </div>
 
 <div id="main">
-<button class="openbtn" onclick="openNav()">☰</button>
+<button class="openbtn" onclick="openNav()">&#9776;</button>
 
-<center><h2>CanvasXpress Visualization Chat</h2><h5>Conversationally ask to generate a CanvasXpress visualiation for an uploaded data file in plain English.</center>
+<center><h2>CanvasXpress AI Assistant</h2><h5>Generate beautiful data visualizations by describing what you want in plain English. Upload your data and let AI create the perfect CanvasXpress configuration.</h5></center>
 
 <div id="questions_and_answers">
 </div>
 
-<textarea id="question" name="question" placeholder="Describe your visualization..." rows=4></textarea>
-<table><tr><td>Upload a data file to visualize:</td><td><input type="file" name="datafile_upload" id="datafile_upload"></input></td></tr></table>
-<table style="width: 100%;"><tr><td style="width: 90%;"><input id="askquestion" type="submit" value="Ask"></td><td><input id="clear" type="submit" value="Clear Chat"></td></tr></table>
+<textarea id="question" name="question" placeholder="Describe the visualization you want to create...
+
+Examples:
+• Create a bar chart showing sales by region
+• Make a scatter plot of height vs weight
+• Generate a line chart of temperature over time
+• Show a heatmap of gene expression data" rows=6></textarea>
+
+<div style="margin: 16px 0; padding: 16px; background: rgba(255, 255, 255, 0.1); border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+  <table style="width: 100%; color: white;">
+    <tr>
+      <td style="padding: 8px; font-weight: 500;">Upload your data file:</td>
+      <td style="padding: 8px;"><input type="file" name="datafile_upload" id="datafile_upload" accept=".csv,.tsv,.txt,.json"></input></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding: 8px 8px 0 8px; font-size: 14px; color: rgba(255, 255, 255, 0.8);">
+        <strong>Supported formats:</strong> CSV, TSV, TXT (tab-delimited), JSON<br>
+        <strong>Requirements:</strong> First row should contain column headers
+      </td>
+    </tr>
+  </table>
+</div>
+<table style="width: 100%;"><tr><td style="width: 70%;"><input id="askquestion" type="submit" value="Ask"></td><td style="width: 15%;"><input id="clear" type="submit" value="Clear Chat"></td><td style="width: 15%;"><input id="clearall" type="submit" value="Clear All"></td></tr></table>
 </div>
 <script>
 
   var thumbsCt = 0;
 
-  var models_arr = {{ models_arr|tojson|safe }};
+  var models_arr = JSON.parse('{{ models_arr|tojson|safe }}');
 
   function openNav() {
     document.getElementById("mySidebar").style.width = "400px";
@@ -65,14 +574,14 @@
     document.getElementById("main").style.marginLeft= "0";
   }
 
-  var bmsGptIconImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiv37BrQCpbojozRwl9MXZkG05gJS6h83pSQsOf9v_boH-cjNzJvJwTA9tSUqPY_LG8aY&usqp=CAU';
-  var userIconImg = "";
+  var aiIconImg = 'https://cdn-icons-png.flaticon.com/512/4712/4712027.png';
+  var userIconImg = 'https://cdn-icons-png.flaticon.com/512/3033/3033143.png';
   var uid = "";
-  var bmsid = "";
+  var userId = "";
 
-  function getUserIconImg (bmsid) {
-      var userIconImg = 'https://whitepages.bms.com/whitepages/getphoto?bmsid=' + bmsid + 'BMS';
-      return(userIconImg);
+  function getUserIconImg (userId) {
+      // Use a generic user avatar
+      return 'https://cdn-icons-png.flaticon.com/512/3033/3033143.png';
   }
   
   function getCurDatetime () {
@@ -82,11 +591,75 @@
   }
 
   function getThumpsUpDownHtml () {
-
     curId = thumbsCt++;
-    thumbsUpDown = '<div class="rating"><!-- Thumbs up --><div class="like grow"><i id="like_' + curId + '" class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i></div><!-- Thumbs down --><div class="dislike grow"><i id="dislike_' + curId + '" class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i></div></div>';
+    // Just return the thumbs buttons for bottom placement
+    thumbsUpDown = '<div class="thumbs-bottom"><div class="like grow"><i id="like_' + curId + '" class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i></div><div class="dislike grow"><i id="dislike_' + curId + '" class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i></div></div>';
     return(thumbsUpDown);
+  }
 
+  function getCopyConfigHtml(configId) {
+    return '<div class="copy-config-top"><button class="copy-config-btn" onclick="copyConfig(' + configId + ')"><i class="fa fa-copy" aria-hidden="true"></i> Copy Config</button></div>';
+  }
+
+  function copyConfig(configId) {
+    // Find the config JSON for this specific response
+    var configElement = document.getElementById('config_' + configId);
+    if (configElement) {
+      var configText = configElement.textContent || configElement.innerText;
+      
+      // Use the modern clipboard API if available
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(configText).then(function() {
+          showCopyFeedback('Configuration copied to clipboard!');
+        }).catch(function(err) {
+          console.error('Failed to copy: ', err);
+          fallbackCopyTextToClipboard(configText);
+        });
+      } else {
+        // Fallback for older browsers
+        fallbackCopyTextToClipboard(configText);
+      }
+    }
+  }
+
+  function fallbackCopyTextToClipboard(text) {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+      var successful = document.execCommand('copy');
+      if (successful) {
+        showCopyFeedback('Configuration copied to clipboard!');
+      } else {
+        showCopyFeedback('Failed to copy configuration');
+      }
+    } catch (err) {
+      console.error('Fallback: Oops, unable to copy', err);
+      showCopyFeedback('Failed to copy configuration');
+    }
+    
+    document.body.removeChild(textArea);
+  }
+
+  function showCopyFeedback(message) {
+    // Create a temporary notification
+    var notification = document.createElement('div');
+    notification.className = 'copy-notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(function() {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 3000);
   }
 
   function addUserQuestion(questionTxt) {
@@ -99,10 +672,12 @@
       var curDateStr = getCurDatetime();
       if (result['success'] && result['config_generated_flag']) {
         var canvas_id = 'cX' + new Date().getTime();
+        var config_id = thumbsCt; // Use the current thumbsCt as the config ID
         var thumbsUpDownTxt = getThumpsUpDownHtml();
         var configJSONTxt = JSON.stringify(result['config'],null,2);
         result['config']['llmServiceURL'] = "/ask";
-        var responseTxt = '<div class="container darker"><img src="' + bmsGptIconImg + '" alt="BMS GPT" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + "<br>Config: " + configJSONTxt + '</pre></p><canvas id="' + canvas_id + '" width="750" height="750"></canvas><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div>';
+        var copyConfigHtml = getCopyConfigHtml(config_id);
+        var responseTxt = '<div class="container darker"><img src="' + aiIconImg + '" alt="AI Assistant" class="right" style="width:40px;height:40px;">' + copyConfigHtml + '<p><pre style="white-space: pre-wrap;width: 100%;">Data File: ' + result['datafilename'] + '<br>Config: <span id="config_' + config_id + '">' + configJSONTxt + '</span></pre></p><div class="canvas-container"><canvas id="' + canvas_id + '" width="600" height="600"></canvas></div><div class="bottom-row"><span class="time-left">' + curDateStr + '</span>' + thumbsUpDownTxt + '</div></div>';
         $("#questions_and_answers").append(responseTxt);
         new CanvasXpress(canvas_id, result['data'], result['config']);
       } else {
@@ -110,13 +685,14 @@
         if ('text' in result) {
           text = result['text'];
         }
-        var responseTxt = '<div class="container darker"><img src="' + bmsGptIconImg + '" alt="BMS GPT" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">' + text + '</pre></p><span class="time-left">' + curDateStr + '</span></div>';
+        var responseTxt = '<div class="container darker"><img src="' + aiIconImg + '" alt="AI Assistant" class="right" style="width:40px;height:40px;"><p><pre style="white-space: pre-wrap;width: 100%;">' + text + '</pre></p><span class="time-left">' + curDateStr + '</span></div>';
         $("#questions_and_answers").append(responseTxt);
       }
     }
 
   function askQuestion() {
-     $('#loading').show();
+     // Show modern loading spinner with class
+     $('#loading').addClass('show');
      var questionTxt = $("#question").val();
      addUserQuestion(questionTxt);
      model = $("#settings_model").val();
@@ -144,12 +720,13 @@
               contentType: false,
               cache: false,
               success: function(result) {
-                $('#loading').hide();
-	              addResponse(JSON.parse(result));
-	              $("html, body").animate({ scrollTop: $(document).height() }, 3000);                
+                $('#loading').removeClass('show');
+              addResponse(JSON.parse(result));
+              $("html, body").animate({ scrollTop: $(document).height() }, 3000);
               },
               error: function(result) {
-                $('#loading').hide();
+                $('#loading').removeClass('show');
+                showCopyFeedback('Error: Failed to generate visualization. Please try again.');
               }
      });
      /*
@@ -190,7 +767,8 @@
   
   $(document).ready(function(){
 
-      $('#loading').show();
+      // Initialize loading spinner as hidden
+      $('#loading').removeClass('show');
 
       $(models_arr).each(function() {
 	      $("#settings_model").append($("<option>").attr('value',this.value).text(this.text));
@@ -227,6 +805,19 @@
         return false;
       });
 
+      $("#clearall").click(function(){
+        // Clear the chat history
+        $("#questions_and_answers").empty();
+        // Clear the form fields
+        $("#question").val("");
+        $('#datafile_upload').val("");
+        // Reset thumbs counter
+        thumbsCt = 0;
+        // Show confirmation
+        showCopyFeedback('Chat cleared and form reset!');
+        return false;
+      });
+
       $("#new_chat").click(function(){
 	      $("#questions_and_answers").empty();
 	      $("#question").val("");
@@ -246,13 +837,13 @@
           dislikeObjId = 'dislike_' + ct;
           $('#' + dislikeObjId).removeClass('active');
           $('#' + likeObjId).addClass('active');
-          alert('Thank-you for liking my response!');
+          alert('Thank you for your positive feedback!');
         } else if (type == 'dislike') {
           likeObjId = 'like_' + ct;
           dislikeObjId = 'dislike_' + ct;
           $('#' + dislikeObjId).addClass('active');
           $('#' + likeObjId).removeClass('active');
-          alert('I am sorry I disappointed you, I am not worthy. I will try harder next time!');
+          alert('Thank you for your feedback. We\'ll use this to improve our responses.');
         }
       });
 
@@ -269,13 +860,14 @@
       //});
 
       $.ajax({url: "/userinfo", success: function(result){
-	  var resultParsed = JSON.parse(result);
-	  uid = resultParsed['uid'];
-	  bmsid = resultParsed['bmsid'];
-	  userIconImg = getUserIconImg(bmsid);
+   var resultParsed = JSON.parse(result);
+   uid = resultParsed['uid'] || 'user';
+   userId = resultParsed['userId'] || 'user';
+   userIconImg = getUserIconImg(userId);
       }});
 
-      $('#loading').hide();
+      // Hide loading spinner after initialization
+      $('#loading').removeClass('show');
   });
 
 </script>

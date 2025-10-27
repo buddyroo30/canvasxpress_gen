@@ -1,20 +1,75 @@
-python-dotenv
-numpy==1.26.4
-flask
-requests
-python-ldap
-tabulate
-openai
-pycryptodome
-mysql-connector
-boto3
-tiktoken
-pymilvus
-pymilvus[model]
-google-generativeai
-awscli
-peft
-#langchain
-#langchain-community
-#faiss-cpu
+# CanvasXpress Generation System - Dependencies
+# Production dependencies for the CanvasXpress LLM generation system
 
+# =============================================================================
+# CORE FRAMEWORK DEPENDENCIES
+# =============================================================================
+flask>=2.3.0                    # Web framework for API endpoints
+python-dotenv>=1.0.0            # Environment variable management
+numpy>=1.24.0                   # Numerical computing foundation
+requests>=2.31.0                # HTTP client library
+
+# =============================================================================
+# LARGE LANGUAGE MODEL SERVICES
+# =============================================================================
+openai>=1.0.0                   # OpenAI GPT models (GPT-4, GPT-4o)
+google-generativeai>=0.3.0      # Google Gemini models
+boto3>=1.34.0                   # AWS services (Bedrock, S3, etc.)
+tiktoken>=0.5.0                 # OpenAI tokenization utilities
+
+# =============================================================================
+# RAG (RETRIEVAL AUGMENTED GENERATION) SYSTEM
+# =============================================================================
+pymilvus>=2.3.0                 # Vector database client
+pymilvus[model]>=2.3.0          # Milvus model utilities
+FlagEmbedding>=1.2.0            # BGE-M3 embedding model
+
+# =============================================================================
+# AUTHENTICATION & SECURITY
+# =============================================================================
+python-ldap>=3.4.0             # LDAP authentication support
+pycryptodome>=3.19.0            # Cryptographic operations
+
+# =============================================================================
+# DATA PROCESSING & UTILITIES
+# =============================================================================
+tabulate>=0.9.0                 # Table formatting for output
+mysql-connector>=2.2.9          # MySQL database connectivity (optional)
+
+# =============================================================================
+# DEVELOPMENT TOOLS
+# =============================================================================
+awscli>=1.32.0                  # AWS command line interface
+
+# =============================================================================
+# TESTING FRAMEWORK
+# =============================================================================
+pytest>=7.4.0                   # Testing framework
+pytest-cov>=4.1.0              # Coverage reporting
+pytest-mock>=3.11.0            # Mocking utilities
+pytest-asyncio>=0.21.0         # Async testing support
+
+# =============================================================================
+# CODE QUALITY & DEVELOPMENT
+# =============================================================================
+black>=23.9.0                   # Code formatting
+flake8>=6.1.0                   # Linting and style checking
+mypy>=1.6.0                     # Static type checking
+isort>=5.12.0                   # Import sorting
+
+# =============================================================================
+# OPTIONAL DEPENDENCIES
+# =============================================================================
+# The following dependencies are optional and may be needed for specific deployments:
+#
+# For advanced ML features:
+# peft>=0.6.0                   # Parameter-Efficient Fine-Tuning
+# transformers>=4.35.0          # Hugging Face transformers
+#
+# For additional database support:
+# psycopg2-binary>=2.9.0        # PostgreSQL adapter
+# redis>=5.0.0                  # Redis client
+#
+# For monitoring and observability:
+# prometheus-client>=0.18.0     # Prometheus metrics
+# structlog>=23.2.0             # Structured logging
